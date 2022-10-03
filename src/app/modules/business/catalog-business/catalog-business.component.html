@@ -112,11 +112,10 @@
               Применить фильтры
             </gar-button>
 
-            <gar-button
-              role="secondary"
-              (click)="onClearFilters()"
-              class="full-width"
-            >
+
+
+            <gar-button role="secondary" (click)="onClearFilters()" class="full-width">
+
               Очистить фильтры
             </gar-button>
           </div>
@@ -129,6 +128,7 @@
         <app-catalog-simple-card
           *ngFor="let item of aBusinessList"
           [item]="item"
+          pathInfo="/business/view?businessId={{item.businessId}}"
         >
         </app-catalog-simple-card>
       </div>

@@ -8,6 +8,7 @@
 }
 
 body {
+  overflow-x: hidden;
   color: $clrBlack;
   font-family: $font-family;
   background-color: $clrWhite;
@@ -206,6 +207,14 @@ a {
   &_wrap {
     flex-wrap: wrap;
   }
+
+  &_small {
+    gap: calc(#{$gridGap} / 3);
+  }
+
+  &_align-center {
+    align-items: center;
+  }
 }
 
 /* Стили для сетки с карточками */
@@ -343,7 +352,7 @@ a {
     min-width: auto;
 
     @include tablet-small {
-      width: calc(50% - calc(#{$gridGap / 2}));
+      width: calc(50% - calc(#{$gridGap} / 2));
     }
 
     @include tablet {
@@ -369,6 +378,31 @@ a {
   }
 }
 
+/* лайаут для формы авторизации и первого шага добавления объявления */
+.form-auth {
+  max-width: 90%;
+  width: 464px;
+  background-color: $clrWhite;
+  border-radius: $border-radius;
+  padding: calc(#{$gridGap} / 3 * 4) $gridGap;
+  margin: 60px auto;
+  box-shadow: $box-shadow-card;
+
+  &__section {
+    &:not(:last-child) {
+      margin-bottom: $gridGap;
+    }
+  }
+
+  &__label {
+    &-checkbox {
+      @include typo('description');
+
+      color: $clrDarkGray;
+    }
+  }
+}
+
 /* Класс, описывающий секцию */
 .section {
   margin-bottom: 80px;
@@ -387,6 +421,11 @@ a {
 /* Скрытие элемента */
 .gar-hidden {
   display: none;
+}
+
+/* Запрет переноса текста */
+.no-wrap {
+  white-space: nowrap;
 }
 
 /* Характеристика какой либо сущности (gar-property-value) */
