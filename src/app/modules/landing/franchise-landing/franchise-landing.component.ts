@@ -9,7 +9,7 @@ import { FranchiseInput } from 'src/app/models/franchise/input/franchise-input';
 import { PaginationInput } from 'src/app/models/pagination/input/pagination-input';
 import { CommonDataService } from 'src/app/services/common/common-data.service';
 import { LandingRequestService } from '../services/landing.service';
-import { CatalogShortCardComponent } from '../../products/catalog/catalog.short.card/catalog.short.card.component' ; 
+import { CatalogShortCardComponent } from '../../products/catalog/catalog.short.card/catalog.short.card.component' ;
 import { shareReplay, take, takeUntil, tap } from 'rxjs/operators';//!!!!!!
 import { GarDestroyService } from "../../../gar-lib/gar-destroy.service";//!!!!
 
@@ -25,7 +25,7 @@ export class FranchiseLandingModule implements OnInit {
   aPopularBusiness: any[] = [];
   // isGarant: boolean = false;
   // aCities: any[] = [];
-  // aBusinessCategories: any[] = []; 
+  // aBusinessCategories: any[] = [];
   aViewBusiness: any[] = [];
   minPrice!: number;
   maxPrice!: number;
@@ -60,7 +60,7 @@ export class FranchiseLandingModule implements OnInit {
   isHideBusinessWithGarant: boolean = true;
   name: string = '';
   phoneNumber: string = '';
-  
+
     /** Компонент, передаваемый в карусель!!!!! */
   cardComponent = CatalogShortCardComponent;
   /** список популярных франшиз **/
@@ -78,9 +78,9 @@ export class FranchiseLandingModule implements OnInit {
     private route: ActivatedRoute,
     private requestService: LandingRequestService,
     private _destroy$: GarDestroyService,//!!!!!!!!
-    
-    
-    
+
+
+
   ) {
     // this.aSortPrices = [
     //     {
@@ -111,7 +111,7 @@ export class FranchiseLandingModule implements OnInit {
       },
     ];
 
-    this.routeParam = this.route.snapshot.queryParams.businessId;
+    this.routeParam = this.route.snapshot.queryParams['businessId'];
   }
 
   public async ngOnInit() {
@@ -130,7 +130,7 @@ export class FranchiseLandingModule implements OnInit {
     // await this.GetReviewsFranchisesAsync();
   }
 
-  
+
 
   /**
    * Функция получит список популярного бизнеса.
@@ -149,7 +149,7 @@ export class FranchiseLandingModule implements OnInit {
   //     }
   // };
 
-    
+
 
   /**
    * Функция отфильтрует список бизнеса по фильтрам.

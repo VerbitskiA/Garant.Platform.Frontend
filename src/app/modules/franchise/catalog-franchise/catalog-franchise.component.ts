@@ -64,7 +64,7 @@ export class CatalogFranchiseModule implements OnInit {
   catFranchPagination: any;
   pageNumber: number = 1;
   countRows: number = 12;
-  
+
   /** Компонент, передаваемый в карусель */
   cardComponent = CatalogShortCardComponent;
   /** список популярных франшиз */
@@ -111,7 +111,7 @@ export class CatalogFranchiseModule implements OnInit {
       },
     ];
 
-    this.routeParam = this.route.snapshot.queryParams.franchiseId;
+    this.routeParam = this.route.snapshot.queryParams['franchiseId'];
   }
 
   public async ngOnInit() {
@@ -273,11 +273,11 @@ export class CatalogFranchiseModule implements OnInit {
 
   private async loadPaginationInitAsync() {
     let paginationData = new PaginationInput();
-  
+
     // TODO: доработать на динамическое получение из роута или как-нибудь еще, чтобы помнить, что выбирал пользователь.
     paginationData.PageNumber = 1;
     paginationData.CountRows = 12;
-  
+
     try {
       await this.http
         .post(
@@ -291,7 +291,7 @@ export class CatalogFranchiseModule implements OnInit {
             this.aFranchises = response.results;
             this.countTotalPage = response.countAll;
           },
-  
+
           error: (err) => {
             this.commonService.routeToStart(err);
             throw new Error(err);

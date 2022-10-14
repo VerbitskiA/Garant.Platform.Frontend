@@ -11,7 +11,7 @@ import { API_URL } from 'src/app/core/core-urls/api-url';
  * Сервис оповещений.
  */
 export class NotifyService {
-  connection!: signalR.HubConnection;  
+  connection!: signalR.HubConnection;
 
   constructor(private messageService: MessageService) { };
 
@@ -31,7 +31,7 @@ export class NotifyService {
         .then((response: any) => {
           resolve(response);
         })
-        .catch((error) => {
+        .catch((error: any) => {
           reject();
         });
     });

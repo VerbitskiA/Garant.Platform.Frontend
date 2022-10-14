@@ -31,35 +31,31 @@ export class CommonDataService {
     }
 
     // Функция отсчитывает время бездействия юзера, по окончании простоя убивает сессию и перенаправляет на стартовую для авторизации.
-    public deadlineSession(): void {
-        var idleTime = 0;
-
-        $(document).ready(() => {
-            //Increment the idle time counter every minute.
-            var idleInterval = setInterval(timerIncrement, 60000); // 1 minute
-
-            //Zero the idle timer on mouse movement.
-            $(this).mousemove(function (e) {
-                idleTime = 0;
-            });
-
-            $(this).keypress(function (e) {
-                idleTime = 0;
-            });
-        });
-
-        const timerIncrement = () => {
-            idleTime++;
-
-            if (idleTime > 19) { // 20 minutes
-                this._sessionService.removeDataItem(SessionItems.token);
-                sessionStorage.clear();
-                localStorage.clear();
-                // $(".right-panel").show();
-                this.router.navigate(["/login?loginType=code"]);
-            }
-        }
-    };
+    // public deadlineSession(): void {
+    //     let idleTime = 0;
+    //
+    //     $(document).ready(() => {
+    //         //Increment the idle time counter every minute.
+    //         let idleInterval = setInterval(timerIncrement, 60000); // 1 minute
+    //
+    //         //Zero the idle timer on mouse movement.
+    //         $(this).mousemove((e: any) => idleTime = 0);
+    //
+    //         $(this).keypress((e: any) => idleTime = 0);
+    //     });
+    //
+    //     const timerIncrement = () => {
+    //         idleTime++;
+    //
+    //         if (idleTime > 19) { // 20 minutes
+    //             this._sessionService.removeDataItem(SessionItems.token);
+    //             sessionStorage.clear();
+    //             localStorage.clear();
+    //             // $(".right-panel").show();
+    //             this.router.navigate(["/login?loginType=code"]);
+    //         }
+    //     }
+    // };
 
     // Функция обновит токена пользователя.
     public async refreshToken(): Promise<void> {
@@ -590,7 +586,7 @@ export class CommonDataService {
             let dialogInput = new DialogInput();
 
             if (dialogId <= 0) {
-                dialogId = this.route.snapshot.queryParams.dialogId;
+                dialogId = this.route.snapshot.queryParams["dialogId"];
             }
 
             dialogInput.DialogId = dialogId;

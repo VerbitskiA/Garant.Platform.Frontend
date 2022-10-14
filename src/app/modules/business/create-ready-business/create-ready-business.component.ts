@@ -16,10 +16,10 @@ import {FinData } from 'src/app/shared/classes/fin-data';
     providers: [ConfirmationService, MessageService]
 })
 
-/** 
+/**
  * Класс модуля создания бизнеса.
  */
-export class CreateReadyBusinessModule implements OnInit {    
+export class CreateReadyBusinessModule implements OnInit {
     responsiveOptions: any;
     aNamesBusinessPhotos: any = [];
     lead: string = "";
@@ -81,7 +81,7 @@ export class CreateReadyBusinessModule implements OnInit {
 
 
     constructor(private http: HttpClient,
-        private commonService: CommonDataService, 
+        private commonService: CommonDataService,
         private messageService: MessageService,
         private route: ActivatedRoute,
         private router: Router) {
@@ -98,20 +98,20 @@ export class CreateReadyBusinessModule implements OnInit {
                     breakpoint: '560px',
                     numVisible: 1
                 }
-            ];        
+            ];
 
             // Первоначальная инициализация входит в стоимость.
         this.aPriceIn = [
             {
-                Name: "",            
+                Name: "",
                 Price: "",
                 isHide: false
             }
         ];
 
-        this.routeParamCategory = this.route.snapshot.queryParams.category;
-        this.routeParamSubCategory = this.route.snapshot.queryParams.subCategory;
-        this.routeParamCity = this.route.snapshot.queryParams.city;
+        this.routeParamCategory = this.route.snapshot.queryParams["category"];
+        this.routeParamSubCategory = this.route.snapshot.queryParams["subCategory"];
+        this.routeParamCity = this.route.snapshot.queryParams["city"];
 
         console.log("aPriceIn", this.aPriceIn);
     };
@@ -130,11 +130,11 @@ export class CreateReadyBusinessModule implements OnInit {
     //     profitability: [this.finData.profitability, [Validators.required, sumValidator]],
     //     businessAge: [this.finData.businessAge, [Validators.required, sumValidator]]
     //   })
-  
+
     //    this.finDataForm.valueChanges.subscribe(() => this.onValueChanged());
     //    this.createControls()
     // }
-  
+
     // private createControls(): void {
     //   this.price = this.finDataForm.controls.price,
     //   this.turnPrice = this.finDataForm.controls.turnPrice,
@@ -143,7 +143,7 @@ export class CreateReadyBusinessModule implements OnInit {
     //   this.profitability = this.finDataForm.controls.profitability,
     //   this.businessAge = this.finDataForm.controls.businessAge
     // }
-  
+
     // onValueChanged(): void {
     //        const form = this.finDataForm;
 
@@ -154,20 +154,20 @@ export class CreateReadyBusinessModule implements OnInit {
     //          console.log(key);
     //          console.log(this.finDataForm.value[key]);
     //          this.finDataForm.value[key] = (String(this.finDataForm.value[key]).replace(/(\d)(?=(\d{3})+$)/g, '$1 '))
-    //          console.log(this.finDataForm.value[key]);   
+    //          console.log(this.finDataForm.value[key]);
     //       });
     //        console.log(this.finDataForm);
     //        console.log(this.finData);
-           
-            
+
+
 
     //        console.log(this.formErrors);
-      
+
     //        Object.keys(this.formErrors).forEach(field => {
     //          this.formErrors[field] = '';
-  
+
     //          const control = form.get(field);
-            
+
     //          if ((control?.dirty || control?.touched) && control.invalid) {
     //            const message = this.validationMessages[field];
     //            Object.keys(control.errors as any).some(key => this.formErrors[field] = message[key])
@@ -181,14 +181,14 @@ export class CreateReadyBusinessModule implements OnInit {
             let formData: FormData = new FormData();
 
             for (let i = 0; i < fileList.length; i++) {
-                formData.append('files', fileList[i]); 
-            }           
+                formData.append('files', fileList[i]);
+            }
 
             await this.http.post(API_URL.apiUrl.concat("/business/temp-file"), formData)
                 .subscribe({
                     next: (response: any) => {
                         console.log("Загруженные файлы бизнеса:", response);
-                        this.aNamesBusinessPhotos = response;                        
+                        this.aNamesBusinessPhotos = response;
                     },
 
                     error: (err) => {
@@ -207,10 +207,10 @@ export class CreateReadyBusinessModule implements OnInit {
      * @returns - Данные созданного бизнеса.
      */
      public async onCreateBusinessAsync() {
-        console.log("onCreateBusinessAsync");    
+        console.log("onCreateBusinessAsync");
 
         try {
-          let createUpdateBusinessInput = new CreateUpdateBusinessInput();            
+          let createUpdateBusinessInput = new CreateUpdateBusinessInput();
           let lead = this.lead;
           let payback = this.payback;
           let profitability = this.profitability;
@@ -218,10 +218,10 @@ export class CreateReadyBusinessModule implements OnInit {
           let defailsFranchise = this.defailsFranchise;
           let priceIn = this.priceIn;
           let videoLink = this.videoLink;
-          let isGarant = this.isGarant || false;       
-          let peculiarity = this.peculiarity;   
-          let businessName = this.businessName;        
-          let price = this.price;               
+          let isGarant = this.isGarant || false;
+          let peculiarity = this.peculiarity;
+          let businessName = this.businessName;
+          let price = this.price;
           let turnPrice = this.turnPrice;
           let profitPrice = this.profitPrice;
           let businessAge = this.businessAge;
@@ -252,18 +252,18 @@ export class CreateReadyBusinessModule implements OnInit {
 
           let aPriceInData = this.aPriceIn;
           let aNamesBusinessPhotos = this.aNamesBusinessPhotos;
-           
+
           // Уберет флаги видимости.
           let newPriceInJson = aPriceInData.map((item: any) => ({
               Price: item.Price,
               Name: item.Name
-          }));         
+          }));
 
           let priceInJson = JSON.stringify(newPriceInJson);
 
           createUpdateBusinessInput.Status = lead;
           createUpdateBusinessInput.Payback = payback;
-          createUpdateBusinessInput.ActivityDetail = activityDetail;            
+          createUpdateBusinessInput.ActivityDetail = activityDetail;
           createUpdateBusinessInput.Peculiarity = peculiarity;
           createUpdateBusinessInput.Text = defailsFranchise;
           createUpdateBusinessInput.UrlVideo = videoLink;
@@ -283,8 +283,8 @@ export class CreateReadyBusinessModule implements OnInit {
           createUpdateBusinessInput.Assets = assets;
           createUpdateBusinessInput.ReasonsSale = reasonsSale;
           createUpdateBusinessInput.Address = address;
-          createUpdateBusinessInput.InvestPrice = priceInJson;            
-          createUpdateBusinessInput.UrlsBusiness = aNamesBusinessPhotos;         
+          createUpdateBusinessInput.InvestPrice = priceInJson;
+          createUpdateBusinessInput.UrlsBusiness = aNamesBusinessPhotos;
           createUpdateBusinessInput.Category = this.routeParamCategory;
           createUpdateBusinessInput.SubCategory = this.routeParamSubCategory;
 
@@ -303,7 +303,7 @@ export class CreateReadyBusinessModule implements OnInit {
 
                         setTimeout(() => {
                           this.router.navigate(["/business/view"], { queryParams: { businessId: response.businessId, mode: "view" } });
-                      }, 2000);   
+                      }, 2000);
                     },
 
                     error: (err) => {
@@ -312,7 +312,7 @@ export class CreateReadyBusinessModule implements OnInit {
                 });
         }
 
-        catch (e: any) {           
+        catch (e: any) {
             throw new Error(e);
         }
     };
@@ -366,12 +366,12 @@ export class CreateReadyBusinessModule implements OnInit {
      * @param priceIn - цена.
      * @param nameIn - название.
      */
-     public onAddPriceIn(priceIn: any, nameIn: any) {     
+     public onAddPriceIn(priceIn: any, nameIn: any) {
         if (this.aPriceIn.length == 1) {
             this.aPriceIn[0] = {
                 Name: nameIn,
                 Price: priceIn
-            };           
+            };
 
             this.aPriceIn.push(
                 {
@@ -379,7 +379,7 @@ export class CreateReadyBusinessModule implements OnInit {
                     Price: ""
                 }
             );
-            
+
             this.aPriceIn[this.ind].isHide = true;
             this.ind++;
 
@@ -400,7 +400,7 @@ export class CreateReadyBusinessModule implements OnInit {
         this.ind++;
 
         console.log("aPriceIn", this.aPriceIn);
-    };   
+    };
 
     public onCheckedGarant() {
         console.log("isGarant", this.isGarant);

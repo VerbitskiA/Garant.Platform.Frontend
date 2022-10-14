@@ -1,4 +1,5 @@
-$fa-font-path: "~font-awesome/fonts"; @import '~font-awesome/scss/font-awesome';
+$fa-font-path: "~font-awesome/fonts";
+//@import '~font-awesome/scss/font-awesome';
 
 /* You can add global styles to this file, and also import other style files */
 // общие стили
@@ -22,4 +23,5 @@ $fa-font-path: "~font-awesome/fonts"; @import '~font-awesome/scss/font-awesome';
     margin: 0 1.25rem !important;
   }
 }
+
 // общие стили

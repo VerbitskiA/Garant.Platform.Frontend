@@ -39,8 +39,8 @@ export class GarInputTextComponent extends GarBaseInputComponent<string> {
 	}
 
 	constructor(
-		protected _cdRef: ChangeDetectorRef,
-		protected _control: NgControl
+		protected override _cdRef: ChangeDetectorRef,
+		protected override _control: NgControl
 	) {
 		super(_cdRef, _control)
 	}

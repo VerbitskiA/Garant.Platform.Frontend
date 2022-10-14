@@ -46,7 +46,7 @@
         <div class="w-100">
           <span *ngIf="!aNamesFranchisePhotos.length">Фотографии не загружены</span>
 
-          <p-galleria [(value)]="aNamesFranchisePhotos" [responsiveOptions]="responsiveOptions"
+          <p-galleria [value]="aNamesFranchisePhotos" [responsiveOptions]="responsiveOptions"
             [containerStyle]="{'max-width': '100%'}" [numVisible]="4" thumbnailsPosition="left">
             <ng-template pTemplate="item" let-item>
               <img src="{{item}}" />
@@ -446,7 +446,8 @@
       <div class="p-field-checkbox control-checkbox">
         <div class="d-flex align-items-center">
           <p-checkbox name="group1" value="New York" [(ngModel)]="isHidePacks" inputId="packs"></p-checkbox>
-          <label for="packs" class="control-label-checkbox">Пакеты франшизы</label>
+<!--          <label for="packs" class="control-label-checkbox">Пакеты франшизы</label>-->
+          <label class="control-label-checkbox">Пакеты франшизы</label>
         </div>
       </div>
 
@@ -535,7 +536,8 @@
       <div class="p-field-checkbox control-checkbox">
         <div class="d-flex align-items-center">
           <p-checkbox name="group1" value="New York" [(ngModel)]="isHidePacks" inputId="packs"></p-checkbox>
-          <label for="packs" class="control-label-checkbox">Видео о франшизе</label>
+<!--          <label for="packs" class="control-label-checkbox">Видео о франшизе</label>-->
+          <label class="control-label-checkbox">Видео о франшизе</label>
         </div>
       </div>
     </div>

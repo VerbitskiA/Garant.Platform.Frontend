@@ -61,7 +61,7 @@ export class ProfileDialogMessagesModule implements OnInit, AfterViewChecked {
             let dialogId = 0;
 
             if (this.transitionId <= 0) {
-                dialogId = this.route.snapshot.queryParams.dialogId;
+                dialogId = this.route.snapshot.queryParams["dialogId"];
             }
 
             else {

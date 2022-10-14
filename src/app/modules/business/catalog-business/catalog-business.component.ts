@@ -99,7 +99,7 @@ export class CatalogBusinessModule implements OnInit {
       },
     ];
 
-    this.routeParam = this.route.snapshot.queryParams.businessId;
+    this.routeParam = this.route.snapshot.queryParams['businessId'];
   }
 
   public async ngOnInit() {

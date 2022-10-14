@@ -17,10 +17,10 @@ import { news } from "../../news";
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BusinessNewsBlockComponent implements OnInit {
-	
+
 	/** Текущее состояние значений формы */
 	private readonly formValue$ = new ReplaySubject<{sorting: KeyValue<string, string>; tags: {selected: boolean, tag: string}[]}>();
-	
+
 	/** Счетчик количества дополнительно открываемых карточек по нажатию на кнопку "Ещё" */
 	private _count$ = new BehaviorSubject<number>(0);
 	/**
@@ -29,18 +29,18 @@ export class BusinessNewsBlockComponent implements OnInit {
 	 * @remarks В зависимости от разрешения экрана
 	 * */
 	private readonly _initCount$ = this._window.width$.pipe(
-		map(width => width > this._window.application.grades.tablet
+		map(width => width > this._window.application.grades['tablet']
 			? 5
-			: width > this._window.application.grades.tabletSmall
+			: width > this._window.application.grades['tabletSmall']
 				? 3
 				: 2
 		)
 	)
 	/** Контролы для тегов */
 	get tags(): AbstractControl[] {
-		return (this.businessNews.form?.controls.tags as FormArray).controls;
+		return (this.businessNews.form?.controls['tags'] as FormArray).controls;
 	}
-	
+
 	/**
 	 * Варианты для сортировки
 	 *
@@ -58,7 +58,7 @@ export class BusinessNewsBlockComponent implements OnInit {
 		key: 'byDateDown',
 		value: 'По дате (сначала старые)'
 	}]
-	
+
 	/** Модель формы */
 	readonly businessNews = {
 		form: null as unknown as FormGroup,
@@ -66,7 +66,7 @@ export class BusinessNewsBlockComponent implements OnInit {
 			sorting: null
 		}
 	}
-	
+
 	/** Список новостей, полученных по запросу */
 	readonly news$ = this._service.getBusinessNews().pipe(
 		tap(items => {
@@ -81,7 +81,7 @@ export class BusinessNewsBlockComponent implements OnInit {
 		}),
 		shareReplay(1)
 	)
-	
+
 	/** Список новостей, отсортированных по фильтру */
 	readonly filteredNews$ = this.formValue$.pipe(
 		filter(o => !!o),
@@ -99,10 +99,10 @@ export class BusinessNewsBlockComponent implements OnInit {
 			return formValue.sorting?.key
 				? this.sortByKey(_filteredNews, formValue.sorting.key)
 				: _filteredNews;
-			
+
 		})
 	)
-	
+
 	constructor(
 		private _fb: FormBuilder,
 		private _service: NewsService,
@@ -112,7 +112,7 @@ export class BusinessNewsBlockComponent implements OnInit {
 	) {
 		this.businessNews.form = this._fb.group(this.businessNews.model)
 	}
-	
+
 	ngOnInit(): void {
 		this.businessNews.form.valueChanges.pipe(
 			takeUntil(this._destroy$)
@@ -120,13 +120,13 @@ export class BusinessNewsBlockComponent implements OnInit {
 			this.formValue$.next(value)
 		})
 	}
-	
+
 	/** У
 	 * Открываем ещё 2 карточки */
 	increaseVisible(): void {
 		this._count$.next(this._count$.getValue() + 2)
 	}
-	
+
 	/** Сортировка по ключу */
 	private sortByKey(items: news.IBusinessNewsBlockItem[], key: string): news.IBusinessNewsBlockItem[] {
 		// @ts-ignore

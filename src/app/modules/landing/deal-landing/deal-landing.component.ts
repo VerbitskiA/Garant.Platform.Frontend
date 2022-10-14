@@ -17,7 +17,7 @@ import { GarDestroyService } from "../../../gar-lib/gar-destroy.service";
   templateUrl: './deal-landing.component.html',
   styleUrls: ['./deal-landing.component.scss'],
   providers: [GarDestroyService],
-  
+
 })
 export class DealLandingModule implements OnInit {
   aPopularBusiness: any[] = [];
@@ -58,7 +58,7 @@ export class DealLandingModule implements OnInit {
   isHideBusinessWithGarant: boolean = true;
   name: string = "";
   phoneNumber: string = "";
-  
+
 
   constructor(
     private http: HttpClient,
@@ -98,7 +98,7 @@ export class DealLandingModule implements OnInit {
       },
     ];
 
-    this.routeParam = this.route.snapshot.queryParams.businessId;
+    this.routeParam = this.route.snapshot.queryParams['businessId'];
   }
 
   public async ngOnInit() {

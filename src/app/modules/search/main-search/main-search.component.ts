@@ -57,8 +57,8 @@ export class MainSearchModule implements OnInit {
         private http: HttpClient,
         private titleService: Title,
         private commonService: CommonDataService) {
-        this.searchType = this.route.snapshot.queryParams.searchType;
-        this.searchText = this.route.snapshot.queryParams.searchText;
+        this.searchType = this.route.snapshot.queryParams["searchType"];
+        this.searchText = this.route.snapshot.queryParams["searchText"];
 
         if (this.searchType == "franchise") {
             this.titleService.setTitle("Gobizy: Страница поиска по франшизам");
@@ -88,18 +88,18 @@ export class MainSearchModule implements OnInit {
 
         router.events.subscribe(async (val) => {
             if (val instanceof NavigationEnd) {
-                this.searchText = this.route.snapshot.queryParams.searchText;
-                this.searchType = this.route.snapshot.queryParams.searchType;
+                this.searchText = this.route.snapshot.queryParams["searchText"];
+                this.searchType = this.route.snapshot.queryParams["searchType"];
                 await this.searchAsync(this.searchText, this.searchType);
             }
         });
     };
 
-    public async ngOnInit() {        
+    public async ngOnInit() {
         await this.GetFranchisesListAsync();
         await this.loadCategoriesListAsync();
         await this.loadSingleSuggestionAsync();
-    };    
+    };
 
     /**
      * Функция найдет по параметрам данные.
@@ -125,7 +125,7 @@ export class MainSearchModule implements OnInit {
                             });
                         }
 
-                        if (this.searchType == "business") {                         
+                        if (this.searchType == "business") {
                             // Возьмет 1 изображение.
                             this.aBusinesses.forEach((item: any) => {
                                 if (item.url != null && item.url.includes(",")) {
@@ -139,10 +139,10 @@ export class MainSearchModule implements OnInit {
                         // this.router.navigate(["/search"], {
                         //     queryParams:
                         //     {
-                        //         searchType: searchType, 
+                        //         searchType: searchType,
                         //         searchText: searchText
                         //     }
-                        // });  
+                        // });
                     },
 
                     error: (err) => {

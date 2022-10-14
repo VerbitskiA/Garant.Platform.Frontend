@@ -12,7 +12,7 @@ import { GarItemComponent } from "../../../../gar-lib/gar-item/gar-item.componen
 export abstract class CatalogBaseCardComponent<T> extends GarItemComponent<T> implements products.catalog.IShortCard<T> {
 
 	@Input()
-	set item(value: T) {
+  override set item(value: T) {
 		this._product$.next(value);
 	}
 

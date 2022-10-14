@@ -2,25 +2,25 @@
 
 .profile-notice {
   background-color: $clrLightBlue;
-  border-radius: calc({#$border-radius} / 2);
-  padding: calc(#{$gridGap} / 3 * 2);
-
-  &:not(:first-child) {
-    margin-top: calc(#{$gridGap} / 3 * 2);
-  }
-
-  &__title {
-    @include typo('regular');
-
-    color: $clrBlue;
-  }
-
-  &__description {
-    color: $clrDarkGray;
-    margin-top: $gridGap;
-  }
-
-  &__buttons {
-    margin-top: calc(#{$gridGap} / 3 * 2);
-  }
+  //border-radius: calc({#$border-radius} / 2);
+  //padding: calc(#{$gridGap} / 3 * 2);
+  //
+  //&:not(:first-child) {
+  //  margin-top: calc(#{$gridGap} / 3 * 2);
+  //}
+  //
+  //&__title {
+  //  @include typo('regular');
+  //
+  //  color: $clrBlue;
+  //}
+  //
+  //&__description {
+  //  color: $clrDarkGray;
+  //  margin-top: $gridGap;
+  //}
+  //
+  //&__buttons {
+  //  margin-top: calc(#{$gridGap} / 3 * 2);
+  //}
 }

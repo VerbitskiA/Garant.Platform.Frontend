@@ -25,7 +25,7 @@
       <div class="block-gallery">
         <div class="w-100">
           <span *ngIf="!aNamesFranchisePhotos.length">Фотографии не загружены</span>
-          <p-galleria [(value)]="aNamesFranchisePhotos" [responsiveOptions]="responsiveOptions"
+          <p-galleria [value]="aNamesFranchisePhotos" [responsiveOptions]="responsiveOptions"
             [containerStyle]="{'max-width': '660px'}" [numVisible]="4" thumbnailsPosition="left">
             <ng-template pTemplate="item" let-item>
               <img src="{{item}}" style="width: 700px; display: block;" />

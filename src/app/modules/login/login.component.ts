@@ -45,24 +45,24 @@ export class LoginModule implements OnInit {
     @Inject(SESSION_TOKEN)
     private _sessionService: SessionService
   ) {
-    this.routeParam = this.route.snapshot.queryParams.loginType;
+    this.routeParam = this.route.snapshot.queryParams["loginType"];
 
     // Если вход по коду.
-    if (this.route.snapshot.queryParams.loginType == "code") {
+    if (this.route.snapshot.queryParams["loginType"] == "code") {
       this.isCode = true;
       this.isAuth = false;
       this.isPass = false;
     }
 
     // Если есть аккаунт.
-    else if (this.route.snapshot.queryParams.loginType == "auth") {
+    else if (this.route.snapshot.queryParams["loginType"] == "auth") {
       this.isAuth = true;
       this.isCode = false;
       this.isPass = false;
     }
 
     // Если вход по паролю.
-    else if (this.route.snapshot.queryParams.loginType == "pass") {
+    else if (this.route.snapshot.queryParams["loginType"] == "pass") {
       this.isAuth = false;
       this.isCode = false;
       this.isPass = true;

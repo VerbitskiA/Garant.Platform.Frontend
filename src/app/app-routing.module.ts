@@ -6,7 +6,7 @@ import { CreateFranchiseModule } from './modules/franchise/create-franchise/crea
 import { LoginModule } from './modules/login/login.component';
 import { MainPageModule } from './modules/main-page/main-page.component';
 import { ProfileDataModule } from "./modules/profile/profile-data/profile-data.component";
-import { ViewFranchiseModule } from './modules/franchise/view-franchise/view-franchise.component';
+import { ViewFranchiseComponent } from './modules/franchise/view-franchise/view-franchise.component';
 import { CreateReadyBusinessModule } from './modules/business/create-ready-business/create-ready-business.component';
 import { ViewReadyBusinessModule } from './modules/business/view-ready-business/view-ready-business.component';
 import { EditReadyBusinessModule } from './modules/business/edit-ready-business/edit-ready-business.component';
@@ -55,7 +55,7 @@ const routes: Routes = [
 
   {
     path: "franchise/view",
-    component: ViewFranchiseModule
+    component: ViewFranchiseComponent
   },
 
   {

@@ -12,11 +12,7 @@ import { GarantService } from "src/app/services/garant/garant.service";
     templateUrl: "./garant-concord.component.html",
     styleUrls: ["./garant-concord.component.scss"]
 })
-
-/** 
- * Класс модуля Гаранта (страница согласования этапов сделки 2 этап).
- */
-export class GarantConcordModule implements OnInit {    
+export class GarantConcordModule implements OnInit {
     oInitData: any = {};
     aMessages: any = [];
     dateStartDialog: string = "";
@@ -28,7 +24,7 @@ export class GarantConcordModule implements OnInit {
     chatItemUrl: string = "";
     fio: string = "";
 
-    constructor(private http: HttpClient, 
+    constructor(private http: HttpClient,
         private commonService: CommonDataService,
         private garantService: GarantService,
         private router: Router,
@@ -39,16 +35,16 @@ export class GarantConcordModule implements OnInit {
     public async ngOnInit() {
         await this.initGarantDataAsync();
         await this.getDialogMessagesAsync();
-    };    
+    };
 
     /**
      * Функция получит данные Гаранта на ините.
      * @returns Данные инита страницы.
      */
     private async initGarantDataAsync() {
-        try {           
+        try {
             await this.garantService.initGarantDataAsync(2, true, this.dataService.otherId).then((response: any) => {
-                this.oInitData = response;                
+                this.oInitData = response;
                 this.aMessages = response.chatData.messages;
                 this.dateStartDialog = response.chatData.dateStartDialog;
                 this.chatItemName = this.oInitData.itemTitle;
@@ -69,13 +65,13 @@ export class GarantConcordModule implements OnInit {
      * Функция подтвердит продажу в сделке.
      */
     public async onAcceptDealAsync() {
-        try {            
+        try {
             let dataInput = new DealInput();
 
             if (this.oInitData !== null && this.oInitData !== undefined) {
                 dataInput.DealItemId = this.oInitData.itemDealId;
                 dataInput.OrderType = this.oInitData.itemDealType;
-            }            
+            }
 
             await this.http.post(API_URL.apiUrl.concat("/garant/accept-deal"), dataInput)
                 .subscribe({
@@ -93,13 +89,13 @@ export class GarantConcordModule implements OnInit {
         catch (e: any) {
             throw new Error(e);
         }
-    };    
+    };
 
     // TODO: Вынести в общий сервис сообщений, как только он будет создан.
     public async onSendMessageAsync() {
         console.log("Сообщение", this.message);
 
-        try {                
+        try {
             await this.http.post(API_URL.apiUrl.concat("/chat/send-message"), {
                 Message: this.message,
                 DialogId: this.dialogId
@@ -107,9 +103,9 @@ export class GarantConcordModule implements OnInit {
                 .subscribe({
                     next: (response: any) => {
                         console.log("Сообщения: ", response.messages);
-                        this.aMessages = response.messages; 
-                        this.dataService.dialogId = response.dialogId;      
-                        this.message = "";                 
+                        this.aMessages = response.messages;
+                        this.dataService.dialogId = response.dialogId;
+                        this.message = "";
                     },
 
                     error: (err) => {
@@ -128,9 +124,9 @@ export class GarantConcordModule implements OnInit {
     };
 
     private async getDialogMessagesAsync() {
-        try {           
+        try {
             await this.commonService.getDialogMessagesAsync(this.dialogId, "", "").then((data: any) => {
-                console.log("Список сообщений диалога: ", data);                
+                console.log("Список сообщений диалога: ", data);
                 this.aMessages = data.messages;
                 this.fio = data.fullName;
                 this.dateStartDialog = data.dateStartDialog;

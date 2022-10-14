@@ -459,13 +459,13 @@
           <strong class="title-small">Выбор сферы</strong>
         </div>
 
-        <p-dropdown 
-          [options]="aFranchiseCategories" 
-          optionLabel="categoryName" 
+        <p-dropdown
+          [options]="aFranchiseCategories"
+          optionLabel="categoryName"
           optionCode="categoryCode"
-          [filter]="true" 
-          name="category" 
-          placeholder="Выберите сферу" 
+          [filter]="true"
+          name="category"
+          placeholder="Выберите сферу"
           [(ngModel)]="selectedCategory"
           [showClear]="true"
           (onChange)="onChangeValueSphereAsync($event.value.categoryCode, $event.value.franchiseCategorySysName)"
@@ -477,14 +477,14 @@
       </div>
 
       <p-dropdown
-        [options]="aFranchiseSubCategories" 
-        optionLabel="subCategoryName" 
-        [filter]="true" 
-        name="subCategory" 
+        [options]="aFranchiseSubCategories"
+        optionLabel="subCategoryName"
+        [filter]="true"
+        name="subCategory"
         [(ngModel)]="selectedSubCategory"
-          optionCode="categoryCode" 
-          placeholder="Выберите категорию" 
-          [showClear]="true" 
+          optionCode="categoryCode"
+          placeholder="Выберите категорию"
+          [showClear]="true"
           (onFilter)="onFilterCategoryAsync($event.filter, $event.value.categoryCode, $event.value.franchiseCategorySysName)">
       </p-dropdown>
 
@@ -510,7 +510,7 @@
         <div class="block-gallery">
           <div>
             <span *ngIf="!aNamesFranchisePhotos.length">Фотографии не загружены</span>
-            <p-galleria [(value)]="aNamesFranchisePhotos" [responsiveOptions]="responsiveOptions"
+            <p-galleria [value]="aNamesFranchisePhotos" [responsiveOptions]="responsiveOptions"
               [containerStyle]="{'max-width': '660px'}" [numVisible]="4" thumbnailsPosition="left">
               <ng-template pTemplate="item" let-item>
                 <img src="{{item}}" style="width: 700px; display: block;" />
@@ -1012,7 +1012,7 @@
                 <div class="w-100">
                   <span *ngIf="!aFranchisePhotos.length">Фотографии не загружены</span>
 
-                  <p-galleria [(value)]="aNamesFranchisePhotos" [responsiveOptions]="responsiveOptions"
+                  <p-galleria [value]="aNamesFranchisePhotos" [responsiveOptions]="responsiveOptions"
                     [containerStyle]="{'max-width': '660px'}" [numVisible]="4" thumbnailsPosition="left">
                     <ng-template pTemplate="item" let-item>
                       <img src="{{item}}" style="width: 700px; display: block;" />
@@ -1552,13 +1552,13 @@
           <strong class="title-small">Выбор сферы</strong>
         </div>
 
-        <p-dropdown 
-          [options]="aBusinessCategories" 
-          optionLabel="categoryName" 
+        <p-dropdown
+          [options]="aBusinessCategories"
+          optionLabel="categoryName"
           optionCode="categoryCode"
-          [filter]="true" 
-          name="category" 
-          placeholder="Выберите сферу" 
+          [filter]="true"
+          name="category"
+          placeholder="Выберите сферу"
           [(ngModel)]="selectedCategory"
           [showClear]="true"
           (onChange)="onChangeValueSphereAsync($event.value.categoryCode, $event.value.franchiseCategorySysName)"
@@ -1570,14 +1570,14 @@
       </div>
 
       <p-dropdown
-          [options]="aBusinessSubCategories" 
-          optionLabel="subCategoryName" 
-          [filter]="true" 
-          name="subCategory" 
+          [options]="aBusinessSubCategories"
+          optionLabel="subCategoryName"
+          [filter]="true"
+          name="subCategory"
           [(ngModel)]="selectedSubCategory"
-            optionCode="categoryCode" 
-            placeholder="Выберите категорию" 
-            [showClear]="true" 
+            optionCode="categoryCode"
+            placeholder="Выберите категорию"
+            [showClear]="true"
             (onFilter)="onFilterCategoryAsync($event.filter, $event.value.categoryCode, $event.value.franchiseCategorySysName)">
         </p-dropdown>
 
@@ -1585,7 +1585,7 @@
           <div class="space-top-bottom-32">
             <strong class="title-small">Выбор города</strong>
           </div>
-  
+
           <p-dropdown [options]="aCities" optionLabel="businessCityName" name="cityName" [(ngModel)]="selectedCityName"
             placeholder="Выберите город" [showClear]="true"></p-dropdown>
         </div>
@@ -1608,7 +1608,7 @@
         <div class="block-gallery">
           <div>
             <span *ngIf="!aNamesBusinessPhotos.length">Фотографии не загружены</span>
-            <p-galleria [(value)]="aNamesBusinessPhotos" [responsiveOptions]="responsiveOptions"
+            <p-galleria [value]="aNamesBusinessPhotos" [responsiveOptions]="responsiveOptions"
               [containerStyle]="{'max-width': '660px'}" [numVisible]="4" thumbnailsPosition="left">
               <ng-template pTemplate="item" let-item>
                 <img src="{{item}}" style="width: 700px; display: block;" />
@@ -1911,7 +1911,7 @@
         <div class="block-gallery">
           <div>
             <span *ngIf="!aNamesBusinessPhotos.length">Фотографии не загружены</span>
-            <p-galleria [(value)]="aNamesBusinessPhotos" [responsiveOptions]="responsiveOptions"
+            <p-galleria [value]="aNamesBusinessPhotos" [responsiveOptions]="responsiveOptions"
               [containerStyle]="{'max-width': '660px'}" [numVisible]="4" thumbnailsPosition="left">
               <ng-template pTemplate="item" let-item>
                 <img src="{{item}}" style="width: 700px; display: block;" />
@@ -2226,20 +2226,20 @@
         </div>
 
         <!-- Таблица с карточками франшиз, которые требуют согласования. -->
-        <div>        
+        <div>
           <div class="mt-3 mb-3">
             <div>
               <strong style="font-size: 20px;">Франшизы ожидающие согласования</strong>
             </div>
-  
+
              <div>
               Кол-во: {{aNotAcceptedFranchises.length}}
              </div>
            </div>
 
-          <p-table 
-          [value]="aNotAcceptedFranchises" 
-          [scrollable]="true" 
+          <p-table
+          [value]="aNotAcceptedFranchises"
+          [scrollable]="true"
           scrollHeight="400px">
             <ng-template pTemplate="header">
               <tr>
@@ -2262,27 +2262,27 @@
                 <td>{{item.title}}</td>
                 <td>{{item.dateCreate}}</td>
                 <td>
-                  <button pButton 
-                    type="button" 
-                    label="Просмотреть" 
+                  <button pButton
+                    type="button"
+                    label="Просмотреть"
                     class="p-button-outlined p-button-info"
                     (click)="onViewFranchise(index)">
                 </button>
                 </td>
 
                 <td>
-                  <button pButton 
-                    type="button" 
-                    label="Одобрить" 
+                  <button pButton
+                    type="button"
+                    label="Одобрить"
                     class="p-button-outlined p-button-success"
                     (click)="onAcceptCardAsync(item.franchiseId, 'Franchise')">
                 </button>
                 </td>
 
                 <td>
-                  <button pButton 
-                    type="button" 
-                    label="Отклонить" 
+                  <button pButton
+                    type="button"
+                    label="Отклонить"
                     class="p-button-outlined p-button-danger"
                     (click)="onShowRejectFranchiseModal(index)">
                 </button>
@@ -2326,26 +2326,26 @@
                 <td>{{item.businessName}}</td>
                 <td>{{item.dateCreate}}</td>
                 <td>
-                  <button pButton 
-                    type="button" 
-                    label="Просмотреть" 
+                  <button pButton
+                    type="button"
+                    label="Просмотреть"
                     class="p-button-outlined p-button-info"
                     (click)="onViewBusiness(index)">
                 </button>
                 </td>
                 <td>
-                  <button pButton 
-                    type="button" 
-                    label="Одобрить" 
+                  <button pButton
+                    type="button"
+                    label="Одобрить"
                     class="p-button-outlined p-button-success"
                     (click)="onAcceptCardAsync(item.businessId, 'Business')">
                 </button>
                 </td>
 
                 <td>
-                  <button pButton 
-                    type="button" 
-                    label="Отклонить" 
+                  <button pButton
+                    type="button"
+                    label="Отклонить"
                     class="p-button-outlined p-button-danger"
                     (click)="onShowRejectBusinessModal(index)">
                 </button>
@@ -2364,13 +2364,13 @@
           <label class="mt-3">Действия с категориями или сферами</label>
         </div>
 
-        <p-dropdown class="block-sort-by" 
-          [options]="aSphereCategoryActions" 
+        <p-dropdown class="block-sort-by"
+          [options]="aSphereCategoryActions"
           optionLabel="sphereActionName"
-          optionCode="sphereActionSysName" 
-          name="newsAction" 
+          optionCode="sphereActionSysName"
+          name="newsAction"
           [(ngModel)]="sphereAction"
-          placeholder="Действие с категориями или сферами" 
+          placeholder="Действие с категориями или сферами"
           [showClear]="true"
           (onChange)="onSelectSphereCategory($event, false)"></p-dropdown>
       </div>
@@ -2419,21 +2419,21 @@
           <div class="space-top-bottom-32">
             <span class="title-small">Выбор сферы, категорию которой нужно создать</span>
           </div>
-  
-          <p-dropdown 
-            [options]="aFranchiseCategories" 
-            optionLabel="categoryName" 
+
+          <p-dropdown
+            [options]="aFranchiseCategories"
+            optionLabel="categoryName"
             optionCode="categoryCode"
-            [filter]="true" 
-            name="category" 
-            placeholder="Выберите сферу" 
+            [filter]="true"
+            name="category"
+            placeholder="Выберите сферу"
             [(ngModel)]="selectedCategory"
             [showClear]="true"
             (onChange)="onChangeValueSphereAsync($event.value.categoryCode, $event.value.franchiseCategorySysName)"
             (onFilter)="onFilterSphereAsync($event.filter)">
         </p-dropdown>
         </div>
-        
+
         <div>
           <div>
             <label class="mt-3">Название категории</label>
@@ -2479,9 +2479,9 @@
   <ng-template pTemplate="header">
       Укажите причину отклонения
   </ng-template>
-  
+
   <div>
-    <div>    
+    <div>
       <span class="title-small">Причина отклонения</span><br>
       <textarea class="control-textarea-franch" rows="10" cols="30" pInputTextarea [autoResize]="true"
         placeholder="Укажите причину отклонения" [(ngModel)]="commentRejected"></textarea>
@@ -2489,9 +2489,9 @@
   </div>
 
   <ng-template pTemplate="footer">
-    <button 
-      pButton type="button" 
-      label="Подтвердить отклонение" 
+    <button
+      pButton type="button"
+      label="Подтвердить отклонение"
       class="p-button-outlined p-button-danger"
       (click)="onRejectFranchiseCardAsync('Franchise')">
   </button>
@@ -2503,9 +2503,9 @@
   <ng-template pTemplate="header">
       Укажите причину отклонения
   </ng-template>
-  
+
   <div>
-    <div>    
+    <div>
       <span class="title-small">Причина отклонения</span><br>
       <textarea class="control-textarea-franch" rows="10" cols="30" pInputTextarea [autoResize]="true"
         placeholder="Укажите причину отклонения" [(ngModel)]="commentRejected"></textarea>
@@ -2513,9 +2513,9 @@
   </div>
 
   <ng-template pTemplate="footer">
-    <button 
-      pButton type="button" 
-      label="Подтвердить отклонение" 
+    <button
+      pButton type="button"
+      label="Подтвердить отклонение"
       class="p-button-outlined p-button-danger"
       (click)="onRejectBusinessCardAsync('Business')">
   </button>

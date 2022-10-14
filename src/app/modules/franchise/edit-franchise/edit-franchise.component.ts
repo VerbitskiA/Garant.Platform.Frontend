@@ -114,7 +114,7 @@ export class EditFranchiseModule implements OnInit {
             let franchiseId = 0;
 
             if (this.franchiseId <= 0 || this.franchiseId == undefined) {
-                franchiseId = this.route.snapshot.queryParams.franchiseId;
+                franchiseId = this.route.snapshot.queryParams["franchiseId"];
             }
 
             else {

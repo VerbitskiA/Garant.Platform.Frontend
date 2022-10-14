@@ -7,23 +7,18 @@ import { MetrikaService } from "./services/common/metrika.service";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-
 export class AppComponent implements OnInit {
   isGarant: boolean = false;
   spinnerStyle = Spinkit;
 
   constructor(
-      private _metrika: MetrikaService
+    private _metrika: MetrikaService
   ) { }
 
   ngDoCheck() {
-    if (window.location.href.includes("stage")) {
-      this.isGarant = true;
-    } else {
-      this.isGarant = false;
-    }
+    this.isGarant = window.location.href.includes("stage");
   };
-  
+
   ngOnInit(): void {
     this._metrika.initMetrika();
   }

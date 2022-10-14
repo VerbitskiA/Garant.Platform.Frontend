@@ -14,7 +14,7 @@ import { CommonDataService } from "src/app/services/common/common-data.service";
     providers: [ConfirmationService, MessageService]
 })
 
-/** 
+/**
  * Класс модуля изменения бизнеса.
  */
 export class EditReadyBusinessModule implements OnInit {
@@ -61,7 +61,7 @@ export class EditReadyBusinessModule implements OnInit {
     aBusinessPhotos: any = [];
 
     constructor(private http: HttpClient,
-        private commonService: CommonDataService, 
+        private commonService: CommonDataService,
         private messageService: MessageService,
         private route: ActivatedRoute) {
             this.responsiveOptions = [
@@ -77,12 +77,12 @@ export class EditReadyBusinessModule implements OnInit {
                     breakpoint: '560px',
                     numVisible: 1
                 }
-            ];        
+            ];
 
             // Первоначальная инициализация входит в стоимость.
         this.aPriceIn = [
             {
-                Name: "",            
+                Name: "",
                 Price: "",
                 isHide: false
             }
@@ -108,12 +108,12 @@ export class EditReadyBusinessModule implements OnInit {
             let businessId = 0;
 
             if (this.businessId <= 0 || this.businessId == undefined) {
-                businessId = this.route.snapshot.queryParams.businessId;
+                businessId = this.route.snapshot.queryParams["businessId"];
             }
 
             else {
                 businessId = this.businessId;
-            }           
+            }
 
             await this.commonService.getTransitionAsync(this.routeParam ).then((data: any) => {
                 console.log("Переход получен:", data);
@@ -131,20 +131,20 @@ export class EditReadyBusinessModule implements OnInit {
      * @returns - данные бизнеса.
      */
      private async getViewBusinessAsync(businessId: number) {
-        try {                     
-            console.log("getViewBusinessAsync");        
+        try {
+            console.log("getViewBusinessAsync");
             let getFranchiseInput = new GetBusinessInput();
             getFranchiseInput.BusinessId = businessId;
             getFranchiseInput.Mode = "View";
 
             await this.http.post(API_URL.apiUrl.concat("/business/get-business"), getFranchiseInput)
                 .subscribe({
-                    next: (response: any) => {      
-                        // Уберет пробелы у числа.    
-                        response.price = this.commonService.TrimSpaceInNumber(response.price);    
-                               
-                        this.businessData = response;                                                    
-                        this.aPriceIn = JSON.parse(response.investPrice);                                                
+                    next: (response: any) => {
+                        // Уберет пробелы у числа.
+                        response.price = this.commonService.TrimSpaceInNumber(response.price);
+
+                        this.businessData = response;
+                        this.aPriceIn = JSON.parse(response.investPrice);
 
                         // Запишет пути изображений бизнеса.
                         // this.businessData.forEach((item: any) => {
@@ -156,7 +156,7 @@ export class EditReadyBusinessModule implements OnInit {
                         // });
 
                         console.log("Полученный бизнес:", response);
-                        console.log("businessData", this.businessData);      
+                        console.log("businessData", this.businessData);
                         console.log("aPriceIn", this.aPriceIn);
                         console.log("aBusinessPhotos", this.aNamesBusinessPhotos);
                     },
@@ -179,13 +179,13 @@ export class EditReadyBusinessModule implements OnInit {
             let fileList = event.target.files[0];
             let files: File = fileList;
             let formData: FormData = new FormData();
-            formData.append('files', files);           
+            formData.append('files', files);
 
             await this.http.post(API_URL.apiUrl.concat("/business/temp-file"), formData)
                 .subscribe({
                     next: (response: any) => {
                         console.log("Загруженные файлы бизнеса:", response);
-                        this.aNamesBusinessPhotos = response;                        
+                        this.aNamesBusinessPhotos = response;
                     },
 
                     error: (err) => {
@@ -205,11 +205,11 @@ export class EditReadyBusinessModule implements OnInit {
      * @returns - Данные бизнеса.
      */
     public async onEditBusinessAsync() {
-        console.log("onEditBusinessAsync");    
+        console.log("onEditBusinessAsync");
 
         try {
-            let createUpdateBusinessInput = new CreateUpdateBusinessInput();        
-            let newBusinessData = this.businessData;    
+            let createUpdateBusinessInput = new CreateUpdateBusinessInput();
+            let newBusinessData = this.businessData;
             let lead = newBusinessData.status;
             let payback = newBusinessData.payback;
             let profitability = newBusinessData.profitability;
@@ -217,10 +217,10 @@ export class EditReadyBusinessModule implements OnInit {
             let defailsFranchise = newBusinessData.defailsFranchise;
             let priceIn = newBusinessData.priceIn;
             let videoLink = newBusinessData.urlVideo;
-            let isGarant = newBusinessData.isGarant || false;       
-            let peculiarity = newBusinessData.peculiarity;   
-            let businessName = newBusinessData.businessName;        
-            let price = +newBusinessData.price;               
+            let isGarant = newBusinessData.isGarant || false;
+            let peculiarity = newBusinessData.peculiarity;
+            let businessName = newBusinessData.businessName;
+            let price = +newBusinessData.price;
             let turnPrice = newBusinessData.turnPrice;
             let profitPrice = newBusinessData.profitPrice;
             let businessAge = newBusinessData.businessAge;
@@ -245,7 +245,7 @@ export class EditReadyBusinessModule implements OnInit {
 
             createUpdateBusinessInput.Status = lead;
             createUpdateBusinessInput.Payback = payback;
-            createUpdateBusinessInput.ActivityDetail = activityDetail;            
+            createUpdateBusinessInput.ActivityDetail = activityDetail;
             createUpdateBusinessInput.Peculiarity = peculiarity;
             createUpdateBusinessInput.Text = defailsFranchise;
             createUpdateBusinessInput.UrlVideo = videoLink;
@@ -265,10 +265,10 @@ export class EditReadyBusinessModule implements OnInit {
             createUpdateBusinessInput.Assets = assets;
             createUpdateBusinessInput.ReasonsSale = reasonsSale;
             createUpdateBusinessInput.Address = address;
-            createUpdateBusinessInput.InvestPrice = priceInJson;            
-            createUpdateBusinessInput.UrlsBusiness = aNamesBusinessPhotos;        
+            createUpdateBusinessInput.InvestPrice = priceInJson;
+            createUpdateBusinessInput.UrlsBusiness = aNamesBusinessPhotos;
             createUpdateBusinessInput.Category = newBusinessData.category;
-            createUpdateBusinessInput.SubCategory = newBusinessData.subCategory; 
+            createUpdateBusinessInput.SubCategory = newBusinessData.subCategory;
 
             let sendFormData = new FormData();
             sendFormData.append("businessDataInput", JSON.stringify(createUpdateBusinessInput));
@@ -291,7 +291,7 @@ export class EditReadyBusinessModule implements OnInit {
                 });
         }
 
-        catch (e: any) {           
+        catch (e: any) {
             throw new Error(e);
         }
     };
@@ -345,12 +345,12 @@ export class EditReadyBusinessModule implements OnInit {
      * @param priceIn - цена.
      * @param nameIn - название.
      */
-     public onAddPriceIn(priceIn: any, nameIn: any) {     
+     public onAddPriceIn(priceIn: any, nameIn: any) {
         if (this.aPriceIn.length == 1) {
             this.aPriceIn[0] = {
                 Name: nameIn,
                 Price: priceIn
-            };           
+            };
 
             this.aPriceIn.push(
                 {
@@ -358,7 +358,7 @@ export class EditReadyBusinessModule implements OnInit {
                     Price: ""
                 }
             );
-            
+
             this.aPriceIn[this.ind].isHide = true;
             this.ind++;
 
@@ -379,7 +379,7 @@ export class EditReadyBusinessModule implements OnInit {
         this.ind++;
 
         console.log("aPriceIn", this.aPriceIn);
-    };   
+    };
 
     public onCheckedGarant() {
         console.log("isGarant", this.isGarant);

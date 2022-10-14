@@ -64,7 +64,7 @@ export class ViewReadyBusinessModule implements OnInit {
   number: string = '';
   isHidePeculiarity: boolean = false;
   isUrlVideo: boolean = false;
-  
+
   public readonly listAdvantagesBusiness$: Observable<{title: string; description: string; result: string}[]> = of([{
     title: 'Стоимость',
     description: 'полная стоимость бизнеса',
@@ -90,7 +90,7 @@ export class ViewReadyBusinessModule implements OnInit {
     description: 'с момента основания',
     result: '4 года'
   }]);
-  
+
   public readonly listAdvantagesCompany$: Observable<{title: string; description: string; result: string}[]> = of([{
     title: 'Сотрудников',
     description: 'компании',
@@ -108,7 +108,7 @@ export class ViewReadyBusinessModule implements OnInit {
     description: 'Сайт',
     result: 'Ссылка'
   }]);
-  
+
   public readonly propertyBusiness$: Observable<{title: string; result: string}[]> = of([{
     title: 'Оборудование, мебель, оргтехника',
     result: '350 000 ₽'
@@ -183,7 +183,7 @@ export class ViewReadyBusinessModule implements OnInit {
       let businessId = 0;
 
       if (this.businessId <= 0 || this.businessId == undefined) {
-        businessId = this.route.snapshot.queryParams.businessId;
+        businessId = this.route.snapshot.queryParams['businessId'];
       } else {
         businessId = this.businessId;
       }
@@ -523,7 +523,7 @@ export class ViewReadyBusinessModule implements OnInit {
       throw new Error(e);
     }
   }
-  
+
   private scrollPageToTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;

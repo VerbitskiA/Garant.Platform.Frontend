@@ -9,15 +9,15 @@ import { DocumentService } from 'src/app/services/garant/document.service';
 
 @Component({
   selector: 'view-franchise',
-  templateUrl: './view-franchise.component.html',
-  styleUrls: ['./view-franchise.component.scss'],
+  templateUrl: 'view-franchise.component.html',
+  styleUrls: ['view-franchise.component.scss'],
   providers: [ConfirmationService, MessageService],
 })
 
 /**
  * Класс модуля просмотра франшизы.
  */
-export class ViewFranchiseModule implements OnInit {
+export class ViewFranchiseComponent implements OnInit {
   franchiseId: number = 0;
   franchiseData: any = [];
   routeParam: any;
@@ -45,7 +45,7 @@ export class ViewFranchiseModule implements OnInit {
     private documentService: DocumentService
   ) {
     this.routeParam = this.route.snapshot.queryParams;
-    this.franchiseId = this.route.snapshot.queryParams.franchiseId;
+    this.franchiseId = this.route.snapshot.queryParams['franchiseId'];
 
     this.responsiveOptions = [
       {
@@ -225,7 +225,7 @@ export class ViewFranchiseModule implements OnInit {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
-  
+
   /**
    * Функция добавит файл презентации.
    */

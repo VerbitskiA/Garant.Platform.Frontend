@@ -1,31 +1,29 @@
-import { HttpClient } from "@angular/common/http";
-import { Component, OnInit } from "@angular/core";
-import { API_URL } from "src/app/core/core-urls/api-url";
-import { CreateUpdateFranchiseInput } from "src/app/models/franchise/input/franchise-create-update-input";
-import { CommonDataService } from "src/app/services/common/common-data.service";
-import { ConfirmationService, MessageService } from "primeng/api";
-import { ActivatedRoute, Router } from "@angular/router";
-import { attachment } from "../../../gar-lib/attachment";
-import { BehaviorSubject, Observable, of } from "rxjs";
-import { map, switchMap, takeUntil, tap } from "rxjs/operators";
-import { GarDestroyService } from "../../../gar-lib/gar-destroy.service";
-import { error } from "jquery";
-import { FranchiseOutput } from "../../../models/franchise/output/franchise-output";
+import {HttpClient} from "@angular/common/http";
+import {Component, OnInit} from "@angular/core";
+import {API_URL} from "src/app/core/core-urls/api-url";
+import {CreateUpdateFranchiseInput} from "src/app/models/franchise/input/franchise-create-update-input";
+import {CommonDataService} from "src/app/services/common/common-data.service";
+import {ConfirmationService, MessageService} from "primeng/api";
+import {ActivatedRoute, Router} from "@angular/router";
+import {BehaviorSubject, of} from "rxjs";
+import {map, switchMap, takeUntil} from "rxjs/operators";
+import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
+import {FranchiseOutput} from "../../../models/franchise/output/franchise-output";
 
 @Component({
     selector: "create-franchise",
-    templateUrl: "./create-franchise.component.html",
-    styleUrls: ["./create-franchise.component.scss"],
+    templateUrl: "create-franchise.component.html",
+    styleUrls: ["create-franchise.component.scss"],
     providers: [ConfirmationService, MessageService, GarDestroyService]
 })
 
-/** 
+/**
  * Класс модуля создания франшизы.
  */
 export class CreateFranchiseModule implements OnInit {
-    
+
     private _attachedFiles$ = new BehaviorSubject<string[]>([]);
-    
+
     logoName?: string;
     responsiveOptions: any;
     aNamesFranchisePhotos: any = [];
@@ -88,9 +86,9 @@ export class CreateFranchiseModule implements OnInit {
         private router: Router,
         private _destroy$: GarDestroyService
     ) {
-        this.routeParamCategory = this.route.snapshot.queryParams.category;
-        this.routeParamSubCategory = this.route.snapshot.queryParams.subCategory;
-        this.routeParamSubCity = this.route.snapshot.queryParams.city;
+        this.routeParamCategory = this.route.snapshot.queryParams["category"];
+        this.routeParamSubCategory = this.route.snapshot.queryParams["subCategory"];
+        this.routeParamSubCity = this.route.snapshot.queryParams["city"];
 
         this.responsiveOptions = [
             {
@@ -135,7 +133,7 @@ export class CreateFranchiseModule implements OnInit {
     public async ngOnInit() {
         await this.getUserFio();
     };
-    
+
     public uploadImages(files: string[]) {
         this._attachedFiles$.next(files);
     }
@@ -201,7 +199,7 @@ export class CreateFranchiseModule implements OnInit {
             ];
 
             // Если не добавляли записи и осталась лежать одна пустая.
-            if (!this.ainvestIn[0].Name || !this.ainvestIn[0].Price) {                  
+            if (!this.ainvestIn[0].Name || !this.ainvestIn[0].Price) {
                 this.ainvestIn[0].Name = this.nameInvest;
                 this.ainvestIn[0].Price = this.priceInvest;
             }
@@ -301,7 +299,7 @@ export class CreateFranchiseModule implements OnInit {
             sendFormData.append("finModelFile", this.modelFile);
             sendFormData.append("presentFile", this.presentFile);
             sendFormData.append("franchiseFile", this.presentFile);
-            
+
             of(true).pipe(
                 switchMap(_ => this._attachedFiles$),
                 map(res => {
@@ -314,7 +312,7 @@ export class CreateFranchiseModule implements OnInit {
             ).subscribe( response => {
                 console.log("Франшиза успешно создана:", response);
                 this.showMessageAfterSuccessCreateFranchise();
-    
+
                 setTimeout(() => {
                     this.router.navigate(["/franchise/view"], { queryParams: { franchiseId: response.franchiseId, mode: "view" } });
                 }, 2000);
