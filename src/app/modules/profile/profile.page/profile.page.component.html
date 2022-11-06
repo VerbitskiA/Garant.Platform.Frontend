@@ -1,0 +1,15 @@
+<p-toast [style]="{ marginTop: '80px' }"></p-toast>
+
+<section class="section profile gar-grid" [class.-active]="shifted">
+  <aside class="profile__inner profile__sidebar">
+    <app-manage-account (menuClick)="onMenuClick()"></app-manage-account>
+  </aside>
+
+  <div class="profile__inner profile__main">
+    <button class="profile-back" (click)="removeShift()">
+      <gar-icon name="arrow-left-angle"></gar-icon>
+    </button>
+
+    <router-outlet></router-outlet>
+  </div>
+</section>

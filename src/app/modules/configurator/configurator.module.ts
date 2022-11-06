@@ -4,7 +4,6 @@ import {CheckboxModule} from "primeng/checkbox";
 import {DropdownModule} from "primeng/dropdown";
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ConfiguratorRoutingModule} from './configurator-routing.module';
-import {ConfiguratorService} from './services/configurator.service';
 import {TableModule} from 'primeng/table';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import {GalleriaModule} from 'primeng/galleria';
@@ -12,12 +11,17 @@ import {ButtonModule} from 'primeng/button';
 import {TabViewModule} from 'primeng/tabview';
 import {ToastModule} from 'primeng/toast';
 import {DialogModule} from 'primeng/dialog';
-import {ConfiguratorAdminModule} from './components/configurator-admin/configurator-admin.component';
+import {ConfiguratorAdminComponent} from './configurator-admin/configurator-admin.component';
 import {InputSwitchModule} from "primeng/inputswitch";
+import {ConfiguratorAuthComponent} from "./configurator-auth/configurator-auth.component";
 
+const components = [
+  ConfiguratorAdminComponent,
+  ConfiguratorAuthComponent,
+];
 
 @NgModule({
-  declarations: [ConfiguratorAdminModule],
+  declarations: [...components],
   imports: [
     CommonModule,
     CheckboxModule,
@@ -34,8 +38,7 @@ import {InputSwitchModule} from "primeng/inputswitch";
     DialogModule,
     InputSwitchModule
   ],
-  exports: [],
-  providers: [ConfiguratorService],
+  exports: [...components]
 })
 
 export class ConfiguratorModule {

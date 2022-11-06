@@ -1,5 +1,5 @@
 <p-toast [style]="{ marginTop: '80px' }"></p-toast>
-<header class="{{ isGarant ? 'garant-header' : '' }}"></header>
+<app-header class="{{ isGarant ? 'garant-header' : '' }}"></app-header>
 <main class="app-container">
   <ng-http-loader
     [backdrop]="true"
@@ -12,4 +12,4 @@
 
   <router-outlet></router-outlet>
 </main>
-<footer></footer>
+<app-footer></app-footer>

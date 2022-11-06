@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Spinkit } from 'ng-http-loader';
-import { MetrikaService } from "./services/common/metrika.service";
+import { MetrikaService } from "./core/services/common/metrika.service";
 
 @Component({
   selector: 'app-root',

@@ -3,7 +3,7 @@
     <a routerLink="/profile/chat/dialogs" class="profile-dialog__back">
       <gar-icon name="arrow-left-angle"></gar-icon>
     </a>
-  
+
     <div>Чат с {{fio}}</div>
   </div>
 </div>
@@ -38,6 +38,7 @@
       pInputTextarea
       [autoResize]="true"
       placeholder="Введите сообщение"
+      name="message"
       [(ngModel)]="message"
       (keydown.enter)="onSendMessageAsync()"
       >

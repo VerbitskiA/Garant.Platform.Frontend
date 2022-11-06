@@ -1,0 +1,529 @@
+@import 'src/assets/styles/design/design';
+
+:host {
+    .header {
+        color: $clrBlue;
+        padding: $gridGap 0;
+
+        &-cabinet {
+            color: $clrWhite;
+            background-color: $clrBlue;
+
+            .header-main {
+                grid-template-areas: "logo burger" "deal deal" "control control";
+
+                @include tablet {
+                    grid-template-areas: "nav nav" "logo options" "deal deal" "control control";
+                }
+
+                @include desktop {
+                    grid-template-areas: "nav nav nav" "logo deal options" "control control control";
+                }
+            }
+
+            .header-nav-item,
+            .header-options-item {
+                color: $clrWhite;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        &-main {
+            display: grid;
+            grid-template-columns: 1fr max-content;
+            grid-template-areas: "logo burger" "search search";
+            gap: calc(#{$gridGap} / 2) 0;
+
+            @include tablet-small {
+                grid-template-areas: "logo burger" "search search" "categories categories";
+                gap: calc((#{$gridGap} / 3) * 2) 0;
+            }
+
+            @include tablet {
+                grid-template-areas: "nav nav" "logo options" "search search" "categories categories";
+                gap: $gridGap 0;
+            }
+
+            @include desktop {
+                grid-template-columns: max-content 1fr max-content;
+                grid-template-areas: "nav nav nav" "logo search options" "categories categories categories";
+                gap: calc((#{$gridGap} / 3) + #{$gridGap});
+            }
+        }
+
+        &-burger {
+            grid-area: burger;
+
+            width: 60px;
+            height: 60px;
+            margin-left: auto;
+
+            @include tablet {
+                display: none;
+            }
+
+            gar-icon {
+                width: 28px;
+                height: 25px;
+                fill: currentColor;
+            }
+        }
+
+        &-nav {
+            grid-area: nav;
+            display: none;
+
+            @include tablet {
+                display: block;
+            }
+
+            .gar-grid {
+                justify-content: space-between;
+                align-items: center;
+                gap: 0;
+
+                margin-left: auto;
+
+                @include desktop {
+                    justify-content: flex-end;
+                    gap: $gridGap;
+                }
+            }
+
+            &-item {
+                @include typo('description');
+
+                color: $clrDarkGray;
+                text-decoration: none;
+                white-space: nowrap;
+                transition: color $timeFast;
+                cursor: pointer;
+
+                &:hover {
+                    color: $clrBlack;
+                }
+
+                &.add {
+                    position: relative;
+                    color: $clrBlue;
+                    background-color: $clrLightBlue;
+                    padding: calc(#{$gridGap} / 6) calc(#{$gridGap} / 3) calc(#{$gridGap} / 6) $gridGap;
+                    transition: $timeFast;
+                    transition-property: color, background-color;
+
+                    &:hover {
+                        color: $clrWhite;
+                        background-color: $clrBlue;
+                        text-decoration: none;
+                    }
+
+                    &::before {
+                        position: absolute;
+                        top: 50%;
+                        left: calc(#{$gridGap} / 3);
+
+                        font-weight: bold;
+                        transform: translateY(calc(-50% - 1px));
+                        content: '+';
+                    }
+                }
+            }
+        }
+
+        &-logo {
+            display: block;
+            width: 131px;
+            height: 50px;
+            color: inherit;
+
+            @include tablet {
+                width: 152px;
+                height: 58px;
+                margin-right: 10px;
+            }
+
+            gar-icon {
+                width: 100%;
+                height: 100%;
+                fill: currentColor;
+            }
+
+            &-wrapper {
+                grid-area: logo;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+            }
+        }
+
+        &-slogan {
+            color: $clrWhite;
+
+            @include tablet {
+                @include typo('description');
+
+                width: 152px;
+            }
+
+            @include desktop {
+                width: auto;
+                margin-top: calc(#{$gridGap} / 2);
+            }
+        }
+
+        &-search {
+            grid-area: search;
+
+            display: flex;
+            border: 2px solid $clrBlue;
+            border-radius: $border-radius;
+
+            @include desktop {
+                margin: 6px calc(#{$gridGap} * 2) 0;
+            }
+
+            gar-select {
+                display: none;
+                width: 136px;
+                height: 36px;
+
+                @include tablet-small {
+                    display: block;
+                    min-width: 100px;
+                    margin: calc(#{$gridGap} / 3);
+                    margin-right: 0;
+                }
+            }
+
+            &-input {
+                flex: 1;
+                height: 100%;
+                border: none;
+
+                &:focus-within {
+                    box-shadow: none;
+                }
+            }
+
+            &-button {
+                width: 56px;
+                height: 100%;
+
+                border-top-left-radius: 0;
+                border-bottom-left-radius: 0;
+
+                gar-icon {
+                    width: 24px;
+                    height: 24px;
+                    fill: $clrWhite;
+                }
+            }
+        }
+
+        &-deal {
+            grid-area: deal;
+
+            background-color: $clrDarkBLue;
+            border-radius: $border-radius;
+            padding: calc(#{$gridGap} / 2);
+
+            @include tablet-small {
+                display: flex;
+                padding-top: calc(#{$gridGap} / 3 * 2);
+            }
+
+            @include tablet {
+                align-self: center;
+                margin: 0 calc(#{$gridGap} * 2);
+            }
+
+            &-data {
+                margin-bottom: calc(#{$gridGap} / 2);
+
+                @include tablet-small {
+                    display: flex;
+                    flex-direction: column;
+
+                    margin-right: auto;
+                    margin-bottom: 0;
+                }
+            }
+
+            &-title {
+                @include typo('regular');
+            }
+
+            &-subtitle {
+                @include typo('description');
+
+                margin-top: calc(#{$gridGap} / 3);
+
+                @include tablet-small {
+                    margin-top: auto;
+                }
+            }
+
+            gar-button {
+                width: 100%;
+            }
+        }
+
+        &-options {
+            grid-area: options;
+            display: none;
+
+            @include tablet {
+                display: flex;
+                gap: calc(#{$gridGap} * 2);
+
+                margin-left: auto;
+            }
+
+            @include desktop {
+                align-self: center;
+            }
+
+            &-item {
+                @include typo('description');
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                color: $clrBlack;
+                text-decoration: none;
+                white-space: nowrap;
+                transition: color $timeFast;
+
+                &:hover {
+                    color: $clrBlue;
+                }
+
+                gar-icon {
+                    width: 42px;
+                    height: 42px;
+
+                    fill: currentColor;
+                }
+
+                span {
+                    margin-top: calc(#{$gridGap} / 6);
+                }
+            }
+        }
+
+        &-control {
+            grid-area: control;
+
+            @include tablet-small {
+                display: flex;
+                align-items: center;
+
+                border-top: 1px solid $clrLightGray;
+                padding-top: calc(#{$gridGap} / 3 * 2);
+            }
+
+            &-title {
+                @include typo('title');
+
+                @include tablet-small {
+                    margin-right: auto;
+                }
+            }
+
+            gar-button {
+                width: 100%;
+                margin-top: calc(#{$gridGap} / 2);
+
+                @include tablet-small {
+                    margin-top: 0;
+                }
+
+                gar-icon {
+                    vertical-align: -6px; // magic number
+                    width: 24px;
+                    height: 24px;
+
+                    fill: currentColor;
+                }
+            }
+        }
+
+        &-categories {
+            grid-area: categories;
+            display: none;
+            position: relative;
+
+            @include tablet-small {
+                display: block;
+            }
+
+            &::after {
+                display: none;
+                position: absolute;
+                inset: 0;
+
+                pointer-events: none;
+                background-image: $gradientGrayToBlue;
+                content: '';
+
+                @include tablet-small {
+                    display: block;
+                }
+
+                @include desktop {
+                    display: none;
+                }
+            }
+
+            &-wrapper {
+                @include tablet-small {
+                    display: flex;
+                    gap: calc(#{$gridGap} * 2);
+
+                    width: 100%;
+                    overflow-x: auto;
+
+                    scroll-snap-type: x mandatory;
+                    scroll-behavior: smooth;
+                    overscroll-behavior: contain;
+                }
+
+                @include desktop {
+                    justify-content: space-between;
+                    gap: 0;
+                    overflow: hidden;
+                }
+            }
+
+            &-item {
+                @include typo('title-item');
+
+                display: flex;
+                align-items: center;
+                color: $clrBlack;
+                text-decoration: none;
+
+                scroll-snap-align: start;
+                scroll-snap-stop: always;
+
+                &.-active,
+                &:hover {
+                    color: $clrBlue;
+
+                    .header-categories-item-square {
+                        color: inherit;
+                        border-color: currentColor;
+                        background-color: $clrLightBlue;
+
+                        gar-icon {
+                            fill: currentColor;
+                        }
+                    }
+                }
+
+                &-square {
+                    flex-shrink: 0;
+                    position: relative;
+
+                    width: 76px;
+                    height: 76px;
+
+                    background-color: transparent;
+                    border: 2px solid $clrLightGray;
+                    border-radius: $border-radius-btn;
+                    transition: $timeFast;
+                    transition-property: background-color, border-color;
+
+                    gar-icon {
+                        width: 44px;
+                        height: 42px;
+
+                        fill: $clrDarkGray;
+                    }
+                }
+
+                &-name {
+                    white-space: nowrap;
+                    margin-left: calc(#{$gridGap} / 3);
+                }
+            }
+        }
+    }
+}
+
+.burger-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+
+    overflow-y: auto;
+    width: 100vw;
+    background-color: $clrLightBlue;
+    padding: $gridGap;
+    transform: translate(-100%);
+    transition: transform $timeDefault;
+
+    &.-active {
+        transform: none;
+    }
+
+    &-logo {
+        fill: $clrBlue;
+
+        gar-icon {
+            width: 132px;
+            height: 50px;
+        }
+    }
+
+    &-button {
+        width: 60px;
+        height: 60px;
+
+        margin-left: auto;
+
+        gar-icon {
+            width: 28px;
+            height: 28px;
+
+            fill: $clrWhite;
+        }
+    }
+
+    &-links {
+        margin-top: calc(#{$gridGap} / 3);
+    }
+
+    &-nav {
+        a {
+            @include typo('regular');
+
+            display: block;
+            position: relative;
+
+            color: $clrBlack;
+            text-decoration: none;
+
+            padding: calc(#{$gridGap} / 3) 0;
+            padding-right: calc((#{$gridGap} / 3) * 2);
+            margin: calc(#{$gridGap} / 3) 0;
+
+            gar-icon {
+                position: absolute;
+                top: 50%;
+                right: 0;
+
+                width: 9px;
+                height: 16px;
+
+                fill: $clrMidGray;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}

@@ -6,7 +6,7 @@
 // @import "/src/app/modules/main-page/main-page.component.scss";
 
 // @import "/src/app/shared/styles/franchuse-styles.scss";
-@import 'design';
+@import '../../../../assets/styles/design/design';
 
 //@use "/src/app/app.component.scss";
 // @import "/src/app/shared/styles/image-space.scss";
@@ -14,7 +14,7 @@
 //@use "/src/app/modules/main-page/main-page.component.scss";
 //@use "../../../../app/shared/styles" as *;
 //@use "../../../../app/shared/styles/base" as *;
-@import "/src/app/shared/styles/media-quaries.scss";
+@import "../../../../assets/styles/media-quaries";
 
 strong {
   font-family: "Roboto", sans-serif;

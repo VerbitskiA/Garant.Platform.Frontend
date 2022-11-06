@@ -1,56 +1,52 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { CatalogFranchiseModule } from './modules/franchise/catalog-franchise/catalog-franchise.component';
-import { EditFranchiseModule } from './modules/franchise/edit-franchise/edit-franchise.component';
-import { CreateFranchiseModule } from './modules/franchise/create-franchise/create-franchise.component';
-import { LoginModule } from './modules/login/login.component';
-import { MainPageModule } from './modules/main-page/main-page.component';
-import { ProfileDataModule } from "./modules/profile/profile-data/profile-data.component";
-import { ViewFranchiseComponent } from './modules/franchise/view-franchise/view-franchise.component';
-import { CreateReadyBusinessModule } from './modules/business/create-ready-business/create-ready-business.component';
-import { ViewReadyBusinessModule } from './modules/business/view-ready-business/view-ready-business.component';
-import { EditReadyBusinessModule } from './modules/business/edit-ready-business/edit-ready-business.component';
-import { ProfileMyDataModule } from './modules/profile/profile-my-data/profile-my-data.component';
-import { ProfileMyMessagesModule } from './modules/profile/profile-my-dialogs/profile-my-dialogs.component';
-import { ProfileDialogMessagesModule } from './modules/profile/profile-dialog-messages/profile-dialog-messages.component';
-import { ManageAccountModule } from './modules/profile/manage-account/manage-account.component';
-import { MainSearchModule } from './modules/search/main-search/main-search.component';
-import { CatalogBusinessModule } from './modules/business/catalog-business/catalog-business.component';
-import { GarantInitModule } from './modules/garant/garant-init/garant-init.component';
-import { GarantConcordModule } from './modules/garant/garant-concord/garant-concord.component';
-import { GarantContractModule } from './modules/garant/garant-contract/garant-contract.component';
-import { GarantAcceptPaymentModule } from './modules/garant/garant-accept-payment/garant-accept-payment.component';
-import { FranchiseLandingModule } from './modules/landing/franchise-landing/franchise-landing.component';
-import { ConsultingLandingModule } from './modules/landing/consulting-landing/consulting-landing.component';
-import { DealLandingModule } from './modules/landing/deal-landing/deal-landing.component';
-import { ConfiguratorAuthModule } from './modules/configurator/configurator-auth/configurator-auth.component';
-import { NotificationsModule } from './modules/profile/profile-requests/notifications.component';
-import { CreateAdModule } from './modules/create-ad/create-ad.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {CatalogFranchiseComponent} from './modules/franchise/catalog-franchise/catalog-franchise.component';
+import {EditFranchiseComponent} from './modules/franchise/edit-franchise/edit-franchise.component';
+import {CreateFranchiseComponent} from './modules/franchise/create-franchise/create-franchise.component';
+import {LoginComponent} from './shared/components/login/login.component';
+import {MainPageComponent} from './shared/components/main-page/main-page.component';
+import {ProfileDataComponent} from "./modules/profile/profile-data/profile-data.component";
+import {ViewFranchiseComponent} from './modules/franchise/view-franchise/view-franchise.component';
+import {CreateReadyBusinessComponent} from './modules/business/create-ready-business/create-ready-business.component';
+import {ViewReadyBusinessComponent} from './modules/business/view-ready-business/view-ready-business.component';
+import {EditReadyBusinessComponent} from './modules/business/edit-ready-business/edit-ready-business.component';
+import {ManageAccountComponent} from './modules/profile/manage-account/manage-account.component';
+import {MainSearchComponent} from './shared/components/main-search/main-search.component';
+import {CatalogBusinessComponent} from './modules/business/catalog-business/catalog-business.component';
+import {GarantInitComponent} from './modules/garant/garant-init/garant-init.component';
+import {GarantConcordComponent} from './modules/garant/garant-concord/garant-concord.component';
+import {GarantContractComponent} from './modules/garant/garant-contract/garant-contract.component';
+import {GarantAcceptPaymentComponent} from './modules/garant/garant-accept-payment/garant-accept-payment.component';
+import {FranchiseLandingComponent} from './modules/landing/franchise-landing/franchise-landing.component';
+import {ConsultingLandingComponent} from './modules/landing/consulting-landing/consulting-landing.component';
+import {DealLandingComponent} from './modules/landing/deal-landing/deal-landing.component';
+import {ConfiguratorAuthComponent} from './modules/configurator/configurator-auth/configurator-auth.component';
+import {CreateAdComponent} from './shared/components/create-ad/create-ad.component';
 
 const routes: Routes = [
   {
     path: "",
-    component: MainPageModule
+    component: MainPageComponent
   },
 
   {
     path: "login",
-    component: LoginModule
+    component: LoginComponent
   },
 
   {
     path: "profile-data",
-    component: ProfileDataModule
+    component: ProfileDataComponent
   },
 
   {
     path: "catalog-franchise",
-    component: CatalogFranchiseModule
+    component: CatalogFranchiseComponent
   },
 
   {
     path: "franchise/create",
-    component: CreateFranchiseModule
+    component: CreateFranchiseComponent
   },
 
   {
@@ -60,81 +56,81 @@ const routes: Routes = [
 
   {
     path: "franchise/edit",
-    component: EditFranchiseModule
+    component: EditFranchiseComponent
   },
 
   {
     path: "business/create",
-    component: CreateReadyBusinessModule
+    component: CreateReadyBusinessComponent
   },
 
   {
     path: "business/view",
-    component: ViewReadyBusinessModule
+    component: ViewReadyBusinessComponent
   },
 
   {
     path: "business/edit",
-    component: EditReadyBusinessModule
+    component: EditReadyBusinessComponent
   },
 
   {
     path: "ad/create",
-    component: CreateAdModule
+    component: CreateAdComponent
   },
 
   {
     path: "manage-account",
-    component: ManageAccountModule
+    component: ManageAccountComponent
   },
 
   {
     path: "search",
-    component: MainSearchModule
+    component: MainSearchComponent
   },
   {
     path: "catalog-business",
-    component: CatalogBusinessModule
+    component: CatalogBusinessComponent
   },
 
   {
     path: "garant/garant-init",
-    component: GarantInitModule
+    component: GarantInitComponent
   },
 
   {
     path: "garant/garant-concord",
-    component: GarantConcordModule
+    component: GarantConcordComponent
   },
 
   {
     path: "garant/garant-contract",
-    component: GarantContractModule
+    component: GarantContractComponent
   },
 
   {
     path: "garant/garant-accept-payment",
-    component: GarantAcceptPaymentModule
+    component: GarantAcceptPaymentComponent
   },
 
   {
     path: "franchise/start",
-    component: FranchiseLandingModule
+    component: FranchiseLandingComponent
   },
 
   {
     path: "consulting/start",
-    component: ConsultingLandingModule
+    component: ConsultingLandingComponent
   },
 
   {
     path: "deal/start",
-    component: DealLandingModule
+    component: DealLandingComponent
   },
 
   {
     path: "configurator/auth",
-    component: ConfiguratorAuthModule
+    component: ConfiguratorAuthComponent
   },
 
   // {

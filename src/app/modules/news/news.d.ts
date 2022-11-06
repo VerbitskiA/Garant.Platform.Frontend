@@ -1,4 +1,4 @@
-export namespace news {
+export namespace News {
 	export interface INewsBlockItem {
 		date: string;
 		dateCreated: string;
@@ -12,7 +12,7 @@ export namespace news {
 		url: string;
 		viewsCount: number;
 	}
-	
+
 	/**
 	 * Модель для Новостей делового мира (с фильтром)
 	 *

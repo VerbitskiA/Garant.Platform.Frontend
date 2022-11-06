@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { CommonDataService } from "../../../services/common/common-data.service";
+import { CommonDataService } from "../../../core/services/common/common-data.service";
 import { GarDestroyService } from "../../../gar-lib/gar-destroy.service";
 import { CatalogShortCardComponent } from "../catalog/catalog.short.card/catalog.short.card.component";
 import { shareReplay, takeUntil, tap } from "rxjs/operators";
@@ -17,10 +17,10 @@ import { shareReplay, takeUntil, tap } from "rxjs/operators";
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShowcaseComponent {
-	
+
 	/** Компонент, передаваемый в карусель */
 	cardComponent = CatalogShortCardComponent;
-	
+
 	/** список популярных франшиз */
 	readonly aPopularFranchises$ = this.commonService.getPopularFranchise().pipe(
 		shareReplay(1),
@@ -34,11 +34,11 @@ export class ShowcaseComponent {
 		shareReplay(1),
 		takeUntil(this._destroy$)
 	)
-	
+
 	constructor(
 		private commonService: CommonDataService,
 		private _destroy$: GarDestroyService
 	) {
 	}
-	
+
 }

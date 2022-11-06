@@ -1,5 +1,5 @@
 import { Component, Input } from "@angular/core";
-import { products } from "../../products";
+import { Products } from "../../products";
 import { Observable } from "rxjs";
 import { GarItemComponent } from "../../../../gar-lib/gar-item/gar-item.component";
 
@@ -9,7 +9,7 @@ import { GarItemComponent } from "../../../../gar-lib/gar-item/gar-item.componen
 @Component({
 	template: ''
 })
-export abstract class CatalogBaseCardComponent<T> extends GarItemComponent<T> implements products.catalog.IShortCard<T> {
+export abstract class CatalogBaseCardComponent<T> extends GarItemComponent<T> implements Products.Catalog.IShortCard<T> {
 
 	@Input()
   override set item(value: T) {
