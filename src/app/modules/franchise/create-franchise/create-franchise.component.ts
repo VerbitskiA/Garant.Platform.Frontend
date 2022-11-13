@@ -252,6 +252,7 @@ export class CreateFranchiseComponent implements OnInit {
         return sendFormData;
       }),
       switchMap(data => this.http.post<FranchiseOutput>(API_URL.apiUrl.concat("/franchise/create-update-franchise"), data)),
+      // switchMap(data => this.http.post<CatalogFranchiseModel>(API_URL.apiUrl.concat("/franchise/create-update-franchise"), data)),
       takeUntil(this._destroy$)
     ).subscribe(response => {
       console.log("Франшиза успешно создана:", response);
