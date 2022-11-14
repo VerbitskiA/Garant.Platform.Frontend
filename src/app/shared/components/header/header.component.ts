@@ -6,6 +6,8 @@ import {BehaviorSubject, combineLatest, Observable} from "rxjs";
 import {SESSION_TOKEN, SessionService} from "../../../core/services/session/session.service";
 import {filter, map, shareReplay, takeUntil} from "rxjs/operators";
 import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
+import {RU} from "../../../strings/RU/ru-strings";
+import {ENG} from "../../../strings/ENG/eng-string";
 
 export namespace Header {
   export interface IItem {
@@ -26,12 +28,18 @@ export namespace Header {
   }
 }
 
+  //const cabinetString = RU.cabinet_links;
+  const cabinetString = ENG.cabinet_links;
 
 const CABINET_LINKS: Header.IHeaderItem[] = [
-  {name: 'Продать', icon: 'cabinet-megaphone', link: '/'},
-  {name: 'Мои сделки', icon: 'cabinet-deal', link: '/'},
-  {name: 'Избранное', icon: 'cabinet-star', link: '/'},
-  {name: 'Уведомления', icon: 'cabinet-bell', link: '/'},
+  // {name: 'Продать', icon: 'cabinet-megaphone', link: '/'},
+   {name: cabinetString.sell, icon: 'cabinet-megaphone', link: '/'},
+  // {name: 'Мои сделки', icon: 'cabinet-deal', link: '/'},
+  {name: cabinetString.myDeals, icon: 'cabinet-deal', link: '/'},
+  // {name: 'Избранное', icon: 'cabinet-star', link: '/'},
+  {name: cabinetString.favorites, icon: 'cabinet-star', link: '/'},
+  // {name: 'Уведомления', icon: 'cabinet-bell', link: '/'},
+  {name: cabinetString.notifications, icon: 'cabinet-bell', link: '/'},
 ]
 
 @Component({
@@ -64,18 +72,29 @@ export class HeaderComponent implements OnInit {
   isGarant: boolean = false;
   items!: MenuItem[];
   isMenuHidden: boolean = true;
+
+  //public readonly headerString = RU.header;
+  public readonly headerString = ENG.header; // добавил header на английском)
+
   categories: Header.IHeaderItem[] = [
-    {name: 'Главная', icon: 'category-home', link: '/'},
-    {name: 'Франшизы', icon: 'category-franchise', link: '/catalog-franchise'},
-    {name: 'Готовый бизнес', icon: 'category-business', link: '/catalog-business'},
-    {name: 'Покупка через гарант', icon: 'category-deal', link: '/deal/start'},
-    {name: 'Консалтинг', icon: 'category-consulting', link: '/consulting/start'},
-    {name: 'Упаковка франшиз', icon: 'category-franchise-start', link: '/franchise/start'}
+    // {name: 'Главная', icon: 'category-home', link: '/'},
+    {name: this.headerString.home, icon: 'category-home', link: '/'},
+    // {name: 'Франшизы', icon: 'category-franchise', link: '/catalog-franchise'},
+    {name: this.headerString.franchises, icon: 'category-franchise', link: '/catalog-franchise'},
+    // {name: 'Готовый бизнес', icon: 'category-business', link: '/catalog-business'},
+    {name: this.headerString.readyMadeBusiness, icon: 'category-business', link: '/catalog-business'},
+    // {name: 'Покупка через гарант', icon: 'category-deal', link: '/deal/start'},
+    {name: this.headerString.buyingThroughAGuarantor, icon: 'category-deal', link: '/deal/start'},
+    // {name: 'Консалтинг', icon: 'category-consulting', link: '/consulting/start'},
+    {name: this.headerString.consulting, icon: 'category-consulting', link: '/consulting/start'},
+    // {name: 'Упаковка франшиз', icon: 'category-franchise-start', link: '/franchise/start'}
+    {name: this.headerString.packingFranchises, icon: 'category-franchise-start', link: '/franchise/start'}
   ];
 
   readonly cabinetLinks$: Observable<Header.IHeaderItem[]> = this._sessionService.isLogin$.pipe(
     map(isLogin => [...CABINET_LINKS, {
-      name: isLogin ? 'Аккаунт' : 'Войти',
+      // name: isLogin ? 'Аккаунт' : 'Войти',
+      name: isLogin ? cabinetString.account : cabinetString.logIn,
       icon: 'cabinet-profile',
       link: '/profile/my-data'
     }]),
