@@ -2,6 +2,8 @@ import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {NewsService} from "../../../core/services/news/news.service";
 import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
 import {shareReplay, takeUntil} from "rxjs/operators";
+import {RU} from "../../../strings/RU/ru-strings";
+import {ENG} from "../../../strings/ENG/eng-string";
 
 @Component({
 	selector: 'app-news-block',
@@ -22,8 +24,11 @@ export class NewsBlockComponent implements OnInit {
 	 *
 	 * @default Новости делового мира
 	 * */
-	@Input('title')
-	title: string = 'Новости делового мира';
+	// @Input('title')
+	// title: string = 'Новости делового мира';
+    // заменил на:
+  // public readonly newsString = RU.news;
+  public readonly newsString = ENG.news;
 
 	/**
 	 * Ссылка на баннер
