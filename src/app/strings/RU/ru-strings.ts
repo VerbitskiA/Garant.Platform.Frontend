@@ -21,6 +21,27 @@ export const RU = {
   promoBlockCard: {
     sliderTitle: 'Недавно приобрели',
     bannerTitle: 'Покупка бизнеса с гарантиями',
+  },
+  main_page: {
+    businessWithGuarantees: 'Вы можете приобрести бизнес с гарантиями',
+    quickSearch: 'Быстрый поиск',
+    typeOfBusiness: 'Вид бизнеса',
+    category: 'Категория',
+    city: 'Город',
+    price: 'Стоимость',
+    onlineDeal: 'Сделка онлайн',
+    showMore: 'Показать ещё',
+    popularFranchises: 'Популярные франшизы',
+    businessBlog: 'Бизнес блог',
+    read5minutes : 'читать ~5 минут',
+    published: 'опубликовано',
+    moreArticles: 'Больше статей',
+    ourBlog: 'Перейдите в наш блог и найдите там массу полезной информации.',
+    businessCategories: 'Категории бизнеса',
+    allReadyMadeBusiness: 'Весь готовый бизнес',
+    categoriesOfFranchises: 'Категории франшиз',
+    allFranchises: 'Все франшизы'
   }
+
 
 }
