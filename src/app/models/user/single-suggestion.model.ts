@@ -1,5 +1,4 @@
 export interface SingleSuggestionModel {
-  isSingle:	boolean
-  isAll:	boolean
-
+  isSingle: boolean;
+  isAll: boolean;
 }

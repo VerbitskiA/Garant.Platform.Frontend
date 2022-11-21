@@ -1,5 +1,5 @@
 export interface InitHeaderModel {
-  name?:	string
-  type?:	string
-  position: number
+  name?: string;
+  type?: string;
+  position: number;
 }

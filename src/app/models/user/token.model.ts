@@ -1,6 +1,6 @@
 export interface TokenModel {
-  user?:	string
-  token?:	string
-  isSuccess:	boolean
-  isWriteProfileData:	boolean
+  user?: string;
+  token?: string;
+  isSuccess: boolean;
+  isWriteProfileData: boolean;
 }
