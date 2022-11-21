@@ -13,6 +13,8 @@ import {
   CatalogShortCardComponent
 } from "../../../modules/products/catalog/catalog.short.card/catalog.short.card.component";
 import {PromoService} from "../../../core/services/promo/promo.service";
+import {ENG} from "../../../strings/ENG/eng-string";
+import {RU} from "../../../strings/RU/ru-strings";
 
 @Component({
   selector: 'app-main-page',
@@ -53,6 +55,9 @@ export class MainPageComponent implements OnInit {
   category: string = "";
   aNewBusiness: any[] = [];
   showCategoryMenu: boolean = false;
+
+  // public readonly mainPageString = RU.main_page;
+  public readonly mainPageString = ENG.main_page;
 
   readonly aDataActions$ = this._promoService.actions$;
   readonly aPopularFranchises$ = this.commonService.getPopularFranchise().pipe(
