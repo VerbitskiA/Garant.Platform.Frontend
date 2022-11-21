@@ -9,6 +9,7 @@ import {BehaviorSubject, of} from "rxjs";
 import {map, switchMap, takeUntil} from "rxjs/operators";
 import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
 import {FranchiseOutput} from "../../../models/franchise/output/franchise-output";
+import {CreateUpdateFranchiseModel} from "../../../models/franchise/create-update-franchise.model";
 
 @Component({
   selector: "app-create-franchise",
@@ -123,7 +124,8 @@ export class CreateFranchiseComponent implements OnInit {
   public onCreateFranchiseAsync() {
     console.log("onCreateFranchiseAsync");
 
-    let createUpdateFranchiseInput = new CreateUpdateFranchiseInput();
+    // let createUpdateFranchiseInput = new CreateUpdateFranchiseInput();
+    let createUpdateFranchiseInput = {} as CreateUpdateFranchiseModel;
     let logoName = this.logoName;
     let lead = this.lead;
     let generalInvest = this.generalInvest;
@@ -207,33 +209,60 @@ export class CreateFranchiseComponent implements OnInit {
     }))
 
     let packetJsonString = JSON.stringify(newPacks);
-    createUpdateFranchiseInput.Status = lead;
-    createUpdateFranchiseInput.GeneralInvest = generalInvest;
-    createUpdateFranchiseInput.LumpSumPayment = this.lumpSumPayment;
-    createUpdateFranchiseInput.Royalty = royalty;
-    createUpdateFranchiseInput.Payback = payback;
-    createUpdateFranchiseInput.ProfitMonth = profitMonth;
-    createUpdateFranchiseInput.LaunchDate = launchDate;
-    createUpdateFranchiseInput.ActivityDetail = activityDetail;
-    createUpdateFranchiseInput.BaseDate = baseDate;
-    createUpdateFranchiseInput.YearStart = yearStart;
-    createUpdateFranchiseInput.DotCount = dotCount;
-    createUpdateFranchiseInput.BusinessCount = businessCount;
-    createUpdateFranchiseInput.Peculiarity = featureFranchise;
-    createUpdateFranchiseInput.Text = defailsFranchise;
-    createUpdateFranchiseInput.PaymentDetail = paymentDetails;
-    createUpdateFranchiseInput.UrlVideo = videoLink;
-    createUpdateFranchiseInput.IsGarant = isGarant;
-    createUpdateFranchiseInput.InvestInclude = investInJsonString;
-    createUpdateFranchiseInput.FinIndicators = namesIndicatorsJsonString;
-    createUpdateFranchiseInput.NameFinIndicators = namesIndicators;
-    createUpdateFranchiseInput.FranchisePacks = packetJsonString;
-    createUpdateFranchiseInput.IsNew = true;
-    createUpdateFranchiseInput.Title = logoName;
-    createUpdateFranchiseInput.TrainingDetails = educationDetails;
-    createUpdateFranchiseInput.Category = this.routeParamCategory;
-    createUpdateFranchiseInput.SubCategory = this.routeParamSubCategory;
-    createUpdateFranchiseInput.UrlsFranchise = this.aNamesFranchisePhotos;
+    //createUpdateFranchiseInput.Status = lead;
+    createUpdateFranchiseInput.status = lead;
+    // createUpdateFranchiseInput.GeneralInvest = generalInvest;
+    createUpdateFranchiseInput.generalInvest = generalInvest as number;
+    // createUpdateFranchiseInput.LumpSumPayment = this.lumpSumPayment;
+    createUpdateFranchiseInput.lumpSumPayment = this.lumpSumPayment as number;
+    // createUpdateFranchiseInput.Royalty = royalty;
+    createUpdateFranchiseInput.royalty = royalty as number;
+    // createUpdateFranchiseInput.Payback = payback;
+    createUpdateFranchiseInput.payback = payback as number;
+    // createUpdateFranchiseInput.ProfitMonth = profitMonth;
+    createUpdateFranchiseInput.profitMonth = profitMonth as number;
+    // createUpdateFranchiseInput.LaunchDate = launchDate;
+    createUpdateFranchiseInput.launchDate = launchDate as number;
+    // createUpdateFranchiseInput.ActivityDetail = activityDetail;
+    createUpdateFranchiseInput.activityDetail = activityDetail;
+    // createUpdateFranchiseInput.BaseDate = baseDate;
+    createUpdateFranchiseInput.baseDate = baseDate as number;
+    // createUpdateFranchiseInput.YearStart = yearStart;
+    createUpdateFranchiseInput.yearStart = yearStart as number;
+    // createUpdateFranchiseInput.DotCount = dotCount;
+    createUpdateFranchiseInput.dotCount = dotCount as number;
+    // createUpdateFranchiseInput.BusinessCount = businessCount;
+    createUpdateFranchiseInput.businessCount = businessCount as number;
+    // createUpdateFranchiseInput.Peculiarity = featureFranchise;
+    createUpdateFranchiseInput.peculiarity = featureFranchise as string;
+    // createUpdateFranchiseInput.Text = defailsFranchise;
+    createUpdateFranchiseInput.text = defailsFranchise;
+    // createUpdateFranchiseInput.PaymentDetail = paymentDetails;
+    createUpdateFranchiseInput.paymentDetail = paymentDetails;
+    // createUpdateFranchiseInput.UrlVideo = videoLink;
+    createUpdateFranchiseInput.urlVideo = videoLink;
+    // createUpdateFranchiseInput.IsGarant = isGarant;
+    createUpdateFranchiseInput.isGarant = isGarant;
+    // createUpdateFranchiseInput.InvestInclude = investInJsonString;
+    createUpdateFranchiseInput.investInclude = investInJsonString;
+    // createUpdateFranchiseInput.FinIndicators = namesIndicatorsJsonString;
+    createUpdateFranchiseInput.finIndicators = namesIndicatorsJsonString;
+    // createUpdateFranchiseInput.NameFinIndicators = namesIndicators;
+    createUpdateFranchiseInput.nameFinIndicators = namesIndicators;
+    // createUpdateFranchiseInput.FranchisePacks = packetJsonString;
+    createUpdateFranchiseInput.franchisePacks = packetJsonString;
+    // createUpdateFranchiseInput.IsNew = true;
+    //createUpdateFranchiseInput.IsNew = true;
+    // createUpdateFranchiseInput.Title = logoName;
+    createUpdateFranchiseInput.title = logoName;
+    // createUpdateFranchiseInput.TrainingDetails = educationDetails;
+    createUpdateFranchiseInput.trainingDetails = educationDetails;
+    // createUpdateFranchiseInput.Category = this.routeParamCategory;
+    createUpdateFranchiseInput.category = this.routeParamCategory;
+    // createUpdateFranchiseInput.SubCategory = this.routeParamSubCategory;
+    createUpdateFranchiseInput.subCategory = this.routeParamSubCategory;
+    // createUpdateFranchiseInput.UrlsFranchise = this.aNamesFranchisePhotos;
+    //createUpdateFranchiseInput.UrlsFranchise = this.aNamesFranchisePhotos;
 
     let sendFormData = new FormData();
     sendFormData.append("franchiseDataInput", JSON.stringify(createUpdateFranchiseInput));
