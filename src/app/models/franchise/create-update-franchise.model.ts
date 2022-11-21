@@ -10,7 +10,7 @@ export interface CreateUpdateFranchiseModel {
   category?:	string;
   subCategory?:	string;
   viewBusiness?:	string;
-  isGarant:	boolean
+  isGarant:	boolean;
   city?:	string;
   profitPrice:	number;
   status?:	string;

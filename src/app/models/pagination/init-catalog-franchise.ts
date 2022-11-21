@@ -5,12 +5,12 @@ export interface InitCatalogFranchiseRequest {
 
 //Response === Output
 export interface InitCatalogFranchiseResponse {
-  results?: any[]
+  results?: any[];
   pageData: PaginationOutput;
-  totalCount: number
-  isLoadAll: boolean
-  isVisiblePagination: boolean
-  countAll: number
+  totalCount: number;
+  isLoadAll: boolean;
+  isVisiblePagination: boolean;
+  countAll: number;
 }
 
 interface PaginationOutput {

@@ -1,4 +1,4 @@
 export interface BusinessListModel {
-  viewCode:	string;
-  viewName?:	string;
+  viewCode: string;
+  viewName?: string;
 }

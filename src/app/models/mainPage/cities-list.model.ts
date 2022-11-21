@@ -1,4 +1,4 @@
 export interface CitiesListModel {
-  cityCode:	string;
+  cityCode: string;
   cityName?: string;
 }

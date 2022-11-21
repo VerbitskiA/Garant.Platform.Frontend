@@ -1,1 +1,1 @@
-export * from './get-blogs.model'
+export * from './get-blogs.model';

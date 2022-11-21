@@ -1,4 +1,4 @@
 export interface CitiesListModel {
-  businessCityCode?:	string
-  businessCityName?:	string
+  businessCityCode?: string;
+  businessCityName?: string;
 }

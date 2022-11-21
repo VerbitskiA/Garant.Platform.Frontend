@@ -1,4 +1,4 @@
 export interface SubcategoryListModel {
-  subCategoryCode?:	string
-  subCategoryName?:	string
+  subCategoryCode?: string;
+  subCategoryName?: string;
 }

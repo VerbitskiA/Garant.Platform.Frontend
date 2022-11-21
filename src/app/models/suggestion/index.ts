@@ -1,1 +1,1 @@
-export * from './input/suggestion-input'
+export * from './input/suggestion-input';

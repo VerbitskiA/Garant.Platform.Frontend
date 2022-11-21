@@ -1,5 +1,5 @@
 export interface CategoryListModel {
-  categoryCode?:	string
-  categoryName?:	string
-  franchiseCategorySysName?:	string
+  categoryCode?: string;
+  categoryName?: string;
+  franchiseCategorySysName?: string;
 }

@@ -1,1 +1,1 @@
-export * from './input/transition-input'
+export * from './input/transition-input';

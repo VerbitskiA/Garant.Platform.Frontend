@@ -1,4 +1,4 @@
 export interface CategoryListModel {
-  categoryCode?:	string
-  categoryName?:	string
+  categoryCode?: string;
+  categoryName?: string;
 }
