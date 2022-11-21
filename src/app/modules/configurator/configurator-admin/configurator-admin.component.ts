@@ -418,6 +418,13 @@ export class ConfiguratorAdminComponent implements OnInit, OnDestroy {
     // articleInput.Text = articleDescription;
     // articleInput.SignatureText = signature;
 
+    articleInput.title = articleTitle;
+    articleInput.blogId = selectedBlogId;
+    articleInput.themeCode = this.selectedTheme;
+    articleInput.description = shortArticleDescription;
+    articleInput.text = articleDescription;
+    articleInput.signatureText = signature;
+
     formData.append("articleData", JSON.stringify(articleInput));
 
     this.http.post(API_URL.apiUrl.concat("/blog/create-article"), formData)
