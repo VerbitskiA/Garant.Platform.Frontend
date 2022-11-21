@@ -23,10 +23,10 @@ export class PromoBlockCardComponent {
    *
    * @default 'Недавно приобрели'
    * */
-  // @Input('sliderTitle')
-  // sliderTitle = 'Недавно приобрели2';
-  //public readonly sliderTitle = RU.promoBlockCard.sliderTitle;
-  public readonly sliderTitle = ENG.promoBlockCard.sliderTitle;
+  // @Input('recentlyPurchased')
+  // recentlyPurchased = 'Недавно приобрели2';
+  //public readonly recentlyPurchased = RU.promoBlockCard.recentlyPurchased;
+  public readonly recentlyPurchased = ENG.promoBlockCard.sliderTitle;
 
   /**
    * Заголовок над баннером

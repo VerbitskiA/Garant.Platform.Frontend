@@ -98,7 +98,7 @@ export class CommonDataService {
   public initHeaderAsync<InitHeaderModel>(type: string): Observable<any> {
     let mainPage = new MainHeader();
     mainPage.Type = type;
-    return this.http.post(API_URL.apiUrl.concat("/user/init-header"), mainPage)
+    return this.http.post<InitHeaderModel>(API_URL.apiUrl.concat("/user/init-header"), mainPage)
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
