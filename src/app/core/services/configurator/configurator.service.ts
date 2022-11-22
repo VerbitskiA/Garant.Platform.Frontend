@@ -60,7 +60,7 @@ export class ConfiguratorService {
     modelInput.CategoryType = sphereType;
     modelInput.SysName = sysName;
     modelInput.SphereCode = categoryCode;
-    return this.http.post(API_URL.apiUrl + "/configurator/create-category", modelInput)
+    return this.http.post<CreateCategoryModel>(API_URL.apiUrl + "/configurator/create-category", modelInput)
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 }
