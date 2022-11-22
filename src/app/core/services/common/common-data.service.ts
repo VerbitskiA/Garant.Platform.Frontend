@@ -104,7 +104,7 @@ export class CommonDataService {
   public initHeaderAsync<InitHeaderModel>(type: string): Observable<any> {
     let mainPage = new MainHeader();
     mainPage.Type = type;
-    return this.http.post<InitHeaderModel>(API_URL.apiUrl.concat("/user/init-header"), mainPage)
+    return this.http.post<InitHeaderModel[]>(API_URL.apiUrl.concat("/user/init-header"), mainPage)
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
@@ -121,7 +121,7 @@ export class CommonDataService {
    * Функция получит поля футера.
    */
   public initFooterAsync(): Observable<any> {
-    return this.http.post<InitFooterModel>(API_URL.apiUrl.concat("/user/init-footer"), {})
+    return this.http.post<InitFooterModel[]>(API_URL.apiUrl.concat("/user/init-footer"), {})
       .pipe(
         tap((response) => {
           console.log("Данные футера:", response);
@@ -156,13 +156,13 @@ export class CommonDataService {
    * @returns Список франшиз.
    */
   public getPopularFranchise(): Observable<any> {
-    return this.http.post<MainPopularModel>(API_URL.apiUrl.concat("/franchise/main-popular"), {}).pipe(
+    return this.http.post<MainPopularModel[]>(API_URL.apiUrl.concat("/franchise/main-popular"), {}).pipe(
       catchError(err => throwError(err))
     )
   }
 
   public getPopularBusinessAsync(): Observable<any> {
-    return this.http.post<PopularBusinessModel>(API_URL.apiUrl.concat("/business/popular-business"), {})
+    return this.http.post<PopularBusinessModel[]>(API_URL.apiUrl.concat("/business/popular-business"), {})
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
@@ -177,7 +177,7 @@ export class CommonDataService {
       param = "create-franchise";
     }
     inputBreadcrumb.SelectorPage = param;
-    return this.http.post<GetBreadcrumbsModel>(API_URL.apiUrl.concat("/user/get-breadcrumbs"), inputBreadcrumb)
+    return this.http.post<GetBreadcrumbsModel[]>(API_URL.apiUrl.concat("/user/get-breadcrumbs"), inputBreadcrumb)
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
@@ -238,10 +238,10 @@ export class CommonDataService {
    */
   public GetFranchiseCategoriesListAsync(): Observable<any> {
     if (this.router.url === "/ad/create") {
-      return this.http.get<CategoryListModel>(API_URL.apiUrl.concat("/franchise/category-list-auth"))
+      return this.http.get<CategoryListModel[]>(API_URL.apiUrl.concat("/franchise/category-list-auth"))
         .pipe(tap((response) => response), catchError(err => of(new Error(err))));
     }
-    return this.http.get<CategoryListModel>(API_URL.apiUrl.concat("/franchise/category-list"))
+    return this.http.get<CategoryListModel[]>(API_URL.apiUrl.concat("/franchise/category-list"))
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
@@ -259,7 +259,7 @@ export class CommonDataService {
    * @returns Список категорий.
    */
   public GetBusinessCategoriesListAsync(): Observable<any> {
-    return this.http.post<CategoryListModel>(API_URL.apiUrl.concat("/business/category-list"), {})
+    return this.http.post<CategoryListModel[]>(API_URL.apiUrl.concat("/business/category-list"), {})
       .pipe(tap((response) => response), catchError((err) => {
         this.routeToStart(err);
         return of(new Error(err));
@@ -271,7 +271,7 @@ export class CommonDataService {
    * @returns Список подкатегорий.
    */
   public GetBusinessSubCategoriesListAsync(): Observable<any> {
-    return this.http.post<SubcategoryListModel>(API_URL.apiUrl.concat("/business/subcategory-list"), {})
+    return this.http.post<SubcategoryListModel[]>(API_URL.apiUrl.concat("/business/subcategory-list"), {})
       .pipe(tap((response) => response), catchError((err) => {
         this.routeToStart(err);
         return of(new Error(err));
@@ -283,7 +283,7 @@ export class CommonDataService {
    * @returns Список городов.
    */
   public GetBusinessCitiesListAsync(): Observable<any> {
-    return this.http.post<CitiesListModel>(API_URL.apiUrl.concat("/business/cities-list"), {})
+    return this.http.post<CitiesListModel[]>(API_URL.apiUrl.concat("/business/cities-list"), {})
       .pipe(tap((response) => response), catchError((err) => {
         this.routeToStart(err);
         return of(new Error(err));
@@ -295,7 +295,7 @@ export class CommonDataService {
    * @returns Список меню.
    */
   public getProfileMenuAsync() {
-    return this.http.post<ProfileMenuModel>(API_URL.apiUrl.concat("/user/profile-menu"), {})
+    return this.http.post<ProfileMenuModel[]>(API_URL.apiUrl.concat("/user/profile-menu"), {})
       .pipe(tap((response) => response), catchError(err => {
         this.routeToStart(err);
         return of(new Error(err))
@@ -307,7 +307,7 @@ export class CommonDataService {
    * @returns Список диалогов.
    */
   public getDialogsAsync(): Observable<any> {
-    return this.http.post<DialogsModel>(API_URL.apiUrl.concat("/chat/dialogs"), {})
+    return this.http.post<DialogsModel[]>(API_URL.apiUrl.concat("/chat/dialogs"), {})
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
@@ -337,7 +337,7 @@ export class CommonDataService {
   }
 
   public onGetBlogsAsync(): Observable<any> {
-    return this.http.post<GetBlogsModel>(API_URL.apiUrl.concat("/blog/get-blogs"), {})
+    return this.http.post<GetBlogsModel[]>(API_URL.apiUrl.concat("/blog/get-blogs"), {})
       .pipe(tap((response) => response), catchError(err => {
         this.routeToStart(err);
         return of(new Error(err));
@@ -362,13 +362,13 @@ export class CommonDataService {
   };
 
   public getNewBusiness(): Observable<any> {
-    return this.http.post<NewBusinessModel>(API_URL.apiUrl.concat("/business/new-business"), {}).pipe(
+    return this.http.post<NewBusinessModel[]>(API_URL.apiUrl.concat("/business/new-business"), {}).pipe(
       catchError(err => throwError(err))
     );
   }
 
   public getNewBusinessAsync(): Observable<any> {
-    return this.http.post<NewBusinessModel>(API_URL.apiUrl.concat("/business/new-business"), {}).pipe(
+    return this.http.post<NewBusinessModel[]>(API_URL.apiUrl.concat("/business/new-business"), {}).pipe(
       catchError(err => throwError(err))
     );
   }
