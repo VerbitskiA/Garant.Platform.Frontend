@@ -8,6 +8,9 @@ import {CheckCodeInput} from "src/app/models/login/input/check-code-input";
 import {LoginInput} from "src/app/models/login/input/login-input";
 import {Session, SESSION_TOKEN, SessionService} from "../../../core/services/session/session.service";
 import SessionItems = Session.SessionItems;
+import {LoginModel} from "../../../models/user/login.model";
+import {SendConfirmCodeModel} from "../../../models/mailing/send-confirm-code.model";
+import {TokenModel} from "../../../models";
 
 @Component({
   selector: "app-login",
@@ -99,7 +102,7 @@ export class LoginComponent implements OnInit {
     loginInput.email = getByPassForm.value.numOrEmail;
     loginInput.password = getByPassForm.value.pass;
 
-    this.http.post(API_URL.apiUrl.concat("/user/login"), loginInput)
+    this.http.post<LoginModel>(API_URL.apiUrl.concat("/user/login"), loginInput)
       .subscribe((response: any) => {
         console.log("Авторизация:", response);
 
@@ -125,7 +128,7 @@ export class LoginComponent implements OnInit {
     inputData.data = form.value.data;
     inputData.data = this.data;
 
-    this.http.post(API_URL.apiUrl.concat("/mailing/send-confirm-code"), inputData)
+    this.http.post<SendConfirmCodeModel>(API_URL.apiUrl.concat("/mailing/send-confirm-code"), inputData)
       .subscribe((response: any) => {
         this.time = 60
         this.startTimer();
@@ -148,7 +151,7 @@ export class LoginComponent implements OnInit {
     let checkCodeInput = new CheckCodeInput();
     checkCodeInput.code = form.value.code;
 
-    this.http.post(API_URL.apiUrl.concat("/user/check-code"), checkCodeInput)
+    this.http.post<TokenModel>(API_URL.apiUrl.concat("/user/check-code"), checkCodeInput)
       .subscribe((response: any) => {
         console.log("Проверка кода подтверждения:", response);
         this.isGetCode = true;

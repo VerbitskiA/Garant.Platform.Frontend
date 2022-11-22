@@ -6,6 +6,7 @@ import {API_URL} from "src/app/core/core-urls/api-url";
 import {FilterInput} from "src/app/models/franchise/input/filter-franchise-input";
 import {SearchInput} from "src/app/models/search/input/search-input";
 import {CommonDataService} from "src/app/core/services/common/common-data.service";
+import {CatalogFranchiseModel} from "../../../models";
 
 @Component({
   selector: "app-main-search",
@@ -143,7 +144,7 @@ export class MainSearchComponent implements OnInit {
     filterInput.ProfitMinPrice = this.filterMinPrice;
     filterInput.ProfitMaxPrice = this.filterMaxPrice;
 
-    this.http.post(API_URL.apiUrl.concat("/franchise/filter-franchises"), filterInput)
+    this.http.post<CatalogFranchiseModel[]>(API_URL.apiUrl.concat("/franchise/filter-franchises"), filterInput)
       .subscribe((response: any) => {
         console.log("Франшизы после фильтрации:", response);
         // this.aFranchises = response;
@@ -161,7 +162,7 @@ export class MainSearchComponent implements OnInit {
    * Функция получит список франшиз.
    */
   private GetFranchisesListAsync() {
-    this.http.post(API_URL.apiUrl.concat("/franchise/catalog-franchise"), {})
+    this.http.post<CatalogFranchiseModel[]>(API_URL.apiUrl.concat("/franchise/catalog-franchise"), {})
       .subscribe((response: any) => {
         this.aFranchises = response;
         this.countTotalPage = response.length;

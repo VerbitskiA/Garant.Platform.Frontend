@@ -410,20 +410,20 @@ export class ConfiguratorAdminComponent implements OnInit, OnDestroy {
     formData.append("articleFile", this.articleFile);
 
     // let articleInput = new ArticleInput();
-    let articleInput = {} as CreateArticleModel;
     // articleInput.Title = articleTitle;
     // articleInput.BlogId = selectedBlogId;
     // articleInput.ThemeCode = this.selectedTheme;
     // articleInput.Description = shortArticleDescription;
     // articleInput.Text = articleDescription;
     // articleInput.SignatureText = signature;
-
-    articleInput.title = articleTitle;
-    articleInput.blogId = selectedBlogId;
-    articleInput.themeCode = this.selectedTheme;
-    articleInput.description = shortArticleDescription;
-    articleInput.text = articleDescription;
-    articleInput.signatureText = signature;
+    let articleInput = {
+    title: articleTitle,
+    blogId: selectedBlogId,
+    themeCode: this.selectedTheme,
+    description: shortArticleDescription,
+    text: articleDescription,
+    signatureText: signature,
+    } as CreateArticleModel;
 
     formData.append("articleData", JSON.stringify(articleInput));
 

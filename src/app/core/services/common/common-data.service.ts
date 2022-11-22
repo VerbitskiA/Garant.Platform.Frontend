@@ -6,29 +6,6 @@ import {catchError, tap} from "rxjs/operators";
 import {Observable, of, throwError} from "rxjs";
 import {Session, SESSION_TOKEN, SessionService} from "../session/session.service";
 import SessionItems = Session.SessionItems;
-//import {DialogInput} from "../../../models/chat/input/dialog-input";
-// import {BreadcrumbInput} from "../../../models/header/breadcrumb-input";
-// import {MainHeader} from "../../../models/header/main-header";
-//import {SuggestionInput} from "../../../models/suggestion/input/suggestion-input";
-//import {TransitionInput} from "../../../models/transition/input/transition-input";
-//import {TokenModel} from "../../../models/user/token.model";
-//import {InitHeaderModel} from "../../../models/user/init-header.model";
-//import {InitFooterModel} from "../../../models/user/init-footer.model";
-//import {CategoriesListModel} from "../../../models/mainPage/categories-list.model";
-// import {SingleSuggestionModel} from "../../../models/user/single-suggestion.model";
-//import {MainPopularModel} from "../../../models/franchise/main-popular.model";
-//import {PopularBusinessModel} from "../../../models/business/popular-business.model";
-// import {GetBreadcrumbsModel} from "../../../models/user/get-breadcrumbs.model";
-// import {GetTransitionModel} from "../../../models/user/get-transition.model";
-//import {CategoryListModel} from "../../../models/franchise/category-list.model";
-//import {SubcategoryListModel} from "../../../models/business/subcategory-list.model";
-//import {CitiesListModel} from "../../../models/business/cities-list.model";
-// import {ProfileMenuModel} from "../../../models/user/profile-menu.model";
-// import {DialogsModel} from "../../../models/chat/dialogs.model";
-// import {GetDialogModel} from "../../../models/chat/get-dialog.model";
-//import {GetBlogsModel} from "../../../models/blog/get-blogs.model";
-//import {NewBusinessModel} from "../../../models/business/new-business.model";
-//вынес импорты 9-31 строку в одну длинную строку через ../../../models.index.ts:
 import {TokenModel, InitHeaderModel, InitFooterModel, SingleSuggestionModel, GetBreadcrumbsModel,
   GetTransitionModel, ProfileMenuModel, CategoriesListModel, GetBlogsModel, MainPopularModel,
   CategoryListModel, PopularBusinessModel, SubcategoryListModel, CitiesListModel, NewBusinessModel,
