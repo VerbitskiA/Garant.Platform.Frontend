@@ -11,6 +11,7 @@ import {NewsModule} from "./news/news.module";
 import {ProductsModule} from "./products/products.module";
 import {PromoModule} from "./promo/promo.module";
 import {ProfileModule} from "./profile/profile.module";
+import {SharedModule} from "primeng/api";
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {ProfileModule} from "./profile/profile.module";
     NewsModule,
     ProductsModule,
     ProfileModule,
-    PromoModule
+    PromoModule,
+    SharedModule
   ]
 })
 export class ModulesModule { }
