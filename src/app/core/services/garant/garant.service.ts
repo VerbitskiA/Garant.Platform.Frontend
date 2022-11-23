@@ -9,6 +9,9 @@ import { CommonDataService } from "../common/common-data.service";
 import { DataService } from "../common/data-service";
 import {Observable, of} from "rxjs";
 import {catchError, tap} from "rxjs/operators";
+import {InitModel} from "../../../models/garant/init.model";
+import {GetTransitionModel} from "../../../models/user/get-transition.model";
+import {GetStatePaymentModel} from "../../../models/garant/get-state-payment.model";
 
 /**
  * Сервис Гаранта.
@@ -39,7 +42,7 @@ export class GarantService {
      garantInput.Stage = stage;
      garantInput.IsChat = isChat;
      garantInput.OtherId = otherId;
-     return this.http.post(API_URL.apiUrl.concat("/garant/init"), garantInput)
+     return this.http.post<InitModel>(API_URL.apiUrl.concat("/garant/init"), garantInput)
        .pipe(tap((response) => response), catchError(err => {
          this.commonService.routeToStart(err);
          return of(new Error(err));
@@ -56,7 +59,7 @@ export class GarantService {
             transitionInput.ReferenceId = referenceId;
 
             return new Promise(async resolve => {
-                await this.http.post(API_URL.apiUrl.concat("/user/get-transition-with-params"), transitionInput)
+                await this.http.post<GetTransitionModel>(API_URL.apiUrl.concat("/user/get-transition-with-params"), transitionInput)
                     .subscribe({
                         next: (response: any) => {
                             resolve(response);
@@ -91,7 +94,7 @@ export class GarantService {
             getStateInput.DealItemType = typeItemDeal;
 
             return new Promise(async resolve => {
-                await this.http.post(API_URL.apiUrl.concat("/garant/get-state-payment"), getStateInput)
+                await this.http.post<GetStatePaymentModel>(API_URL.apiUrl.concat("/garant/get-state-payment"), getStateInput)
                 .subscribe({
                     next: (response: any) => {
                         console.log("payment state: ", response);

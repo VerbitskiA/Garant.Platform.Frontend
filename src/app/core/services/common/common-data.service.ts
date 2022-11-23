@@ -2,32 +2,15 @@ import {HttpClient} from "@angular/common/http";
 import {Inject, Injectable} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
 import {API_URL} from "../../core-urls/api-url";
-import {DialogInput} from "../../../models/chat/input/dialog-input";
-import {BreadcrumbInput} from "../../../models/header/breadcrumb-input";
-import {MainHeader} from "../../../models/header/main-header";
-import {SuggestionInput} from "../../../models/suggestion/input/suggestion-input";
-import {TransitionInput} from "../../../models/transition/input/transition-input";
 import {catchError, tap} from "rxjs/operators";
 import {Observable, of, throwError} from "rxjs";
 import {Session, SESSION_TOKEN, SessionService} from "../session/session.service";
 import SessionItems = Session.SessionItems;
-import {TokenModel} from "../../../models/user/token.model";
-import {InitHeaderModel} from "../../../models/user/init-header.model";
-import {InitFooterModel} from "../../../models/user/init-footer.model";
-import {CategoriesListModel} from "../../../models/mainPage/categories-list.model";
-import {SingleSuggestionModel} from "../../../models/user/single-suggestion.model";
-import {MainPopularModel} from "../../../models/franchise/main-popular.model";
-import {PopularBusinessModel} from "../../../models/business/popular-business.model";
-import {GetBreadcrumbsModel} from "../../../models/user/get-breadcrumbs.model";
-import {GetTransitionModel} from "../../../models/user/get-transition.model";
-import {CategoryListModel} from "../../../models/franchise/category-list.model";
-import {SubcategoryListModel} from "../../../models/business/subcategory-list.model";
-import {CitiesListModel} from "../../../models/business/cities-list.model";
-import {ProfileMenuModel} from "../../../models/user/profile-menu.model";
-import {DialogsModel} from "../../../models/chat/dialogs.model";
-import {GetDialogModel} from "../../../models/chat/get-dialog.model";
-import {GetBlogsModel} from "../../../models/blog/get-blogs.model";
-import {NewBusinessModel} from "../../../models/business/new-business.model";
+import {TokenModel, InitHeaderModel, InitFooterModel, SingleSuggestionModel, GetBreadcrumbsModel,
+  GetTransitionModel, ProfileMenuModel, CategoriesListModel, GetBlogsModel, MainPopularModel,
+  CategoryListModel, PopularBusinessModel, SubcategoryListModel, CitiesListModel, NewBusinessModel,
+  DialogsModel, GetDialogModel, DialogInput, BreadcrumbInput, MainHeader, SuggestionInput, TransitionInput
+} from "../../../models"
 
 /**
  * Сервис общих функций.
@@ -98,7 +81,7 @@ export class CommonDataService {
   public initHeaderAsync<InitHeaderModel>(type: string): Observable<any> {
     let mainPage = new MainHeader();
     mainPage.Type = type;
-    return this.http.post(API_URL.apiUrl.concat("/user/init-header"), mainPage)
+    return this.http.post<InitHeaderModel[]>(API_URL.apiUrl.concat("/user/init-header"), mainPage)
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
@@ -115,7 +98,7 @@ export class CommonDataService {
    * Функция получит поля футера.
    */
   public initFooterAsync(): Observable<any> {
-    return this.http.post<InitFooterModel>(API_URL.apiUrl.concat("/user/init-footer"), {})
+    return this.http.post<InitFooterModel[]>(API_URL.apiUrl.concat("/user/init-footer"), {})
       .pipe(
         tap((response) => {
           console.log("Данные футера:", response);
@@ -150,13 +133,13 @@ export class CommonDataService {
    * @returns Список франшиз.
    */
   public getPopularFranchise(): Observable<any> {
-    return this.http.post<MainPopularModel>(API_URL.apiUrl.concat("/franchise/main-popular"), {}).pipe(
+    return this.http.post<MainPopularModel[]>(API_URL.apiUrl.concat("/franchise/main-popular"), {}).pipe(
       catchError(err => throwError(err))
     )
   }
 
   public getPopularBusinessAsync(): Observable<any> {
-    return this.http.post<PopularBusinessModel>(API_URL.apiUrl.concat("/business/popular-business"), {})
+    return this.http.post<PopularBusinessModel[]>(API_URL.apiUrl.concat("/business/popular-business"), {})
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
@@ -171,7 +154,7 @@ export class CommonDataService {
       param = "create-franchise";
     }
     inputBreadcrumb.SelectorPage = param;
-    return this.http.post<GetBreadcrumbsModel>(API_URL.apiUrl.concat("/user/get-breadcrumbs"), inputBreadcrumb)
+    return this.http.post<GetBreadcrumbsModel[]>(API_URL.apiUrl.concat("/user/get-breadcrumbs"), inputBreadcrumb)
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
@@ -232,10 +215,10 @@ export class CommonDataService {
    */
   public GetFranchiseCategoriesListAsync(): Observable<any> {
     if (this.router.url === "/ad/create") {
-      return this.http.get<CategoryListModel>(API_URL.apiUrl.concat("/franchise/category-list-auth"))
+      return this.http.get<CategoryListModel[]>(API_URL.apiUrl.concat("/franchise/category-list-auth"))
         .pipe(tap((response) => response), catchError(err => of(new Error(err))));
     }
-    return this.http.get<CategoryListModel>(API_URL.apiUrl.concat("/franchise/category-list"))
+    return this.http.get<CategoryListModel[]>(API_URL.apiUrl.concat("/franchise/category-list"))
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
@@ -253,7 +236,7 @@ export class CommonDataService {
    * @returns Список категорий.
    */
   public GetBusinessCategoriesListAsync(): Observable<any> {
-    return this.http.post<CategoryListModel>(API_URL.apiUrl.concat("/business/category-list"), {})
+    return this.http.post<CategoryListModel[]>(API_URL.apiUrl.concat("/business/category-list"), {})
       .pipe(tap((response) => response), catchError((err) => {
         this.routeToStart(err);
         return of(new Error(err));
@@ -265,7 +248,7 @@ export class CommonDataService {
    * @returns Список подкатегорий.
    */
   public GetBusinessSubCategoriesListAsync(): Observable<any> {
-    return this.http.post<SubcategoryListModel>(API_URL.apiUrl.concat("/business/subcategory-list"), {})
+    return this.http.post<SubcategoryListModel[]>(API_URL.apiUrl.concat("/business/subcategory-list"), {})
       .pipe(tap((response) => response), catchError((err) => {
         this.routeToStart(err);
         return of(new Error(err));
@@ -277,7 +260,7 @@ export class CommonDataService {
    * @returns Список городов.
    */
   public GetBusinessCitiesListAsync(): Observable<any> {
-    return this.http.post<CitiesListModel>(API_URL.apiUrl.concat("/business/cities-list"), {})
+    return this.http.post<CitiesListModel[]>(API_URL.apiUrl.concat("/business/cities-list"), {})
       .pipe(tap((response) => response), catchError((err) => {
         this.routeToStart(err);
         return of(new Error(err));
@@ -289,7 +272,7 @@ export class CommonDataService {
    * @returns Список меню.
    */
   public getProfileMenuAsync() {
-    return this.http.post<ProfileMenuModel>(API_URL.apiUrl.concat("/user/profile-menu"), {})
+    return this.http.post<ProfileMenuModel[]>(API_URL.apiUrl.concat("/user/profile-menu"), {})
       .pipe(tap((response) => response), catchError(err => {
         this.routeToStart(err);
         return of(new Error(err))
@@ -301,7 +284,7 @@ export class CommonDataService {
    * @returns Список диалогов.
    */
   public getDialogsAsync(): Observable<any> {
-    return this.http.post<DialogsModel>(API_URL.apiUrl.concat("/chat/dialogs"), {})
+    return this.http.post<DialogsModel[]>(API_URL.apiUrl.concat("/chat/dialogs"), {})
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
@@ -331,7 +314,7 @@ export class CommonDataService {
   }
 
   public onGetBlogsAsync(): Observable<any> {
-    return this.http.post<GetBlogsModel>(API_URL.apiUrl.concat("/blog/get-blogs"), {})
+    return this.http.post<GetBlogsModel[]>(API_URL.apiUrl.concat("/blog/get-blogs"), {})
       .pipe(tap((response) => response), catchError(err => {
         this.routeToStart(err);
         return of(new Error(err));
@@ -356,13 +339,13 @@ export class CommonDataService {
   };
 
   public getNewBusiness(): Observable<any> {
-    return this.http.post<NewBusinessModel>(API_URL.apiUrl.concat("/business/new-business"), {}).pipe(
+    return this.http.post<NewBusinessModel[]>(API_URL.apiUrl.concat("/business/new-business"), {}).pipe(
       catchError(err => throwError(err))
     );
   }
 
   public getNewBusinessAsync(): Observable<any> {
-    return this.http.post<NewBusinessModel>(API_URL.apiUrl.concat("/business/new-business"), {}).pipe(
+    return this.http.post<NewBusinessModel[]>(API_URL.apiUrl.concat("/business/new-business"), {}).pipe(
       catchError(err => throwError(err))
     );
   }

@@ -19,7 +19,7 @@ export const RU = {
     account: 'Аккаунт'
   },
   promoBlockCard: {
-    sliderTitle: 'Недавно приобрели',
+    recentlyPurchased: 'Недавно приобрели',
     bannerTitle: 'Покупка бизнеса с гарантиями',
   },
   main_page: {

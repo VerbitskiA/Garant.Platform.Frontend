@@ -15,6 +15,7 @@ import {
 import {PromoService} from "../../../core/services/promo/promo.service";
 import {ENG} from "../../../strings/ENG/eng-string";
 import {RU} from "../../../strings/RU/ru-strings";
+import {BusinessListModel, CatalogFranchiseModel, CitiesListModel, GetBlogsModel} from "../../../models";
 
 @Component({
   selector: 'app-main-page',
@@ -182,7 +183,7 @@ export class MainPageComponent implements OnInit {
    * @returns Список блогов.
    */
   private GetBlogsAsync() {
-    this.http.post(API_URL.apiUrl.concat("/blog/get-blogs"), {})
+    this.http.post<GetBlogsModel[]>(API_URL.apiUrl.concat("/blog/get-blogs"), {})
       .subscribe((response: any) => this.aBlogs = response, (err) => {
         throw new Error(err);
       });
@@ -193,7 +194,7 @@ export class MainPageComponent implements OnInit {
    * @returns Список франшиз.
    */
   private GetQuickFranchisesAsync() {
-    this.http.post(API_URL.apiUrl.concat("/franchise/quick-franchises"), {})
+    this.http.post<CatalogFranchiseModel[]>(API_URL.apiUrl.concat("/franchise/quick-franchises"), {})
       .subscribe((response: any) => this.aFranchises = response, (err) => {
         throw new Error(err);
       });
@@ -204,7 +205,7 @@ export class MainPageComponent implements OnInit {
    * Функция получит список городов франшиз.
    */
   private loadCitiesFranchisesListAsync() {
-    this.http.post(API_URL.apiUrl.concat("/main/cities-list"), {})
+    this.http.post<CitiesListModel[]>(API_URL.apiUrl.concat("/main/cities-list"), {})
       .subscribe((response: any) => this.aCities = response, (err) => {
         throw new Error(err);
       });
@@ -215,7 +216,7 @@ export class MainPageComponent implements OnInit {
    * Функция получит список категорий бизнеса.
    */
   private loadCategoriesFranchisesListAsync() {
-    this.http.post(API_URL.apiUrl.concat("/main/business-categories-list"), {})
+    this.http.post<CitiesListModel[]>(API_URL.apiUrl.concat("/main/business-categories-list"), {})
       .subscribe((response: any) => this.aBusinessCategories = response, (err) => {
         throw new Error(err);
       });
@@ -226,7 +227,7 @@ export class MainPageComponent implements OnInit {
    * Функция получит список видов бизнеса.
    */
   private loadViewBusinessFranchisesListAsync() {
-    this.http.post(API_URL.apiUrl.concat("/main/business-list"), {})
+    this.http.post<BusinessListModel[]>(API_URL.apiUrl.concat("/main/business-list"), {})
       .subscribe((response: any) => this.aViewBusiness = response, (err) => {
         throw new Error(err);
       });
@@ -250,7 +251,7 @@ export class MainPageComponent implements OnInit {
     filterInput.minPrice = form.value.minPrice;
     filterInput.maxPrice = form.value.maxPrice;
 
-    this.http.post(API_URL.apiUrl.concat("/main/filter"), filterInput)
+    this.http.post<CatalogFranchiseModel[]>(API_URL.apiUrl.concat("/main/filter"), filterInput)
       .subscribe((response: any) => this.aFranchises = response, (err) => {
         throw new Error(err);
       });
