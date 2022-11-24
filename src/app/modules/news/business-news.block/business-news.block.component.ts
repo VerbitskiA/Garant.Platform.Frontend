@@ -2,8 +2,8 @@ import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core'
 import {AbstractControl, FormArray, FormBuilder, FormGroup} from "@angular/forms";
 import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
 import {NewsService} from "../../../core/services/news/news.service";
-import {WINDOW} from "../../../../environments/window/window.token";
-import {WindowProvider} from "../../../../environments/window/window.provider";
+import {WINDOW} from "../../../core/services/window/window.token";
+import {WindowProvider} from "../../../core/services/window/window.provider";
 import {filter, map, shareReplay, switchMap, takeUntil, tap} from "rxjs/operators";
 import {BehaviorSubject, combineLatest, of, ReplaySubject} from "rxjs";
 import {KeyValue} from "@angular/common";

@@ -22,6 +22,7 @@ import {ConsultingLandingComponent} from './modules/landing/consulting-landing/c
 import {DealLandingComponent} from './modules/landing/deal-landing/deal-landing.component';
 import {ConfiguratorAuthComponent} from './modules/configurator/configurator-auth/configurator-auth.component';
 import {CreateAdComponent} from './shared/components/create-ad/create-ad.component';
+import {AuthGuard} from "./core/guards/auth.guard";
 
 const routes: Routes = [
   {
@@ -35,6 +36,7 @@ const routes: Routes = [
   },
 
   {
+    // canActivate: [AuthGuard],
     path: "profile-data",
     component: ProfileDataComponent
   },
@@ -139,6 +141,7 @@ const routes: Routes = [
   // }
 
   {
+    canActivate: [AuthGuard],
     path: "configurator/admin",
     loadChildren: () => import('./modules/configurator/configurator.module').then(m => m.ConfiguratorModule)
   }, {
@@ -151,6 +154,7 @@ const routes: Routes = [
     path: "news",
     loadChildren: () => import('./modules/news/news.module').then(m => m.NewsModule)
   }, {
+    canActivate: [AuthGuard],
     path: "profile",
     loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
   }

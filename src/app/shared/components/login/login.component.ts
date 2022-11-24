@@ -6,8 +6,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {API_URL} from "src/app/core/core-urls/api-url";
 import {CheckCodeInput} from "src/app/models/login/input/check-code-input";
 import {LoginInput} from "src/app/models/login/input/login-input";
-import {Session, SESSION_TOKEN, SessionService} from "../../../core/services/session/session.service";
-import SessionItems = Session.SessionItems;
+import {SessionService} from "../../../core/services/session/session.service";
+import {UsersService} from "../../../core/services/users/users.service";
 
 @Component({
   selector: "app-login",
@@ -40,10 +40,14 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private http: HttpClient,
+    private usersService: UsersService,
     private titleService: Title,
-    @Inject(SESSION_TOKEN)
+
     private _sessionService: SessionService
   ) {
+    if (this._sessionService.isLogin){
+      this.router.navigate(["/profile"]);
+    }
     this.routeParam = this.route.snapshot.queryParams["loginType"];
 
     // Если вход по коду.
@@ -99,15 +103,9 @@ export class LoginComponent implements OnInit {
     loginInput.email = getByPassForm.value.numOrEmail;
     loginInput.password = getByPassForm.value.pass;
 
-    this.http.post(API_URL.apiUrl.concat("/user/login"), loginInput)
-      .subscribe((response: any) => {
+    this.usersService.login(loginInput).subscribe((response: any) => {
         console.log("Авторизация:", response);
-
-        if (response.token && response.isSuccess) {
-          this._sessionService.setToken({[SessionItems.token]: response.token});
-          sessionStorage["user"] = response.user;
-          sessionStorage["isSuccess"] = response.isSuccess;
-          document.cookie = "user=" + response.user;
+        if (response.isSuccess) {
           this.isGetCode = true;
           this.IsWriteProfileData(response.isWriteProfileData);
         }
@@ -153,9 +151,9 @@ export class LoginComponent implements OnInit {
         console.log("Проверка кода подтверждения:", response);
         this.isGetCode = true;
         if (response.token && response.isSuccess) {
-          this._sessionService.setToken({[SessionItems.token]: response.token});
-          sessionStorage["user"] = response.user;
-          sessionStorage["isSuccess"] = response.isSuccess;
+          // this._sessionService.setToken({[SessionItems.token]: response.token});
+          // sessionStorage["user"] = response.user;
+          // sessionStorage["isSuccess"] = response.isSuccess;
           this.pauseTimer();
           this.IsWriteProfileData(response.isWriteProfileData);
         }
@@ -186,11 +184,11 @@ export class LoginComponent implements OnInit {
    * @param flag - флаг проверки.
    */
   private IsWriteProfileData(flag: boolean) {
+    console.log('!!! IsWriteProfileData', flag ? '/' : '/profile-data')
     if (flag) {
       this.router.navigate(["/"]);
       return;
     }
-
     this.router.navigate(["/profile-data"]);
   }
 

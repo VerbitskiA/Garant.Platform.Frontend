@@ -12,6 +12,12 @@ import {FormsModule} from "@angular/forms";
 import {GarLibModule} from "../../gar-lib/gar-lib.module";
 import {InputTextareaModule} from "primeng/inputtextarea";
 import {ToastModule} from "primeng/toast";
+import {CheckboxModule} from "primeng/checkbox";
+import {PanelMenuModule} from "primeng/panelmenu";
+import {SharedModule} from "../../shared/shared.module";
+import {ImageModule} from "primeng/image";
+import {TabMenuModule} from "primeng/tabmenu";
+import {AccordionModule} from "primeng/accordion";
 
 const components = [
   ProfilePageComponent,
@@ -31,7 +37,13 @@ const components = [
     FormsModule,
     GarLibModule,
     InputTextareaModule,
-    ToastModule
+    ToastModule,
+    CheckboxModule,
+    PanelMenuModule,
+    SharedModule,
+    ImageModule,
+    TabMenuModule,
+    AccordionModule
   ],
   exports: [...components]
 })

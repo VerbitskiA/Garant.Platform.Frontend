@@ -17,6 +17,7 @@ import {MainSearchComponent} from "./components/main-search/main-search.componen
 import {ProductsModule} from "../modules/products/products.module";
 import {PromoModule} from "../modules/promo/promo.module";
 import {NewsModule} from "../modules/news/news.module";
+import { StaticInfoComponent } from './components/static-info/static-info.component';
 
 const components = [
   HeaderComponent,
@@ -24,7 +25,8 @@ const components = [
   CreateAdComponent,
   LoginComponent,
   MainPageComponent,
-  MainSearchComponent
+  MainSearchComponent,
+  StaticInfoComponent
 ];
 
 @NgModule({

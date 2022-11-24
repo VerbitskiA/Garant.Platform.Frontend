@@ -9,7 +9,7 @@ import {SuggestionInput} from "../../../models/suggestion/input/suggestion-input
 import {TransitionInput} from "../../../models/transition/input/transition-input";
 import {catchError, tap} from "rxjs/operators";
 import {Observable, of, throwError} from "rxjs";
-import {Session, SESSION_TOKEN, SessionService} from "../session/session.service";
+import {Session, SessionService} from "../session/session.service";
 import SessionItems = Session.SessionItems;
 
 /**
@@ -23,7 +23,7 @@ export class CommonDataService {
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
-    @Inject(SESSION_TOKEN) private _sessionService: SessionService) {
+    private _sessionService: SessionService) {
     this.currentRoute = this.route.snapshot.queryParams;
   }
 
@@ -55,24 +55,24 @@ export class CommonDataService {
   // };
 
   // Функция обновит токена пользователя.
-  public refreshToken(): void {
-    setInterval(async () => {
-      if (!this._sessionService.getDataItem(SessionItems.token)) {
-        // clearInterval(intervalID);
-        clearInterval();
-        return;
-      }
-      this.http.get(API_URL.apiUrl.concat("/user/token"))
-        .subscribe((response: any) => {
-          const token = {[SessionItems.token]: response.token}
-          this._sessionService.setToken(token)
-          console.log("refresh token");
-        }, (err) => {
-          console.log(err);
-          console.log('Ошибка обновления токена');
-        });
-    }, 530000); // Каждые 9 мин.
-  };
+  // public refreshToken(): void {
+  //   setInterval(async () => {
+  //     if (!this._sessionService.getDataItem(SessionItems.token)) {
+  //       // clearInterval(intervalID);
+  //       clearInterval();
+  //       return;
+  //     }
+  //     this.http.get(API_URL.apiUrl.concat("/user/token"))
+  //       .subscribe((response: any) => {
+  //         const token = {[SessionItems.token]: response.token}
+  //         // this._sessionService.setToken(token)
+  //         console.log("refresh token");
+  //       }, (err) => {
+  //         console.log(err);
+  //         console.log('Ошибка обновления токена');
+  //       });
+  //   }, 530000); // Каждые 9 мин.
+  // };
 
   /**
    * Функция получит поля хидера.
@@ -87,8 +87,8 @@ export class CommonDataService {
 
   public routeToStart(err: any) {
     if (err.status === 401) {
-      this._sessionService.removeDataItem(SessionItems.token);
-      sessionStorage.clear();
+      this._sessionService.sessionEvent.next({close: true});
+      // sessionStorage.clear();
 
       this.router.navigate(["/login"], {queryParams: {loginType: "code"}});
     }
@@ -272,7 +272,7 @@ export class CommonDataService {
    * @returns Список меню.
    */
   public getProfileMenuAsync() {
-    return this.http.post(API_URL.apiUrl.concat("/user/profile-menu"), {})
+    return this.http.post(`${API_URL.apiUrl}/user/profile-menu`, null)
       .pipe(tap((response) => response), catchError(err => {
         this.routeToStart(err);
         return of(new Error(err))
