@@ -5,6 +5,7 @@ import {GarLibModule} from "../../gar-lib/gar-lib.module";
 import {RouterModule} from "@angular/router";
 import {PromotionCardComponent} from './promotion.card/promotion.card.component';
 import {CaruselCardModule} from "../../shared/components/carousel-card/carusel-card.module";
+import {ButtonModule} from "primeng/button";
 
 
 const components = [
@@ -19,7 +20,8 @@ const components = [
     CommonModule,
     GarLibModule,
     RouterModule,
-    CaruselCardModule
+    CaruselCardModule,
+    ButtonModule
   ]
 })
 export class PromoModule {

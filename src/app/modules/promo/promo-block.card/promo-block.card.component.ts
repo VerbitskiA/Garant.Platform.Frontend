@@ -45,4 +45,26 @@ export class PromoBlockCardComponent {
   ) {
   }
 
+  public cardsData = [
+    {
+      id: '1',
+      name: 'Bugatti',
+      description: 'Racing car',
+      price: 800,
+    },
+    {
+      id: '2',
+      name: 'Ferrari',
+      description: 'The Prancing Horse',
+      price: 1500,
+    },
+    {
+      id: '3',
+      name: 'Porsche',
+      description: 'Full spectrum',
+      price: 10000,
+    },
+
+  ];
+
 }

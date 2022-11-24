@@ -1,14 +1,10 @@
-import {Component, CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
+import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
 
 
-interface Car {
-
+interface CardData {
   id?: string;
-
   name?: string;
-
   description?: string;
-
   price?: number;
 }
 
@@ -16,53 +12,19 @@ interface Car {
 @Component({
   selector: 'app-carousel-card',
   templateUrl: './carousel-card.component.html',
-  styleUrls: ['./carousel-card.component.scss']
+  styleUrls: ['./carousel-card.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
-
 export class CarouselCardComponent {
-  cars: Car[] = [];
-  constructor() { }
+  @Input() public cardsData: CardData[] = [];
+  @Output() public caruselEvent: EventEmitter<CardData> = new EventEmitter<CardData>();
+  constructor() {
+  }
+
   ngOnInit() {
+  }
 
-    this.cars = [
-
-      {
-
-        id: '1',
-
-        name: 'Bugatti',
-
-        description: 'Racing car',
-
-        price: 800,
-
-      },
-
-      {
-
-        id: '2',
-
-        name: 'Ferrari',
-
-        description: 'The Prancing Horse',
-
-        price: 1500,
-
-      },
-
-      {
-
-        id: '3',
-
-        name: 'Porsche',
-
-        description: 'Full spectrum',
-
-        price: 10000,
-
-      },
-
-    ];
-
+  public testAction(card: CardData): void {
+    this.caruselEvent.emit(card);
   }
 }
