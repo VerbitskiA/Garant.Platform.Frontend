@@ -3,10 +3,8 @@ import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 import {API_URL} from "src/app/core/core-urls/api-url";
 import {CommonDataService} from "src/app/core/services/common/common-data.service";
-import {catchError, tap} from "rxjs/operators";
-import {of} from "rxjs";
+import {tap} from "rxjs/operators";
 import {CategoryListModel} from "../../../models";
-import {SearchCategoryModel} from "../../../models/franchise/search-category.model";
 
 @Component({
   selector: "app-create-ad",
@@ -137,7 +135,7 @@ export class CreateAdComponent implements OnInit {
   };
 
   public onFilterCategoryAsync(searchText: string, categoryCode: string, categorySysName: string) {
-    this.http.get<SearchCategoryModel>(API_URL.apiUrl.concat("/franchise/search-category?searchText="
+    this.http.get(API_URL.apiUrl.concat("/franchise/search-category?searchText="
       + searchText
       + "&categoryCode=" + categoryCode
       + "&categorySysName=" + categorySysName))

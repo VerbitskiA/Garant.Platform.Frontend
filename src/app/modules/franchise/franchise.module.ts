@@ -19,6 +19,7 @@ import {NewsModule} from "../news/news.module";
 import {PromoModule} from "../promo/promo.module";
 import {PaginatorModule} from "primeng/paginator";
 import {ProductsModule} from "../products/products.module";
+import {InputSwitchModule} from "primeng/inputswitch";
 
 const components = [
   ViewFranchiseComponent,
@@ -29,24 +30,25 @@ const components = [
 
 @NgModule({
   declarations: [...components],
-  imports: [
-    CommonModule,
-    ToastModule,
-    RouterLink,
-    GalleriaModule,
-    PipesModule,
-    FormsModule,
-    CheckboxModule,
-    GarLibModule,
-    ButtonModule,
-    InputTextModule,
-    InputTextareaModule,
-    FileUploadModule,
-    NewsModule,
-    PromoModule,
-    PaginatorModule,
-    ProductsModule
-  ],
+    imports: [
+        CommonModule,
+        ToastModule,
+        RouterLink,
+        GalleriaModule,
+        PipesModule,
+        FormsModule,
+        CheckboxModule,
+        GarLibModule,
+        ButtonModule,
+        InputTextModule,
+        InputTextareaModule,
+        FileUploadModule,
+        NewsModule,
+        PromoModule,
+        PaginatorModule,
+        ProductsModule,
+        InputSwitchModule
+    ],
   exports: [...components]
 })
 export class FranchiseModule { }

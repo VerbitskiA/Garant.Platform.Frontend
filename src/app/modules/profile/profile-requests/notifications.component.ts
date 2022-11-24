@@ -2,7 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {Title} from "@angular/platform-browser";
 import {HttpClient} from "@angular/common/http";
 import {API_URL} from "src/app/core/core-urls/api-url";
-import {GetRequestsModel} from "../../../models/request/get-requests.model";
+
 
 @Component({
   selector: "app-notifications",
@@ -33,7 +33,7 @@ export class NotificationsComponent implements OnInit {
   private onGetBusinessRequestsAsync() {
     console.log("onGetBusinessRequestsAsync");
 
-    this.http.get<GetRequestsModel[]>(API_URL.apiUrl.concat("/request/get-requests"))
+    this.http.get(API_URL.apiUrl.concat("/request/get-requests"))
       .subscribe((response: any) => this.aNotifyData = response, (err) => {
         throw new Error(err);
       });

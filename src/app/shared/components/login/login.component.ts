@@ -6,7 +6,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {API_URL} from "src/app/core/core-urls/api-url";
 import {CheckCodeInput} from "src/app/models/login/input/check-code-input";
 import {LoginInput} from "src/app/models/login/input/login-input";
-import {SendConfirmCodeModel} from "../../../models/mailing/send-confirm-code.model";
 import {TokenModel} from "../../../models";
 import {SessionService} from "../../../core/services/session/session.service";
 import {UsersService} from "../../../core/services/users/users.service";
@@ -125,7 +124,7 @@ export class LoginComponent implements OnInit {
     inputData.data = form.value.data;
     inputData.data = this.data;
 
-    this.http.post<SendConfirmCodeModel>(API_URL.apiUrl.concat("/mailing/send-confirm-code"), inputData)
+    this.http.post(API_URL.apiUrl.concat("/mailing/send-confirm-code"), inputData)
       .subscribe((response: any) => {
         this.time = 60
         this.startTimer();

@@ -6,7 +6,6 @@ import {API_URL} from "src/app/core/core-urls/api-url";
 import {RegisterInput} from "src/app/models/register/input/register-input";
 import {MessageService} from "primeng/api";
 import {CommonDataService} from "src/app/core/services/common/common-data.service";
-import {SaveProfileInfoModel} from "../../../models/user/save-profile-info.model";
 
 @Component({
   selector: "app-profile-data",
@@ -59,7 +58,7 @@ export class ProfileDataComponent implements OnInit {
     regInput.email = form.value.email;
     regInput.values = this.selectedValues.join();
 
-    this.http.post<SaveProfileInfoModel>(API_URL.apiUrl.concat("/user/save-user-info"), regInput)
+    this.http.post(API_URL.apiUrl.concat("/user/save-user-info"), regInput)
       .subscribe(
         (response: any) => this.messageService.add({severity: 'success',summary: 'Успешно!',detail: 'Данные о себе успешно сохранены'}),
         (err) => {

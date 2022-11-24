@@ -9,7 +9,6 @@ import {ProfileInput} from "src/app/models/profile/input/profile-input";
 import {CommonDataService} from "src/app/core/services/common/common-data.service";
 import {ManageAccountComponent} from "../manage-account/manage-account.component";
 import {SessionService} from '../../../core/services/session/session.service';
-import {SaveProfileInfoModel} from "../../../models/user/save-profile-info.model";
 
 @Component({
   selector: "app-profile-my-data",
@@ -116,7 +115,7 @@ export class ProfileMyDataComponent implements OnInit {
     formData.append("documentFile", this.documentFile);
     formData.append("userInformationInput", JSON.stringify(profileInput));
 
-    this.http.post<SaveProfileInfoModel>(API_URL.apiUrl.concat("/user/save-profile-info"), formData)
+    this.http.post(API_URL.apiUrl.concat("/user/save-profile-info"), formData)
       .subscribe((response: any) => this.showMessageAfterSuccessSaveProfileInfo(), (err) => {
         this.commonService.routeToStart(err);
         throw new Error(err);
