@@ -7,6 +7,7 @@ import {MessageService} from "primeng/api";
 import {API_URL} from "src/app/core/core-urls/api-url";
 import {ProfileInput} from "src/app/models/profile/input/profile-input";
 import {CommonDataService} from "src/app/core/services/common/common-data.service";
+import {SaveProfileInfoModel} from "../../../models/user/save-profile-info.model";
 
 @Component({
   selector: "app-manage-account",
@@ -99,7 +100,7 @@ export class ManageAccountComponent implements OnInit {
     formData.append("documentFile", this.documentFile);
     formData.append("userInformationInput", JSON.stringify(profileInput));
 
-    this.http.post(API_URL.apiUrl.concat("/user/save-profile-info"), formData)
+    this.http.post<SaveProfileInfoModel>(API_URL.apiUrl.concat("/user/save-profile-info"), formData)
       .subscribe((response: any) => this.showMessageAfterSuccessSaveProfileInfo(), (err) => {
         this.commonService.routeToStart(err);
         throw new Error(err);
@@ -125,7 +126,7 @@ export class ManageAccountComponent implements OnInit {
    * Функция получит данные профиля.
    */
   private getProfileInfoAsync() {
-    this.http.post(API_URL.apiUrl.concat("/user/get-profile-info"), {})
+    this.http.post<SaveProfileInfoModel>(API_URL.apiUrl.concat("/user/get-profile-info"), {})
       .subscribe((response: any) => {
         console.log("Данные профиля", response);
         this.profileData = response;

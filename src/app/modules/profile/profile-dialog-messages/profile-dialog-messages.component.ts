@@ -4,6 +4,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {API_URL} from "src/app/core/core-urls/api-url";
 import {CommonDataService} from "src/app/core/services/common/common-data.service";
 import {DataService} from "src/app/core/services/common/data-service";
+import {GetDialogModel} from "../../../models";
 
 @Component({
   selector: "app-profile-dialog-messages",
@@ -81,7 +82,7 @@ export class ProfileDialogMessagesComponent implements OnInit, AfterViewChecked 
   // TODO: Вынести в общий сервис сообщений, как только он будет создан.
   public onSendMessageAsync() {
     console.log("Сообщение", this.message);
-    this.http.post(API_URL.apiUrl.concat("/chat/send-message"), {Message: this.message, DialogId: this.dialogId})
+    this.http.post<GetDialogModel>(API_URL.apiUrl.concat("/chat/send-message"), {Message: this.message, DialogId: this.dialogId})
       .subscribe((response: any) => {
         console.log("Сообщения: ", response.messages);
         this.aMessages = response.messages;

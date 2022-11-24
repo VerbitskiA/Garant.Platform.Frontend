@@ -5,6 +5,8 @@ import {API_URL} from "src/app/core/core-urls/api-url";
 import {CommonDataService} from "src/app/core/services/common/common-data.service";
 import {catchError, tap} from "rxjs/operators";
 import {of} from "rxjs";
+import {CategoryListModel} from "../../../models";
+import {SearchCategoryModel} from "../../../models/franchise/search-category.model";
 
 @Component({
   selector: "app-create-ad",
@@ -123,7 +125,7 @@ export class CreateAdComponent implements OnInit {
    * @returns - Список сфер.
    */
   public onFilterSphereAsync(searchText: string) {
-    this.http.get(API_URL.apiUrl.concat("/franchise/search-sphere?searchText=" + searchText))
+    this.http.get<CategoryListModel[]>(API_URL.apiUrl.concat("/franchise/search-sphere?searchText=" + searchText))
       .pipe(tap((response) => console.log("Список сфер :", response)));
   };
 
@@ -135,7 +137,7 @@ export class CreateAdComponent implements OnInit {
   };
 
   public onFilterCategoryAsync(searchText: string, categoryCode: string, categorySysName: string) {
-    this.http.get(API_URL.apiUrl.concat("/franchise/search-category?searchText="
+    this.http.get<SearchCategoryModel>(API_URL.apiUrl.concat("/franchise/search-category?searchText="
       + searchText
       + "&categoryCode=" + categoryCode
       + "&categorySysName=" + categorySysName))

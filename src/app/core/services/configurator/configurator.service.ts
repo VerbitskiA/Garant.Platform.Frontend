@@ -5,6 +5,9 @@ import {catchError, tap} from 'rxjs/operators';
 import {API_URL} from 'src/app/core/core-urls/api-url';
 import {CreateCategoryInput} from 'src/app/models/configurator/input/create-category-input';
 import {CreateSphereInput} from 'src/app/models/configurator/input/create-sphere-input';
+import {NewBusinessModel} from "../../../models/business/new-business.model";
+import {CreateSphereModel} from "../../../models/configurator/create-sphere.model";
+import {CreateCategoryModel} from "../../../models/configurator/create-category.model";
 
 @Injectable()
 export class ConfiguratorService {
@@ -21,7 +24,7 @@ export class ConfiguratorService {
 
   public getNotAcceptedBusinesses(): Observable<any> {
     console.log("getNotAcceptedBusinesses");
-    return this.http.post(API_URL.apiUrl + '/configurator/businesses-not-accepted', {}).pipe(
+    return this.http.post<NewBusinessModel>(API_URL.apiUrl + '/configurator/businesses-not-accepted', {}).pipe(
       tap(data => this.notAcceptedBusinesses$.next(data))
     );
   };
@@ -39,7 +42,7 @@ export class ConfiguratorService {
     modelInput.SphereType = sphereType;
     modelInput.SysName = sysName;
 
-    return this.http.post(API_URL.apiUrl + "/configurator/create-sphere", modelInput)
+    return this.http.post<CreateSphereModel>(API_URL.apiUrl + "/configurator/create-sphere", modelInput)
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
@@ -51,13 +54,13 @@ export class ConfiguratorService {
    * @param sysName
    * @returns
    */
-  public createCategoryAsync(categoryCode: string, sphereName: string, sphereType: string, sysName: string): Observable<any> {
+  public createCategoryAsync<CreateCategoryModel>(categoryCode: string, sphereName: string, sphereType: string, sysName: string): Observable<any> {
     let modelInput = new CreateCategoryInput();
     modelInput.CategoryName = sphereName;
     modelInput.CategoryType = sphereType;
     modelInput.SysName = sysName;
     modelInput.SphereCode = categoryCode;
-    return this.http.post(API_URL.apiUrl + "/configurator/create-category", modelInput)
+    return this.http.post<CreateCategoryModel>(API_URL.apiUrl + "/configurator/create-category", modelInput)
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 }

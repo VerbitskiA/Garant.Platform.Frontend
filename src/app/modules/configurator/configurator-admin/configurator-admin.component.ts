@@ -16,6 +16,8 @@ import {Router} from "@angular/router";
 import {ConfiguratorService} from "../../../core/services/configurator/configurator.service";
 import {forkJoin, of, Subject} from "rxjs";
 import {catchError, tap} from "rxjs/operators";
+import {GetBlogsModel} from "../../../models";
+import {CreateArticleModel} from "../../../models/blog/create-article.model";
 
 @Component({
   selector: "app-configurator-admin",
@@ -407,13 +409,21 @@ export class ConfiguratorAdminComponent implements OnInit, OnDestroy {
     formData.append("previewFile", this.previewFile);
     formData.append("articleFile", this.articleFile);
 
-    let articleInput = new ArticleInput();
-    articleInput.Title = articleTitle;
-    articleInput.BlogId = selectedBlogId;
-    articleInput.ThemeCode = this.selectedTheme;
-    articleInput.Description = shortArticleDescription;
-    articleInput.Text = articleDescription;
-    articleInput.SignatureText = signature;
+    // let articleInput = new ArticleInput();
+    // articleInput.Title = articleTitle;
+    // articleInput.BlogId = selectedBlogId;
+    // articleInput.ThemeCode = this.selectedTheme;
+    // articleInput.Description = shortArticleDescription;
+    // articleInput.Text = articleDescription;
+    // articleInput.SignatureText = signature;
+    let articleInput = {
+    title: articleTitle,
+    blogId: selectedBlogId,
+    themeCode: this.selectedTheme,
+    description: shortArticleDescription,
+    text: articleDescription,
+    signatureText: signature,
+    } as CreateArticleModel;
 
     formData.append("articleData", JSON.stringify(articleInput));
 

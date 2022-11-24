@@ -11,6 +11,11 @@ import {CommonDataService} from 'src/app/core/services/common/common-data.servic
 import {shareReplay, takeUntil, tap} from 'rxjs/operators';
 import {CatalogShortCardComponent} from "../../products/catalog/catalog.short.card/catalog.short.card.component";
 import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
+import {CatalogFranchiseModel} from "../../../models/franchise/catalog-franchise.model";
+import {CitiesListModel} from "../../../models/mainPage/cities-list.model";
+import {BusinessListModel} from "../../../models/mainPage/business-list.model";
+import {InitCatalogFranchiseResponse} from "../../../models/pagination/init-catalog-franchise";
+import {ActionsModel} from "../../../models/mainPage/actions.model";
 
 @Component({
   selector: 'app-catalog-franchise',
@@ -117,7 +122,7 @@ export class CatalogFranchiseComponent implements OnInit {
    * Функция получит список франшиз.
    */
   private GetFranchisesListAsync() {
-    this.http.post(API_URL.apiUrl.concat('/franchise/catalog-franchise'), {})
+    this.http.post<CatalogFranchiseModel>(API_URL.apiUrl.concat('/franchise/catalog-franchise'), {})
       .subscribe((response: any) => {
         this.aFranchises = response;
         this.countTotalPage = response.length;
@@ -133,7 +138,7 @@ export class CatalogFranchiseComponent implements OnInit {
    * Функция получит список городов франшиз.
    */
   private loadCitiesFranchisesListAsync() {
-    this.http.post(API_URL.apiUrl.concat('/main/cities-list'), {})
+    this.http.post<CitiesListModel>(API_URL.apiUrl.concat('/main/cities-list'), {})
       .subscribe((response: any) => this.aCities = response, (err) => {
         throw new Error(err);
       });
@@ -144,7 +149,7 @@ export class CatalogFranchiseComponent implements OnInit {
    * Функция получит список категорий бизнеса.
    */
   private loadCategoriesFranchisesListAsync() {
-    this.http.post(API_URL.apiUrl.concat('/main/business-categories-list'), {})
+    this.http.post<CitiesListModel>(API_URL.apiUrl.concat('/main/business-categories-list'), {})
       .subscribe((response: any) => this.aBusinessCategories = response, (err) => {
         throw new Error(err);
       });
@@ -155,7 +160,7 @@ export class CatalogFranchiseComponent implements OnInit {
    * Функция получит список видов бизнеса.
    */
   private loadViewBusinessFranchisesListAsync() {
-    this.http.post(API_URL.apiUrl.concat('/main/business-list'), {})
+    this.http.post<BusinessListModel>(API_URL.apiUrl.concat('/main/business-list'), {})
       .subscribe((response: any) => this.aViewBusiness = response, (err) => {
         throw new Error(err);
       });
@@ -175,7 +180,7 @@ export class CatalogFranchiseComponent implements OnInit {
     filterInput.CountRows = event.rows;
     this.selectedCountRows = event.rows;
     console.log('rows', event.rows);
-    this.http.post(API_URL.apiUrl.concat('/franchise/filter-pagination'), filterInput)
+    this.http.post<CatalogFranchiseModel>(API_URL.apiUrl.concat('/franchise/filter-pagination'), filterInput)
       .subscribe((response: any) => {
         console.log('Франшизы после фильтрации:', response.results);
         this.aFranchises = response.results;
@@ -203,7 +208,7 @@ export class CatalogFranchiseComponent implements OnInit {
     paginationData.PageNumber = 1;
     paginationData.CountRows = 12;
 
-    this.http.post(API_URL.apiUrl.concat('/pagination/init-catalog-franchise'), paginationData)
+    this.http.post<InitCatalogFranchiseResponse>(API_URL.apiUrl.concat('/pagination/init-catalog-franchise'), paginationData)
       .subscribe((response: any) => {
         console.log('pagination init', response);
         this.countFranchises = response.countAll;
@@ -235,7 +240,7 @@ export class CatalogFranchiseComponent implements OnInit {
     filterInput.IsGarant = this.isGarant;
     filterInput.PageNumber = 1;
     filterInput.CountRows = this.selectedCountRows;
-    this.http.post(API_URL.apiUrl.concat('/franchise/filter-pagination'), filterInput)
+    this.http.post<CatalogFranchiseModel>(API_URL.apiUrl.concat('/franchise/filter-pagination'), filterInput)
       .subscribe((response: any) => {
         console.log('Франшизы после фильтрации:', response.results);
         this.aFranchises = response.results;
@@ -264,7 +269,7 @@ export class CatalogFranchiseComponent implements OnInit {
    * Функция получит данные для блока событий.
    */
   private GetActionsAsync() {
-    this.http.post(API_URL.apiUrl.concat('/main/actions'), {})
+    this.http.post<ActionsModel>(API_URL.apiUrl.concat('/main/actions'), {})
       .subscribe((response: any) => this.aDataActions = response.filter((el: any) => el.isTop == false), (err) => {
         throw new Error(err);
       });
@@ -274,6 +279,7 @@ export class CatalogFranchiseComponent implements OnInit {
    * Функция получит список блогов.
    * @returns Список блогов.
    */
+  // в сваггере не нашел 13/11/22 эндпоинт /blog/main-blogs
   private GetBlogsAsync() {
     this.http.post(API_URL.apiUrl.concat('/blog/main-blogs'), {})
       .subscribe((response: any) => this.aBlogs = response, (err) => {
@@ -307,14 +313,14 @@ export class CatalogFranchiseComponent implements OnInit {
    * @returns Список франшиз.
    */
   private GetNewFranchisesListAsync() {
-    this.http.post(API_URL.apiUrl.concat('/franchise/new-franchise'), {})
+    this.http.post<CatalogFranchiseModel>(API_URL.apiUrl.concat('/franchise/new-franchise'), {})
       .subscribe((response: any) => this.aNewFranchises = response, (err) => {
         throw new Error(err);
       });
   }
 
   private GetReviewsFranchisesAsync() {
-    this.http.post(API_URL.apiUrl.concat('/franchise/review'), {})
+    this.http.post<CatalogFranchiseModel>(API_URL.apiUrl.concat('/franchise/review'), {})
       .subscribe((response: any) => this.aReviewsFranchises = response, (err) => {
         throw new Error(err);
       });
