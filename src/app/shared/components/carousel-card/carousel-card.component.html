@@ -3,7 +3,6 @@
 <h4>Angular PrimeNG Carousel Basic</h4>
 
 
-
 <p-carousel [value]="cars">
 
   <ng-template let-car pTemplate="item">
@@ -16,21 +15,9 @@
 
         <div>
 
-          <h4
+          <h4 class="p-mb-1"> {{ car.id }}</h4>
 
-            class="p-mb-1">
-
-            {{ car.id }}
-
-          </h4>
-
-          <h4
-
-            class="p-mb-1">
-
-            {{ car.name }}
-
-          </h4>
+          <h4 class="p-mb-1">{{ car.name }}</h4>
 
           <h4
 

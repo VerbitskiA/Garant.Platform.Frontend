@@ -17,9 +17,8 @@ import {MainSearchComponent} from "./components/main-search/main-search.componen
 import {ProductsModule} from "../modules/products/products.module";
 import {PromoModule} from "../modules/promo/promo.module";
 import {NewsModule} from "../modules/news/news.module";
-import { CarouselCardComponent } from './components/carousel-card/carousel-card.component';
-import { CarouselModule } from 'primeng/carousel';
-import { ButtonModule } from 'primeng/button';
+import {ButtonModule} from 'primeng/button';
+import {CaruselCardModule} from "./components/carousel-card/carusel-card.module";
 
 const components = [
   HeaderComponent,
@@ -28,7 +27,6 @@ const components = [
   LoginComponent,
   MainPageComponent,
   MainSearchComponent,
-  CarouselCardComponent
 ];
 
 @NgModule({
@@ -48,7 +46,7 @@ const components = [
     NewsModule,
     RouterLinkActive,
     ButtonModule,
-    CarouselModule,
+    CaruselCardModule
   ],
   exports: [...components]
 })

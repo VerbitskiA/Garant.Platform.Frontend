@@ -4,7 +4,8 @@ import {PromoBlockCardComponent} from './promo-block.card/promo-block.card.compo
 import {GarLibModule} from "../../gar-lib/gar-lib.module";
 import {RouterModule} from "@angular/router";
 import {PromotionCardComponent} from './promotion.card/promotion.card.component';
-import {SharedModule} from "primeng/api";
+import {CaruselCardModule} from "../../shared/components/carousel-card/carusel-card.module";
+
 
 const components = [
   PromoBlockCardComponent,
@@ -18,8 +19,7 @@ const components = [
     CommonModule,
     GarLibModule,
     RouterModule,
-    SharedModule
-
+    CaruselCardModule
   ]
 })
 export class PromoModule {
