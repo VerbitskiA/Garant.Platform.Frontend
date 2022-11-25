@@ -1,0 +1,44 @@
+<p>landing-header-card works!</p>
+
+<div class="header">
+  <div class="header-content">
+<!--    <div class="header-content__title">Консультация</div>-->
+    <div class="header-content__title">{{categories[0].title}}</div>
+
+<!--    <div class="header-content__subtitle">по покупке бизнеса и франшиз</div>-->
+    <div class="header-content__subtitle">{{categories[0].sublitle}}</div>
+
+    <div class="header-content__text">
+<!--      с сопровождением сделки и составлением договоров-->
+      {{categories[0].content_text}}
+    </div>
+    <button class="header-content__button">
+<!--      Получить консультацию-->
+      {{categories[0].content__button}}
+    </button>
+    <button class="header-content__button1">
+<!--      Консультация-->
+      {{categories[0].content__button1}}
+    </button>
+  </div>
+  <div class="header-image">
+
+    <img
+      src="{{categories[0].image}}"
+      alt="{{categories[0].alt}}"
+    />
+    <!--      src="../../../../assets/images/consulting-landing/Group.png"-->
+<!--    alt="Изображение блокнота, ручки и портфеля"-->
+
+  </div>
+  <div class="header-image1">
+    <img
+      src="{{categories[0].image1}}"
+      alt="{{categories[0].alt1}}"
+    />
+<!--    src="../../../../assets/images/consulting-landing/Group1.png"-->
+<!--    alt="Изображение блокнота, ручки и портфеля"-->
+
+  </div>
+
+</div>

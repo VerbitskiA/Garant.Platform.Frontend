@@ -18,6 +18,7 @@ import {ProductsModule} from "../modules/products/products.module";
 import {PromoModule} from "../modules/promo/promo.module";
 import {NewsModule} from "../modules/news/news.module";
 import { StaticInfoComponent } from './components/static-info/static-info.component';
+import { LandingHeaderCardComponent } from './components/landing-header-card/landing-header-card.component';
 
 const components = [
   HeaderComponent,
@@ -30,7 +31,7 @@ const components = [
 ];
 
 @NgModule({
-  declarations: [...components],
+  declarations: [...components, LandingHeaderCardComponent],
   imports: [
     CommonModule,
     RouterLinkWithHref,
@@ -46,6 +47,6 @@ const components = [
     NewsModule,
     RouterLinkActive
   ],
-  exports: [...components]
+	exports: [...components, LandingHeaderCardComponent]
 })
 export class SharedModule { }

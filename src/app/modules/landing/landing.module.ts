@@ -11,6 +11,7 @@ import {CarouselModule} from "primeng/carousel";
 import {GarLibModule} from "../../gar-lib/gar-lib.module";
 import {NewsModule} from "../news/news.module";
 import {PromoModule} from "../promo/promo.module";
+import {SharedModule} from "../../shared/shared.module";
 
 const components = [
   ConsultingLandingComponent,
@@ -20,17 +21,18 @@ const components = [
 
 @NgModule({
   declarations: [...components],
-  imports: [
-    CommonModule,
-    ToastModule,
-    FormsModule,
-    InputMaskModule,
-    CarouselModule,
-    GarLibModule,
-    NewsModule,
-    CardModule,
-    PromoModule
-  ],
+	imports: [
+		CommonModule,
+		ToastModule,
+		FormsModule,
+		InputMaskModule,
+		CarouselModule,
+		GarLibModule,
+		NewsModule,
+		CardModule,
+		PromoModule,
+		SharedModule
+	],
   exports: [...components]
 })
 export class LandingModule { }

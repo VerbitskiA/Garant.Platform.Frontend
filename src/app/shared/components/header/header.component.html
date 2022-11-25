@@ -29,8 +29,8 @@
                 <gar-select [title]="selectedSearchOption.name" [(ngModel)]="selectedSearchOption" [items]="searchOptions" displayLabel="name"></gar-select>
 
                 <gar-input-text
-                    class="header-search-input gar-input-text"
-                    title="Например: “Медицинский центр”"
+                  class="header-search-input gar-input-text"
+                    title="Например: “Медицинский центр!”"
                     [(ngModel)]="searchText"
                     (keydown.enter)="onRouteSearch(searchText)">
                 </gar-input-text>
