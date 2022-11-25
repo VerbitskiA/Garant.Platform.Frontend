@@ -11,12 +11,24 @@ import {PaginationInput} from 'src/app/models/pagination/input/pagination-input'
 import {CommonDataService} from 'src/app/core/services/common/common-data.service';
 import {LandingRequestService} from '../../../core/services/landing/landing.service';
 
+export const headerCardsData = {
+    title: 'Консультация',
+    sublitle: 'по покупке бизнеса и франшиз',
+    content_text: 'с сопровождением сделки и составлением договоров',
+    content__button: 'Получить консультацию',
+    content__button1: 'Консультация',
+    image: '../../../../assets/images/consulting-landing/Group.png',
+    alt: 'Изображение блокнота, ручки и портфеля',
+  };
+
 @Component({
   selector: 'app-consulting-landing',
   templateUrl: './consulting-landing.component.html',
   styleUrls: ['./consulting-landing.component.scss'],
 })
 export class ConsultingLandingComponent implements OnInit {
+  public headerCardsData = headerCardsData;
+
   aPopularBusiness: any[] = [];
   // isGarant: boolean = false;
   // aCities: any[] = [];
@@ -82,6 +94,10 @@ export class ConsultingLandingComponent implements OnInit {
     ];
 
     this.routeParam = this.route.snapshot.queryParams['businessId'];
+  }
+
+  public landingHeaderCard(event: any): void{
+    console.log('landingHeaderCard', event);
   }
 
   public ngOnInit() {

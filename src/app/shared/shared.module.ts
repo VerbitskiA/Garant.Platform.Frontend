@@ -19,6 +19,8 @@ import {PromoModule} from "../modules/promo/promo.module";
 import {NewsModule} from "../modules/news/news.module";
 import { StaticInfoComponent } from './components/static-info/static-info.component';
 import { LandingHeaderCardComponent } from './components/landing-header-card/landing-header-card.component';
+import {ImageModule} from "primeng/image";
+import {ButtonModule} from "primeng/button";
 
 const components = [
   HeaderComponent,
@@ -45,7 +47,9 @@ const components = [
     ProductsModule,
     PromoModule,
     NewsModule,
-    RouterLinkActive
+    RouterLinkActive,
+    ImageModule,
+    ButtonModule
   ],
 	exports: [...components, LandingHeaderCardComponent]
 })

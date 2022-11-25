@@ -12,6 +12,16 @@ import {LandingRequestService} from '../../../core/services/landing/landing.serv
 import {takeUntil} from "rxjs/operators";
 import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
 
+export const headerCardsData =   {
+  title: 'Онлайн сделка',
+  sublitle: 'по покупке бизнеса',
+  content_text: 'или франшизы',
+  content__button: 'Как начать сделку?',
+  image: '../../../../assets/images/deal-landing/shield.png',
+  alt: 'Изображение щита',
+};
+
+
 @Component({
   selector: 'app-deal-landing',
   templateUrl: './deal-landing.component.html',
@@ -20,6 +30,8 @@ import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
 
 })
 export class DealLandingComponent implements OnInit {
+  public headerCardsData = headerCardsData;
+
   aPopularBusiness: any[] = [];
   // isGarant: boolean = false;
   // aCities: any[] = [];
@@ -87,6 +99,10 @@ export class DealLandingComponent implements OnInit {
     ];
 
     this.routeParam = this.route.snapshot.queryParams['businessId'];
+  }
+
+  public landingHeaderCard(event: any): void{
+    console.log('landingHeaderCard', event);
   }
 
   public ngOnInit() {

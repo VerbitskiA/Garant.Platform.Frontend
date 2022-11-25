@@ -14,6 +14,17 @@ import {shareReplay, takeUntil, tap} from 'rxjs/operators'; //!!!!!!
 import {GarDestroyService} from "../../../gar-lib/gar-destroy.service"; //!!!!
 
 
+export const headerCardsData =   {
+  title: 'Создание',
+  sublitle: 'и упаковка франшиз',
+  content_text: 'с бесплатным размещением в каталоге',
+  content__button: 'Бесплатная консультация',
+  image: '../../../../assets/images/franchise-landing/desk.png',
+  alt: 'Изображение стола, монеты и %',
+  image1: '../../../../assets/images/franchise-landing/desk1.png',
+  alt1: 'Изображение стола, монеты и %',
+};
+
 @Component({
   selector: 'app-franchise-landing',
   templateUrl: './franchise-landing.component.html',
@@ -21,6 +32,7 @@ import {GarDestroyService} from "../../../gar-lib/gar-destroy.service"; //!!!!
   providers: [GarDestroyService] //!!!!
 })
 export class FranchiseLandingComponent implements OnInit {
+  public headerCardsData = headerCardsData;
   aPopularBusiness: any[] = [];
   // isGarant: boolean = false;
   // aCities: any[] = [];
@@ -98,6 +110,10 @@ export class FranchiseLandingComponent implements OnInit {
     ];
 
     this.routeParam = this.route.snapshot.queryParams['businessId'];
+  }
+
+  public landingHeaderCard(event: any): void{
+    console.log('landingHeaderCard', event);
   }
 
   public ngOnInit() {

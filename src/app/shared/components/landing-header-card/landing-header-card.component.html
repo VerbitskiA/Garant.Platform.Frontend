@@ -1,44 +1,11 @@
-<p>landing-header-card works!</p>
-
-<div class="header">
+<div class="header" *ngIf="cardData">
   <div class="header-content">
-<!--    <div class="header-content__title">Консультация</div>-->
-    <div class="header-content__title">{{categories[0].title}}</div>
-
-<!--    <div class="header-content__subtitle">по покупке бизнеса и франшиз</div>-->
-    <div class="header-content__subtitle">{{categories[0].sublitle}}</div>
-
-    <div class="header-content__text">
-<!--      с сопровождением сделки и составлением договоров-->
-      {{categories[0].content_text}}
-    </div>
-    <button class="header-content__button">
-<!--      Получить консультацию-->
-      {{categories[0].content__button}}
-    </button>
-    <button class="header-content__button1">
-<!--      Консультация-->
-      {{categories[0].content__button1}}
-    </button>
+    <div class="header-content__title">{{cardData.title}}</div>
+    <div class="header-content__subtitle">{{cardData.sublitle}}</div>
+    <div class="header-content__text">{{cardData.content_text}}</div>
+    <button pButton class="header-content__button" (click)="action($event)" [label]="cardData.content__button"></button>
   </div>
   <div class="header-image">
-
-    <img
-      src="{{categories[0].image}}"
-      alt="{{categories[0].alt}}"
-    />
-    <!--      src="../../../../assets/images/consulting-landing/Group.png"-->
-<!--    alt="Изображение блокнота, ручки и портфеля"-->
-
+    <p-image src="{{cardData.image}}" alt="{{cardData.alt}}" ></p-image>
   </div>
-  <div class="header-image1">
-    <img
-      src="{{categories[0].image1}}"
-      alt="{{categories[0].alt1}}"
-    />
-<!--    src="../../../../assets/images/consulting-landing/Group1.png"-->
-<!--    alt="Изображение блокнота, ручки и портфеля"-->
-
-  </div>
-
 </div>

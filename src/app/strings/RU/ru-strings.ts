@@ -41,7 +41,31 @@ export const RU = {
     allReadyMadeBusiness: 'Весь готовый бизнес',
     categoriesOfFranchises: 'Категории франшиз',
     allFranchises: 'Все франшизы'
+  },
+  headerLanding: {
+    consulting: {
+      title: 'Консультация',
+      sublitle: 'по покупке бизнеса и франшиз',
+      content_text: 'с сопровождением сделки и составлением договоров',
+      content__button: 'Получить консультацию',
+      content__button1: 'Консультация',
+      alt: 'Изображение блокнота, ручки и портфеля',
+    },
+    deal: {
+      title: 'Онлайн сделка',
+      sublitle: 'по покупке бизнеса',
+      content_text: 'или франшизы',
+      content__button: 'Как начать сделку?',
+      alt: 'Изображение щита',
+    },
+    frachise: {
+      title: 'Создание',
+      sublitle: 'и упаковка франшиз',
+      content_text: 'с бесплатным размещением в каталоге',
+      content__button: 'Бесплатная консультация',
+      alt: 'Изображение стола, монеты и %',
+      alt1: 'Изображение стола, монеты и %',
+    }
   }
-
 
 }
