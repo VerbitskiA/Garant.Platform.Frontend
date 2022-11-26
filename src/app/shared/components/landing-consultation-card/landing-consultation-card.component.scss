@@ -1,10 +1,8 @@
-
 @use "../../../app.component";
 @use "../../../shared/components/main-page/main-page.component";
 @use "../../../../assets/styles/index" as *;
 @use "../../../../assets/styles/base/index" as *;
 @import "../../../../assets/styles/media-quaries";
-
 
 
 .consulting {
@@ -153,7 +151,8 @@
       flex-wrap: wrap;
       gap: 16px;
       margin-bottom: 32px;
-      ::ng-deep.p-inputtext{
+
+      ::ng-deep.p-inputtext {
         display: block;
         font-family: "Roboto", sans-serif;
         font-size: 1.125rem;
@@ -165,6 +164,7 @@
         border-radius: 8px;
         padding: 20px 9px;
       }
+
       @include lg-md {
         flex-direction: column;
       }
@@ -223,7 +223,7 @@
       font-family: "Roboto", sans-serif;
       font-size: 1.3rem;
       font-weight: 500;
-      color: #1f75fe;
+
       line-height: 28px;
       width: 398px;
       // height: 76px;
@@ -231,22 +231,11 @@
       border-radius: 4px;
       padding: 24px 10px;
       margin: 0;
-      background-color: #ffffff;
-
-      @include lg-md {
-        font-size: 1.1875rem;
-        line-height: 22px;
-        width: 291px;
-        height: 70px;
-        padding: 24px 11px;
-      }
-
+      color: #ffffff;
+      height: 76px;
+      background-color: #1f75fe;
       @include md {
-        font-size: 1rem;
-        line-height: 19px;
-        width: 272px;
-        height: 67px;
-        padding: 24px 22.5px;
+        display: none;
       }
     }
   }

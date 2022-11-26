@@ -17,6 +17,7 @@ export namespace LandingConsultation {
 
     image: string;
     alt: string;
+    bg_color?: string
 
     link?: string;
     linkAction?: () => void;

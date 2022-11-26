@@ -11,7 +11,10 @@ import {CommonDataService} from 'src/app/core/services/common/common-data.servic
 import {LandingRequestService} from '../../../core/services/landing/landing.service';
 import {CatalogShortCardComponent} from '../../products/catalog/catalog.short.card/catalog.short.card.component';
 import {shareReplay, takeUntil, tap} from 'rxjs/operators'; //!!!!!!
-import {GarDestroyService} from "../../../gar-lib/gar-destroy.service"; //!!!!
+import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
+import {
+  LandingConsultation
+} from "../../../shared/components/landing-consultation-card/landing-consultation-card.component"; //!!!!
 
 
 export const headerCardsData =   {
@@ -25,7 +28,7 @@ export const headerCardsData =   {
   alt1: 'Изображение стола, монеты и %',
 };
 
-export const consultationCardsData =   {
+export const consultationCardsData: LandingConsultation.IConsultationItem =   {
   title: 'Азамат Булатов',
   subtitle: 'сооснователь проекта',
   content_text: 'Лично ответственный за каждую упакованную франшизу',
@@ -35,7 +38,9 @@ export const consultationCardsData =   {
   content__placeholder2: 'Введите номер телефона',
   content__button: 'Обратиться за консультацией',
   image: '../../../../assets/images/franchise-landing/template_person6%201.png',
-  alt: 'Фото сооснователя'
+  alt: 'Фото сооснователя',
+  bg_color: '#1b1b1b'
+
 };
 
 @Component({
