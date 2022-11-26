@@ -124,7 +124,15 @@ export class DealLandingComponent implements OnInit {
 
   public landingConsultationCard(event: any): void{
     console.log('landingConsultationCard', event);
+    this.onSendLandingRequestAsync2(event.name, event.phoneNumber);
   }
+
+  public onSendLandingRequestAsync2(name: string, phoneNumber: string) {
+    this.requestService.sendLandingRequestAsync(name, phoneNumber, "Консалтинг").subscribe(() => {
+      this.name = '';
+      this.phoneNumber = ''
+    });
+  };
 
   public ngOnInit() {
     //  this.getPopularBusinessAsync();

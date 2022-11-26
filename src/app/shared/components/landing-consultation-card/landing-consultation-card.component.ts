@@ -1,4 +1,4 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild} from '@angular/core';
 import {LandingHeader} from "../landing-header-card/landing-header-card.component";
 import {LandingRequestService} from "../../../core/services/landing/landing.service";
 import {CommonModels} from "../../../models/common-models";
@@ -39,22 +39,20 @@ export namespace LandingConsultation {
 })
 export class LandingConsultationCardComponent implements OnInit {
 
-  name: string = "";
-  phoneNumber: string = "";
+  public name = "";
+  public phoneNumber = "";
 
   @Input() public cardConsultationData: LandingConsultation.IConsultationItem | undefined;
   @Input() public backgroundColorVariant = BackgroundColorVariant.blue; // первый вариант
-  @Input() public backgroundColor: string | undefined; // второй вариант. более тупой.
   @Output() public cardConsultationEvent: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
-    private requestService: LandingRequestService,
     private _renderer: Renderer2,
     private _el: ElementRef
-    ) {
+  ) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this._renderer.setProperty(
       this._el.nativeElement,
       'style',
@@ -62,15 +60,18 @@ export class LandingConsultationCardComponent implements OnInit {
     );
   }
 
-  public action(event: any): void{
-    this.cardConsultationEvent.emit(this.cardConsultationData?.title);
+  public action(event: any): void {
+    this.cardConsultationEvent.emit({name: this.name, phoneNumber: this.phoneNumber});
   }
 
-  public onSendLandingRequestAsync(name: string, phoneNumber: string) {
-    this.requestService.sendLandingRequestAsync(name, phoneNumber, "Консалтинг").subscribe(() => {
-      this.name = '';
-      this.phoneNumber = ''
-    });
-  };
+  public actionChangeColor(): void {
+    this.backgroundColorVariant = this.backgroundColorVariant === BackgroundColorVariant.blue ? BackgroundColorVariant.black : BackgroundColorVariant.blue;
+    this._renderer.setProperty(
+      this._el.nativeElement,
+      'style',
+      `${CSSVariablesNames.app_get_call_card}: ${BackgroundColors[this.backgroundColorVariant]}`
+    );
+  }
+
 
 }
