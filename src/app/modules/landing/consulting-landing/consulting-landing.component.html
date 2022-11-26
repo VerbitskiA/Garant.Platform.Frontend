@@ -335,48 +335,51 @@
   </div>
 </div>
 
-<div class="check">
-  <div class="check-content">
-    <div class="check-content__title">Проверка</div>
-    <div class="check-content__subtitle">юридических документов</div>
-    <div class="check-content__text">
-      при покупке франшизы или готового бизнеса
-    </div>
-    <div class="check-content__inputs">
-      <label class="check-content__label"
-        >Имя
-        <input
-          class="check-content__input"
-          type="text"
-          name="name"
-          placeholder="Введите имя"
-          [(ngModel)]="name"
-        />
-      </label>
+<!--<app-landing-consultation-card [cardConsultationData]="consultationCardsData"  cardConsultationEvent)="landingConsultationCard($event)"></app-landing-consultation-card>-->
+<app-landing-consultation-card [cardConsultationData]="consultationCardsData" (cardConsultationEvent)="landingConsultationCard($event)"></app-landing-consultation-card>
 
-      <div>
-        <label class="check-content__label">Номер телефона</label>
-        <p-inputMask
-          mask="+7(999) 999-99-99"
-          [(ngModel)]="phoneNumber"
-          placeholder="Введите номер телефона"
-        ></p-inputMask>
-      </div>
-    </div>
-    <button
-      class="check-content__button"
-      (click)="onSendLandingRequestAsync(name, phoneNumber)"
-    >
-      Отправить договор на проверку
-    </button>
-  </div>
-  <div class="check-image">
-    <img
-      src="../../../../assets/images/consulting-landing/template_person6%201.png"
-      alt="Фото проверяющего"
-    />
-  </div>
-</div>
+<!--<div class="check">-->
+<!--  <div class="check-content">-->
+<!--    <div class="check-content__title">Проверка</div>-->
+<!--    <div class="check-content__subtitle">юридических документов</div>-->
+<!--    <div class="check-content__text">-->
+<!--      при покупке франшизы или готового бизнеса-->
+<!--    </div>-->
+<!--    <div class="check-content__inputs">-->
+<!--      <label class="check-content__label"-->
+<!--        >Имя-->
+<!--        <input-->
+<!--          class="check-content__input"-->
+<!--          type="text"-->
+<!--          name="name"-->
+<!--          placeholder="Введите имя"-->
+<!--          [(ngModel)]="name"-->
+<!--        />-->
+<!--      </label>-->
+
+<!--      <div>-->
+<!--        <label class="check-content__label">Номер телефона</label>-->
+<!--        <p-inputMask-->
+<!--          mask="+7(999) 999-99-99"-->
+<!--          [(ngModel)]="phoneNumber"-->
+<!--          placeholder="Введите номер телефона"-->
+<!--        ></p-inputMask>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <button-->
+<!--      class="check-content__button"-->
+<!--      (click)="onSendLandingRequestAsync(name, phoneNumber)"-->
+<!--    >-->
+<!--      Отправить договор на проверку-->
+<!--    </button>-->
+<!--  </div>-->
+<!--  <div class="check-image">-->
+<!--    <img-->
+<!--      src="../../../../assets/images/consulting-landing/template_person6%201.png"-->
+<!--      alt="Фото проверяющего"-->
+<!--    />-->
+<!--  </div>-->
+<!--</div>-->
 
 <!-- Популярный бизнес. -->
 <h5 class="garant title-franchise">Популярныe франшизы</h5>

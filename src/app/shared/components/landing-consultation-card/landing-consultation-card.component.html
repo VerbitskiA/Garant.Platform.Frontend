@@ -1,0 +1,60 @@
+<div class="consulting" *ngIf="cardConsultationData">
+  <div class="consulting-content">
+<!--    <div class="consulting-content__title">Консультация</div>-->
+    <div class="consulting-content__title">{{cardConsultationData.title}}</div>
+<!--    <div class="consulting-content__subtitle">при покупке бизнеса онлайн</div>-->
+    <div class="consulting-content__subtitle">{{cardConsultationData.subtitle}}</div>
+    <div class="consulting-content__text">
+<!--      с юристом и консультантами сервиса-->
+      {{cardConsultationData.content_text}}
+    </div>
+    <div class="consulting-content__inputs">
+      <label class="consulting-content__label">
+<!--        Имя-->
+        {{cardConsultationData.content__label1}}
+
+        <!--          placeholder="Введите имя"-->
+        <input
+          class="consulting-content__input"
+          type="text"
+          name="name"
+        placeholder="{{cardConsultationData.content__placeholder1}}"
+          [(ngModel)]="name"
+        />
+      </label>
+
+      <div>
+<!--        <label class="consulting-content__label">Номер телефона</label>-->
+        <label class="consulting-content__label">{{cardConsultationData.content__label2}}</label>
+<!--        <p-inputMask-->
+<!--          mask="+7(999) 999-99-99"-->
+<!--          [(ngModel)]="phoneNumber"-->
+<!--          placeholder="Введите номер телефона"-->
+<!--        ></p-inputMask>-->
+
+        <!--          placeholder="Введите номер телефона"-->
+        <input
+          class="consulting-content__input"
+          type="text"
+          name="phoneNumber"
+          mask="+7(999) 999-99-99"
+          [(ngModel)]="phoneNumber"
+        placeholder="{{cardConsultationData.content__placeholder2}}"/>
+
+      </div>
+    </div>
+    <button pButton  class="consulting-content__button"
+      (click)="onSendLandingRequestAsync(name, phoneNumber)"
+            (click)="action($event)"
+            [label]="cardConsultationData.content__button">
+    <!--      Обратиться за консультацией-->
+    </button>
+  </div>
+  <div class="consulting-image">
+    <!--      src="../../../../assets/images/deal-landing/template_person6%201.png"-->
+    <!--      alt="Фото консультанта"-->
+    <img      src="{{cardConsultationData.image}}"
+      alt="{{cardConsultationData.alt}}"
+    />
+  </div>
+</div>

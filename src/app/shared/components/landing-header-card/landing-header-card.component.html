@@ -1,7 +1,7 @@
 <div class="header" *ngIf="cardData">
   <div class="header-content">
     <div class="header-content__title">{{cardData.title}}</div>
-    <div class="header-content__subtitle">{{cardData.sublitle}}</div>
+    <div class="header-content__subtitle">{{cardData.subtitle}}</div>
     <div class="header-content__text">{{cardData.content_text}}</div>
     <button pButton class="header-content__button" (click)="action($event)" [label]="cardData.content__button"></button>
   </div>

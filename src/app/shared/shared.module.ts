@@ -21,6 +21,7 @@ import { StaticInfoComponent } from './components/static-info/static-info.compon
 import { LandingHeaderCardComponent } from './components/landing-header-card/landing-header-card.component';
 import {ImageModule} from "primeng/image";
 import {ButtonModule} from "primeng/button";
+import { LandingConsultationCardComponent } from './components/landing-consultation-card/landing-consultation-card.component';
 
 const components = [
   HeaderComponent,
@@ -33,7 +34,7 @@ const components = [
 ];
 
 @NgModule({
-  declarations: [...components, LandingHeaderCardComponent],
+  declarations: [...components, LandingHeaderCardComponent, LandingConsultationCardComponent],
   imports: [
     CommonModule,
     RouterLinkWithHref,
@@ -51,6 +52,6 @@ const components = [
     ImageModule,
     ButtonModule
   ],
-	exports: [...components, LandingHeaderCardComponent]
+	exports: [...components, LandingHeaderCardComponent, LandingConsultationCardComponent]
 })
 export class SharedModule { }

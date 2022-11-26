@@ -37,16 +37,16 @@
   <div class="statistics-item">
     <p class="statistics-item__number">80</p>
     <p class="statistics-item__text">
-      франшиз <br />
-      упаковали <br />
+      франшиз <br/>
+      упаковали <br/>
       и создали с нуля
     </p>
   </div>
   <div class="statistics-item">
     <p class="statistics-item__number">25</p>
     <p class="statistics-item__text">
-      сфер бизнеса <br />
-      проработано <br />
+      сфер бизнеса <br/>
+      проработано <br/>
       за время работы
     </p>
   </div>
@@ -55,16 +55,16 @@
       60 <span class="statistics-item__unit">млн</span>
     </p>
     <p class="statistics-item__text">
-      заработали <br />
-      клиентам после <br />
+      заработали <br/>
+      клиентам после <br/>
       создания франшиз
     </p>
   </div>
   <div class="statistics-item">
     <p class="statistics-item__number">14</p>
     <p class="statistics-item__text">
-      человек будут <br />
-      работать над вашим <br />
+      человек будут <br/>
+      работать над вашим <br/>
       проектом
     </p>
   </div>
@@ -74,6 +74,12 @@
 <div>
   <app-promo-block-card></app-promo-block-card>
 </div>
+
+<app-landing-consultation-card [cardConsultationData]="consultationCardsData"
+                               (cardConsultationEvent)="landingConsultationCard($event)"
+                               [ngStyle]="{ 'background-color': 'black'}"
+></app-landing-consultation-card>
+
 <div class="founder">
   <div class="founder-content">
     <div class="founder-content__title">Азамат Булатов</div>
@@ -83,7 +89,7 @@
     </div>
     <div class="founder-content__inputs">
       <label class="founder-content__label"
-        >Имя
+      >Имя
         <input
           class="founder-content__input"
           type="text"
@@ -96,7 +102,7 @@
       <!-- <div class="founder-content__input"> -->
 
       <label class="founder-content__label"
-        >Номер телефона
+      >Номер телефона
         <p-inputMask
           mask="+7(999) 999-99-99"
           [(ngModel)]="phoneNumber"
@@ -125,6 +131,7 @@
   />
   <!-- </div> -->
 </div>
+
 <h5 class="bonuses-header">Бонусы от GoBizy</h5>
 <div class="bonuses">
   <div class="bonuses-item">
@@ -136,7 +143,7 @@
     </div>
     <p class="bonuses-item__title">Бесплатное размещение в каталоге</p>
     <p class="bonuses-item__subtitle">
-      на срок от 3 до 12 месяцев.<br />
+      на срок от 3 до 12 месяцев.<br/>
       срок размещения зависит от выбранного пакета
     </p>
     <h3>Шаг 1</h3>
@@ -251,7 +258,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка состава франшизы: определение стоимости франшизы, создание
+        >Разработка состава франшизы: определение стоимости франшизы, создание
           уникального предложения и концепции франшизы</span
         >
       </li>
@@ -263,7 +270,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка пакетов франшизы и определение их стоимости</span
+        >Разработка пакетов франшизы и определение их стоимости</span
         >
       </li>
       <li>
@@ -274,7 +281,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Создание финансовой модели франшизы (инвестиции в запуск, доходность
+        >Создание финансовой модели франшизы (инвестиции в запуск, доходность
           и окупаемость)</span
         >
       </li>
@@ -286,7 +293,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка договора коммерческой концессии/лицензионный договор</span
+        >Разработка договора коммерческой концессии/лицензионный договор</span
         >
       </li>
       <li>
@@ -297,7 +304,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Презентация франшизы (маркетинг кит)</span
+        >Презентация франшизы (маркетинг кит)</span
         >
       </li>
       <li>
@@ -308,7 +315,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка сайта для продажи франшизы (до 10 страниц)</span
+        >Разработка сайта для продажи франшизы (до 10 страниц)</span
         >
       </li>
       <li>
@@ -328,7 +335,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Обучение и аттестация Вашего менеджера по продажам</span
+        >Обучение и аттестация Вашего менеджера по продажам</span
         >
       </li>
       <li>
@@ -339,7 +346,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Внедрение CRM системы для аналитики продаж франшизы</span
+        >Внедрение CRM системы для аналитики продаж франшизы</span
         >
       </li>
       <li>
@@ -350,7 +357,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка фирменного стиля компании</span
+        >Разработка фирменного стиля компании</span
         >
       </li>
       <li>
@@ -361,7 +368,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Руководство по запуску франшизы (франчбук)</span
+        >Руководство по запуску франшизы (франчбук)</span
         >
       </li>
       <li>
@@ -372,7 +379,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка стратегии: «Каналы продаж франшизы»</span
+        >Разработка стратегии: «Каналы продаж франшизы»</span
         >
       </li>
       <li>
@@ -383,7 +390,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Настройка рекламной кампании, для запуска продаж Вашей франшизы либо
+        >Настройка рекламной кампании, для запуска продаж Вашей франшизы либо
           размещение в ТОП-овом каталоге франшиз;</span
         >
       </li>
@@ -404,7 +411,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Контроль качества звонков менеджера, нашим руководителем отдела
+        >Контроль качества звонков менеджера, нашим руководителем отдела
           продаж</span
         >
       </li>
@@ -416,7 +423,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Совместная обработка звонков и возникающих вопросов у клиента</span
+        >Совместная обработка звонков и возникающих вопросов у клиента</span
         >
       </li>
       <li>
@@ -436,7 +443,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Гарантированное сопровождение и доведение до первых продаж
+        >Гарантированное сопровождение и доведение до первых продаж
           франшизы;</span
         >
       </li>
@@ -486,7 +493,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка состава франшизы: определение стоимости франшизы, создание
+        >Разработка состава франшизы: определение стоимости франшизы, создание
           уникального предложения и концепции франшизы</span
         >
       </li>
@@ -498,7 +505,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка пакетов франшизы и определение их стоимости</span
+        >Разработка пакетов франшизы и определение их стоимости</span
         >
       </li>
       <li>
@@ -509,7 +516,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Создание финансовой модели франшизы (инвестиции в запуск, доходность
+        >Создание финансовой модели франшизы (инвестиции в запуск, доходность
           и окупаемость)</span
         >
       </li>
@@ -521,7 +528,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка договора коммерческой концессии/лицензионный договор</span
+        >Разработка договора коммерческой концессии/лицензионный договор</span
         >
       </li>
       <li>
@@ -532,7 +539,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Презентация франшизы (маркетинг кит)</span
+        >Презентация франшизы (маркетинг кит)</span
         >
       </li>
       <li>
@@ -543,7 +550,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка сайта для продажи франшизы (до 10 страниц)</span
+        >Разработка сайта для продажи франшизы (до 10 страниц)</span
         >
       </li>
       <li>
@@ -563,7 +570,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Обучение и аттестация Вашего менеджера по продажам</span
+        >Обучение и аттестация Вашего менеджера по продажам</span
         >
       </li>
       <li>
@@ -574,7 +581,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Внедрение CRM системы для аналитики продаж франшизы</span
+        >Внедрение CRM системы для аналитики продаж франшизы</span
         >
       </li>
       <li>
@@ -585,7 +592,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка фирменного стиля компании</span
+        >Разработка фирменного стиля компании</span
         >
       </li>
       <li>
@@ -596,7 +603,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Руководство по запуску франшизы (франчбук)</span
+        >Руководство по запуску франшизы (франчбук)</span
         >
       </li>
       <li>
@@ -607,7 +614,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка стратегии: «Каналы продаж франшизы»</span
+        >Разработка стратегии: «Каналы продаж франшизы»</span
         >
       </li>
       <li>
@@ -618,7 +625,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Настройка рекламной кампании, для запуска продаж Вашей франшизы либо
+        >Настройка рекламной кампании, для запуска продаж Вашей франшизы либо
           размещение в ТОП-овом каталоге франшиз;</span
         >
       </li>
@@ -639,7 +646,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Контроль качества звонков менеджера, нашим руководителем отдела
+        >Контроль качества звонков менеджера, нашим руководителем отдела
           продаж</span
         >
       </li>
@@ -652,7 +659,7 @@
         </div>
 
         <span class="packs-item__tool"
-          >Совместная обработка звонков и возникающих вопросов у клиента</span
+        >Совместная обработка звонков и возникающих вопросов у клиента</span
         >
       </li>
       <li>
@@ -672,7 +679,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Гарантированное сопровождение и доведение до первых продаж
+        >Гарантированное сопровождение и доведение до первых продаж
           франшизы;</span
         >
       </li>
@@ -721,7 +728,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка состава франшизы: определение стоимости франшизы, создание
+        >Разработка состава франшизы: определение стоимости франшизы, создание
           уникального предложения и концепции франшизы</span
         >
       </li>
@@ -733,7 +740,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка пакетов франшизы и определение их стоимости</span
+        >Разработка пакетов франшизы и определение их стоимости</span
         >
       </li>
       <li>
@@ -744,7 +751,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Создание финансовой модели франшизы (инвестиции в запуск, доходность
+        >Создание финансовой модели франшизы (инвестиции в запуск, доходность
           и окупаемость)</span
         >
       </li>
@@ -756,7 +763,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка договора коммерческой концессии/лицензионный договор</span
+        >Разработка договора коммерческой концессии/лицензионный договор</span
         >
       </li>
       <li>
@@ -767,7 +774,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Презентация франшизы (маркетинг кит)</span
+        >Презентация франшизы (маркетинг кит)</span
         >
       </li>
       <li>
@@ -778,7 +785,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка сайта для продажи франшизы (до 10 страниц)</span
+        >Разработка сайта для продажи франшизы (до 10 страниц)</span
         >
       </li>
       <li>
@@ -798,7 +805,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Обучение и аттестация Вашего менеджера по продажам</span
+        >Обучение и аттестация Вашего менеджера по продажам</span
         >
       </li>
       <li>
@@ -809,7 +816,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Внедрение CRM системы для аналитики продаж франшизы</span
+        >Внедрение CRM системы для аналитики продаж франшизы</span
         >
       </li>
       <li>
@@ -820,7 +827,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка фирменного стиля компании</span
+        >Разработка фирменного стиля компании</span
         >
       </li>
       <li>
@@ -831,7 +838,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Руководство по запуску франшизы (франчбук)</span
+        >Руководство по запуску франшизы (франчбук)</span
         >
       </li>
       <li>
@@ -842,7 +849,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Разработка стратегии: «Каналы продаж франшизы»</span
+        >Разработка стратегии: «Каналы продаж франшизы»</span
         >
       </li>
       <li>
@@ -853,7 +860,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Настройка рекламной кампании, для запуска продаж Вашей франшизы либо
+        >Настройка рекламной кампании, для запуска продаж Вашей франшизы либо
           размещение в ТОП-овом каталоге франшиз;</span
         >
       </li>
@@ -874,7 +881,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Контроль качества звонков менеджера, нашим руководителем отдела
+        >Контроль качества звонков менеджера, нашим руководителем отдела
           продаж</span
         >
       </li>
@@ -886,7 +893,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Совместная обработка звонков и возникающих вопросов у клиента</span
+        >Совместная обработка звонков и возникающих вопросов у клиента</span
         >
       </li>
       <li>
@@ -906,7 +913,7 @@
           />
         </div>
         <span class="packs-item__tool"
-          >Гарантированное сопровождение и доведение до первых продаж
+        >Гарантированное сопровождение и доведение до первых продаж
           франшизы;</span
         >
       </li>
@@ -938,7 +945,7 @@
     </div>
     <div class="special-content__inputs">
       <label class="special-content__label"
-        >Имя
+      >Имя
         <input
           class="special-content__input"
           type="text"
@@ -947,7 +954,7 @@
         />
       </label>
       <label class="special-content__label"
-        >Номер телефона
+      >Номер телефона
         <input
           class="special-content__input"
           type="tel"
@@ -1009,10 +1016,10 @@
       styleClass="p-card-shadow"
     >
       <ng-template pTemplate="header">
-        <img [src]="item.url" />
+        <img [src]="item.url"/>
       </ng-template>
 
-      <ng-template pTemplate="footer"> </ng-template>
+      <ng-template pTemplate="footer"></ng-template>
     </p-card>
   </div>
 
@@ -1024,25 +1031,25 @@
       [style]="{ width: '100%' }"
       styleClass="p-card-shadow"
     >
-      <ng-template pTemplate="header"> </ng-template>
+      <ng-template pTemplate="header"></ng-template>
 
       <div class="d-flex">
         <p>
-          Перейдите в наш блог и найдите <br />
+          Перейдите в наш блог и найдите <br/>
           там массу полезной информации.
         </p>
         <div class="image">
-          <img src="../../../../assets/images/Frame%2066.png" height="32" />
+          <img src="../../../../assets/images/Frame%2066.png" height="32"/>
         </div>
       </div>
-      <ng-template pTemplate="footer"> </ng-template>
+      <ng-template pTemplate="footer"></ng-template>
     </p-card>
   </div>
 </div>
 
 <!-- Новости делового мира. -->
 <section class="section">
-<!--  <app-news-block></app-news-block>-->
+  <!--  <app-news-block></app-news-block>-->
   <app-news-block></app-news-block>
 </section>
 
@@ -1065,7 +1072,7 @@
         <!-- <div class="category-block-first"> -->
         <div>
           <div class="category-item" *ngFor="let item of categoryList1">
-            <img class="space-right-image-category" [src]="item.url" />
+            <img class="space-right-image-category" [src]="item.url"/>
             <span class="category-text">{{ item.name }}</span>
             <img
               class="space-right-image-category space-arrow-category"
@@ -1079,7 +1086,7 @@
       <div class="col-6">
         <!-- <div class="garant">&nbsp;</div> -->
         <div class="category-item" *ngFor="let item of categoryList2">
-          <img class="space-right-image-category" [src]="item.url" />
+          <img class="space-right-image-category" [src]="item.url"/>
           <span class="category-text">{{ item.name }}</span>
           <img
             class="space-right-image-category space-arrow-category"
@@ -1098,7 +1105,7 @@
         <!-- <div class="category-block-second"> -->
         <div>
           <div class="category-item" *ngFor="let item of categoryList3">
-            <img class="space-right-image-category" [src]="item.url" />
+            <img class="space-right-image-category" [src]="item.url"/>
             <span class="category-text">{{ item.name }}</span>
             <img
               class="space-right-image-category space-arrow-category"
@@ -1112,7 +1119,7 @@
       <div class="col-6">
         <!-- <div class="garant">&nbsp;</div> -->
         <div class="category-item" *ngFor="let item of categoryList4">
-          <img class="space-right-image-category" [src]="item.url" />
+          <img class="space-right-image-category" [src]="item.url"/>
           <span class="category-text">{{ item.name }}</span>
           <img
             class="space-right-image-category space-arrow-category"

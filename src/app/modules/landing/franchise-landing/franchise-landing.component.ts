@@ -16,13 +16,26 @@ import {GarDestroyService} from "../../../gar-lib/gar-destroy.service"; //!!!!
 
 export const headerCardsData =   {
   title: 'Создание',
-  sublitle: 'и упаковка франшиз',
+  subtitle: 'и упаковка франшиз',
   content_text: 'с бесплатным размещением в каталоге',
   content__button: 'Бесплатная консультация',
   image: '../../../../assets/images/franchise-landing/desk.png',
   alt: 'Изображение стола, монеты и %',
   image1: '../../../../assets/images/franchise-landing/desk1.png',
   alt1: 'Изображение стола, монеты и %',
+};
+
+export const consultationCardsData =   {
+  title: 'Азамат Булатов',
+  subtitle: 'сооснователь проекта',
+  content_text: 'Лично ответственный за каждую упакованную франшизу',
+  content__label1: 'Имя',
+  content__placeholder1: 'Введите имя',
+  content__label2: 'Номер телефона',
+  content__placeholder2: 'Введите номер телефона',
+  content__button: 'Обратиться за консультацией',
+  image: '../../../../assets/images/franchise-landing/template_person6%201.png',
+  alt: 'Фото сооснователя'
 };
 
 @Component({
@@ -33,6 +46,7 @@ export const headerCardsData =   {
 })
 export class FranchiseLandingComponent implements OnInit {
   public headerCardsData = headerCardsData;
+  public consultationCardsData = consultationCardsData;
   aPopularBusiness: any[] = [];
   // isGarant: boolean = false;
   // aCities: any[] = [];
@@ -114,6 +128,10 @@ export class FranchiseLandingComponent implements OnInit {
 
   public landingHeaderCard(event: any): void{
     console.log('landingHeaderCard', event);
+  }
+
+  public landingConsultationCard(event: any): void {
+    console.log('landingConsultationCard', event);
   }
 
   public ngOnInit() {

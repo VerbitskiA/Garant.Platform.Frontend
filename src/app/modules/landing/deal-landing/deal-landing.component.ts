@@ -14,12 +14,25 @@ import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
 
 export const headerCardsData =   {
   title: 'Онлайн сделка',
-  sublitle: 'по покупке бизнеса',
+  subtitle: 'по покупке бизнеса',
   content_text: 'или франшизы',
   content__button: 'Как начать сделку?',
   image: '../../../../assets/images/deal-landing/shield.png',
   alt: 'Изображение щита',
 };
+
+export const consultationCardsData =   {
+  title: 'Консультация',
+  subtitle: 'при покупке бизнеса онлайн',
+  content_text: 'с юристом и консультантами сервиса',
+  content__label1: 'Имя',
+  content__placeholder1: 'Введите имя',
+  content__label2: 'Номер телефона',
+  content__placeholder2: 'Введите номер телефона',
+  content__button: 'Обратиться за консультацией',
+  image: '../../../../assets/images/deal-landing/template_person6%201.png',
+  alt: 'Фото консультанта'
+ };
 
 
 @Component({
@@ -31,6 +44,7 @@ export const headerCardsData =   {
 })
 export class DealLandingComponent implements OnInit {
   public headerCardsData = headerCardsData;
+  public consultationCardsData = consultationCardsData;
 
   aPopularBusiness: any[] = [];
   // isGarant: boolean = false;
@@ -103,6 +117,10 @@ export class DealLandingComponent implements OnInit {
 
   public landingHeaderCard(event: any): void{
     console.log('landingHeaderCard', event);
+  }
+
+  public landingConsultationCard(event: any): void{
+    console.log('landingConsultationCard', event);
   }
 
   public ngOnInit() {

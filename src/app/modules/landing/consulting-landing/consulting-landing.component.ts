@@ -12,14 +12,27 @@ import {CommonDataService} from 'src/app/core/services/common/common-data.servic
 import {LandingRequestService} from '../../../core/services/landing/landing.service';
 
 export const headerCardsData = {
-    title: 'Консультация',
-    sublitle: 'по покупке бизнеса и франшиз',
-    content_text: 'с сопровождением сделки и составлением договоров',
-    content__button: 'Получить консультацию',
-    content__button1: 'Консультация',
-    image: '../../../../assets/images/consulting-landing/Group.png',
-    alt: 'Изображение блокнота, ручки и портфеля',
-  };
+  title: 'Консультация',
+  subtitle: 'по покупке бизнеса и франшиз',
+  content_text: 'с сопровождением сделки и составлением договоров',
+  content__button: 'Получить консультацию',
+  content__button1: 'Консультация',
+  image: '../../../../assets/images/consulting-landing/Group.png',
+  alt: 'Изображение блокнота, ручки и портфеля',
+};
+
+export const consultationCardsData = {
+  title: 'Проверка',
+  subtitle: 'юридических документов',
+  content_text: 'при покупке франшизы или готового бизнеса',
+  content__label1: 'Имя',
+  content__placeholder1: 'Введите имя',
+  content__label2: 'Номер телефона',
+  content__placeholder2: 'Введите номер телефона',
+  content__button: 'Отправить договор на проверку',
+  image: '../../../../assets/images/consulting-landing/template_person6%201.png',
+  alt: 'Фото проверяющего'
+};
 
 @Component({
   selector: 'app-consulting-landing',
@@ -28,6 +41,7 @@ export const headerCardsData = {
 })
 export class ConsultingLandingComponent implements OnInit {
   public headerCardsData = headerCardsData;
+  public consultationCardsData = consultationCardsData;
 
   aPopularBusiness: any[] = [];
   // isGarant: boolean = false;
@@ -96,8 +110,12 @@ export class ConsultingLandingComponent implements OnInit {
     this.routeParam = this.route.snapshot.queryParams['businessId'];
   }
 
-  public landingHeaderCard(event: any): void{
+  public landingHeaderCard(event: any): void {
     console.log('landingHeaderCard', event);
+  }
+
+  public landingConsultationCard(event: any): void {
+    console.log('landingConsultationCard', event);
   }
 
   public ngOnInit() {

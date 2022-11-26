@@ -3,7 +3,7 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export namespace LandingHeader {
   export interface IHeaderItem {
     title: string;
-    sublitle: string;
+    subtitle: string;
     content_text: string;
     content__button: string;
     content__button1?: string;
@@ -42,6 +42,6 @@ export class LandingHeaderCardComponent implements OnInit {
   }
 
   public action(event: any): void{
-    this.cardEvent.emit(true);
+    this.cardEvent.emit(this.cardData?.title);
   }
 }
