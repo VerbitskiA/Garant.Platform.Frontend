@@ -77,9 +77,10 @@
 
 <!-- TODO: а вот тут как раз надо передать цвет, т.к. по дефолту установлен голубой.   -->
 
-<app-landing-consultation-card [cardConsultationData]="consultationCardsData" [backgroundColorVariant]="backgroundColorVariant.black"
-                               (cardConsultationEvent)="landingConsultationCard($event)"
-></app-landing-consultation-card>
+<app-landing-consultation-card [cardConsultationData]="consultationCardsData"
+                               [backgroundColorVariant]="backgroundColorVariant.black"
+                               backgroundColor="#1B1B1B"
+                               (cardConsultationEvent)="landingConsultationCard($event)"></app-landing-consultation-card>
 
 <div class="founder">
   <div class="founder-content">
