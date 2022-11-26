@@ -335,8 +335,13 @@
   </div>
 </div>
 
+
 <!--<app-landing-consultation-card [cardConsultationData]="consultationCardsData"  cardConsultationEvent)="landingConsultationCard($event)"></app-landing-consultation-card>-->
-<app-landing-consultation-card [cardConsultationData]="consultationCardsData" (cardConsultationEvent)="landingConsultationCard($event)"></app-landing-consultation-card>
+<app-landing-consultation-card
+  [cardConsultationData]="consultationCardsData" [backgroundColorVariant]="backgroundColorVariant.blue"
+  (cardConsultationEvent)="landingConsultationCard($event)"></app-landing-consultation-card>
+
+<!-- TODO: так как цвет установлен по дефолту, то в этом случае его можно не передавать.  -->
 
 <!--<div class="check">-->
 <!--  <div class="check-content">-->

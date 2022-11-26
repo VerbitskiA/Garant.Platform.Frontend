@@ -75,7 +75,9 @@
   <app-promo-block-card></app-promo-block-card>
 </div>
 
-<app-landing-consultation-card [cardConsultationData]="consultationCardsData"
+<!-- TODO: а вот тут как раз надо передать цвет, т.к. по дефолту установлен голубой.   -->
+
+<app-landing-consultation-card [cardConsultationData]="consultationCardsData" [backgroundColorVariant]="backgroundColorVariant.black"
                                (cardConsultationEvent)="landingConsultationCard($event)"
 ></app-landing-consultation-card>
 

@@ -1,5 +1,7 @@
-@use "../../../app.component";
-@use "../../../shared/components/main-page/main-page.component";
+
+// зачем?
+//@use "../../../app.component";
+//@use "../../../shared/components/main-page/main-page.component";
 @use "../../../../assets/styles/index" as *;
 @use "../../../../assets/styles/base/index" as *;
 @import "../../../../assets/styles/media-quaries";
@@ -12,7 +14,7 @@
   height: 623px;
   border-radius: 24px;
   padding: 64px 0 64px 64px;
-  background-color: #1f75fe;
+  background-color: var(--app-get-call-card);
   margin-top: 80px;
 
   @include ul-xl {

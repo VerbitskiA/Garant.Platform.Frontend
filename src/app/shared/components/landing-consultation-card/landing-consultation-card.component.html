@@ -1,9 +1,10 @@
 <!--<div class="consulting" [ngStyle]="{ 'background-color': '#1b1b1b' }" *ngIf="cardConsultationData">-->
-<div class="consulting" [ngStyle]="{ 'background-color': '{{cardConsultationData.bg_color}}' }" *ngIf="cardConsultationData">
+<div class="consulting"
+     [ngStyle]="{'background-color': backgroundColor}" *ngIf="cardConsultationData">
 
   <div class="consulting-content">
 <!--    <div class="consulting-content__title">Консультация</div>-->
-    <div class="consulting-content__title">{{cardConsultationData.title}} {{cardConsultationData.bg_color}} </div>
+    <div class="consulting-content__title">{{cardConsultationData.title}} </div>
 <!--    <div class="consulting-content__subtitle">при покупке бизнеса онлайн</div>-->
     <div class="consulting-content__subtitle">{{cardConsultationData.subtitle}}</div>
     <div class="consulting-content__text">

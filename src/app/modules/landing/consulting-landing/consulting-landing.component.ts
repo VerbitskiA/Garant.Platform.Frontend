@@ -10,6 +10,8 @@ import {FranchiseInput} from 'src/app/models/franchise/input/franchise-input';
 import {PaginationInput} from 'src/app/models/pagination/input/pagination-input';
 import {CommonDataService} from 'src/app/core/services/common/common-data.service';
 import {LandingRequestService} from '../../../core/services/landing/landing.service';
+import {CommonModels} from "../../../models/common-models";
+import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
 
 export const headerCardsData = {
   title: 'Консультация',
@@ -42,6 +44,7 @@ export const consultationCardsData = {
 export class ConsultingLandingComponent implements OnInit {
   public headerCardsData = headerCardsData;
   public consultationCardsData = consultationCardsData;
+  public backgroundColorVariant = BackgroundColorVariant;
 
   aPopularBusiness: any[] = [];
   // isGarant: boolean = false;

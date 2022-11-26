@@ -14,7 +14,9 @@ import {shareReplay, takeUntil, tap} from 'rxjs/operators'; //!!!!!!
 import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
 import {
   LandingConsultation
-} from "../../../shared/components/landing-consultation-card/landing-consultation-card.component"; //!!!!
+} from "../../../shared/components/landing-consultation-card/landing-consultation-card.component";
+import {CommonModels} from "../../../models/common-models";
+import BackgroundColorVariant = CommonModels.BackgroundColorVariant; //!!!!
 
 
 export const headerCardsData =   {
@@ -52,6 +54,7 @@ export const consultationCardsData: LandingConsultation.IConsultationItem =   {
 export class FranchiseLandingComponent implements OnInit {
   public headerCardsData = headerCardsData;
   public consultationCardsData = consultationCardsData;
+  public backgroundColorVariant = BackgroundColorVariant;
   aPopularBusiness: any[] = [];
   // isGarant: boolean = false;
   // aCities: any[] = [];

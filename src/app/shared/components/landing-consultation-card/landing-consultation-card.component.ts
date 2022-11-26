@@ -1,6 +1,10 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2} from '@angular/core';
 import {LandingHeader} from "../landing-header-card/landing-header-card.component";
 import {LandingRequestService} from "../../../core/services/landing/landing.service";
+import {CommonModels} from "../../../models/common-models";
+import CSSVariablesNames = CommonModels.CSSVariablesNames;
+import BackgroundColors = CommonModels.BackgroundColors;
+import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
 
 export namespace LandingConsultation {
   export interface IConsultationItem {
@@ -23,7 +27,6 @@ export namespace LandingConsultation {
     linkAction?: () => void;
   }
 
-
   // export const routerLink = {
   //   sel: '',
   // }
@@ -40,12 +43,23 @@ export class LandingConsultationCardComponent implements OnInit {
   phoneNumber: string = "";
 
   @Input() public cardConsultationData: LandingConsultation.IConsultationItem | undefined;
+  @Input() public backgroundColorVariant = BackgroundColorVariant.blue; // первый вариант
+  @Input() public backgroundColor: string | undefined; // второй вариант. более тупой.
   @Output() public cardConsultationEvent: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(private requestService: LandingRequestService) {
+  constructor(
+    private requestService: LandingRequestService,
+    private _renderer: Renderer2,
+    private _el: ElementRef
+    ) {
   }
 
   ngOnInit(): void {
+    this._renderer.setProperty(
+      this._el.nativeElement,
+      'style',
+      `${CSSVariablesNames.app_get_call_card}: ${BackgroundColors[this.backgroundColorVariant]}`
+    );
   }
 
   public action(event: any): void{

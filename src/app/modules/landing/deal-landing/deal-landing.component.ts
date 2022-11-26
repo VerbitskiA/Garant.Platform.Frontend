@@ -11,6 +11,8 @@ import {CommonDataService} from 'src/app/core/services/common/common-data.servic
 import {LandingRequestService} from '../../../core/services/landing/landing.service';
 import {takeUntil} from "rxjs/operators";
 import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
+import {CommonModels} from "../../../models/common-models";
+import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
 
 export const headerCardsData =   {
   title: 'Онлайн сделка',
@@ -45,6 +47,7 @@ export const consultationCardsData =   {
 export class DealLandingComponent implements OnInit {
   public headerCardsData = headerCardsData;
   public consultationCardsData = consultationCardsData;
+  public backgroundColorVariant = BackgroundColorVariant;
 
   aPopularBusiness: any[] = [];
   // isGarant: boolean = false;
