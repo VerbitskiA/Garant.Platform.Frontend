@@ -40,9 +40,7 @@ export const consultationCardsData: LandingConsultation.IConsultationItem =   {
   content__placeholder2: 'Введите номер телефона',
   content__button: 'Обратиться за консультацией',
   image: '../../../../assets/images/franchise-landing/template_person6%201.png',
-  alt: 'Фото сооснователя',
-  bg_color: '#1b1b1b'
-
+  alt: 'Фото сооснователя'
 };
 
 @Component({

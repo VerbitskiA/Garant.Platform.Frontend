@@ -79,60 +79,58 @@
 
 <app-landing-consultation-card [cardConsultationData]="consultationCardsData"
                                [backgroundColorVariant]="backgroundColorVariant.black"
-                               backgroundColor="#1B1B1B"
                                (cardConsultationEvent)="landingConsultationCard($event)"></app-landing-consultation-card>
+<!--<div class="founder">-->
+<!--  <div class="founder-content">-->
+<!--    <div class="founder-content__title">Азамат Булатов</div>-->
+<!--    <div class="founder-content__subtitle">сооснователь проекта</div>-->
+<!--    <div class="founder-content__text">-->
+<!--      Лично ответственный за каждую упакованную франшизу-->
+<!--    </div>-->
+<!--    <div class="founder-content__inputs">-->
+<!--      <label class="founder-content__label"-->
+<!--      >Имя-->
+<!--        <input-->
+<!--          class="founder-content__input"-->
+<!--          type="text"-->
+<!--          name="name"-->
+<!--          placeholder="Введите имя"-->
+<!--          [(ngModel)]="name"-->
+<!--        />-->
+<!--      </label>-->
 
-<div class="founder">
-  <div class="founder-content">
-    <div class="founder-content__title">Азамат Булатов</div>
-    <div class="founder-content__subtitle">сооснователь проекта</div>
-    <div class="founder-content__text">
-      Лично ответственный за каждую упакованную франшизу
-    </div>
-    <div class="founder-content__inputs">
-      <label class="founder-content__label"
-      >Имя
-        <input
-          class="founder-content__input"
-          type="text"
-          name="name"
-          placeholder="Введите имя"
-          [(ngModel)]="name"
-        />
-      </label>
+<!--      &lt;!&ndash; <div class="founder-content__input"> &ndash;&gt;-->
 
-      <!-- <div class="founder-content__input"> -->
-
-      <label class="founder-content__label"
-      >Номер телефона
-        <p-inputMask
-          mask="+7(999) 999-99-99"
-          [(ngModel)]="phoneNumber"
-          placeholder="Введите номер телефона"
-        ></p-inputMask>
-      </label>
-      <!-- </div> -->
-    </div>
-    <button
-      class="founder-content__button"
-      (click)="onSendLandingRequestAsync(name, phoneNumber)"
-    >
-      Обратиться за консультацией
-    </button>
-  </div>
-  <!-- <div class="founder-image"> -->
-  <img
-    class="founder-image__azamat"
-    src="/src/assets/images/franchise-landing/azamat.png"
-    alt=""
-  />
-  <img
-    class="founder-image__azamat1"
-    src="../../../../assets/images/franchise-landing/template_person6%201.png"
-    alt="Фото сооснователя"
-  />
-  <!-- </div> -->
-</div>
+<!--      <label class="founder-content__label"-->
+<!--      >Номер телефона-->
+<!--        <p-inputMask-->
+<!--          mask="+7(999) 999-99-99"-->
+<!--          [(ngModel)]="phoneNumber"-->
+<!--          placeholder="Введите номер телефона"-->
+<!--        ></p-inputMask>-->
+<!--      </label>-->
+<!--      &lt;!&ndash; </div> &ndash;&gt;-->
+<!--    </div>-->
+<!--    <button-->
+<!--      class="founder-content__button"-->
+<!--      (click)="onSendLandingRequestAsync(name, phoneNumber)"-->
+<!--    >-->
+<!--      Обратиться за консультацией-->
+<!--    </button>-->
+<!--  </div>-->
+<!--  &lt;!&ndash; <div class="founder-image"> &ndash;&gt;-->
+<!--  <img-->
+<!--    class="founder-image__azamat"-->
+<!--    src="/src/assets/images/franchise-landing/azamat.png"-->
+<!--    alt=""-->
+<!--  />-->
+<!--  <img-->
+<!--    class="founder-image__azamat1"-->
+<!--    src="../../../../assets/images/franchise-landing/template_person6%201.png"-->
+<!--    alt="Фото сооснователя"-->
+<!--  />-->
+<!--  &lt;!&ndash; </div> &ndash;&gt;-->
+<!--</div>-->
 
 <h5 class="bonuses-header">Бонусы от GoBizy</h5>
 <div class="bonuses">
