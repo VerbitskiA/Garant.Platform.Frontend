@@ -3,6 +3,9 @@ $fa-font-path: "~font-awesome/fonts";
 
 /* You can add global styles to this file, and also import other style files */
 // общие стили
+
+@import "assets/styles/input-tel-styles";
+
 .app-container {
   width: 80%;
   max-width: 1440px;

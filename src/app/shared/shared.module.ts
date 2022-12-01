@@ -5,7 +5,7 @@ import {FooterComponent} from "./components/footer/footer.component";
 import {RouterLinkActive, RouterLinkWithHref} from "@angular/router";
 import {GarLibModule} from "../gar-lib/gar-lib.module";
 import {PipesModule} from "../core/pipes/pipes.module";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CreateAdComponent} from "./components/create-ad/create-ad.component";
 import {RadioButtonModule} from "primeng/radiobutton";
 import {DropdownModule} from "primeng/dropdown";
@@ -22,6 +22,8 @@ import { LandingHeaderCardComponent } from './components/landing-header-card/lan
 import {ImageModule} from "primeng/image";
 import {ButtonModule} from "primeng/button";
 import { LandingConsultationCardComponent } from './components/landing-consultation-card/landing-consultation-card.component';
+import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
+import {InputTextModule} from "primeng/inputtext";
 
 const components = [
   HeaderComponent,
@@ -50,7 +52,10 @@ const components = [
     NewsModule,
     RouterLinkActive,
     ImageModule,
-    ButtonModule
+    ButtonModule,
+    NgxIntlTelInputModule,
+    InputTextModule,
+    ReactiveFormsModule
   ],
 	exports: [...components, LandingHeaderCardComponent, LandingConsultationCardComponent]
 })

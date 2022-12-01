@@ -1,10 +1,10 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild} from '@angular/core';
-import {LandingHeader} from "../landing-header-card/landing-header-card.component";
-import {LandingRequestService} from "../../../core/services/landing/landing.service";
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2} from '@angular/core';
 import {CommonModels} from "../../../models/common-models";
+import {CountryISO, PhoneNumberFormat, SearchCountryField} from 'ngx-intl-tel-input';
 import CSSVariablesNames = CommonModels.CSSVariablesNames;
 import BackgroundColors = CommonModels.BackgroundColors;
 import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 export namespace LandingConsultation {
   export interface IConsultationItem {
@@ -39,12 +39,21 @@ export namespace LandingConsultation {
 })
 export class LandingConsultationCardComponent implements OnInit {
 
-  public name = "";
-  public phoneNumber = "";
-
   @Input() public cardConsultationData: LandingConsultation.IConsultationItem | undefined;
   @Input() public backgroundColorVariant = BackgroundColorVariant.blue; // первый вариант
   @Output() public cardConsultationEvent: EventEmitter<any> = new EventEmitter<any>();
+
+  public separateDialCode = false;
+  public SearchCountryField = SearchCountryField;
+  public CountryISO = CountryISO;
+  public PhoneNumberFormat = PhoneNumberFormat;
+  public preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
+
+  public phoneForm = new FormGroup({
+    name: new FormControl(undefined, [Validators.required]),
+    phone: new FormControl(undefined, [Validators.required])
+  });
+
 
   constructor(
     private _renderer: Renderer2,
@@ -61,7 +70,11 @@ export class LandingConsultationCardComponent implements OnInit {
   }
 
   public action(event: any): void {
-    this.cardConsultationEvent.emit({name: this.name, phoneNumber: this.phoneNumber});
+    this.phoneForm.markAsDirty();
+    if (this.phoneForm.valid){
+      this.cardConsultationEvent.emit(this.phoneForm.getRawValue());
+    }
+    console.log(this.phoneForm.valid, this.phoneForm.getRawValue())
   }
 
   public actionChangeColor(): void {
@@ -72,6 +85,4 @@ export class LandingConsultationCardComponent implements OnInit {
       `${CSSVariablesNames.app_get_call_card}: ${BackgroundColors[this.backgroundColorVariant]}`
     );
   }
-
-
 }
