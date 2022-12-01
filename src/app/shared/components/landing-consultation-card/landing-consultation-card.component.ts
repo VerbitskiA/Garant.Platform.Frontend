@@ -21,7 +21,6 @@ export namespace LandingConsultation {
 
     image: string;
     alt: string;
-    bg_color?: string
 
     link?: string;
     linkAction?: () => void;
@@ -85,4 +84,15 @@ export class LandingConsultationCardComponent implements OnInit {
       `${CSSVariablesNames.app_get_call_card}: ${BackgroundColors[this.backgroundColorVariant]}`
     );
   }
+
+  public actionChangeColor2(): void {
+    this.backgroundColorVariant = this.backgroundColorVariant === BackgroundColorVariant.blue ? BackgroundColorVariant.fuchsia : BackgroundColorVariant.blue;
+    this._renderer.setProperty(
+      this._el.nativeElement,
+      'style',
+      `${CSSVariablesNames.app_get_call_card}: ${BackgroundColors[this.backgroundColorVariant]}`
+    );
+  }
+
+
 }
