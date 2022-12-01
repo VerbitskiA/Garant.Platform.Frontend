@@ -1,11 +1,14 @@
 import {Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
+import {ComponentType} from "@angular/cdk/overlay";
+import {GarItemComponent} from "../../../gar-lib/gar-item/gar-item.component";
 
 
 interface CardData {
   id?: string;
   name?: string;
   description?: string;
-  price?: number;
+  time?: string;
+  price?: string;
 }
 
 
@@ -18,13 +21,29 @@ interface CardData {
 export class CarouselCardComponent {
   @Input() public cardsData: CardData[] = [];
   @Output() public caruselEvent: EventEmitter<CardData> = new EventEmitter<CardData>();
+  @Input() public numVisible!: number;
+  @Input() public style: any = {};
+  @Input()
+  template: any;
+
   constructor() {
   }
 
   ngOnInit() {
   }
 
+
   public testAction(card: CardData): void {
+    alert('card')
     this.caruselEvent.emit(card);
   }
+
+  responsiveOptions: any[] = [
+
+    {
+      breakpoint: '768px',
+      numVisible: 2,
+      numScroll: 2
+    }
+  ]
 }

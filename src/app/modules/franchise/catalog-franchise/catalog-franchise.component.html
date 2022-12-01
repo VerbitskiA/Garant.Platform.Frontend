@@ -156,10 +156,19 @@
   <!-- Новые франшизы. -->
   <div class="section">
     <div class="gar-row title">Популярные франшизы</div>
+    <app-carousel-card [cardsData]="cardsData" [style]="style" [numVisible]="2" [template]="customTemplate">
+    </app-carousel-card>
+    <ng-template #customTemplate >
+      <h6 class="price">Сумма сделки: </h6>
+    </ng-template>
 <!--    <gar-carousel-->
 <!--      [items]="aNewFranchises"-->
 <!--      [template]="cardComponent"-->
 <!--    ></gar-carousel>-->
+    <app-carousel-card [cardsData]="cardsData" [style]="style"  [numVisible]="4" [template]="customTemplate"></app-carousel-card>
+    <ng-template #customTemplate >
+      <h6 class="price">От:</h6>
+    </ng-template>
   </div>
 
   <!-- Бизнес с гарантиями -->

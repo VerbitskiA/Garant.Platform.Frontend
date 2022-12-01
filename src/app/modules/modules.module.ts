@@ -15,7 +15,10 @@ import {SharedModule} from "primeng/api";
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
+  exports: [
+  ],
   imports: [
     CommonModule,
     BlogModule,
@@ -29,7 +32,7 @@ import {SharedModule} from "primeng/api";
     ProductsModule,
     ProfileModule,
     PromoModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class ModulesModule { }

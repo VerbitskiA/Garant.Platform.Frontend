@@ -1,17 +1,31 @@
 <div class="garant-carusel">
-  <p-carousel [value]="cardsData">
-    <ng-template let-card pTemplate="item">
-      <div class="product-item">
-        <div class="product-item-content">
-          <div class="p-mb-3"></div>
+  <p-carousel [value]="cardsData" [numVisible]="numVisible" [style]="style" [responsiveOptions]="responsiveOptions">
+    <ng-template let-card pTemplate="item" >
+      <div class="item">
+        <div class="item-content">
+          <img [src]="card.img"
+               class="img"
+               (click)="testAction(card)"
+               [alt]="card.description">
           <div>
-            <h4> {{ card.id }}</h4>
-            <h4 class="p-mb-1">{{ card.name }}</h4>
-            <h4 class="p-mb-1"> {{ card.description }} </h4>
-            <h6 class="p-mt-0 p-mb-3"> ${{ card.price }} </h6>
-            <div class="car-buttons p-mt-3">
-              <p-button type="button" (click)="testAction(card)" styleClass="p-button p-button-rounded p-mr-2"
-                        icon="pi pi-search"></p-button>
+
+            <!--            <h4> {{ card.id }}</h4>-->
+            <div class="wrapper">
+              <div class="title-block">
+                <h4 class="name" [ngStyle]="style.name">{{ card.name }}</h4>
+                <span class="icon">
+                  <svg width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1.11108L8 8.11108L1 15.1111" stroke="#C4C4C4" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </span>
+              </div>
+              <h4 class="description" [ngStyle]="style.description"> {{ card.description }}
+                <span>{{ card.time }} </span></h4>
+
+              <h6 class="price" [ngStyle]="style.price">
+                <ng-template [ngStyle]="style.price" [ngTemplateOutlet]="template"></ng-template>
+                {{ card.price }} </h6>
+
             </div>
           </div>
         </div>

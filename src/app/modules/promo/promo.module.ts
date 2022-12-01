@@ -16,13 +16,14 @@ const components = [
 @NgModule({
   declarations: [...components],
   exports: [...components],
-  imports: [
-    CommonModule,
-    GarLibModule,
-    RouterModule,
-    CaruselCardModule,
-    ButtonModule
-  ]
+    imports: [
+        CommonModule,
+        GarLibModule,
+        RouterModule,
+        CaruselCardModule,
+        ButtonModule,
+
+    ]
 })
 export class PromoModule {
 }

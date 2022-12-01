@@ -136,6 +136,10 @@
 
 <!--  TODO: заменить на компонент прайма   -->
 <!--    <gar-carousel [items]="aPopularFranchises" [template]="cardShortComponent"></gar-carousel>-->
+    <app-carousel-card [cardsData]="cardsData" [style]="style" [numVisible]="4" [template]="customTemplate"></app-carousel-card>
+    <ng-template #customTemplate >
+      <span class="price">oт </span>
+    </ng-template>
   </div>
 
   <!-- Бизнес блог -->

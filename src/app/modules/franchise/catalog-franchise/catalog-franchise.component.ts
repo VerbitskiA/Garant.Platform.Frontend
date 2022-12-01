@@ -337,4 +337,60 @@ export class CatalogFranchiseComponent implements OnInit {
   public routeViewFranchiseCardAsync(franchiseId: number) {
     this.setTransitionAsync(franchiseId);
   }
+  public style = {
+    //  description: {'display':'none'},
+    // name: {'display':'none'},
+    // price: {'display':'none'}
+  }
+
+  public cardsData:any = [
+    {
+      id: '1',
+      name: 'Название франшизы',
+      description: 'Франшиза . 12 точек',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+
+
+    },
+    {
+      id: '2',
+      name: 'Название франшизы',
+      description: 'Франшиза . 12 точек',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+    },
+    {
+      id: '3',
+      name: 'Название франшизы',
+      description: 'Франшиза . 12 точек',
+      time:'24 дня',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+    },
+    {
+      id: '4',
+      name: 'Название франшизы',
+      description: 'Франшиза . 12 точек',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+
+
+    },
+    {
+      id: '5',
+      name: 'Название франшизы',
+      description: 'Франшиза . 12 точек',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+    },
+    {
+      id: '6',
+      name: 'Название франшизы',
+      description: 'Франшиза . 12 точек',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+    },
+
+  ];
 }
