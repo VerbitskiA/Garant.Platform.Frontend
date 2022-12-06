@@ -1,12 +1,14 @@
+@import "design/colors";
+
 .input-tel-styles {
   &--main-field {
     display: block;
     font-family: "Roboto", sans-serif;
     font-size: 1.125rem;
     font-weight: 400;
-    color: #7a7a7a;
+    color: $clrDarkGray;
     width: 291px;
-    border: 1.5px solid #dadada;
+    border: 1.5px solid $clrLightGray;
     border-radius: 8px;
     padding: 20px 48px;
   }
