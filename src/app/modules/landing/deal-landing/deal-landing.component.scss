@@ -1427,38 +1427,38 @@ strong {
     height: 559px;
     border-radius: 7px;
 
-    @include ul-xl {
-      margin-left: -13px;
-    }
-
-    @include xl-lg {
-      width: 594px;
-      height: 476px;
-      margin-left: -68px;
-    }
-
-    @include lg-md {
-      width: 479px;
-      height: 441px;
-      margin-left: -50px;
-      margin-top: 184px;
-    }
-
-    @include md {
-      display: none;
-    }
-
-    img {
-      @include xl-lg {
-        width: 594px;
-        height: 476px;
-      }
-
-      @include lg-md {
-        width: 479px;
-        height: 441px;
-      }
-    }
+    //@include ul-xl {
+    //  margin-left: -13px;
+    //}
+    //
+    //@include xl-lg {
+    //  width: 594px;
+    //  height: 476px;
+    //  margin-left: -68px;
+    //}
+    //
+    //@include lg-md {
+    //  width: 479px;
+    //  height: 441px;
+    //  margin-left: -50px;
+    //  margin-top: 184px;
+    //}
+    //
+    //@include md {
+    //  display: none;
+    //}
+    //
+    //img {
+    //  @include xl-lg {
+    //    width: 594px;
+    //    height: 476px;
+    //  }
+    //
+    //  @include lg-md {
+    //    width: 479px;
+    //    height: 441px;
+    //  }
+    //}
   }
 }
 
