@@ -935,44 +935,49 @@
   </div>
 </div>
 
-<div class="special">
-  <div class="special-content">
-    <div class="special-content__title">Управляющая компания</div>
-    <div class="special-content__subtitle">Особый пакет</div>
-    <div class="special-content__text">
-      Условия обсуждаются индвидуально.
-      <span>От 1 500 000 ₽</span>
-    </div>
-    <div class="special-content__inputs">
-      <label class="special-content__label"
-      >Имя
-        <input
-          class="special-content__input"
-          type="text"
-          name="name"
-          placeholder="Введите имя"
-        />
-      </label>
-      <label class="special-content__label"
-      >Номер телефона
-        <input
-          class="special-content__input"
-          type="tel"
-          name="telephone"
-          placeholder="Введите номер телефона"
-        />
-      </label>
-    </div>
-    <button class="special-content__button">Обратиться за консультацией</button>
-  </div>
-  <!-- <div class="special-image"> -->
-  <img
-    class="special-image__photo2"
-    src="../../../../assets/images/franchise-landing/Layer_7_1%201.png"
-    alt="Фото управляющего"
-  />
-  <!-- </div> -->
-</div>
+<app-landing-consultation-card [cardConsultationData]="consultationCardsData2"
+                               [backgroundColorVariant]="backgroundColorVariant.black"
+                               (cardConsultationEvent)="landingConsultationCard($event)"></app-landing-consultation-card>
+
+
+<!--<div class="special">-->
+<!--  <div class="special-content">-->
+<!--    <div class="special-content__title">Управляющая компания</div>-->
+<!--    <div class="special-content__subtitle">Особый пакет</div>-->
+<!--    <div class="special-content__text">-->
+<!--      Условия обсуждаются индвидуально.-->
+<!--      <span>От 1 500 000 ₽</span>-->
+<!--    </div>-->
+<!--    <div class="special-content__inputs">-->
+<!--      <label class="special-content__label"-->
+<!--      >Имя-->
+<!--        <input-->
+<!--          class="special-content__input"-->
+<!--          type="text"-->
+<!--          name="name"-->
+<!--          placeholder="Введите имя"-->
+<!--        />-->
+<!--      </label>-->
+<!--      <label class="special-content__label"-->
+<!--      >Номер телефона-->
+<!--        <input-->
+<!--          class="special-content__input"-->
+<!--          type="tel"-->
+<!--          name="telephone"-->
+<!--          placeholder="Введите номер телефона"-->
+<!--        />-->
+<!--      </label>-->
+<!--    </div>-->
+<!--    <button class="special-content__button">Обратиться за консультацией</button>-->
+<!--  </div>-->
+<!--  &lt;!&ndash; <div class="special-image"> &ndash;&gt;-->
+<!--  <img-->
+<!--    class="special-image__photo2"-->
+<!--    src="../../../../assets/images/franchise-landing/Layer_7_1%201.png"-->
+<!--    alt="Фото управляющего"-->
+<!--  />-->
+<!--  &lt;!&ndash; </div> &ndash;&gt;-->
+<!--</div>-->
 
 <!-- Популярный бизнес. -->
 <!-- <h5 class="garant title-franchise">Популярныe франшизы</h5>
