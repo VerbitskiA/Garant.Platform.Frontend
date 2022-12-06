@@ -39,8 +39,21 @@ export const consultationCardsData: LandingConsultation.IConsultationItem =   {
   content__label2: 'Номер телефона',
   content__placeholder2: 'Введите номер телефона',
   content__button: 'Обратиться за консультацией',
-  image: '../../../../assets/images/franchise-landing/template_person6%201.png',
+  image: '../../../../assets/images/franchise-landing/azamat2.png',
   alt: 'Фото сооснователя'
+};
+
+export const consultationCardsData2: LandingConsultation.IConsultationItem =   {
+  title: 'Управляющая компания',
+  subtitle: 'Особый пакет',
+  content_text: "Условия обсуждаются индвидуально. От 1 500 000 ₽",
+  content__label1: 'Имя',
+  content__placeholder1: 'Введите имя',
+  content__label2: 'Номер телефона',
+  content__placeholder2: 'Введите номер телефона',
+  content__button: 'Обратиться за консультацией',
+  image: '../../../../assets/images/franchise-landing/Layer_7_1%201.png',
+  alt: 'Фото управляющего'
 };
 
 @Component({
@@ -52,6 +65,8 @@ export const consultationCardsData: LandingConsultation.IConsultationItem =   {
 export class FranchiseLandingComponent implements OnInit {
   public headerCardsData = headerCardsData;
   public consultationCardsData = consultationCardsData;
+  public consultationCardsData2 = consultationCardsData2;
+
   public backgroundColorVariant = BackgroundColorVariant;
   aPopularBusiness: any[] = [];
   // isGarant: boolean = false;
