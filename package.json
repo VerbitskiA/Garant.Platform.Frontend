@@ -27,7 +27,7 @@
     "@microsoft/signalr": "^6.0.10",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
-    "@schematics/angular": "^15.0.2",
+    "@schematics/angular": "^14.2.6",
     "google-libphonenumber": "^3.2.31",
     "intl-tel-input": "^17.0.16",
     "lodash": "^4.17.21",
