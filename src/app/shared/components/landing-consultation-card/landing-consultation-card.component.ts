@@ -1,10 +1,10 @@
-import {Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewEncapsulation} from '@angular/core';
 import {CommonModels} from "../../../models/common-models";
 import {CountryISO, PhoneNumberFormat, SearchCountryField} from 'ngx-intl-tel-input';
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import CSSVariablesNames = CommonModels.CSSVariablesNames;
 import BackgroundColors = CommonModels.BackgroundColors;
 import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
-import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 export namespace LandingConsultation {
   export interface IConsultationItem {
@@ -34,7 +34,8 @@ export namespace LandingConsultation {
 @Component({
   selector: 'app-landing-consultation-card',
   templateUrl: './landing-consultation-card.component.html',
-  styleUrls: ['./landing-consultation-card.component.scss']
+  styleUrls: ['./landing-consultation-card.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LandingConsultationCardComponent implements OnInit {
 
@@ -46,7 +47,8 @@ export class LandingConsultationCardComponent implements OnInit {
   public SearchCountryField = SearchCountryField;
   public CountryISO = CountryISO;
   public PhoneNumberFormat = PhoneNumberFormat;
-  public preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
+  public preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.Georgia, CountryISO.Russia, CountryISO.Ukraine];
+
 
   public phoneForm = new FormGroup({
     name: new FormControl(undefined, [Validators.required]),
@@ -73,26 +75,26 @@ export class LandingConsultationCardComponent implements OnInit {
     if (this.phoneForm.valid){
       this.cardConsultationEvent.emit(this.phoneForm.getRawValue());
     }
-    console.log(this.phoneForm.valid, this.phoneForm.getRawValue())
+    console.log(this.phoneForm.valid, this.phoneForm.getRawValue(), event)
   }
 
-  public actionChangeColor(): void {
-    this.backgroundColorVariant = this.backgroundColorVariant === BackgroundColorVariant.blue ? BackgroundColorVariant.black : BackgroundColorVariant.blue;
-    this._renderer.setProperty(
-      this._el.nativeElement,
-      'style',
-      `${CSSVariablesNames.app_get_call_card}: ${BackgroundColors[this.backgroundColorVariant]}`
-    );
-  }
-
-  public actionChangeColor2(): void {
-    this.backgroundColorVariant = this.backgroundColorVariant === BackgroundColorVariant.blue ? BackgroundColorVariant.fuchsia : BackgroundColorVariant.blue;
-    this._renderer.setProperty(
-      this._el.nativeElement,
-      'style',
-      `${CSSVariablesNames.app_get_call_card}: ${BackgroundColors[this.backgroundColorVariant]}`
-    );
-  }
+  // public actionChangeColor(): void {
+  //   this.backgroundColorVariant = this.backgroundColorVariant === BackgroundColorVariant.blue ? BackgroundColorVariant.black : BackgroundColorVariant.blue;
+  //   this._renderer.setProperty(
+  //     this._el.nativeElement,
+  //     'style',
+  //     `${CSSVariablesNames.app_get_call_card}: ${BackgroundColors[this.backgroundColorVariant]}`
+  //   );
+  // }
+  //
+  // public actionChangeColor2(): void {
+  //   this.backgroundColorVariant = this.backgroundColorVariant === BackgroundColorVariant.blue ? BackgroundColorVariant.fuchsia : BackgroundColorVariant.blue;
+  //   this._renderer.setProperty(
+  //     this._el.nativeElement,
+  //     'style',
+  //     `${CSSVariablesNames.app_get_call_card}: ${BackgroundColors[this.backgroundColorVariant]}`
+  //   );
+  // }
 
 
 }
