@@ -1,284 +1,347 @@
-
-// зачем?
-//@use "../../../app.component";
-//@use "../../../shared/components/main-page/main-page.component";
-@use "../../../../assets/styles/index" as *;
-@use "../../../../assets/styles/base/index" as *;
 @import "../../../../assets/styles/media-quaries";
 
+@import "../../../app.component";
+@import "../../../shared/components/main-page/main-page.component";
+@import "../../../../assets/styles/_index.scss";
+@import "../../../../assets/styles/base/index";
+@import "../../../../assets/styles/media-quaries";
+@import '../../../../assets/styles/design/design';
 
-.consulting {
-  display: flex;
+.app-landing-consultation-card {
+  box-sizing: border-box;
+
   gap: 32px;
   width: 1440px;
-  height: 623px;
   border-radius: 24px;
-  padding: 64px 0 64px 64px;
+  padding: 64px 0 0 64px;
   background-color: var(--app-get-call-card);
   margin-top: 80px;
+  //overflow:hidden;
 
-  @include ul-xl {
-    width: 1392px;
-    margin-top: 74px;
-    gap: 0;
-  }
+  .consulting {
+    display: flex;
 
-  @include xl-lg {
-    width: 1024px;
-    height: 522px;
-    gap: 0;
-    padding: 44px 0 44px 44px;
-    margin-top: 64px;
-  }
-
-  @include lg-md {
-    width: 768px;
-    height: 657px;
-    gap: 0;
-    padding: 32px 0 32px 32px;
-    margin-top: 36px;
-  }
-
-  @include md {
-    width: 320px;
-    height: 528px;
-    gap: 0;
-    padding: 24px;
-    margin-top: 24px;
-  }
-
-  &-content {
-    width: 864px;
-    height: 495px;
-
-    @include xl-lg {
-      width: 598px;
-      height: 434px;
+    @include ul-xl {
+      width: 1392px;
+      margin-top: 74px;
+      gap: 0;
     }
+    //
+    //@include xl-lg {
+    //  width: 1024px;
+    //  height: 522px;
+    //  gap: 0;
+    //  padding: 44px 0 44px 44px;
+    //  margin-top: 64px;
+    //}
+    //
+    //@include lg-md {
+    //  width: 768px;
+    //  height: 657px;
+    //  gap: 0;
+    //  padding: 32px 0 32px 32px;
+    //  margin-top: 36px;
+    //}
+    //
+    //@include md {
+    //  width: 320px;
+    //  height: 528px;
+    //  gap: 0;
+    //  padding: 24px;
+    //  margin-top: 24px;
+    //}
 
-    @include lg-md {
-      width: 429px;
-      height: 593px;
-    }
-
-    @include md {
-      width: 272px;
-      height: 480px;
-    }
-
-    &__title {
-      font-family: "Roboto", sans-serif;
-      font-size: 5rem;
-      font-weight: 700;
-      color: #ffffff;
+    &-content {
       width: 864px;
-      line-height: 112px;
-      margin-bottom: 16px;
+      //height: 495px;
 
       @include xl-lg {
-        font-size: 4rem;
         width: 598px;
-        line-height: 75px;
+        //height: 434px;
       }
 
       @include lg-md {
-        font-size: 4rem;
         width: 429px;
-        line-height: 75px;
+        //height: 593px;
       }
 
       @include md {
-        font-size: 2rem;
         width: 272px;
-        line-height: 38px;
-        margin-bottom: 8px;
-      }
-    }
-
-    &__subtitle {
-      font-family: "Roboto", sans-serif;
-      font-size: 3rem;
-      font-weight: 700;
-      color: #ffffff;
-      width: 864px;
-      line-height: 75px;
-      margin-bottom: 16px;
-
-      @include xl-lg {
-        font-size: 2.75rem;
-        width: 598px;
-        line-height: 52px;
+        //height: 480px;
       }
 
-      @include lg-md {
-        font-size: 2.75rem;
-        width: 429px;
-        line-height: 52px;
+      &__title {
+        font-family: "Roboto", sans-serif;
+        font-size: 5rem;
+        font-weight: 700;
+        color: #ffffff;
+        width: 864px;
+        line-height: 112px;
+        margin-bottom: 16px;
+
+        @include xl-lg {
+          font-size: 4rem;
+          //width: 598px;
+          line-height: 75px;
+        }
+
+        @include lg-md {
+          font-size: 4rem;
+          width: 429px;
+          line-height: 75px;
+        }
+
+        @include md {
+          font-size: 2rem;
+          width: 272px;
+          line-height: 38px;
+          margin-bottom: 8px;
+        }
       }
 
-      @include md {
+      &__subtitle {
+        font-family: "Roboto", sans-serif;
+        font-size: 3rem;
+        font-weight: 700;
+        color: #ffffff;
+        width: 864px;
+        line-height: 75px;
+        margin-bottom: 16px;
+
+        @include xl-lg {
+          font-size: 2.75rem;
+          width: 598px;
+          line-height: 52px;
+        }
+
+        @include lg-md {
+          font-size: 2.75rem;
+          width: 429px;
+          line-height: 52px;
+        }
+
+        @include md {
+          font-size: 1.5rem;
+          width: 272px;
+          line-height: 28px;
+        }
+      }
+
+      &__text {
+        font-family: "Roboto", sans-serif;
         font-size: 1.5rem;
-        width: 272px;
+        font-weight: 400;
+        color: #dadada;
+        width: 864px;
         line-height: 28px;
-      }
-    }
+        margin-bottom: 48px;
 
-    &__text {
-      font-family: "Roboto", sans-serif;
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: #dadada;
-      width: 864px;
-      line-height: 28px;
-      margin-bottom: 48px;
+        @include xl-lg {
+          width: 598px;
+        }
 
-      @include xl-lg {
-        width: 598px;
-      }
+        @include lg-md {
+          width: 429px;
+        }
 
-      @include lg-md {
-        width: 429px;
+        @include md {
+          font-size: 1rem;
+          width: 272px;
+          line-height: 19px;
+          margin-bottom: 24px;
+        }
       }
 
-      @include md {
-        font-size: 1rem;
-        width: 272px;
-        line-height: 19px;
-        margin-bottom: 24px;
+      &__inputs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 32px;
+
+        //::ng-deep.p-inputtext {
+        //  display: block;
+        //  font-family: "Roboto", sans-serif;
+        //  font-size: 1.125rem;
+        //  font-weight: 400;
+        //  color: #7a7a7a;
+        //  width: 291px;
+        //  // height: 69px;
+        //  border: 1.5px solid #dadada;
+        //  border-radius: 8px;
+        //  padding: 20px 9px;
+        //}
+
+        @include lg-md {
+          flex-direction: column;
+        }
+
+        @include md {
+          flex-direction: column;
+          margin-bottom: 24px;
+        }
       }
-    }
 
-    &__inputs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 32px;
+      &__label {
+        display: block;
+        font-family: "Roboto", sans-serif;
+        font-size: 0.75rem;
+        line-height: 14px;
+        font-weight: 400;
+        color: #dadada;
+        margin-bottom: 8px;
 
-      ::ng-deep.p-inputtext {
+        @include lg-md {
+          margin-bottom: 0;
+        }
+
+        @include md {
+          margin-bottom: 0;
+        }
+      }
+
+      &__input {
         display: block;
         font-family: "Roboto", sans-serif;
         font-size: 1.125rem;
         font-weight: 400;
         color: #7a7a7a;
         width: 291px;
-        // height: 69px;
+        height: 69px;
         border: 1.5px solid #dadada;
         border-radius: 8px;
-        padding: 20px 9px;
-      }
-
-      @include lg-md {
-        flex-direction: column;
-      }
-
-      @include md {
-        flex-direction: column;
-        margin-bottom: 24px;
-      }
-    }
-
-    &__label {
-      display: block;
-      font-family: "Roboto", sans-serif;
-      font-size: 0.75rem;
-      line-height: 14px;
-      font-weight: 400;
-      color: #dadada;
-      margin-bottom: 8px;
-
-      @include lg-md {
-        margin-bottom: 0;
-      }
-
-      @include md {
-        margin-bottom: 0;
-      }
-    }
-
-    &__input {
-      display: block;
-      font-family: "Roboto", sans-serif;
-      font-size: 1.125rem;
-      font-weight: 400;
-      color: #7a7a7a;
-      width: 291px;
-      height: 69px;
-      border: 1.5px solid #dadada;
-      border-radius: 8px;
-      padding: 24px 10px;
-      margin-top: 8px;
-
-      @include lg-md {
+        padding: 24px 10px;
         margin-top: 8px;
+
+        @include lg-md {
+          margin-top: 8px;
+        }
+
+        @include md {
+          width: 272px;
+          margin-top: 8px;
+        }
       }
 
-      @include md {
-        width: 272px;
-        margin-top: 8px;
+      &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Roboto", sans-serif;
+        font-size: 1.3rem;
+        font-weight: 500;
+
+        line-height: 28px;
+        width: 398px;
+        // height: 76px;
+        border: none;
+        border-radius: 4px;
+        padding: 24px 10px;
+        margin: 0;
+        color: #ffffff;
+        height: 76px;
+        background-color: #1f75fe;
+        @include md {
+          display: none;
+        }
       }
     }
 
-    &__button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: "Roboto", sans-serif;
-      font-size: 1.3rem;
-      font-weight: 500;
-
-      line-height: 28px;
-      width: 398px;
-      // height: 76px;
-      border: none;
-      border-radius: 4px;
-      padding: 24px 10px;
-      margin: 0;
-      color: #ffffff;
-      height: 76px;
-      background-color: #1f75fe;
-      @include md {
-        display: none;
+    &-image {
+      margin-left: 0%;
+      margin-top: 0%;
+      //height: 300px;
+      img {
+        height: 50vh;
       }
-    }
-  }
 
-  &-image {
-    width: 622px;
-    height: 559px;
-    border-radius: 7px;
+      //@include tablet-small {
+      //
+      //  margin-left: 20%;
+      //  margin-top: 0%;
+      //}
 
-    @include ul-xl {
-      margin-left: -13px;
-
-    }
-
-    @include xl-lg {
-      width: 594px;
-      height: 476px;
-      margin-left: -68px;
-    }
-
-    @include lg-md {
-      width: 479px;
-      height: 441px;
-      margin-left: -50px;
-      margin-top: 184px;
-    }
-
-    @include md {
-      display: none;
-    }
-
-    img {
       @include xl-lg {
-        width: 1594px;
-        height: 1476px;
+        margin-left: 10%;
+        margin-top: 0%;
       }
 
       @include lg-md {
-        width: 479px;
-        height: 441px;
+        margin-left: 20%;
+        margin-top: 0%;
       }
+      //height: 650px;
+      //margin-left: 50%;
+      //margin-top: 1.5%;
+
+      //@include phone {
+      //  height: 504px;
+      //  // transform: translate(-107px, 54px);}
+      //}
+      //
+      //@include phone {
+      //  margin-left: 0;
+      //
+      //}
+      //
+      //@include tablet-small {
+      //  height: 650px;
+      //  position: absolute;
+      //  margin-left: 42%;
+      //  margin-top: 6%;
+      //}
+      //
+      //@include tablet {
+      //  height: 550px;
+      //  margin-left: 50%;
+      //  margin-top: 2.6%;
+      //}
+      //
+      //@include desktop {
+      //  height: 650px;
+      //  margin-left: 50%;
+      //  margin-top: 1.5%;
+      //}
+
+
+      //width: 622px;
+      //height: 559px;
+      //border-radius: 7px;
+      //
+      //@include ul-xl {
+      //  margin-left: -13px;
+      //
+      //}
+      //
+      //@include xl-lg {
+      //  width: 594px;
+      //  height: 476px;
+      //  margin-left: -68px;
+      //}
+      //
+      //@include lg-md {
+      //  width: 479px;
+      //  height: 441px;
+      //  margin-left: -50px;
+      //  margin-top: 184px;
+      //}
+      //
+      //@include md {
+      //  display: none;
+      //}
+      //
+      //img {
+      //  @include xl-lg {
+      //    width: 1594px;
+      //    height: 1476px;
+      //  }
+      //
+      //  @include lg-md {
+      //    width: 479px;
+      //    height: 441px;
+      //  }
+      //}
     }
   }
+
 }
+
