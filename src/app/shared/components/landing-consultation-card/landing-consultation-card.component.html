@@ -1,74 +1,68 @@
-<!--<div class="consulting" [ngStyle]="{ 'background-color': '#1b1b1b' }" *ngIf="cardConsultationData">-->
-<div class="consulting" *ngIf="cardConsultationData">
+<div class="app-landing-consultation-card">
+  <div class="consulting" *ngIf="cardConsultationData">
 
-  <div class="consulting-content" [formGroup]="phoneForm">
-<!--    <div class="consulting-content__title">Консультация</div>-->
-    <div class="consulting-content__title">{{cardConsultationData.title}} </div>
-<!--    <div class="consulting-content__subtitle">при покупке бизнеса онлайн</div>-->
-    <div class="consulting-content__subtitle">{{cardConsultationData.subtitle}}</div>
-    <div class="consulting-content__text">
-<!--      с юристом и консультантами сервиса-->
-      {{cardConsultationData.content_text}}
-    </div>
-    <div class="consulting-content__inputs">
-      <label class="consulting-content__label">
-<!--        Имя-->
-        {{cardConsultationData.content__label1}}
-
-        <!--          placeholder="Введите имя"-->
-        <input pInputText class="consulting-content__input" type="text" formControlName="name" placeholder="{{cardConsultationData.content__placeholder1}}"/>
-      </label>
-
-      <div>
-<!--        <label class="consulting-content__label">Номер телефона</label>-->
-        <label class="consulting-content__label">{{cardConsultationData.content__label2}}</label>
-<!--        <p-inputMask-->
-<!--          mask="+7(999) 999-99-99"-->
-<!--          [(ngModel)]="phoneNumber"-->
-<!--          placeholder="Введите номер телефона"-->
-<!--        ></p-inputMask>-->
-
-        <!--          placeholder="Введите номер телефона"-->
-<!--        <input class="consulting-content__input" type="text" name="phoneNumber" mask="+7(999) 999-99-99" [(ngModel)]="phoneNumber" placeholder="{{cardConsultationData.content__placeholder2}}"/>-->
-
-        <ngx-intl-tel-input
-          class="input-tel-styles"
-          [cssClass]="'input-tel-styles--main-field'"
-          [preferredCountries]="preferredCountries"
-          [enableAutoCountrySelect]="true"
-          [enablePlaceholder]="true"
-          [searchCountryFlag]="true"
-          [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
-          [selectFirstCountry]="false"
-          [selectedCountryISO]="CountryISO.India"
-          [maxLength]="15"
-          [phoneValidation]="true"
-          [separateDialCode]="separateDialCode"
-          [numberFormat]="PhoneNumberFormat.National"
-          formControlName="phone"
-        ></ngx-intl-tel-input>
-
+    <div class="consulting-content" [formGroup]="phoneForm">
+      <!--    <div class="consulting-content__title">Консультация</div>-->
+      <div class="consulting-content__title">{{cardConsultationData.title}} </div>
+      <!--    <div class="consulting-content__subtitle">при покупке бизнеса онлайн</div>-->
+      <div class="consulting-content__subtitle">{{cardConsultationData.subtitle}}</div>
+      <div class="consulting-content__text">
+        <!--      с юристом и консультантами сервиса-->
+        {{cardConsultationData.content_text}}
       </div>
+      <div class="consulting-content__inputs">
+        <label class="consulting-content__label">
+          <!--        Имя-->
+          {{cardConsultationData.content__label1}}
+
+          <!--          placeholder="Введите имя"-->
+          <input class="consulting-content__input" type="text" formControlName="name"
+                 placeholder="{{cardConsultationData.content__placeholder1}}"/>
+        </label>
+
+        <div>
+          <!--        <label class="consulting-content__label">Номер телефона</label>-->
+          <label class="consulting-content__label">{{cardConsultationData.content__label2}}</label>
+
+          <ngx-intl-tel-input
+            class="input-tel-styles"
+            [cssClass]="'input-tel-styles--main-field'"
+            [preferredCountries]="preferredCountries"
+            [enableAutoCountrySelect]="true"
+            [enablePlaceholder]="true"
+            [searchCountryFlag]="true"
+            [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+            [selectFirstCountry]="false"
+            [selectedCountryISO]="CountryISO.Belarus"
+            [maxLength]="15"
+            [phoneValidation]="true"
+            [separateDialCode]="separateDialCode"
+            [numberFormat]="PhoneNumberFormat.National"
+            formControlName="phone"
+          ></ngx-intl-tel-input>
+
+        </div>
+      </div>
+      <button pButton class="consulting-content__button"
+              (click)="action($event)"
+              [label]="cardConsultationData.content__button">
+        <!--      Обратиться за консультацией-->
+      </button>
+<!--      <button pButton class="consulting-content__button" (click)="actionChangeColor()"-->
+<!--              label="Смена цвета">-->
+<!--      </button>-->
+
+<!--      <button pButton class="consulting-content__button" (click)="actionChangeColor2()"-->
+<!--              label="Смена цвета ФУКСИЯ">-->
+<!--      </button>-->
+
     </div>
-    <button pButton  class="consulting-content__button"
-            (click)="action($event)"
-            [label]="cardConsultationData.content__button">
-    <!--      Обратиться за консультацией-->
-    </button>
-    <button pButton  class="consulting-content__button" (click)="actionChangeColor()"
-            label="Смена цвета">
-    </button>
-
-    <button pButton  class="consulting-content__button" (click)="actionChangeColor2()"
-            label="Смена цвета ФУКСИЯ">
-    </button>
-
-  </div>
-  <div class="consulting-image">
-    <!--      src="../../../../assets/images/deal-landing/template_person6%201.png"-->
-    <!--      alt="Фото консультанта"-->
-    <img      src="{{cardConsultationData.image}}"
-      alt="{{cardConsultationData.alt}}"
-    />
+    <div class="consulting-image">
+      <!--      src="../../../../assets/images/deal-landing/template_person6%201.png"-->
+      <!--      alt="Фото консультанта"-->
+      <img src="{{cardConsultationData.image}}"
+           alt="{{cardConsultationData.alt}}"
+      />
+    </div>
   </div>
 </div>
