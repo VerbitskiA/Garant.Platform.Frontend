@@ -17,14 +17,16 @@ import {MainSearchComponent} from "./components/main-search/main-search.componen
 import {ProductsModule} from "../modules/products/products.module";
 import {PromoModule} from "../modules/promo/promo.module";
 import {NewsModule} from "../modules/news/news.module";
-import { StaticInfoComponent } from './components/static-info/static-info.component';
-import { LandingHeaderCardComponent } from './components/landing-header-card/landing-header-card.component';
+import {StaticInfoComponent} from './components/static-info/static-info.component';
+import {LandingHeaderCardComponent} from './components/landing-header-card/landing-header-card.component';
 import {ImageModule} from "primeng/image";
 import {ButtonModule} from "primeng/button";
-import { LandingConsultationCardComponent } from './components/landing-consultation-card/landing-consultation-card.component';
+import {
+  LandingConsultationCardComponent
+} from './components/landing-consultation-card/landing-consultation-card.component';
 import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
 import {InputTextModule} from "primeng/inputtext";
-import { TestNgPrimeComponent } from './components/test-ng-prime/test-ng-prime.component';
+// import { TestNgPrimeComponent } from './components/test-ng-prime/test-ng-prime.component';
 import {RippleModule} from "primeng/ripple";
 import {TreeModule} from "primeng/tree";
 import {CascadeSelectModule} from "primeng/cascadeselect";
@@ -36,11 +38,14 @@ const components = [
   LoginComponent,
   MainPageComponent,
   MainSearchComponent,
-  StaticInfoComponent
+  StaticInfoComponent,
+  LandingHeaderCardComponent,
+  LandingConsultationCardComponent,
+  // TestNgPrimeComponent
 ];
 
 @NgModule({
-  declarations: [...components, LandingHeaderCardComponent, LandingConsultationCardComponent, TestNgPrimeComponent],
+  declarations: [...components],
   imports: [
     CommonModule,
     RouterLinkWithHref,
@@ -64,6 +69,7 @@ const components = [
     TreeModule,
     CascadeSelectModule
   ],
-  exports: [...components, LandingHeaderCardComponent, LandingConsultationCardComponent, TestNgPrimeComponent]
+  exports: [...components]
 })
-export class SharedModule { }
+export class SharedModule {
+}
