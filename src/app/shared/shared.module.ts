@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HeaderComponent} from "./components/header/header.component";
 import {FooterComponent} from "./components/footer/footer.component";
-import {RouterLinkActive, RouterLinkWithHref} from "@angular/router";
+import {RouterLinkActive, RouterLinkWithHref, RouterModule} from "@angular/router";
 import {GarLibModule} from "../gar-lib/gar-lib.module";
 import {PipesModule} from "../core/pipes/pipes.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -30,6 +30,7 @@ import {InputTextModule} from "primeng/inputtext";
 import {RippleModule} from "primeng/ripple";
 import {TreeModule} from "primeng/tree";
 import {CascadeSelectModule} from "primeng/cascadeselect";
+import { LandingStatisticsCardComponent } from './components/landing-statistics-card/landing-statistics-card.component';
 
 const components = [
   HeaderComponent,
@@ -41,6 +42,7 @@ const components = [
   StaticInfoComponent,
   LandingHeaderCardComponent,
   LandingConsultationCardComponent,
+  LandingStatisticsCardComponent
   // TestNgPrimeComponent
 ];
 
@@ -48,7 +50,7 @@ const components = [
   declarations: [...components],
   imports: [
     CommonModule,
-    RouterLinkWithHref,
+    // RouterLinkWithHref,
     GarLibModule,
     PipesModule,
     FormsModule,
@@ -59,7 +61,7 @@ const components = [
     ProductsModule,
     PromoModule,
     NewsModule,
-    RouterLinkActive,
+    // RouterLinkActive,
     ImageModule,
     ButtonModule,
     NgxIntlTelInputModule,
@@ -67,7 +69,8 @@ const components = [
     ReactiveFormsModule,
     RippleModule,
     TreeModule,
-    CascadeSelectModule
+    CascadeSelectModule,
+    RouterModule
   ],
   exports: [...components]
 })

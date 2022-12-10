@@ -1,0 +1,114 @@
+//@use "../../../app.component";
+//@use "../../../shared/components/main-page/main-page.component";
+//@use "../../../../assets/styles/index" as *;
+//@use "../../../../assets/styles/base/index" as *;
+@import "../../../../assets/styles/media-quaries";
+
+.statistics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  //width: 1440px;
+  width: 100%;
+  height: 341px;
+  // margin-bottom: 80px;
+
+  @include ul-xl {
+    width: 1392px;
+    // margin-bottom: 74px;
+  }
+
+  @include xl-lg {
+    width: 1024px;
+    // margin-bottom: 48px;
+    gap: 24px;
+    height: 626px;
+  }
+
+  @include lg-md {
+    width: 768px;
+    // margin-bottom: 48px;
+
+    height: 698px;
+  }
+
+  @include md {
+    flex-direction: column;
+    width: 320px;
+    // margin-bottom: 48px;
+
+    height: 684px;
+  }
+
+  &-item {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    width: 335px;
+    height: 341px;
+    border-radius: 24px;
+    // padding: 64px;
+    background-color: #f5f8fa;
+
+    @include ul-xl {
+      width: 336px;
+      // margin-bottom: 74px;
+    }
+
+    @include xl-lg {
+      width: 500px;
+      // margin-bottom: 16px;
+      height: 301px;
+    }
+
+    @include lg-md {
+      width: 376px;
+      // margin-bottom: 16px;
+      height: 341px;
+    }
+
+    @include md {
+      width: 320px;
+      height: 159px;
+    }
+
+    &__number {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Roboto", sans-serif;
+      font-size: 4.8rem;
+      font-weight: 700;
+      color: #2c2c2c;
+      height: 113px;
+      text-align: center;
+      align-self: center;
+
+      @include md {
+        font-size: 2rem;
+        height: 38px;
+      }
+    }
+
+    &__text {
+      display: flex;
+      white-space: pre-wrap;
+      justify-content: center;
+      font-family: "Roboto";
+      font-size: 1rem;
+      font-weight: 400;
+      color: #7a7a7a;
+      text-align: center;
+      width: 50%;
+
+      @include md {
+        font-size: 1rem;
+        height: 57px;
+      }
+    }
+
+
+  }
+}

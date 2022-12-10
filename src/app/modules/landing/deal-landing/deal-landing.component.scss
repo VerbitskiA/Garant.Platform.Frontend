@@ -358,6 +358,7 @@ strong {
     &__text {
       display: flex;
       justify-content: center;
+      white-space: pre-wrap;
       font-family: "Roboto";
       font-size: 1rem;
       font-weight: 400;

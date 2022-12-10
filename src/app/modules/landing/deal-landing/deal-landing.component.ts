@@ -13,8 +13,9 @@ import {takeUntil} from "rxjs/operators";
 import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
 import {CommonModels} from "../../../models/common-models";
 import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
+import {LandingStatistic} from "../../../shared/components/landing-statistics-card/landing-statistics-card.component";
 
-export const headerCardsData =   {
+export const headerCardsData = {
   title: 'Онлайн сделка',
   subtitle: 'по покупке бизнеса',
   content_text: 'или франшизы',
@@ -23,7 +24,26 @@ export const headerCardsData =   {
   alt: 'Изображение щита',
 };
 
-export const consultationCardsData =   {
+export const allCardStatisticData: LandingStatistic.IStatisticItem[] = [
+  {
+    item_number: '10',
+    item_text: `сделок в среднем \n проходит \n через сервис гарант`
+  },
+  {
+    item_number: '35',
+    item_text: `франшиз \n были проданы \n через сервис гарант`
+  },
+  {
+    item_number: '105',
+    item_text: `бизнесов уже были \n  проданы через \n   сервис гарант`
+  },
+  {
+    item_number: '0,5-3%',
+    item_text: ` комиссия \n за использование \n  сервиса покупки онлайн`
+  }
+]
+
+export const consultationCardsData = {
   title: 'Консультация',
   subtitle: 'при покупке бизнеса онлайн',
   content_text: 'с юристом и консультантами сервиса',
@@ -34,7 +54,7 @@ export const consultationCardsData =   {
   content__button: 'Обратиться за консультацией',
   image: '../../../../assets/images/deal-landing/template_person6%201.png',
   alt: 'Фото консультанта'
- };
+};
 
 
 @Component({
@@ -46,6 +66,7 @@ export const consultationCardsData =   {
 })
 export class DealLandingComponent implements OnInit {
   public headerCardsData = headerCardsData;
+  public allCardStatisticData = allCardStatisticData;
   public consultationCardsData = consultationCardsData;
   public backgroundColorVariant = BackgroundColorVariant;
 
@@ -118,11 +139,11 @@ export class DealLandingComponent implements OnInit {
     this.routeParam = this.route.snapshot.queryParams['businessId'];
   }
 
-  public landingHeaderCard(event: any): void{
+  public landingHeaderCard(event: any): void {
     console.log('landingHeaderCard', event);
   }
 
-  public landingConsultationCard(event: any): void{
+  public landingConsultationCard(event: any): void {
     console.log('landingConsultationCard', event);
     this.onSendLandingRequestAsync2(event.name, event.phoneNumber);
   }
