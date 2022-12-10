@@ -5,6 +5,10 @@ $fa-font-path: "~font-awesome/fonts";
 // общие стили
 
 @import "assets/styles/input-tel-styles";
+@import "primeng/resources/primeng.min.css";
+@import "primeng/resources/themes/saga-blue/theme.css";
+@import "primeflex/primeflex.css";
+@import "primeicons/primeicons.css";
 
 .app-container {
   width: 80%;

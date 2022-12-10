@@ -24,6 +24,10 @@ import {ButtonModule} from "primeng/button";
 import { LandingConsultationCardComponent } from './components/landing-consultation-card/landing-consultation-card.component';
 import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
 import {InputTextModule} from "primeng/inputtext";
+import { TestNgPrimeComponent } from './components/test-ng-prime/test-ng-prime.component';
+import {RippleModule} from "primeng/ripple";
+import {TreeModule} from "primeng/tree";
+import {CascadeSelectModule} from "primeng/cascadeselect";
 
 const components = [
   HeaderComponent,
@@ -36,7 +40,7 @@ const components = [
 ];
 
 @NgModule({
-  declarations: [...components, LandingHeaderCardComponent, LandingConsultationCardComponent],
+  declarations: [...components, LandingHeaderCardComponent, LandingConsultationCardComponent, TestNgPrimeComponent],
   imports: [
     CommonModule,
     RouterLinkWithHref,
@@ -55,8 +59,11 @@ const components = [
     ButtonModule,
     NgxIntlTelInputModule,
     InputTextModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RippleModule,
+    TreeModule,
+    CascadeSelectModule
   ],
-	exports: [...components, LandingHeaderCardComponent, LandingConsultationCardComponent]
+  exports: [...components, LandingHeaderCardComponent, LandingConsultationCardComponent, TestNgPrimeComponent]
 })
 export class SharedModule { }
