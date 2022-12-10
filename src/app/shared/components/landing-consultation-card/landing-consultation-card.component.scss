@@ -16,7 +16,7 @@
   padding: 64px 0 0 64px;
   background-color: var(--app-get-call-card);
   margin-top: 80px;
-  //overflow:hidden;
+  position: relative;
 
   .consulting {
     display: flex;
@@ -53,6 +53,7 @@
 
     &-content {
       width: 864px;
+      padding-bottom: 50px;
       //height: 495px;
 
       @include xl-lg {
@@ -251,7 +252,10 @@
       margin-top: 0%;
       //height: 300px;
       img {
-        height: 45vh;
+        height: 90%;
+        position: absolute;
+        bottom: 0;
+        right: 50px;
       }
 
       //@include tablet-small {
