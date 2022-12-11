@@ -27,19 +27,19 @@ export const headerCardsData = {
 export const allCardStatisticData: LandingStatistic.IStatisticItem[] = [
   {
     item_number: '10',
-    item_text: `сделок в среднем \n проходит \n через сервис гарант`
+    item_text: `сделок в среднем проходит через сервис гарант`
   },
   {
     item_number: '35',
-    item_text: `франшиз \n были проданы \n через сервис гарант`
+    item_text: `франшиз были проданы через сервис гарант`
   },
   {
     item_number: '105',
-    item_text: `бизнесов уже были \n  проданы через \n   сервис гарант`
+    item_text: `бизнесов уже были  проданы через   сервис гарант`
   },
   {
     item_number: '0,5-3%',
-    item_text: ` комиссия \n за использование \n  сервиса покупки онлайн`
+    item_text: ` комиссия за использование  сервиса покупки онлайн`
   }
 ]
 

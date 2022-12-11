@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {isEmpty} from "lodash";
 import {LandingConsultation} from "../landing-consultation-card/landing-consultation-card.component";
 
 export namespace LandingStatistic {
@@ -15,7 +16,13 @@ export namespace LandingStatistic {
 })
 export class LandingStatisticsCardComponent implements OnInit {
   @Input() public allCardStatisticData: LandingStatistic.IStatisticItem[] | undefined;
-  constructor() { }
+
+  public get dataIsSets(): boolean {
+    return !isEmpty(this.allCardStatisticData);
+  }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
