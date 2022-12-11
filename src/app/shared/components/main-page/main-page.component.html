@@ -136,9 +136,9 @@
 
 <!--  TODO: заменить на компонент прайма   -->
 <!--    <gar-carousel [items]="aPopularFranchises" [template]="cardShortComponent"></gar-carousel>-->
-    <app-carousel-card [cardsData]="cardsData" [style]="style" [numVisible]="4" [template]="customTemplate"></app-carousel-card>
+    <app-carousel-card [cardsData]="cardsData"  [numVisible]="4" [template]="customTemplate" [main]="true" [responsiveOptions]="responsiveOptions"></app-carousel-card>
     <ng-template #customTemplate >
-      <span class="price">oт </span>
+      <span >oт </span>
     </ng-template>
   </div>
 

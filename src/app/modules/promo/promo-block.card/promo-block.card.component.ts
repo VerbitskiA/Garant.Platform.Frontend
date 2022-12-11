@@ -38,7 +38,7 @@ export class PromoBlockCardComponent {
    * */
   @Input('bannerTitle')
   bannerTitle = 'Покупка бизнеса с гарантиями';
-
+  responsiveOptions;
   cardComponent = CatalogPromoCardComponent;
 
   readonly aSliderItems$ = this._service.getRecentlyPurchasedProducts().pipe(
@@ -49,21 +49,21 @@ export class PromoBlockCardComponent {
 
   getAction(card:CardData){}
 
-  constructor(
-    private _service: PromoService
-  ) {
+  constructor(private _service: PromoService) {
+    this.responsiveOptions = [
+      {
+        breakpoint: '768px',
+        numVisible: 1,
+        numScroll: 1
+      },
+      {
+        breakpoint: '560px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
   }
 
-  public style = {
-   price:{
-     'font-weight': '400',
-     'font-size': '14px',
-     'Line-height': '16.41px',
-     'color': '#1653B4',
-     'background-color': '#F1F6FF',
-     'padding': '10px',
-     'display': 'inline'}
-}
 
   public cardsData = [
     {

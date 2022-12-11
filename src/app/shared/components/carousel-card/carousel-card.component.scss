@@ -1,3 +1,5 @@
+@import 'design';
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -8,41 +10,19 @@
   overflow: visible;
   position: relative;
 
-  //.p-carousel-next, {
-  //  position: absolute !important;
-  //  top: 50% !important;
-  //  right: 0 !important;
-  //  height: 20px !important;
-  //  width: 20px !important;
-  //}
 
-  //.p-carousel-prev{
-  //  position: absolute  !important;
-  //  top: 50%  !important;
-  //  left: 0  !important;
-  //  height: 20px !important;
-  //  width: 20px !important;
-  //}
-
-  .p-carousel-indicators {
-    display: none !important;
-    margin-top: -20px;
-    margin-right: 30px;
-  }
 
   .item {
     width: 94%;
     padding: 0 0 20px 0;
 
 
-    .item-content {
+    &-content {
       border-radius: 8px;
       text-align: left;
-      border: 1px solid #F1F6FF;
+      border: 1px solid $clrLightBlue;
       box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.08);
       overflow: auto;
-
-
 
 
       .img {
@@ -51,7 +31,7 @@
         overflow: hidden;
       }
 
-      .wrapper {
+      &-wrapper {
         padding: 16px 16px 26px 16px;
 
         .title-block {
@@ -71,30 +51,36 @@
 
         .description {
           font-size: 12px;
-          color: #7A7A7A;
+          color:$clrDarkGray;
           font-weight: 400;
           margin-bottom: 26px;
-
-          .tochka {
-            text-align: center;
-            vertical-align: center;
-            width: 3px;
-            height: 3px;
-            border-radius: 50%;
-            color: #7A7A7A;
-            margin: 2px;
-
-          }
-
         }
 
-      }
 
+      }
     }
   }
-
-  .p-ripple p-element p-carousel-prev p-link p-disabled ng-star-inserted {
-    display: none;
-  }
 }
+
+
+.topMain {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16.41px;
+  color:$clrDarkBLue;
+  background-color:$clrLightBlue;
+  padding: 10px;
+  display: inline
+}
+
+
+.main {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  color: $clrBlack;
+  display: inline;
+}
+
+
 

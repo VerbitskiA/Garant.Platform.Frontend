@@ -90,7 +90,7 @@ export class MainPageComponent implements OnInit {
         numScroll: 2
       },
       {
-        breakpoint: '560px',
+        breakpoint: '733px',
         numVisible: 1,
         numScroll: 1
       }
@@ -265,16 +265,7 @@ export class MainPageComponent implements OnInit {
     }
   };
 
-  public style = {
-    price:{
-      'font-weight': '600',
-      'font-size': '18px',
-      'Line-height': '21px',
-      'color': '#2C2C2C',
-      'display': 'inline',
-    }
 
-  }
 
   public cardsData = [
     {
