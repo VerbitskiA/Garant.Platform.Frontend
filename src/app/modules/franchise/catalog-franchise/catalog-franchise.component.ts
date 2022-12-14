@@ -393,4 +393,8 @@ export class CatalogFranchiseComponent implements OnInit {
     },
 
   ];
+
+  public test(event: any): void{
+    console.log('!!!!', event)
+  }
 }

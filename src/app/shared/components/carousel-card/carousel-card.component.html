@@ -22,7 +22,7 @@
               <h4 class="description"> {{ card.description }}
                 <span>{{ card.time }} </span></h4>
               <h6 [ngClass]="{topMain:topMain, main:main}">
-                <ng-template [ngTemplateOutlet]="template"></ng-template>
+                <ng-template [ngTemplateOutlet]="template" [ngTemplateOutletContext]="{value:card}"></ng-template>
                 {{ card.price }}
               </h6>
 

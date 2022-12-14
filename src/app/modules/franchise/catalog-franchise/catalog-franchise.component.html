@@ -156,10 +156,10 @@
   <!-- Новые франшизы. -->
   <div class="section">
     <div class="gar-row title">Популярные франшизы</div>
-    <app-carousel-card [cardsData]="cardsData"  [numVisible]="2" [template]="customTemplate">
-    </app-carousel-card>
-    <ng-template #customTemplate >
+    <app-carousel-card [cardsData]="cardsData"  [numVisible]="2" [template]="customTemplate"></app-carousel-card>
+    <ng-template #customTemplate let-value="value">
       <h6 >Сумма сделки: </h6>
+      <button pButton class="p-button-info" (click)="test(value)">Test</button>
     </ng-template>
 <!--    <gar-carousel-->
 <!--      [items]="aNewFranchises"-->
