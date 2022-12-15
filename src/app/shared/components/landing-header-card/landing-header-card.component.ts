@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation} from '@angular/core';
 
 export namespace LandingHeader {
   export interface IHeaderItem {
@@ -6,7 +6,7 @@ export namespace LandingHeader {
     subtitle: string;
     content_text: string;
     content__button: string;
-    content__button1?: string;
+    content__button2?: string;
 
     image: string;
     alt: string;
@@ -29,7 +29,8 @@ export namespace LandingHeader {
 @Component({
   selector: 'app-landing-header-card',
   templateUrl: './landing-header-card.component.html',
-  styleUrls: ['./landing-header-card.component.scss']
+  styleUrls: ['./landing-header-card.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LandingHeaderCardComponent implements OnInit {
 

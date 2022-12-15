@@ -1,11 +1,23 @@
-<div class="header" *ngIf="cardData">
-  <div class="header-content">
-    <div class="header-content__title">{{cardData.title}}</div>
-    <div class="header-content__subtitle">{{cardData.subtitle}}</div>
-    <div class="header-content__text">{{cardData.content_text}}</div>
-    <button pButton class="header-content__button" (click)="action($event)" [label]="cardData.content__button"></button>
-  </div>
-  <div class="header-image">
-    <p-image src="{{cardData.image}}" alt="{{cardData.alt}}"></p-image>
+<div class="app-landing-header-card">
+  <div class="header unselectable" *ngIf="cardData">
+    <div class="header-content">
+      <div class="header-content__title">{{cardData.title}}</div>
+      <div class="header-content__subtitle">{{cardData.subtitle}}</div>
+      <div class="header-content__text">{{cardData.content_text}}</div>
+      <button pButton class="header-content__button" (click)="action($event)"
+              [label]="cardData.content__button"></button>
+      <button pButton class="header-content__button2" (click)="action($event)"
+              [label]="cardData.content__button2 || '' "></button>
+
+    </div>
+    <div class="header-image">
+      <!--      imageClass для доп.стилизации p-image      -->
+      <p-image src="{{cardData.image}}" alt="{{cardData.alt}}" imageClass="imageClass"></p-image>
+    </div>
+
+    <div class="header-image2">
+      <p-image src="{{cardData.image2}}" alt="{{cardData.alt2}}" imageClass="imageClass2"></p-image>
+    </div>
+
   </div>
 </div>

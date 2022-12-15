@@ -1,197 +1,185 @@
 @import '../../../../assets/styles/design/design';
 
 @import "../../../../assets/styles/media-quaries";
+
 .unselectable {
   -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none;   /* Chrome/Safari/Opera */
-  -khtml-user-select: none;    /* Konqueror */
-  -moz-user-select: none;      /* Firefox */
-  -ms-user-select: none;       /* Internet Explorer/Edge */
-  user-select: none;           /* Non-prefixed version, currently
-                                  not supported by any browser */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                         not supported by any browser */
 }
 
-.header {
-  display: flex;
-  //gap: 64px;
-  width: 100%;
-  //height: 496px;
-  border-radius: 24px;
-  padding: 64px 0 64px 64px;
-  background-color: #f5f8fa;
-  margin-top: 80px;
-  margin-bottom: 16px;
-  //box-sizing: content-box;
+.app-landing-header-card {
+  .header {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    grid-template-areas: "header-image2"
+                        "header-content";
+    border-radius: 24px;
+    padding: 24px 0 55px 0;
+    background-color: #f5f8fa;
+    margin-top: 80px;
+    margin-bottom: 16px;
+    box-sizing: content-box;
 
-  @include ul-xl {
-    width: 1392px;
-    height: 552px;
-    margin-top: 74px;
-    gap: 263, 27px;
-  }
 
-  @include xl-lg {
-    width: 1024px;
-    height: 512px;
-    margin-top: 64px;
-    gap: 107, 27px;
-    padding: 44px 0 44px 44px;
-  }
-
-  @include lg-md {
-    width: 768px;
-    height: 432px;
-    margin-top: 36px;
-    gap: 0px;
-    padding: 32px 0 32px 32px;
-  }
-
-  @include md {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 320px;
-    height: 382px;
-    margin-top: 24px;
-    gap: 16px;
-    padding: 24px 23.5px;
-  }
-
-  &-content {
-    width: 939px;
-    height: 368px;
-
-    @include ul-xl {
-      width: 635px;
-      height: 424px;
+    @include tablet-small {
+      grid-template-areas: "header-content header-image";
+      padding: 39px 0 32px 29px;
     }
 
-    @include xl-lg {
-      width: 423px;
-      height: 424px;
+    @include tablet {
+      padding: 49px 44px 100px 44px;
+      gap: 200px;
     }
 
-    @include lg-md {
-      width: 423px;
-      height: 368px;
+    @include desktop {
+      padding: 89px 22px 45px 58px;
+      gap: 350px;
     }
 
-    @include md {
+    @include wideScreens {
+      padding: 89px 22px 45px 8px;
+      gap: 34px;
+    }
+
+    &-content {
+      grid-area: header-content;
       width: 273px;
-      height: 334px;
-    }
+      height: 230px;
+      margin: -7px auto 0;
+      //outline: 1px solid red;
 
-    &__title {
-      font-family: "Roboto", sans-serif;
-      font-size: 6rem;
-      font-weight: 700;
-      color: #2c2c2c;
-      line-height: 113px;
-      margin-bottom: 8px;
+      @include tablet-small {
+        width: 423px;
+        height: 368px;
+        margin-bottom: 0;
+      }
 
-      @include ul-xl {
+      @include desktop {
         width: 635px;
+        height: 424px;
       }
 
-      @include xl-lg {
-        width: 423px;
-        font-size: 4rem;
-        line-height: 75px;
+      @include wideScreens {
+        width: 951px;
+        height: 369px;
       }
 
-      @include lg-md {
-        width: 423px;
-        font-size: 4rem;
-        line-height: 75px;
-      }
+      &__title {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        color: #2c2c2c;
+        margin-bottom: 8px;
 
-      @include md {
+
         text-align: center;
         width: 273px;
         font-size: 2rem;
         line-height: 38px;
-      }
-    }
 
-    &__subtitle {
-      font-family: "Roboto", sans-serif;
-      font-size: 4rem;
-      font-weight: 700;
-      color: #2c2c2c;
-      line-height: 75px;
-      margin-bottom: 16px;
+        @include tablet-small {
+          width: 423px;
+          font-size: 4rem;
+          line-height: 75px;
+        }
 
-      @include xl-lg {
-        font-size: 2.75rem;
-        line-height: 52px;
+        @include desktop {
+          width: 423px;
+          font-size: 6rem;
+          line-height: 75px;
+        }
       }
 
-      @include lg-md {
-        font-size: 2.75rem;
-        line-height: 52px;
-      }
+      &__subtitle {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        color: #2c2c2c;
 
-      @include md {
         text-align: center;
         font-size: 1.5rem;
         line-height: 28px;
-      }
-    }
+        //outline: 1px solid greenyellow;
+        margin: 0 auto 16px;
+        width: 242px;
 
-    &__text {
-      font-family: "Roboto", sans-serif;
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: #7a7a7a;
-      line-height: 28px;
-      margin-bottom: 52px;
+        @include tablet-small {
+          width: auto;
+          font-size: 2.75rem;
+          line-height: 52px;
+          text-align: start;
+        }
 
-      @include ul-xl {
-        margin-bottom: 33px;
-      }
-
-      @include xl-lg {
-        margin-bottom: 89px;
-      }
-
-      @include lg-md {
-        margin-bottom: 33px;
+        @include desktop {
+          padding-top: 20px;
+          font-size: 4rem;
+          line-height: 75px;
+        }
       }
 
-      @include md {
+      &__text {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        color: #7a7a7a;
+        width: 228px;
+        margin: 0 auto 24px;
+        //outline: 1px solid red;
         text-align: center;
         font-size: 1.0625rem;
         line-height: 20px;
-        margin-bottom: 24px;
+
+        @include tablet-small {
+          width: 310px;
+          font-size: 1.5rem;
+          line-height: 28px;
+          margin: 17px 0 33px 0;
+        }
+
+        @include tablet {
+          margin-bottom: 87px;
+          width: 323px;
+          text-align: start;
+        }
+
+        @include desktop {
+          min-width: 635px;
+          text-align: start;
+          margin-bottom: 33px;
+        }
+
+        @include wideScreens {
+          margin-bottom: 52px;
+        }
       }
-    }
 
-    &__button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: "Roboto", sans-serif;
-      font-size: 1.5rem;
-      font-weight: 500;
-      color: #ffffff;
-      line-height: 28px;
-      width: 340px;
-      height: 76px;
-      border: none;
-      border-radius: 4px;
-      padding: 24px 32px;
-      margin: 0;
-      background-color: #1f75fe;
-
-      @include md {
+      &__button {
         display: none;
+
+        @include tablet-small {
+
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: "Roboto", sans-serif;
+          font-size: 1.5rem;
+          font-weight: 500;
+          color: #ffffff;
+          line-height: 28px;
+          width: 341px;
+          height: 76px;
+          border: none;
+          border-radius: 4px;
+          padding: 24px 32px;
+          margin: 0;
+          background-color: #1f75fe;
+        }
       }
-    }
 
-    &__button1 {
-      display: none;
-
-      @include md {
+      &__button2 {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -207,57 +195,66 @@
         padding: 24px 26.5px;
         margin: 0;
         background-color: #1f75fe;
+
+
+        @include tablet-small {
+          display: none;
+        }
       }
     }
-  }
 
-  &-image {
-    margin-right: 8px;
-    //background-image: url(src/assets/images/deal-landing/shield.png);
-
-    @include ul-xl {
-      width: 429.73px;
-      height: 400.99px;
-      margin-right: 0;
-    }
-
-    @include xl-lg {
-      width: 429.73px;
-      height: 400.99px;
-      margin-right: 20px;
-    }
-
-    @include lg-md {
-      width: 384px;
-      height: 363px;
-      margin-right: 0;
-    }
-
-    @include md {
+    &-image {
+      grid-area: header-image;
       display: none;
-    }
+      margin-right: 8px;
+      position: relative;
+      width: 305px;
 
-    img {
-      @include ul-xl {
-        width: 429.73px;
-        height: 400.99px;
+      .imageClass { // для стилизации p-image из primeng
+        position: absolute;
+        width: 324px;
+        top: 28px;
+        left: 10px;
+        //outline: 1px solid red;
+
+        @include tablet-small {
+          width: 324px;
+          top: 28px;
+          left: 10px;
+        }
+
+        @include tablet {
+          width: 398px;
+          top: 2px;
+          left: -93px;
+        }
+        @include desktop {
+          width: 398px;
+          top: -13px;
+          left: -93px;
+        }
+
+        @include wideScreens {
+          width: 365px;
+          top: -25px;
+          left: -41px;
+        }
+
       }
 
-      @include lg-md {
-        width: 250px;
-        height: 254px;
+      @include tablet-small {
+        display: flex;
+        //gap: calc((#{$gridGap} / 3) * 2) 0;
       }
     }
-  }
 
-  &-image1 {
-    display: none;
+    &-image2 {
+      grid-area: header-image2;
+      margin: 0 auto 17px;
 
-    @include md {
-      display: block;
-      order: -1;
-      width: 273px;
-      height: 59.82px;
+      @include tablet-small {
+        display: none;
+      }
     }
   }
 }

@@ -18,9 +18,11 @@ export const headerCardsData = {
   subtitle: 'по покупке бизнеса и франшиз',
   content_text: 'с сопровождением сделки и составлением договоров',
   content__button: 'Получить консультацию',
-  content__button1: 'Консультация',
+  content__button2: 'Консультация',
   image: '../../../../assets/images/consulting-landing/Group.png',
   alt: 'Изображение блокнота, ручки и портфеля',
+  image2: '../../../../assets/images/consulting-landing/Group1.png',
+  alt2: 'Изображение монетки, процента и доски'
 };
 
 export const consultationCardsData = {

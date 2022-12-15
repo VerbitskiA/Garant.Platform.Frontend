@@ -7,7 +7,9 @@
 // импорт стилей страницы каталога франшизы
 @use "./modules/franchise/catalog-franchise/catalog-franchise.component.scss";
 
-[hidden] { display: none !important;}
+[hidden] {
+  display: none !important;
+}
 
 .garant-header {
   background-color: #1f75fe;

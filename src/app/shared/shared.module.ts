@@ -31,6 +31,7 @@ import {RippleModule} from "primeng/ripple";
 import {TreeModule} from "primeng/tree";
 import {CascadeSelectModule} from "primeng/cascadeselect";
 import { LandingStatisticsCardComponent } from './components/landing-statistics-card/landing-statistics-card.component';
+import {StyleClassModule} from "primeng/styleclass";
 
 const components = [
   HeaderComponent,
@@ -48,30 +49,31 @@ const components = [
 
 @NgModule({
   declarations: [...components],
-  imports: [
-    CommonModule,
-    // RouterLinkWithHref,
-    GarLibModule,
-    PipesModule,
-    FormsModule,
-    RadioButtonModule,
-    DropdownModule,
-    CheckboxModule,
-    InputSwitchModule,
-    ProductsModule,
-    PromoModule,
-    NewsModule,
-    // RouterLinkActive,
-    ImageModule,
-    ButtonModule,
-    NgxIntlTelInputModule,
-    InputTextModule,
-    ReactiveFormsModule,
-    RippleModule,
-    TreeModule,
-    CascadeSelectModule,
-    RouterModule
-  ],
+	imports: [
+		CommonModule,
+		// RouterLinkWithHref,
+		GarLibModule,
+		PipesModule,
+		FormsModule,
+		RadioButtonModule,
+		DropdownModule,
+		CheckboxModule,
+		InputSwitchModule,
+		ProductsModule,
+		PromoModule,
+		NewsModule,
+		// RouterLinkActive,
+		ImageModule,
+		ButtonModule,
+		NgxIntlTelInputModule,
+		InputTextModule,
+		ReactiveFormsModule,
+		RippleModule,
+		TreeModule,
+		CascadeSelectModule,
+		RouterModule,
+		StyleClassModule
+	],
   exports: [...components]
 })
 export class SharedModule {
