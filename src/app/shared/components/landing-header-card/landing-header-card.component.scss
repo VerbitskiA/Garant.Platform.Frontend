@@ -25,6 +25,7 @@
     margin-top: 80px;
     margin-bottom: 16px;
     box-sizing: content-box;
+    overflow: hidden;
 
 
     @include tablet-small {
@@ -83,15 +84,21 @@
         line-height: 38px;
 
         @include tablet-small {
-          width: 423px;
+          text-align: start;
+          width: 470px;
           font-size: 4rem;
           line-height: 75px;
         }
 
         @include desktop {
-          width: 423px;
+          width: 790px;
           font-size: 6rem;
           line-height: 75px;
+          text-align: start;
+        }
+
+        @include wideScreens {
+          width: 790px;
         }
       }
 
@@ -137,6 +144,7 @@
           font-size: 1.5rem;
           line-height: 28px;
           margin: 17px 0 33px 0;
+          text-align: start;
         }
 
         @include tablet {
@@ -235,7 +243,8 @@
         }
 
         @include wideScreens {
-          width: 365px;
+          width: 365px; // - оплтимально для http://localhost:4200/deal/start и 4200/consulting/start для wideScreens
+          //width: 660px; // ??? - оплтимально для http://localhost:4200/franchise/start для wideScreens
           top: -25px;
           left: -41px;
         }

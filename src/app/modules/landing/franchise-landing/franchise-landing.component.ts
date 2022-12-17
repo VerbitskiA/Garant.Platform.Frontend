@@ -16,18 +16,20 @@ import {
   LandingConsultation
 } from "../../../shared/components/landing-consultation-card/landing-consultation-card.component";
 import {CommonModels} from "../../../models/common-models";
-import BackgroundColorVariant = CommonModels.BackgroundColorVariant; //!!!!
+import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
+import {LandingHeader} from "../../../shared/components/landing-header-card/landing-header-card.component"; //!!!!
 
 
-export const headerCardsData =   {
+export const headerCardsData: LandingHeader.IHeaderItem =   {
   title: 'Создание',
   subtitle: 'и упаковка франшиз',
   content_text: 'с бесплатным размещением в каталоге',
   content__button: 'Бесплатная консультация',
-  image: '../../../../assets/images/franchise-landing/desk.png',
+  content__button2: 'Консультация',
+  image: '../../../../assets/images/franchise-landing/Desk_XXL.png',
   alt: 'Изображение стола, монеты и %',
-  image1: '../../../../assets/images/franchise-landing/desk1.png',
-  alt1: 'Изображение стола, монеты и %',
+  image2: '../../../../assets/images/franchise-landing/desk2.png',
+  alt2: 'Изображение стола, монеты и %',
 };
 
 export const consultationCardsData: LandingConsultation.IConsultationItem =   {

@@ -14,14 +14,18 @@ import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
 import {CommonModels} from "../../../models/common-models";
 import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
 import {LandingStatistic} from "../../../shared/components/landing-statistics-card/landing-statistics-card.component";
+import {LandingHeader} from "../../../shared/components/landing-header-card/landing-header-card.component";
 
-export const headerCardsData = {
+export const headerCardsData: LandingHeader.IHeaderItem  = {
   title: 'Онлайн сделка',
   subtitle: 'по покупке бизнеса',
   content_text: 'или франшизы',
   content__button: 'Как начать сделку?',
+  content__button2: 'Как начать сделку?',
   image: '../../../../assets/images/deal-landing/shield.png',
   alt: 'Изображение щита',
+  image2: '../../../../assets/images/deal-landing/shield_mobile.png',
+  alt2: 'Изображение щита'
 };
 
 export const allCardStatisticData: LandingStatistic.IStatisticItem[] = [
