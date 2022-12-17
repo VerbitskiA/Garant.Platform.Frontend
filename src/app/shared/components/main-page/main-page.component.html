@@ -135,9 +135,8 @@
     <div class="gar-row title">Популярные франшизы</div>
 
 <!--  TODO: заменить на компонент прайма   -->
-<!--    <gar-carousel [items]="aPopularFranchises" [template]="cardShortComponent"></gar-carousel>-->
     <app-carousel-card [cardsData]="cardsData"  [numVisible]="4" [template]="customTemplate" [main]="true" [responsiveOptions]="responsiveOptions"></app-carousel-card>
-    <ng-template #customTemplate >
+    <ng-template #customTemplate  let-value="value">
       <span >oт </span>
     </ng-template>
   </div>

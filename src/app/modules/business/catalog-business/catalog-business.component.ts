@@ -8,6 +8,14 @@ import {PaginationInput} from 'src/app/models/pagination/input/pagination-input'
 import {CommonDataService} from 'src/app/core/services/common/common-data.service';
 import {CatalogShortCardComponent} from "../../products/catalog/catalog.short.card/catalog.short.card.component";
 
+interface CardData {
+  id?: string
+  name?: string
+  description?: string
+  price?: string
+  img?:string
+}
+
 @Component({
   selector: "app-catalog-business",
   templateUrl: "./catalog-business.component.html",
@@ -60,6 +68,7 @@ export class CatalogBusinessComponent implements OnInit {
   filterRang: number[] = [20, 80];
   rangValue: number[] = [20, 80];
 
+
   cardComponent = CatalogShortCardComponent;
 
   constructor(
@@ -69,17 +78,29 @@ export class CatalogBusinessComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {
+
+    this.responsiveOptions = [
+      {
+        breakpoint: '1430px',
+        numVisible: 3,
+        numScroll: 3
+      },
+      {
+        breakpoint: '1024px',
+        numVisible: 2,
+        numScroll: 2
+      },
+      {
+        breakpoint: '768px',
+        numVisible: 1,
+        numScroll: 1
+      },
+    ];
+
     this.aSortPrices = [
       {name: 'По убыванию цены', value: 'Desc',},
       {name: 'По возрастанию цены', value: 'Asc',},
     ];
-
-    this.responsiveOptions = [
-      {breakpoint: '1024px', numVisible: 3, numScroll: 3,},
-      {breakpoint: '768px', numVisible: 2, numScroll: 2,},
-      {breakpoint: '560px', numVisible: 1, numScroll: 1,},
-    ];
-
     this.routeParam = this.route.snapshot.queryParams['businessId'];
   }
 
@@ -342,4 +363,54 @@ export class CatalogBusinessComponent implements OnInit {
     this.setTransitionAsync(businessId);
     this.router.navigate(['/business/view'], {queryParams: {businessId: businessId}});
   }
+
+  public cardsData:CardData[] = [
+    {
+      id: '1',
+      name:'Название готового бизнеса',
+      description: 'Готовый бизнес',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+
+
+    },
+    {
+      id: '2',
+      name: 'Название готового бизнеса',
+      description: 'Готовый бизнес',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+    },
+    {
+      id: '3',
+      name: 'Название готового бизнеса',
+      description: 'Готовый бизнес',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+    },
+    {
+      id: '4',
+      name: 'Название готового бизнеса',
+      description: 'Готовый бизнес',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+
+
+    },
+    {
+      id: '5',
+      name: 'Название готового бизнеса',
+      description: 'Готовый бизнес',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+    },
+    {
+      id: '6',
+      name: 'Название готового бизнеса',
+      description: 'Готовый бизнес',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+    },
+
+  ];
 }

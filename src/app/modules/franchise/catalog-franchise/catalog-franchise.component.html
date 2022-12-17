@@ -2,12 +2,16 @@
   <!-- Популярные франшизы. -->
   <div class="section">
     <div class="gar-row title">Популярные франшизы</div>
-    <gar-carousel
-      [items]="aPopularFranchises$ | async"
-      [template]="cardComponent"
-      path="franchise/view"
-      queryParamKey="franchiseId"
-    ></gar-carousel>
+<!--    <gar-carousel-->
+<!--      [items]="aPopularFranchises$ | async"-->
+<!--      [template]="cardComponent"-->
+<!--      path="franchise/view"-->
+<!--      queryParamKey="franchiseId"-->
+<!--    ></gar-carousel>-->
+    <app-carousel-card [cardsData]="cardsData" [numVisible]="4" [template]="customTemplate" [main]="true" [responsiveOptions]="responsiveOptions"></app-carousel-card>
+    <ng-template #customTemplate let-value="value" >
+      <span >от </span>
+    </ng-template>
   </div>
 
   <!-- Каталог франшиз. -->
@@ -155,22 +159,16 @@
 
   <!-- Новые франшизы. -->
   <div class="section">
-    <div class="gar-row title">Популярные франшизы</div>
-    <app-carousel-card [cardsData]="cardsData"  [numVisible]="2" [template]="customTemplate"></app-carousel-card>
-    <ng-template #customTemplate let-value="value">
-      <h6 >Сумма сделки: </h6>
-      <button pButton class="p-button-info" (click)="test(value)">Test</button>
+    <div class="gar-row title">Новые франшизы</div>
+    <app-carousel-card [cardsData]="cardsData"  [numVisible]="4" [template]="customTemplate2"
+                       [main]="true" [responsiveOptions]="responsiveOptions"></app-carousel-card>
+    <ng-template #customTemplate2 let-value="value" >
+      <span >от </span>
     </ng-template>
-<!--    <gar-carousel-->
-<!--      [items]="aNewFranchises"-->
-<!--      [template]="cardComponent"-->
-<!--    ></gar-carousel>-->
-    <app-carousel-card [cardsData]="cardsData" [style]="style"  [numVisible]="4" [template]="customTemplate" [responsiveOptions]="responsiveOptions">
+<!--    <ng-template #customTemplate3 let-value="value">-->
+<!--      <button pButton class="p-button-info" (click)="test(value)">Test</button>-->
+<!--    </ng-template>-->
 
-    </app-carousel-card>
-    <ng-template #customTemplate >
-      <h6 class="price">От:</h6>
-    </ng-template>
   </div>
 
   <!-- Бизнес с гарантиями -->

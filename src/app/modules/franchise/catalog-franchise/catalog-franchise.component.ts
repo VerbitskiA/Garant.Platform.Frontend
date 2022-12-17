@@ -12,6 +12,15 @@ import {shareReplay, takeUntil, tap} from 'rxjs/operators';
 import {CatalogShortCardComponent} from "../../products/catalog/catalog.short.card/catalog.short.card.component";
 import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
 
+interface CardData {
+  id?: string
+  name?: string
+  description?: string
+  price?: string
+  img?:string
+}
+
+
 @Component({
   selector: 'app-catalog-franchise',
   templateUrl: './catalog-franchise.component.html',
@@ -80,18 +89,33 @@ export class CatalogFranchiseComponent implements OnInit {
     private route: ActivatedRoute,
     private _destroy$: GarDestroyService
   ) {
+    this.responsiveOptions = [
+      {
+        breakpoint: '1430px',
+        numVisible: 3,
+        numScroll: 3
+      },
+      {
+        breakpoint: '1024px',
+        numVisible: 2,
+        numScroll: 2
+      },
+      {
+        breakpoint: '768px',
+        numVisible: 1,
+        numScroll: 1
+      },
+      {
+        breakpoint: '733px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
     // TODO: Переделать на хранение на бэке.
     this.aSortPrices = [
       {name: 'По убыванию цены', value: 'Desc',},
       {name: 'По возрастанию цены', value: 'Asc',},
     ];
-
-    this.responsiveOptions = [
-      {breakpoint: '1024px', numVisible: 3, numScroll: 3,},
-      {breakpoint: '768px', numVisible: 1, numScroll: 1,},
-      {breakpoint: '560px', numVisible: 1, numScroll: 1,},
-    ];
-
     this.routeParam = this.route.snapshot.queryParams['franchiseId'];
   }
 
@@ -337,17 +361,13 @@ export class CatalogFranchiseComponent implements OnInit {
   public routeViewFranchiseCardAsync(franchiseId: number) {
     this.setTransitionAsync(franchiseId);
   }
-  public style = {
-    //  description: {'display':'none'},
-    // name: {'display':'none'},
-    // price: {'display':'none'}
-  }
 
-  public cardsData:any = [
+
+  public cardsData:CardData[] = [
     {
       id: '1',
-      name: 'Название франшизы',
-      description: 'Франшиза . 12 точек',
+      name:'Название франшизы',
+      description: 'Готовый бизнес',
       price: '12 500 000 ₽',
       img:'../../../../assets/images/common/main-carousel.jpg',
 
@@ -356,22 +376,21 @@ export class CatalogFranchiseComponent implements OnInit {
     {
       id: '2',
       name: 'Название франшизы',
-      description: 'Франшиза . 12 точек',
+      description: 'Готовый бизнес',
       price: '12 500 000 ₽',
       img:'../../../../assets/images/common/main-carousel.jpg',
     },
     {
       id: '3',
       name: 'Название франшизы',
-      description: 'Франшиза . 12 точек',
-      time:'24 дня',
+      description: 'Готовый бизнес',
       price: '12 500 000 ₽',
       img:'../../../../assets/images/common/main-carousel.jpg',
     },
     {
       id: '4',
       name: 'Название франшизы',
-      description: 'Франшиза . 12 точек',
+      description: 'Готовый бизнес',
       price: '12 500 000 ₽',
       img:'../../../../assets/images/common/main-carousel.jpg',
 
@@ -380,14 +399,14 @@ export class CatalogFranchiseComponent implements OnInit {
     {
       id: '5',
       name: 'Название франшизы',
-      description: 'Франшиза . 12 точек',
+      description: 'Готовый бизнес',
       price: '12 500 000 ₽',
       img:'../../../../assets/images/common/main-carousel.jpg',
     },
     {
       id: '6',
       name: 'Название франшизы',
-      description: 'Франшиза . 12 точек',
+      description: 'Готовый бизнес',
       price: '12 500 000 ₽',
       img:'../../../../assets/images/common/main-carousel.jpg',
     },

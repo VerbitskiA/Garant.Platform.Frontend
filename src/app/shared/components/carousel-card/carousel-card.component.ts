@@ -26,6 +26,7 @@ export class CarouselCardComponent {
   @Input() public responsiveOptions:any
   @Input() topMain=false;
   @Input() main=false;
+  @Input() templateButton:any
 
   ngOnInit() {
   }

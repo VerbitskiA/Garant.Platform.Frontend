@@ -6,7 +6,7 @@
     <app-carousel-card  [cardsData]="cardsData" [numVisible]="2" [topMain]="true" [template]="customTemplate" [responsiveOptions]="responsiveOptions"
     (caruselEvent)="getAction($event)">
     </app-carousel-card>
-    <ng-template #customTemplate >
+    <ng-template #customTemplate let-value="value">
       <span>Сумма сделки: </span>
     </ng-template>
 
