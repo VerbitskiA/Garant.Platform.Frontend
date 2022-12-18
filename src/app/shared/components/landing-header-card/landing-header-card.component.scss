@@ -35,17 +35,19 @@
 
     @include tablet {
       padding: 49px 44px 100px 44px;
-      gap: 200px;
+      //gap: 200px;
     }
 
     @include desktop {
       padding: 89px 22px 45px 58px;
-      gap: 350px;
+      //gap: 350px;
     }
 
     @include wideScreens {
-      padding: 89px 22px 45px 8px;
-      gap: 34px;
+      grid-template-columns: 1fr 1fr;
+      padding: 89px 22px 45px 58px;
+       //gap: -1px;
+
     }
 
     &-content {
@@ -67,7 +69,9 @@
       }
 
       @include wideScreens {
-        width: 951px;
+        //width: 951px;
+        width: 1073px;
+        //width: auto;
         height: 369px;
       }
 
@@ -218,12 +222,17 @@
       position: relative;
       width: 305px;
 
+      @include tablet-small {
+        display: flex;
+        justify-content: end;
+      }
+
       .imageClass { // для стилизации p-image из primeng
-        position: absolute;
+        //position: absolute;
         width: 324px;
         top: 28px;
         left: 10px;
-        //outline: 1px solid red;
+        outline: 1px solid red;
 
         @include tablet-small {
           width: 324px;
@@ -232,29 +241,26 @@
         }
 
         @include tablet {
-          width: 398px;
-          top: 2px;
-          left: -93px;
+          width: fit-content;
+          //height: auto;
+          //top: 0;
+          //right: 0;
         }
         @include desktop {
-          width: 398px;
-          top: -13px;
-          left: -93px;
+          //width: 398px;
+          //top: -13px;
+          //left: -93px;
         }
 
         @include wideScreens {
-          width: 365px; // - оплтимально для http://localhost:4200/deal/start и 4200/consulting/start для wideScreens
-          //width: 660px; // ??? - оплтимально для http://localhost:4200/franchise/start для wideScreens
-          top: -25px;
-          left: -41px;
+          //width: 365px; // - оплтимально для http://localhost:4200/deal/start и 4200/consulting/start для wideScreens
+          ////width: 660px; // ??? - оплтимально для http://localhost:4200/franchise/start для wideScreens
+          //top: -25px;
+          //left: -41px;
         }
 
       }
 
-      @include tablet-small {
-        display: flex;
-        //gap: calc((#{$gridGap} / 3) * 2) 0;
-      }
     }
 
     &-image2 {
