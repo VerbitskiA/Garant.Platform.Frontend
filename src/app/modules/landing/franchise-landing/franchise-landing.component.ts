@@ -26,7 +26,7 @@ export const headerCardsData: LandingHeader.IHeaderItem =   {
   content_text: 'с бесплатным размещением в каталоге',
   content__button: 'Бесплатная консультация',
   content__button2: 'Консультация',
-  image: '../../../../assets/images/franchise-landing/Desk_XXL.png',
+  image: '../../../../assets/images/franchise-landing/desk.png',
   alt: 'Изображение стола, монеты и %',
   image2: '../../../../assets/images/franchise-landing/desk2.png',
   alt2: 'Изображение стола, монеты и %',
