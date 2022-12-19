@@ -34,19 +34,19 @@
     }
 
     @include tablet {
-      padding: 49px 44px 100px 44px;
-      //gap: 200px;
+      padding: 49px 44px 86px 44px;
+      gap: 200px;
     }
 
     @include desktop {
       padding: 89px 22px 45px 58px;
-      //gap: 350px;
+      gap: 392px;
     }
 
     @include wideScreens {
       grid-template-columns: 1fr 1fr;
       padding: 89px 22px 45px 58px;
-       //gap: -1px;
+       gap: 0px;
 
     }
 
@@ -58,19 +58,19 @@
       //outline: 1px solid red;
 
       @include tablet-small {
-        width: 423px;
+        width: 445px;
         height: 368px;
         margin-bottom: 0;
       }
 
       @include desktop {
         width: 635px;
-        height: 424px;
+        height: 371px;
       }
 
       @include wideScreens {
         //width: 951px;
-        width: 1073px;
+        width: 1076px;
         //width: auto;
         height: 369px;
       }
@@ -224,7 +224,7 @@
 
       @include tablet-small {
         display: flex;
-        justify-content: end;
+        justify-content: flex-end;
       }
 
       .imageClass { // для стилизации p-image из primeng
@@ -232,21 +232,25 @@
         width: 324px;
         top: 28px;
         left: 10px;
-        outline: 1px solid red;
+        //outline: 1px solid red;
 
         @include tablet-small {
-          width: 324px;
+          position: absolute;
+          width: 430px;
           top: 28px;
-          left: 10px;
+          left: -65px;
         }
 
         @include tablet {
-          width: fit-content;
+          //width: fit-content;
+          width: 573px;
           //height: auto;
           //top: 0;
-          //right: 0;
+          left: -184px;
         }
         @include desktop {
+          position: static;
+          width: fit-content;
           //width: 398px;
           //top: -13px;
           //left: -93px;
