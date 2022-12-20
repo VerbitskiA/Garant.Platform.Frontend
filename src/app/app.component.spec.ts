@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'GarantPlatformFrontend'`, () => {
+  it(`should have as title 'Garant.Platform.Frontend-Next'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('GarantPlatformFrontend');
+    expect(app.title).toEqual('Garant.Platform.Frontend-Next');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('GarantPlatformFrontend app is running!');
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.content span')?.textContent).toContain('Garant.Platform.Frontend-Next app is running!');
   });
 });

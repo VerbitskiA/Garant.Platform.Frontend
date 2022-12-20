@@ -1,8 +1,8 @@
 // импорт стилей компоненты header
-@use "./modules/header/header.component.scss";
+@use "shared/components/header/header.component.scss";
 
 // импорт стилей компоненты footer
-@use "./modules/footer/footer.component.scss";
+@use "shared/components/footer/footer.component.scss";
 
 // импорт стилей страницы каталога франшизы
 @use "./modules/franchise/catalog-franchise/catalog-franchise.component.scss";

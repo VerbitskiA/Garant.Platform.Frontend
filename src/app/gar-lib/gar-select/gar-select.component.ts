@@ -52,8 +52,8 @@ export class GarSelectComponent<IItem> extends GarBaseInputComponent<number | st
   readonly displayLabel$: Observable<string> = this._displayLabel$;
 
   constructor(
-      protected _cdRef: ChangeDetectorRef,
-      protected _control: NgControl
+      protected override _cdRef: ChangeDetectorRef,
+      protected override _control: NgControl
   ) {
     super(_cdRef, _control)
   }

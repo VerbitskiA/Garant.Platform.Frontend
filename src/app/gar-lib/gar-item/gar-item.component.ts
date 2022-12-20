@@ -12,12 +12,12 @@ import { ReplaySubject } from "rxjs";
 	template: ` `
 })
 export abstract class GarItemComponent<T> {
-	
-	protected readonly _product$ = new ReplaySubject<T>();
-	
-	public set item(value: T | undefined) {
+
+	protected readonly _product$: ReplaySubject<T> = new ReplaySubject<T>();
+
+	public set item(value: T) {
 		this._product$.next(value);
 	}
-	
+
 	public path: string | undefined;
 }

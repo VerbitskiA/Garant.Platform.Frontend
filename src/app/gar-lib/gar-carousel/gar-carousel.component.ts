@@ -43,11 +43,11 @@ import { GarItemComponent } from "../gar-item/gar-item.component";
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GarCarouselComponent<T> implements AfterViewInit {
-	
+
 	private readonly _items$ = new ReplaySubject<Array<T>>();
 	private readonly _scrollChanged$ = new EventEmitter();
 	private readonly _heightContainer$ = new BehaviorSubject('100%');
-	
+
 	slidesIndex = 0;
 
 	@ViewChild('slides')
@@ -58,11 +58,11 @@ export class GarCarouselComponent<T> implements AfterViewInit {
 	viewRefs: QueryList<ViewContainerRef> | undefined;
 	@HostListener('window:resize')
 	private handlerResize() {
-		this._scrollChanged$.next();
+		this._scrollChanged$.next(null);
 	}
-	
+
 	readonly items$: Observable<Array<T>> = this._items$;
-	
+
 	/**
 	 * Массив данных, на основании которых заполняется котентом карусель
 	 * */
@@ -70,7 +70,7 @@ export class GarCarouselComponent<T> implements AfterViewInit {
 	set _items(value: Array<T>) {
 		this._items$.next(value);
 	}
-	
+
 	/**
 	 * Инстанс класса (компонента), который является единицей в карусели
 	 *
@@ -78,7 +78,7 @@ export class GarCarouselComponent<T> implements AfterViewInit {
 	 * */
 	@Input()
 	template: ComponentType<GarItemComponent<T>> | undefined;
-	
+
 	/**
 	 * Маршрут, на который должен производиться переход при клике по карточке, если необходимо
 	 *
@@ -87,7 +87,7 @@ export class GarCarouselComponent<T> implements AfterViewInit {
 	 * */
 	@Input('path')
 	path: string | undefined;
-	
+
 	/**
 	 * ключ queryParams к маршруту
 	 *
@@ -99,11 +99,11 @@ export class GarCarouselComponent<T> implements AfterViewInit {
 	 * */
 	@Input('queryParamKey')
 	queryParamKey: string | undefined;
-	
+
 	get currentItem(): ElementRef<HTMLDivElement> | undefined {
 		return this.items!.find((item, index) => index === this.slidesIndex);
 	}
-	
+
 	readonly leftDisabled$ = this._scrollChanged$.pipe(
 		startWith(true),
 		// Задержка, так как представление по событию скрола не происходит сразу
@@ -111,7 +111,7 @@ export class GarCarouselComponent<T> implements AfterViewInit {
 		map(_ => this.items!.toArray()[0].nativeElement.getBoundingClientRect().left === this.slidesContainer!.nativeElement.getBoundingClientRect().left),
 		tap(() => this._cdr.detectChanges())
 	);
-	
+
 	readonly rightDisabled$ = this._scrollChanged$.pipe(
 		startWith(true),
 		// Задержка, так как представление по событию скрола не происходит сразу
@@ -119,17 +119,17 @@ export class GarCarouselComponent<T> implements AfterViewInit {
 		map(_ => this.items!.toArray()[this.items!.length - 1].nativeElement.getBoundingClientRect().right === this.slidesContainer!.nativeElement.getBoundingClientRect().right),
 		tap(() => this._cdr.detectChanges())
 	);
-	
+
 	readonly heightContainer$: Observable<string> = this._heightContainer$.pipe(
 		shareReplay(1),
 	)
-	
+
 	constructor(
 		private _cfr: ComponentFactoryResolver,
 		private _destroy$: GarDestroyService,
 		private _cdr: ChangeDetectorRef
 	) {}
-	
+
 	ngAfterViewInit() {
 		this.viewRefs?.changes.pipe(
 			concatMap(_ => this._items$),
@@ -157,21 +157,21 @@ export class GarCarouselComponent<T> implements AfterViewInit {
 			this._cdr.detectChanges();
 		});
 	}
-	
+
 	onClickLeft() {
 		this.slidesContainer!.nativeElement.scrollLeft -= this.currentItem!.nativeElement.offsetWidth + 24;
 		if (this.slidesIndex > 0) {
 			this.slidesIndex--;
 		}
-		this._scrollChanged$.next();
+		this._scrollChanged$.next(null);
 	}
-	
+
 	onClickRight() {
 		this.slidesContainer!.nativeElement.scrollLeft += this.currentItem!.nativeElement.offsetWidth + 24;
 		if (this.slidesIndex < this.items!.length - 1) {
 			this.slidesIndex++
 		}
-		this._scrollChanged$.next();
+		this._scrollChanged$.next(null);
 	}
-	
+
 }

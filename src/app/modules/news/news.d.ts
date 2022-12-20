@@ -1,18 +1,18 @@
-export namespace news {
+export namespace News {
 	export interface INewsBlockItem {
-		date: string;
+		date?: string;
 		dateCreated: string;
-		isPaid: false;
-		newsId: number;
+		isPaid: boolean;
+		newsId?: number;
 		position: number;
-		text: string;
-		time: string;
-		title: string;
-		type: string;
-		url: string;
+		text?: string;
+		time?: string;
+		title?: string;
+		type?: string;
+		url?: string;
 		viewsCount: number;
 	}
-	
+
 	/**
 	 * Модель для Новостей делового мира (с фильтром)
 	 *
@@ -22,3 +22,5 @@ export namespace news {
 		theme: string;
 	}
 }
+
+//let a: News.INewsBlockItem

@@ -1,7 +1,4 @@
 <ng-container *ngIf="value">
-    <input
-            type="checkbox"
-            (ngModelChange)="updateValue($event)"
-            [ngModel]="value.selected">
+    <input type="checkbox" (ngModelChange)="updateValue($event)" name="selected" [ngModel]="value.selected">
     {{value.tag}}
 </ng-container>

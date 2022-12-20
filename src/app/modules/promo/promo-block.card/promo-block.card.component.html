@@ -1,0 +1,34 @@
+<div class="gar-row promo-block">
+  <div class="gar-row-item">
+    <div class="gar-row title">{{recentlyPurchased}}</div>
+
+    <!--        <gar-carousel [items]="(aSliderItems$ | async)!" [template]="cardComponent"></gar-carousel>-->
+    <app-carousel-card [cardsData]="cardsData" [numVisible]="2" [topMain]="true" [template]="customTemplate"
+                       [responsiveOptions]="responsiveOptions"
+                       (caruselEvent)="getAction($event)">
+    </app-carousel-card>
+    <ng-template #customTemplate let-value="value">
+      <span>Сумма сделки: </span>
+    </ng-template>
+
+    <ng-template #templ>
+      <p-button type="button" styleClass="p-button p-button-rounded p-mr-2" icon="pi pi-search"></p-button>
+      <p-button type="button" styleClass="p-button-success p-button-rounded p-mr-2" icon="pi pi-star"></p-button>
+      <p-button type="button" styleClass="p-button-help p-button-rounded" icon="pi pi-cog"></p-button>
+    </ng-template>
+
+  </div>
+
+  <div class="gar-row-item" *ngIf="actionsTop$ | async as oTopAction">
+    <div class="gar-row title">{{bannerTitle}}</div>
+    <div class="promo-block-main">
+      <div class="promo-block-main-title">{{oTopAction.title}}</div>
+
+      <div class="promo-block-main-text">{{oTopAction.text}}</div>
+
+      <gar-button role="primary" routerLink="/deal/start">{{oTopAction.buttonText}}</gar-button>
+
+      <img src="/src/assets/images/home-promo-block-pic.png" alt="" class="promo-block-main-pic">
+    </div>
+  </div>
+</div>

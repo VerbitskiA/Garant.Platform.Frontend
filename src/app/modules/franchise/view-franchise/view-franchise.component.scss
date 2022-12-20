@@ -1,8 +1,8 @@
 @import "/src/app/app.component.scss";
-@import "/src/app/shared/styles/media-quaries.scss";
-@import "/src/app/shared/styles/common.scss";
+@import "../../../../assets/styles/media-quaries";
+@import "../../../../assets/styles/common";
 @import "./../create-franchise/create-franchise.component.scss";
-@import "/src/app/shared/styles/body-margins.scss";
+@import "../../../../assets/styles/body-margins";
 @import 'design';
 
 /* Стили для определенного компонента определять внутри хоста */

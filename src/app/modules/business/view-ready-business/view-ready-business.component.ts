@@ -1,25 +1,24 @@
-import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { ConfirmationService, MessageService } from 'primeng/api';
-import { API_URL } from 'src/app/core/core-urls/api-url';
-import { CreateUpdateBusinessInput } from 'src/app/models/business/input/business-create-update-input';
-import { GetBusinessInput } from 'src/app/models/business/input/get-business-input';
-import { RequestBusinessInput } from 'src/app/models/request/input/request-business-input';
-import { CommonDataService } from 'src/app/services/common/common-data.service';
-import { Observable, of } from "rxjs";
+import {HttpClient} from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {MessageService} from 'primeng/api';
+import {API_URL} from 'src/app/core/core-urls/api-url';
+import {CreateUpdateBusinessInput} from 'src/app/models/business/input/business-create-update-input';
+import {GetBusinessInput} from 'src/app/models/business/input/get-business-input';
+import {RequestBusinessInput} from 'src/app/models/request/input/request-business-input';
+import {CommonDataService} from 'src/app/core/services/common/common-data.service';
+import {Observable, of} from "rxjs";
 
 @Component({
-  selector: 'view-ready-business',
+  selector: 'app-view-ready-business',
   templateUrl: './view-ready-business.component.html',
-  styleUrls: ['./view-ready-business.component.scss'],
-  providers: [ConfirmationService, MessageService],
+  styleUrls: ['./view-ready-business.component.scss']
 })
 
 /**
  * Класс модуля просмотра бизнеса.
  */
-export class ViewReadyBusinessModule implements OnInit {
+export class ViewReadyBusinessComponent implements OnInit {
   responsiveOptions: any;
   aNamesBusinessPhotos: any = [];
   lead: string = '';
@@ -64,8 +63,8 @@ export class ViewReadyBusinessModule implements OnInit {
   number: string = '';
   isHidePeculiarity: boolean = false;
   isUrlVideo: boolean = false;
-  
-  public readonly listAdvantagesBusiness$: Observable<{title: string; description: string; result: string}[]> = of([{
+
+  public readonly listAdvantagesBusiness$: Observable<{ title: string; description: string; result: string }[]> = of([{
     title: 'Стоимость',
     description: 'полная стоимость бизнеса',
     result: '2 400 000 ₽'
@@ -90,8 +89,8 @@ export class ViewReadyBusinessModule implements OnInit {
     description: 'с момента основания',
     result: '4 года'
   }]);
-  
-  public readonly listAdvantagesCompany$: Observable<{title: string; description: string; result: string}[]> = of([{
+
+  public readonly listAdvantagesCompany$: Observable<{ title: string; description: string; result: string }[]> = of([{
     title: 'Сотрудников',
     description: 'компании',
     result: '15'
@@ -108,8 +107,8 @@ export class ViewReadyBusinessModule implements OnInit {
     description: 'Сайт',
     result: 'Ссылка'
   }]);
-  
-  public readonly propertyBusiness$: Observable<{title: string; result: string}[]> = of([{
+
+  public readonly propertyBusiness$: Observable<{ title: string; result: string }[]> = of([{
     title: 'Оборудование, мебель, оргтехника',
     result: '350 000 ₽'
   }, {
@@ -167,10 +166,10 @@ export class ViewReadyBusinessModule implements OnInit {
     this.routeParam = this.route.snapshot.queryParams;
   }
 
-  public async ngOnInit() {
+  public ngOnInit() {
     this.scrollPageToTop();
-    await this.getUserFio();
-    await this.getTransitionAsync();
+    this.getUserFio();
+    this.getTransitionAsync();
   }
 
   public ngOnAfterViewInit() {
@@ -178,206 +177,140 @@ export class ViewReadyBusinessModule implements OnInit {
     console.log('aBusinessPhotos', this.aBusinessPhotos);
   }
 
-  private async getTransitionAsync() {
-    try {
-      let businessId = 0;
-
-      if (this.businessId <= 0 || this.businessId == undefined) {
-        businessId = this.route.snapshot.queryParams.businessId;
-      } else {
-        businessId = this.businessId;
-      }
-
-      await this.commonService
-        .getTransitionAsync(this.routeParam)
-        .then((data: any) => {
-          console.log('Переход получен:', data);
-          this.getViewBusinessAsync(businessId);
-        });
-    } catch (e: any) {
-      throw new Error(e);
-    }
+  private getTransitionAsync() {
+    this.commonService.getTransitionAsync(this.routeParam)
+      .subscribe((data: any) => this.getViewBusinessAsync(this.businessId <= 0 || this.businessId == undefined ? this.route.snapshot.queryParams['businessId'] : this.businessId));
   }
 
   /**
    * Функция получит данные бизнеса, которые нужно изменить.
    * @returns - данные бизнеса.
    */
-  private async getViewBusinessAsync(businessId: number) {
-    try {
-      console.log('getViewBusinessAsync');
-      let getFranchiseInput = new GetBusinessInput();
-      getFranchiseInput.BusinessId = businessId;
-      getFranchiseInput.Mode = 'View';
+  private getViewBusinessAsync(businessId: number) {
+    console.log('getViewBusinessAsync');
+    let getFranchiseInput = new GetBusinessInput();
+    getFranchiseInput.BusinessId = businessId;
+    getFranchiseInput.Mode = 'View';
 
-      await this.http
-        .post(
-          API_URL.apiUrl.concat('/business/get-business'),
-          getFranchiseInput
-        )
-        .subscribe({
-          next: (response: any) => {
-            this.businessData.push(response);
-            this.aPriceIn = JSON.parse(response.investPrice);
+    this.http.post(API_URL.apiUrl.concat('/business/get-business'), getFranchiseInput)
+      .subscribe((response: any) => {
+        this.businessData.push(response);
+        this.aPriceIn = JSON.parse(response.investPrice);
 
-            // Запишет пути изображений бизнеса.
-            // this.businessData.forEach((item: any) => {
-            //     this.aNamesBusinessPhotos = item.urlsBusiness;
-            // });
-            this.aNamesBusinessPhotos = response.urlsBusiness.split(',');
+        // Запишет пути изображений бизнеса.
+        // this.businessData.forEach((item: any) => {
+        //     this.aNamesBusinessPhotos = item.urlsBusiness;
+        // });
+        this.aNamesBusinessPhotos = response.urlsBusiness.split(',');
 
-            if (!this.businessData[0].peculiarity) {
-              this.isHidePeculiarity = true;
-            }
+        if (!this.businessData[0].peculiarity) {
+          this.isHidePeculiarity = true;
+        }
 
-            if (!this.businessData[0].urlVideo) {
-              this.isUrlVideo = true;
-            }
-
-            console.log('Полученный бизнес:', response);
-            console.log('businessData', this.businessData);
-            console.log('aPriceIn', this.aPriceIn);
-            console.log('aBusinessPhotos', this.aNamesBusinessPhotos);
-          },
-
-          error: (err) => {
-            this.commonService.routeToStart(err);
-            throw new Error(err);
-          },
-        });
-    } catch (e: any) {
-      throw new Error(e);
-    }
+        if (!this.businessData[0].urlVideo) {
+          this.isUrlVideo = true;
+        }
+      }, (err) => {
+        this.commonService.routeToStart(err);
+        throw new Error(err);
+      });
   }
 
   // TODO: доработать множественную загрузку файлов.
-  public async uploadBusinessPhotosAsync(event: any) {
-    try {
-      let fileList = event.target.files[0];
-      let files: File = fileList;
-      let formData: FormData = new FormData();
-      formData.append('files', files);
+  public uploadBusinessPhotosAsync(event: any) {
+    let files: File = event.target.files[0];
+    let formData: FormData = new FormData();
+    formData.append('files', files);
 
-      await this.http
-        .post(API_URL.apiUrl.concat('/business/temp-file'), formData)
-        .subscribe({
-          next: (response: any) => {
-            console.log('Загруженные файлы бизнеса:', response);
-            this.aNamesBusinessPhotos = response;
-          },
-
-          error: (err) => {
-            this.commonService.routeToStart(err);
-            throw new Error(err);
-          },
-        });
-    } catch (e: any) {
-      throw new Error(e);
-    }
+    this.http.post(API_URL.apiUrl.concat('/business/temp-file'), formData)
+      .subscribe((response: any) => this.aNamesBusinessPhotos = response, (err) => {
+        this.commonService.routeToStart(err);
+        throw new Error(err);
+      });
   }
 
   /**
    * Функция изменит бизнес.
    * @returns - Данные бизнеса.
    */
-  public async onEditBusinessAsync() {
+  public onEditBusinessAsync() {
     console.log('onEditBusinessAsync');
 
-    try {
-      let createUpdateBusinessInput = new CreateUpdateBusinessInput();
-      let newBusinessData = this.businessData[0];
-      let lead = newBusinessData.status;
-      let payback = newBusinessData.payback;
-      let profitability = newBusinessData.profitability;
-      let activityDetail = newBusinessData.activityDetail;
-      let defailsFranchise = newBusinessData.defailsFranchise;
-      let priceIn = newBusinessData.priceIn;
-      let videoLink = newBusinessData.urlVideo;
-      let isGarant = newBusinessData.isGarant || false;
-      let peculiarity = newBusinessData.peculiarity;
-      let businessName = newBusinessData.businessName;
-      let price = +newBusinessData.price;
-      let turnPrice = newBusinessData.turnPrice;
-      let profitPrice = newBusinessData.profitPrice;
-      let businessAge = newBusinessData.businessAge;
-      let employeeYearCount = newBusinessData.employeeYearCount;
-      let form = newBusinessData.form;
-      let share = newBusinessData.share;
-      let site = newBusinessData.site;
-      let text = newBusinessData.text;
-      let assets = newBusinessData.assets;
-      let reasonsSale = newBusinessData.reasonsSale;
-      let address = newBusinessData.address;
-      // let aPriceInData = JSON.parse(this.aPriceIn);
-      let aNamesBusinessPhotos = this.aNamesBusinessPhotos;
+    let createUpdateBusinessInput = new CreateUpdateBusinessInput();
+    let newBusinessData = this.businessData[0];
+    let lead = newBusinessData.status;
+    let payback = newBusinessData.payback;
+    let profitability = newBusinessData.profitability;
+    let activityDetail = newBusinessData.activityDetail;
+    let defailsFranchise = newBusinessData.defailsFranchise;
+    let priceIn = newBusinessData.priceIn;
+    let videoLink = newBusinessData.urlVideo;
+    let isGarant = newBusinessData.isGarant || false;
+    let peculiarity = newBusinessData.peculiarity;
+    let businessName = newBusinessData.businessName;
+    let price = +newBusinessData.price;
+    let turnPrice = newBusinessData.turnPrice;
+    let profitPrice = newBusinessData.profitPrice;
+    let businessAge = newBusinessData.businessAge;
+    let employeeYearCount = newBusinessData.employeeYearCount;
+    let form = newBusinessData.form;
+    let share = newBusinessData.share;
+    let site = newBusinessData.site;
+    let text = newBusinessData.text;
+    let assets = newBusinessData.assets;
+    let reasonsSale = newBusinessData.reasonsSale;
+    let address = newBusinessData.address;
+    // let aPriceInData = JSON.parse(this.aPriceIn);
+    let aNamesBusinessPhotos = this.aNamesBusinessPhotos;
 
-      // Уберет флаги видимости.
-      let newPriceInJson = this.aPriceIn.map((item: any) => ({
-        Price: item.Price,
-        Name: item.Name,
-      }));
+    // Уберет флаги видимости.
+    let newPriceInJson = this.aPriceIn.map((item: any) => ({Price: item.Price, Name: item.Name,}));
 
-      let priceInJson = JSON.stringify(newPriceInJson);
+    let priceInJson = JSON.stringify(newPriceInJson);
 
-      createUpdateBusinessInput.Status = lead;
-      createUpdateBusinessInput.Payback = payback;
-      createUpdateBusinessInput.ActivityDetail = activityDetail;
-      createUpdateBusinessInput.Peculiarity = peculiarity;
-      createUpdateBusinessInput.Text = defailsFranchise;
-      createUpdateBusinessInput.UrlVideo = videoLink;
-      createUpdateBusinessInput.IsGarant = isGarant;
-      createUpdateBusinessInput.IsNew = false;
-      createUpdateBusinessInput.BusinessName = businessName;
-      createUpdateBusinessInput.Price = price;
-      createUpdateBusinessInput.TurnPrice = turnPrice;
-      createUpdateBusinessInput.ProfitPrice = profitPrice;
-      createUpdateBusinessInput.Profitability = profitability;
-      createUpdateBusinessInput.BusinessAge = businessAge;
-      createUpdateBusinessInput.EmployeeCountYear = employeeYearCount;
-      createUpdateBusinessInput.Form = form;
-      createUpdateBusinessInput.Share = share;
-      createUpdateBusinessInput.Site = site;
-      createUpdateBusinessInput.Text = text;
-      createUpdateBusinessInput.Assets = assets;
-      createUpdateBusinessInput.ReasonsSale = reasonsSale;
-      createUpdateBusinessInput.Address = address;
-      createUpdateBusinessInput.InvestPrice = priceInJson;
-      createUpdateBusinessInput.UrlsBusiness = aNamesBusinessPhotos;
+    createUpdateBusinessInput.Status = lead;
+    createUpdateBusinessInput.Payback = payback;
+    createUpdateBusinessInput.ActivityDetail = activityDetail;
+    createUpdateBusinessInput.Peculiarity = peculiarity;
+    createUpdateBusinessInput.Text = defailsFranchise;
+    createUpdateBusinessInput.UrlVideo = videoLink;
+    createUpdateBusinessInput.IsGarant = isGarant;
+    createUpdateBusinessInput.IsNew = false;
+    createUpdateBusinessInput.BusinessName = businessName;
+    createUpdateBusinessInput.Price = price;
+    createUpdateBusinessInput.TurnPrice = turnPrice;
+    createUpdateBusinessInput.ProfitPrice = profitPrice;
+    createUpdateBusinessInput.Profitability = profitability;
+    createUpdateBusinessInput.BusinessAge = businessAge;
+    createUpdateBusinessInput.EmployeeCountYear = employeeYearCount;
+    createUpdateBusinessInput.Form = form;
+    createUpdateBusinessInput.Share = share;
+    createUpdateBusinessInput.Site = site;
+    createUpdateBusinessInput.Text = text;
+    createUpdateBusinessInput.Assets = assets;
+    createUpdateBusinessInput.ReasonsSale = reasonsSale;
+    createUpdateBusinessInput.Address = address;
+    createUpdateBusinessInput.InvestPrice = priceInJson;
+    createUpdateBusinessInput.UrlsBusiness = aNamesBusinessPhotos;
 
-      // TODO: заменить на динамическое определение категории франшизы.
-      createUpdateBusinessInput.Category = 'Тестовая категория';
+    // TODO: заменить на динамическое определение категории франшизы.
+    createUpdateBusinessInput.Category = 'Тестовая категория';
 
-      // TODO: заменить на динамическое определение категории франшизы.
-      createUpdateBusinessInput.SubCategory = 'Тестовая подкатегория';
+    // TODO: заменить на динамическое определение категории франшизы.
+    createUpdateBusinessInput.SubCategory = 'Тестовая подкатегория';
 
-      let sendFormData = new FormData();
-      sendFormData.append(
-        'businessDataInput',
-        JSON.stringify(createUpdateBusinessInput)
-      );
-      sendFormData.append('filesAssets', this.filesAssets);
-      sendFormData.append('filesReasonsSale', this.filesReasonsSale);
-      sendFormData.append('finModelFile', this.modelFile);
-      sendFormData.append('filesTextBusiness', this.filesTextBusiness);
+    let sendFormData = new FormData();
+    sendFormData.append('businessDataInput', JSON.stringify(createUpdateBusinessInput));
+    sendFormData.append('filesAssets', this.filesAssets);
+    sendFormData.append('filesReasonsSale', this.filesReasonsSale);
+    sendFormData.append('finModelFile', this.modelFile);
+    sendFormData.append('filesTextBusiness', this.filesTextBusiness);
 
-      await this.http
-        .post(
-          API_URL.apiUrl.concat('/business/create-update-business'),
-          sendFormData
-        )
-        .subscribe({
-          next: (response: any) => {
-            console.log('Бизнес успешно изменен:', response);
-          },
-
-          error: (err) => {
-            this.commonService.routeToStart(err);
-            throw new Error(err);
-          },
-        });
-    } catch (e: any) {
-      throw new Error(e);
-    }
+    this.http.post(API_URL.apiUrl.concat('/business/create-update-business'), sendFormData)
+      .subscribe((response: any) => console.log('Бизнес успешно изменен:', response), (err) => {
+        this.commonService.routeToStart(err);
+        throw new Error(err);
+      });
   }
 
   /**
@@ -419,33 +352,17 @@ export class ViewReadyBusinessModule implements OnInit {
    */
   public onAddPriceIn(priceIn: any, nameIn: any) {
     if (this.aPriceIn.length == 1) {
-      this.aPriceIn[0] = {
-        Name: nameIn,
-        Price: priceIn,
-      };
-
-      this.aPriceIn.push({
-        Name: '',
-        Price: '',
-      });
-
+      this.aPriceIn[0] = {Name: nameIn, Price: priceIn,};
+      this.aPriceIn.push({Name: '', Price: '',});
       this.aPriceIn[this.ind].isHide = true;
       this.ind++;
-
       return;
     }
-
     this.aPriceIn[this.ind].Name = nameIn;
     this.aPriceIn[this.ind].Price = priceIn;
-
-    this.aPriceIn.push({
-      Name: '',
-      Price: '',
-    });
-
+    this.aPriceIn.push({Name: '', Price: '',});
     this.aPriceIn[this.ind].isHide = true;
     this.ind++;
-
     console.log('aPriceIn', this.aPriceIn);
   }
 
@@ -453,24 +370,12 @@ export class ViewReadyBusinessModule implements OnInit {
     console.log('isGarant', this.isGarant);
   }
 
-  private async getUserFio() {
-    try {
-      await this.http
-        .post(API_URL.apiUrl.concat('/user/user-fio'), {})
-        .subscribe({
-          next: (response: any) => {
-            console.log('fio data:', response);
-            this.fio = response.fullName;
-          },
-
-          error: (err) => {
-            this.commonService.routeToStart(err);
-            throw new Error(err);
-          },
-        });
-    } catch (e: any) {
-      throw new Error(e);
-    }
+  private getUserFio() {
+    this.http.post(API_URL.apiUrl.concat('/user/user-fio'), {})
+      .subscribe((response: any) => this.fio = response.fullName, (err) => {
+        this.commonService.routeToStart(err);
+        throw new Error(err);
+      });
   }
 
   /**
@@ -480,50 +385,25 @@ export class ViewReadyBusinessModule implements OnInit {
    * @param businessId Id бизнеса.
    * @returns Данные заявки.
    */
-  public async onCreateRequestBusinessAsync(
-    userName: string,
-    number: string,
-    businessId: number
-  ) {
-    try {
-      console.log('onCreateRequestBusinessAsync');
-      let requestBusinessInput = new RequestBusinessInput();
-
-      if (userName == '' || number == '' || businessId <= 0) {
-        return;
-      }
-
-      requestBusinessInput.UserName = userName;
-      requestBusinessInput.Phone = number;
-      requestBusinessInput.BusinessId = businessId;
-
-      await this.http
-        .post(
-          API_URL.apiUrl.concat('/request/create-request-business'),
-          requestBusinessInput
-        )
-        .subscribe({
-          next: (response: any) => {
-            console.log('Статус создания заявки: ', response);
-
-            if (response.isSuccessCreatedRequest) {
-              this.messageService.add({
-                severity: 'success',
-                summary: 'Успешно',
-                detail: response.statusText,
-              });
-            }
-          },
-
-          error: (err) => {
-            throw new Error(err);
-          },
-        });
-    } catch (e: any) {
-      throw new Error(e);
+  public onCreateRequestBusinessAsync(userName: string, number: string, businessId: number) {
+    console.log('onCreateRequestBusinessAsync');
+    let requestBusinessInput = new RequestBusinessInput();
+    if (userName == '' || number == '' || businessId <= 0) {
+      return;
     }
+    requestBusinessInput.UserName = userName;
+    requestBusinessInput.Phone = number;
+    requestBusinessInput.BusinessId = businessId;
+    this.http.post(API_URL.apiUrl.concat('/request/create-request-business'), requestBusinessInput)
+      .subscribe((response: any) => {
+        if (response.isSuccessCreatedRequest) {
+          this.messageService.add({severity: 'success', summary: 'Успешно', detail: response.statusText,});
+        }
+      }, (err) => {
+        throw new Error(err);
+      });
   }
-  
+
   private scrollPageToTop() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
