@@ -1,4 +1,4 @@
-export namespace Promo {
+export namespace promo {
 	export interface IAction {
 		buttonText: string;
 		isTop: true;

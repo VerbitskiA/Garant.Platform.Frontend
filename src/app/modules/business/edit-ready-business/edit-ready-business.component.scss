@@ -11,8 +11,8 @@
 // @import "/src/app/shared/styles/common.scss";
 @use "/src/app/modules/business/create-ready-business/create-ready-business.component.scss";
 // @import "/src/app/shared/styles/controls.scss";
-@use "../../../../assets/styles/index" as *;
-@use "../../../../assets/styles/base" as *;
+@use "../../../../app/shared/styles" as *;
+@use "../../../../app/shared/styles/base" as *;
 
 .title-name-logo {
   margin-top: 80px;

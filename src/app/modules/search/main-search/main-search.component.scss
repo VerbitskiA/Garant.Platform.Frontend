@@ -1,0 +1,14 @@
+@import 'design';
+
+.search-count {
+  display: none;
+
+  @include tablet-small {
+    @include typo('secondary');
+
+    align-self: center;
+    display: block;
+    color: $clrDarkGray;
+    white-space: nowrap;
+  }
+}

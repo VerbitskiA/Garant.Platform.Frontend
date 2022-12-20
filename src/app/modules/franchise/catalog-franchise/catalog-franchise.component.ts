@@ -1,33 +1,21 @@
-import {HttpClient} from '@angular/common/http';
-import {Component, OnInit} from '@angular/core';
-import {Title} from '@angular/platform-browser';
-import {ActivatedRoute, Router} from '@angular/router';
-import {API_URL} from 'src/app/core/core-urls/api-url';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
+import { API_URL } from 'src/app/core/core-urls/api-url';
 import {
   FilterFranchiseWithPaginationInput
 } from 'src/app/models/franchise/input/filter-franchise-with-pagination-input';
-import {PaginationInput} from 'src/app/models/pagination/input/pagination-input';
-import {CommonDataService} from 'src/app/core/services/common/common-data.service';
-import {shareReplay, takeUntil, tap} from 'rxjs/operators';
-import {CatalogShortCardComponent} from "../../products/catalog/catalog.short.card/catalog.short.card.component";
-import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
-import {CatalogFranchiseModel} from "../../../models/franchise/catalog-franchise.model";
-import {CitiesListModel} from "../../../models/mainPage/cities-list.model";
-import {BusinessListModel} from "../../../models/mainPage/business-list.model";
-import {InitCatalogFranchiseResponse} from "../../../models/pagination/init-catalog-franchise";
-import {ActionsModel} from "../../../models/mainPage/actions.model";
-
-interface CardData {
-  id?: string
-  name?: string
-  description?: string
-  price?: string
-  img?:string
-}
-
+import { PaginationInput } from 'src/app/models/pagination/input/pagination-input';
+import { CommonDataService } from 'src/app/services/common/common-data.service';
+// import { CatalogFranchiseService } from '../../../core/services/catalog-franchise.service';
+import { shareReplay, take, takeUntil, tap } from 'rxjs/operators';
+import { CatalogShortCardComponent } from "../../products/catalog/catalog.short.card/catalog.short.card.component";
+import { FormControl } from "@angular/forms";
+import { GarDestroyService } from "../../../gar-lib/gar-destroy.service";
 
 @Component({
-  selector: 'app-catalog-franchise',
+  selector: 'catalog-franchise',
   templateUrl: './catalog-franchise.component.html',
   styleUrls: ['./catalog-franchise.component.scss'],
   providers: [GarDestroyService]
@@ -36,7 +24,7 @@ interface CardData {
 /**
  * Класс модуля каталога франшиз.
  */
-export class CatalogFranchiseComponent implements OnInit {
+export class CatalogFranchiseModule implements OnInit {
   aPopularFranchises: any[] = [];
   isGarant: boolean = false;
   aCities: any[] = [];
@@ -76,16 +64,15 @@ export class CatalogFranchiseComponent implements OnInit {
   catFranchPagination: any;
   pageNumber: number = 1;
   countRows: number = 12;
-
+  
   /** Компонент, передаваемый в карусель */
   cardComponent = CatalogShortCardComponent;
   /** список популярных франшиз */
   readonly aPopularFranchises$ = this.commonService.getPopularFranchise().pipe(
-    shareReplay(1),
-    tap(data => console.log('Популярные франшизы:', data)),
-    takeUntil(this._destroy$)
+      shareReplay(1),
+      tap(data => console.log('Популярные франшизы:', data)),
+      takeUntil(this._destroy$)
   )
-
   constructor(
     private http: HttpClient,
     private commonService: CommonDataService,
@@ -94,126 +81,185 @@ export class CatalogFranchiseComponent implements OnInit {
     private route: ActivatedRoute,
     private _destroy$: GarDestroyService
   ) {
-    this.responsiveOptions = [
+    // TODO: Переделать на хранение на бэке.
+    this.aSortPrices = [
       {
-        breakpoint: '1430px',
-        numVisible: 3,
-        numScroll: 3
+        name: 'По убыванию цены',
+        value: 'Desc',
       },
       {
+        name: 'По возрастанию цены',
+        value: 'Asc',
+      },
+    ];
+
+    this.responsiveOptions = [
+      {
         breakpoint: '1024px',
-        numVisible: 2,
-        numScroll: 2
+        numVisible: 3,
+        numScroll: 3,
       },
       {
         breakpoint: '768px',
-        numVisible: 1,
-        numScroll: 1
+        numVisible: 2,
+        numScroll: 2,
       },
       {
-        breakpoint: '733px',
+        breakpoint: '560px',
         numVisible: 1,
-        numScroll: 1
-      }
+        numScroll: 1,
+      },
     ];
-    // TODO: Переделать на хранение на бэке.
-    this.aSortPrices = [
-      {name: 'По убыванию цены', value: 'Desc',},
-      {name: 'По возрастанию цены', value: 'Asc',},
-    ];
-    this.routeParam = this.route.snapshot.queryParams['franchiseId'];
+
+    this.routeParam = this.route.snapshot.queryParams.franchiseId;
   }
 
-  public ngOnInit() {
+  public async ngOnInit() {
     this.titleService.setTitle('Gobizy: Каталог франшиз');
     //TODO: Возможно вызов не нужен, франшизы грузятся при ините пагинации.
     //await this.GetFranchisesListAsync();
     //await this.loadCitiesFranchisesListAsync();
-    this.loadCategoriesFranchisesListAsync();
-    this.loadViewBusinessFranchisesListAsync();
-    this.loadPaginationInitAsync();
+    await this.loadCategoriesFranchisesListAsync();
+    await this.loadViewBusinessFranchisesListAsync();
+    await this.loadPaginationInitAsync();
     // this.getCatFranchPagination()
-    this.GetActionsAsync();
-    this.GetBlogsAsync();
-    this.loadCategoriesListAsync();
-    this.loadSingleSuggestionAsync();
-    this.GetNewFranchisesListAsync();
-    this.GetReviewsFranchisesAsync();
+    await this.GetActionsAsync();
+    await this.GetBlogsAsync();
+    await this.loadCategoriesListAsync();
+    await this.loadSingleSuggestionAsync();
+    await this.GetNewFranchisesListAsync();
+    await this.GetReviewsFranchisesAsync();
   }
 
   /**
    * TODO: вынести в общий сервис.
    * Функция получит список франшиз.
    */
-  private GetFranchisesListAsync() {
-    this.http.post<CatalogFranchiseModel>(API_URL.apiUrl.concat('/franchise/catalog-franchise'), {})
-      .subscribe((response: any) => {
-        this.aFranchises = response;
-        this.countTotalPage = response.length;
-        console.log('Список франшиз:', response);
-        console.log('Кол-во франшиз:', this.countTotalPage);
-      }, (err) => {
-        throw new Error(err);
-      });
+  private async GetFranchisesListAsync() {
+    try {
+      await this.http
+        .post(API_URL.apiUrl.concat('/franchise/catalog-franchise'), {})
+        .subscribe({
+          next: (response: any) => {
+            this.aFranchises = response;
+            this.countTotalPage = response.length;
+            console.log('Список франшиз:', response);
+            console.log('Кол-во франшиз:', this.countTotalPage);
+          },
+
+          error: (err) => {
+            throw new Error(err);
+          },
+        });
+    } catch (e: any) {
+      throw new Error(e);
+    }
   }
 
   /**
    * TODO: Вынести в общий сервис.
    * Функция получит список городов франшиз.
    */
-  private loadCitiesFranchisesListAsync() {
-    this.http.post<CitiesListModel>(API_URL.apiUrl.concat('/main/cities-list'), {})
-      .subscribe((response: any) => this.aCities = response, (err) => {
-        throw new Error(err);
-      });
+  private async loadCitiesFranchisesListAsync() {
+    try {
+      await this.http
+        .post(API_URL.apiUrl.concat('/main/cities-list'), {})
+        .subscribe({
+          next: (response: any) => {
+            console.log('Список городов:', response);
+            this.aCities = response;
+          },
+
+          error: (err) => {
+            throw new Error(err);
+          },
+        });
+    } catch (e: any) {
+      throw new Error(e);
+    }
   }
 
   /**
    * TODO: Вынести в общий сервис.
    * Функция получит список категорий бизнеса.
    */
-  private loadCategoriesFranchisesListAsync() {
-    this.http.post<CitiesListModel>(API_URL.apiUrl.concat('/main/business-categories-list'), {})
-      .subscribe((response: any) => this.aBusinessCategories = response, (err) => {
-        throw new Error(err);
-      });
+  private async loadCategoriesFranchisesListAsync() {
+    try {
+      await this.http
+        .post(API_URL.apiUrl.concat('/main/business-categories-list'), {})
+        .subscribe({
+          next: (response: any) => {
+            console.log('Список категорий бизнеса:', response);
+            this.aBusinessCategories = response;
+          },
+
+          error: (err) => {
+            throw new Error(err);
+          },
+        });
+    } catch (e: any) {
+      throw new Error(e);
+    }
   }
 
   /**
    * TODO: Вынести в общий сервис.
    * Функция получит список видов бизнеса.
    */
-  private loadViewBusinessFranchisesListAsync() {
-    this.http.post<BusinessListModel>(API_URL.apiUrl.concat('/main/business-list'), {})
-      .subscribe((response: any) => this.aViewBusiness = response, (err) => {
-        throw new Error(err);
-      });
+  private async loadViewBusinessFranchisesListAsync() {
+    try {
+      await this.http
+        .post(API_URL.apiUrl.concat('/main/business-list'), {})
+        .subscribe({
+          next: (response: any) => {
+            console.log('Список видов бизнеса:', response);
+            this.aViewBusiness = response;
+          },
+
+          error: (err) => {
+            throw new Error(err);
+          },
+        });
+    } catch (e: any) {
+      throw new Error(e);
+    }
   }
 
-  public onPaginationChangeAsync(event: any) {
-    let filterInput = new FilterFranchiseWithPaginationInput();
-    filterInput.TypeSortPrice = this.selectedSort.value;
-    filterInput.MinProfit = this.filterMinPrice;
-    filterInput.MaxProfit = this.filterMaxPrice;
-    filterInput.ViewCode = this.selectedViewBusiness.viewCode;
-    filterInput.CategoryCode = this.selectedCategory.categoryCode;
-    filterInput.MinInvest = this.minPrice;
-    filterInput.MaxInvest = this.maxPrice;
-    filterInput.IsGarant = this.isGarant;
-    filterInput.PageNumber = event.page + 1;
-    filterInput.CountRows = event.rows;
-    this.selectedCountRows = event.rows;
-    console.log('rows', event.rows);
-    this.http.post<CatalogFranchiseModel>(API_URL.apiUrl.concat('/franchise/filter-pagination'), filterInput)
-      .subscribe((response: any) => {
-        console.log('Франшизы после фильтрации:', response.results);
-        this.aFranchises = response.results;
-        this.countFranchises = response.countAll;
-        this.countTotalPage = response.countAll;
-      }, (err) => {
-        this.commonService.routeToStart(err);
-        throw new Error(err);
-      });
+  public async onPaginationChangeAsync(event: any) {
+    try {
+      let filterInput = new FilterFranchiseWithPaginationInput();
+      filterInput.TypeSortPrice = this.selectedSort.value;
+      filterInput.MinProfit = this.filterMinPrice;
+      filterInput.MaxProfit = this.filterMaxPrice;
+      filterInput.ViewCode = this.selectedViewBusiness.viewCode;
+      filterInput.CategoryCode = this.selectedCategory.categoryCode;
+      filterInput.MinInvest = this.minPrice;
+      filterInput.MaxInvest = this.maxPrice;
+      filterInput.IsGarant = this.isGarant;
+      filterInput.PageNumber = event.page + 1;
+      filterInput.CountRows = event.rows;
+      this.selectedCountRows = event.rows;
+      console.log('rows', event.rows);
+      await this.http
+        .post(
+          API_URL.apiUrl.concat('/franchise/filter-pagination'),
+          filterInput
+        )
+        .subscribe({
+          next: (response: any) => {
+            console.log('Франшизы после фильтрации:', response.results);
+            this.aFranchises = response.results;
+            this.countFranchises = response.countAll;
+            this.countTotalPage = response.countAll;
+          },
+          error: (err) => {
+            this.commonService.routeToStart(err);
+            throw new Error(err);
+          },
+        });
+    } catch (e: any) {
+      throw new Error(e);
+    }
   }
 
   // getCatFranchPagination(): void {
@@ -225,26 +271,38 @@ export class CatalogFranchiseComponent implements OnInit {
   //     })
   // }
 
-  private loadPaginationInitAsync() {
+  private async loadPaginationInitAsync() {
     let paginationData = new PaginationInput();
-
+  
     // TODO: доработать на динамическое получение из роута или как-нибудь еще, чтобы помнить, что выбирал пользователь.
     paginationData.PageNumber = 1;
     paginationData.CountRows = 12;
-
-    this.http.post<InitCatalogFranchiseResponse>(API_URL.apiUrl.concat('/pagination/init-catalog-franchise'), paginationData)
-      .subscribe((response: any) => {
-        console.log('pagination init', response);
-        this.countFranchises = response.countAll;
-        this.aFranchises = response.results;
-        this.countTotalPage = response.countAll;
-      }, (err) => {
-        this.commonService.routeToStart(err);
-        throw new Error(err);
-      });
+  
+    try {
+      await this.http
+        .post(
+          API_URL.apiUrl.concat('/pagination/init-catalog-franchise'),
+          paginationData
+        )
+        .subscribe({
+          next: (response: any) => {
+            console.log('pagination init', response);
+            this.countFranchises = response.countAll;
+            this.aFranchises = response.results;
+            this.countTotalPage = response.countAll;
+          },
+  
+          error: (err) => {
+            this.commonService.routeToStart(err);
+            throw new Error(err);
+          },
+        });
+    } catch (e: any) {
+      throw new Error(e);
+    }
   }
 
-  public onChangeSortPrice() {
+  public async onChangeSortPrice() {
     console.log('onChangeSortPrice', this.selectedSort);
   }
 
@@ -252,31 +310,42 @@ export class CatalogFranchiseComponent implements OnInit {
    * Функция фильтрует франшизы по параметрам с учётом пагинации.
    * @returns - Отфильтрованный список франшиз.
    */
-  public onFilterFranchisesWithPaginationAsync() {
-    let filterInput = new FilterFranchiseWithPaginationInput();
-    filterInput.TypeSortPrice = this.selectedSort.value;
-    filterInput.MinProfit = this.filterMinPrice;
-    filterInput.MaxProfit = this.filterMaxPrice;
-    filterInput.ViewCode = this.selectedViewBusiness.viewCode;
-    filterInput.CategoryCode = this.selectedCategory.categoryCode;
-    filterInput.MinInvest = this.minPrice;
-    filterInput.MaxInvest = this.maxPrice;
-    filterInput.IsGarant = this.isGarant;
-    filterInput.PageNumber = 1;
-    filterInput.CountRows = this.selectedCountRows;
-    this.http.post<CatalogFranchiseModel>(API_URL.apiUrl.concat('/franchise/filter-pagination'), filterInput)
-      .subscribe((response: any) => {
-        console.log('Франшизы после фильтрации:', response.results);
-        this.aFranchises = response.results;
-        this.countFranchises = response.countAll;
-        this.countTotalPage = response.totalCount;
-      }, (err) => {
-        this.commonService.routeToStart(err);
-        throw new Error(err);
-      });
+  public async onFilterFranchisesWithPaginationAsync() {
+    try {
+      let filterInput = new FilterFranchiseWithPaginationInput();
+      filterInput.TypeSortPrice = this.selectedSort.value;
+      filterInput.MinProfit = this.filterMinPrice;
+      filterInput.MaxProfit = this.filterMaxPrice;
+      filterInput.ViewCode = this.selectedViewBusiness.viewCode;
+      filterInput.CategoryCode = this.selectedCategory.categoryCode;
+      filterInput.MinInvest = this.minPrice;
+      filterInput.MaxInvest = this.maxPrice;
+      filterInput.IsGarant = this.isGarant;
+      filterInput.PageNumber = 1;
+      filterInput.CountRows = this.selectedCountRows;
+      await this.http
+        .post(
+          API_URL.apiUrl.concat('/franchise/filter-pagination'),
+          filterInput
+        )
+        .subscribe({
+          next: (response: any) => {
+            console.log('Франшизы после фильтрации:', response.results);
+            this.aFranchises = response.results;
+            this.countFranchises = response.countAll;
+            this.countTotalPage = response.totalCount;
+          },
+          error: (err) => {
+            this.commonService.routeToStart(err);
+            throw new Error(err);
+          },
+        });
+    } catch (e: any) {
+      throw new Error(e);
+    }
   }
 
-  public onClearFilters() {
+  public async onClearFilters() {
     this.isGarant = false;
     this.minPrice = 0;
     this.filterMinPrice = 0;
@@ -286,140 +355,152 @@ export class CatalogFranchiseComponent implements OnInit {
     this.selectedSort = '';
     this.selectedViewBusiness = '';
     // this.getCatFranchPagination();
-    this.loadPaginationInitAsync();
+    await this.loadPaginationInitAsync();
   }
 
   /**
    * Функция получит данные для блока событий.
    */
-  private GetActionsAsync() {
-    this.http.post<ActionsModel>(API_URL.apiUrl.concat('/main/actions'), {})
-      .subscribe((response: any) => this.aDataActions = response.filter((el: any) => el.isTop == false), (err) => {
-        throw new Error(err);
-      });
+  private async GetActionsAsync() {
+    try {
+      await this.http
+        .post(API_URL.apiUrl.concat('/main/actions'), {})
+        .subscribe({
+          next: (response: any) => {
+            console.log('Блок событий:', response);
+            this.aDataActions = response.filter((el: any) => el.isTop == false);
+
+            // this.oTopAction = this.aDataActions.filter(el => el.isTop == true)[0];
+            // console.log("oTopAction",this.oTopAction);
+          },
+
+          error: (err) => {
+            throw new Error(err);
+          },
+        });
+    } catch (e: any) {
+      throw new Error(e);
+    }
   }
 
   /**
    * Функция получит список блогов.
    * @returns Список блогов.
    */
-  // в сваггере не нашел 13/11/22 эндпоинт /blog/main-blogs
-  private GetBlogsAsync() {
-    this.http.post(API_URL.apiUrl.concat('/blog/main-blogs'), {})
-      .subscribe((response: any) => this.aBlogs = response, (err) => {
-        throw new Error(err);
-      });
+  private async GetBlogsAsync() {
+    try {
+      await this.http
+        .post(API_URL.apiUrl.concat('/blog/main-blogs'), {})
+        .subscribe({
+          next: (response: any) => {
+            console.log('Список блогов:', response);
+            this.aBlogs = response;
+          },
+
+          error: (err) => {
+            throw new Error(err);
+          },
+        });
+    } catch (e: any) {
+      throw new Error(e);
+    }
   }
 
   /**
    * Функция получит список категорий.
    * @returns Список категорий.
    */
-  private loadCategoriesListAsync() {
-    this.commonService.loadCategoriesListAsync().subscribe((data: any) => {
-      this.categoryList1 = data.resultCol1;
-      this.categoryList2 = data.resultCol2;
-      this.categoryList3 = data.resultCol3;
-      this.categoryList4 = data.resultCol4;
-    });
+  private async loadCategoriesListAsync() {
+    try {
+      await this.commonService.loadCategoriesListAsync().then((data: any) => {
+        this.categoryList1 = data.resultCol1;
+        this.categoryList2 = data.resultCol2;
+        this.categoryList3 = data.resultCol3;
+        this.categoryList4 = data.resultCol4;
+      });
+    } catch (e: any) {
+      throw new Error(e);
+    }
   }
 
   /**
    * Функция получит одно предложение с флагом IsSingle.
    * @returns данные предложения.
    */
-  private loadSingleSuggestionAsync() {
-    this.commonService.loadSingleSuggestionAsync().subscribe((data: any) => this.oSuggestion = data);
+  private async loadSingleSuggestionAsync() {
+    try {
+      await this.commonService.loadSingleSuggestionAsync().then((data: any) => {
+        this.oSuggestion = data;
+      });
+    } catch (e: any) {
+      throw new Error(e);
+    }
   }
 
   /**
    * Функция получит список новых франшиз.
    * @returns Список франшиз.
    */
-  private GetNewFranchisesListAsync() {
-    this.http.post<CatalogFranchiseModel>(API_URL.apiUrl.concat('/franchise/new-franchise'), {})
-      .subscribe((response: any) => this.aNewFranchises = response, (err) => {
-        throw new Error(err);
-      });
+  private async GetNewFranchisesListAsync() {
+    try {
+      await this.http
+        .post(API_URL.apiUrl.concat('/franchise/new-franchise'), {})
+        .subscribe({
+          next: (response: any) => {
+            console.log('Список новых франшиз:', response);
+            this.aNewFranchises = response;
+          },
+
+          error: (err) => {
+            throw new Error(err);
+          },
+        });
+    } catch (e: any) {
+      throw new Error(e);
+    }
   }
 
-  private GetReviewsFranchisesAsync() {
-    this.http.post<CatalogFranchiseModel>(API_URL.apiUrl.concat('/franchise/review'), {})
-      .subscribe((response: any) => this.aReviewsFranchises = response, (err) => {
-        throw new Error(err);
-      });
+  private async GetReviewsFranchisesAsync() {
+    try {
+      await this.http
+        .post(API_URL.apiUrl.concat('/franchise/review'), {})
+        .subscribe({
+          next: (response: any) => {
+            console.log('Отзывы:', response);
+            this.aReviewsFranchises = response;
+          },
+
+          error: (err) => {
+            throw new Error(err);
+          },
+        });
+    } catch (e: any) {
+      throw new Error(e);
+    }
   }
 
   /**
    * Функция запишет переход.
    */
-  private setTransitionAsync(franchiseId: number) {
-    this.commonService.setTransitionAsync(franchiseId, 'Franchise', '', '')
-      .subscribe((data: any) => {
-        console.log('Переход записан:', data)
-        this.router.navigate(['/franchise/view'], {queryParams: {franchiseId: franchiseId}});
-      });
+  private async setTransitionAsync(franchiseId: number) {
+    try {
+      await this.commonService
+        .setTransitionAsync(franchiseId, 'Franchise', '', '')
+        .then((data: any) => {
+          console.log('Переход записан:', data);
+        });
+    } catch (e: any) {
+      throw new Error(e);
+    }
   }
 
   /**
    * Функция перейдет к просмотру карточки франшизы.
    */
-  public routeViewFranchiseCardAsync(franchiseId: number) {
-    this.setTransitionAsync(franchiseId);
-  }
-
-
-  public cardsData:CardData[] = [
-    {
-      id: '1',
-      name:'Название франшизы',
-      description: 'Готовый бизнес',
-      price: '12 500 000 ₽',
-      img:'../../../../assets/images/common/main-carousel.jpg',
-
-
-    },
-    {
-      id: '2',
-      name: 'Название франшизы',
-      description: 'Готовый бизнес',
-      price: '12 500 000 ₽',
-      img:'../../../../assets/images/common/main-carousel.jpg',
-    },
-    {
-      id: '3',
-      name: 'Название франшизы',
-      description: 'Готовый бизнес',
-      price: '12 500 000 ₽',
-      img:'../../../../assets/images/common/main-carousel.jpg',
-    },
-    {
-      id: '4',
-      name: 'Название франшизы',
-      description: 'Готовый бизнес',
-      price: '12 500 000 ₽',
-      img:'../../../../assets/images/common/main-carousel.jpg',
-
-
-    },
-    {
-      id: '5',
-      name: 'Название франшизы',
-      description: 'Готовый бизнес',
-      price: '12 500 000 ₽',
-      img:'../../../../assets/images/common/main-carousel.jpg',
-    },
-    {
-      id: '6',
-      name: 'Название франшизы',
-      description: 'Готовый бизнес',
-      price: '12 500 000 ₽',
-      img:'../../../../assets/images/common/main-carousel.jpg',
-    },
-
-  ];
-
-  public test(event: any): void{
-    console.log('!!!!', event)
+  public async routeViewFranchiseCardAsync(franchiseId: number) {
+    await this.setTransitionAsync(franchiseId);
+    this.router.navigate(['/franchise/view'], {
+      queryParams: {franchiseId: franchiseId},
+    });
   }
 }

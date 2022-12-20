@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { BehaviorSubject, Observable } from "rxjs";
 import { FormGroupDirective } from "@angular/forms";
+import { GarDestroyService } from "../gar-destroy.service";
 import { map } from "rxjs/operators";
 
 export type GarBtnRole = 'default' | 'primary' | 'secondary' | 'critical' | 'filter' ;
@@ -27,19 +28,20 @@ export type GarBtnRole = 'default' | 'primary' | 'secondary' | 'critical' | 'fil
 	selector: 'gar-button',
 	templateUrl: './gar-button.component.html',
 	styleUrls: ['./gar-button.component.scss'],
+	providers: [GarDestroyService],
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GarButtonComponent {
-
+	
 	private readonly _hint$ = new BehaviorSubject<string | null>(null);
 	private readonly _isDisabled$ = new BehaviorSubject<boolean>(false);
 	private readonly _isSubmit$ = new BehaviorSubject<boolean>(false);
-
+	
 	@HostBinding('class')
 	private get _hostClasses() {
 		return `gar-btn ${this._isDisabled$.getValue() ? 'disabled' : ''} ${this._role || 'default'}`;
 	}
-
+	
 	@HostListener('click')
 	private onClick() {
 		if (!this._isSubmit$.getValue()) {
@@ -47,7 +49,7 @@ export class GarButtonComponent {
 		}
 		this._parentFormRef?.form?.markAllAsTouched();
 	}
-
+	
 	/**
 	 * title для элемента
 	 *
@@ -57,7 +59,7 @@ export class GarButtonComponent {
 	set hint(value: string) {
 		this._hint$.next(value || null);
 	}
-
+	
 	/**
 	 * disabled для кнопки
 	 * */
@@ -65,7 +67,7 @@ export class GarButtonComponent {
 	set _disabled(value: string) {
 		this._isDisabled$.next(value === '' ? true : !!value);
 	}
-
+	
 	/**
 	 * установка для кнопки type="submit"
 	 */
@@ -73,10 +75,10 @@ export class GarButtonComponent {
 	set isSubmit(value: boolean | '') {
 		this._isSubmit$.next(value || value === '');
 	}
-
+	
 	@Input('role')
 	_role: GarBtnRole | undefined;
-
+	
 	readonly isDisabled$: Observable<boolean> = this._isDisabled$;
 	readonly hint$ = this._hint$.asObservable().pipe(
 		map(hint => hint || '')
@@ -84,10 +86,11 @@ export class GarButtonComponent {
 	readonly type$ = this._isSubmit$.pipe(
 		map(isSubmit => isSubmit ? 'submit' : 'button')
 	);
-
+	
 	constructor(
 		@Optional()
 		private _parentFormRef: FormGroupDirective,
+		private _destroy$: GarDestroyService
 	) {}
-
+	
 }

@@ -3,12 +3,11 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "types": ["jquery"]
   },
   "files": [
     "src/main.ts",
-    "src/polyfills.ts",
-    "src/app/models/common/responsiveOption.ts"
+    "src/polyfills.ts"
   ],
   "include": [
     "src/**/*.d.ts"

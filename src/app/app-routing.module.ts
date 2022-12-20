@@ -1,138 +1,140 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {CatalogFranchiseComponent} from './modules/franchise/catalog-franchise/catalog-franchise.component';
-import {EditFranchiseComponent} from './modules/franchise/edit-franchise/edit-franchise.component';
-import {CreateFranchiseComponent} from './modules/franchise/create-franchise/create-franchise.component';
-import {LoginComponent} from './shared/components/login/login.component';
-import {MainPageComponent} from './shared/components/main-page/main-page.component';
-import {ProfileDataComponent} from "./modules/profile/profile-data/profile-data.component";
-import {ViewFranchiseComponent} from './modules/franchise/view-franchise/view-franchise.component';
-import {CreateReadyBusinessComponent} from './modules/business/create-ready-business/create-ready-business.component';
-import {ViewReadyBusinessComponent} from './modules/business/view-ready-business/view-ready-business.component';
-import {EditReadyBusinessComponent} from './modules/business/edit-ready-business/edit-ready-business.component';
-import {ManageAccountComponent} from './modules/profile/manage-account/manage-account.component';
-import {MainSearchComponent} from './shared/components/main-search/main-search.component';
-import {CatalogBusinessComponent} from './modules/business/catalog-business/catalog-business.component';
-import {GarantInitComponent} from './modules/garant/garant-init/garant-init.component';
-import {GarantConcordComponent} from './modules/garant/garant-concord/garant-concord.component';
-import {GarantContractComponent} from './modules/garant/garant-contract/garant-contract.component';
-import {GarantAcceptPaymentComponent} from './modules/garant/garant-accept-payment/garant-accept-payment.component';
-import {FranchiseLandingComponent} from './modules/landing/franchise-landing/franchise-landing.component';
-import {ConsultingLandingComponent} from './modules/landing/consulting-landing/consulting-landing.component';
-import {DealLandingComponent} from './modules/landing/deal-landing/deal-landing.component';
-import {ConfiguratorAuthComponent} from './modules/configurator/configurator-auth/configurator-auth.component';
-import {CreateAdComponent} from './shared/components/create-ad/create-ad.component';
-import {AuthGuard} from "./core/guards/auth.guard";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { CatalogFranchiseModule } from './modules/franchise/catalog-franchise/catalog-franchise.component';
+import { EditFranchiseModule } from './modules/franchise/edit-franchise/edit-franchise.component';
+import { CreateFranchiseModule } from './modules/franchise/create-franchise/create-franchise.component';
+import { LoginModule } from './modules/login/login.component';
+import { MainPageModule } from './modules/main-page/main-page.component';
+import { ProfileDataModule } from "./modules/profile/profile-data/profile-data.component";
+import { ViewFranchiseModule } from './modules/franchise/view-franchise/view-franchise.component';
+import { CreateReadyBusinessModule } from './modules/business/create-ready-business/create-ready-business.component';
+import { ViewReadyBusinessModule } from './modules/business/view-ready-business/view-ready-business.component';
+import { EditReadyBusinessModule } from './modules/business/edit-ready-business/edit-ready-business.component';
+import { ProfileMyDataModule } from './modules/profile/profile-my-data/profile-my-data.component';
+import { ProfileMyMessagesModule } from './modules/profile/profile-my-dialogs/profile-my-dialogs.component';
+import { ProfileDialogMessagesModule } from './modules/profile/profile-dialog-messages/profile-dialog-messages.component';
+import { ManageAccountModule } from './modules/profile/manage-account/manage-account.component';
+import { MainSearchModule } from './modules/search/main-search/main-search.component';
+import { CatalogBusinessModule } from './modules/business/catalog-business/catalog-business.component';
+import { GarantInitModule } from './modules/garant/garant-init/garant-init.component';
+import { GarantConcordModule } from './modules/garant/garant-concord/garant-concord.component';
+import { GarantContractModule } from './modules/garant/garant-contract/garant-contract.component';
+import { GarantAcceptPaymentModule } from './modules/garant/garant-accept-payment/garant-accept-payment.component';
+import { FranchiseLandingModule } from './modules/landing/franchise-landing/franchise-landing.component';
+import { ConsultingLandingModule } from './modules/landing/consulting-landing/consulting-landing.component';
+import { DealLandingModule } from './modules/landing/deal-landing/deal-landing.component';
+import { ConfiguratorAuthModule } from './modules/configurator/configurator-auth/configurator-auth.component';
+import { NotificationsModule } from './modules/profile/profile-requests/notifications.component';
+import { CreateAdModule } from './modules/create-ad/create-ad.component';
 
 const routes: Routes = [
   {
     path: "",
-    component: MainPageComponent
+    component: MainPageModule
   },
 
   {
     path: "login",
-    component: LoginComponent
+    component: LoginModule
   },
 
   {
-    // canActivate: [AuthGuard],
     path: "profile-data",
-    component: ProfileDataComponent
+    component: ProfileDataModule
   },
 
   {
     path: "catalog-franchise",
-    component: CatalogFranchiseComponent
+    component: CatalogFranchiseModule
   },
 
   {
     path: "franchise/create",
-    component: CreateFranchiseComponent
+    component: CreateFranchiseModule
   },
 
   {
     path: "franchise/view",
-    component: ViewFranchiseComponent
+    component: ViewFranchiseModule
   },
 
   {
     path: "franchise/edit",
-    component: EditFranchiseComponent
+    component: EditFranchiseModule
   },
 
   {
     path: "business/create",
-    component: CreateReadyBusinessComponent
+    component: CreateReadyBusinessModule
   },
 
   {
     path: "business/view",
-    component: ViewReadyBusinessComponent
+    component: ViewReadyBusinessModule
   },
 
   {
     path: "business/edit",
-    component: EditReadyBusinessComponent
+    component: EditReadyBusinessModule
   },
 
   {
     path: "ad/create",
-    component: CreateAdComponent
+    component: CreateAdModule
   },
 
   {
     path: "manage-account",
-    component: ManageAccountComponent
+    component: ManageAccountModule
   },
 
   {
     path: "search",
-    component: MainSearchComponent
+    component: MainSearchModule
   },
   {
     path: "catalog-business",
-    component: CatalogBusinessComponent
+    component: CatalogBusinessModule
   },
 
   {
     path: "garant/garant-init",
-    component: GarantInitComponent
+    component: GarantInitModule
   },
 
   {
     path: "garant/garant-concord",
-    component: GarantConcordComponent
+    component: GarantConcordModule
   },
 
   {
     path: "garant/garant-contract",
-    component: GarantContractComponent
+    component: GarantContractModule
   },
 
   {
     path: "garant/garant-accept-payment",
-    component: GarantAcceptPaymentComponent
+    component: GarantAcceptPaymentModule
   },
 
   {
     path: "franchise/start",
-    component: FranchiseLandingComponent
+    component: FranchiseLandingModule
   },
 
   {
     path: "consulting/start",
-    component: ConsultingLandingComponent
+    component: ConsultingLandingModule
   },
 
   {
     path: "deal/start",
-    component: DealLandingComponent
+    component: DealLandingModule
   },
 
   {
     path: "configurator/auth",
-    component: ConfiguratorAuthComponent
+    component: ConfiguratorAuthModule
   },
 
   // {
@@ -141,7 +143,6 @@ const routes: Routes = [
   // }
 
   {
-    canActivate: [AuthGuard],
     path: "configurator/admin",
     loadChildren: () => import('./modules/configurator/configurator.module').then(m => m.ConfiguratorModule)
   }, {
@@ -154,7 +155,6 @@ const routes: Routes = [
     path: "news",
     loadChildren: () => import('./modules/news/news.module').then(m => m.NewsModule)
   }, {
-    canActivate: [AuthGuard],
     path: "profile",
     loadChildren: () => import('./modules/profile/profile.module').then(m => m.ProfileModule)
   }

@@ -2,16 +2,12 @@
   <!-- Популярные франшизы. -->
   <div class="section">
     <div class="gar-row title">Популярные франшизы</div>
-<!--    <gar-carousel-->
-<!--      [items]="aPopularFranchises$ | async"-->
-<!--      [template]="cardComponent"-->
-<!--      path="franchise/view"-->
-<!--      queryParamKey="franchiseId"-->
-<!--    ></gar-carousel>-->
-    <app-carousel-card [cardsData]="cardsData" [numVisible]="4" [template]="customTemplate" [main]="true" [responsiveOptions]="responsiveOptions"></app-carousel-card>
-    <ng-template #customTemplate let-value="value">
-      <span >от </span>
-    </ng-template>
+    <gar-carousel
+      [items]="aPopularFranchises$ | async"
+      [template]="cardComponent"
+      path="franchise/view"
+      queryParamKey="franchiseId"
+    ></gar-carousel>
   </div>
 
   <!-- Каталог франшиз. -->
@@ -159,16 +155,11 @@
 
   <!-- Новые франшизы. -->
   <div class="section">
-    <div class="gar-row title">Новые франшизы</div>
-    <app-carousel-card [cardsData]="cardsData"  [numVisible]="4" [template]="customTemplate2"
-                       [main]="true" [responsiveOptions]="responsiveOptions"></app-carousel-card>
-    <ng-template #customTemplate2 let-value="value" >
-      <span >от </span>
-    </ng-template>
-<!--    <ng-template #customTemplate3 let-value="value">-->
-<!--      <button pButton class="p-button-info" (click)="test(value)">Test</button>-->
-<!--    </ng-template>-->
-
+    <div class="gar-row title">Популярные франшизы</div>
+    <gar-carousel
+      [items]="aNewFranchises"
+      [template]="cardComponent"
+    ></gar-carousel>
   </div>
 
   <!-- Бизнес с гарантиями -->

@@ -1,0 +1,690 @@
+@import 'design';
+
+.home-promo-block {
+  @include tablet-small {
+    flex-wrap: wrap;
+  }
+
+  @include tablet {
+    flex-wrap: nowrap;
+  }
+
+  .gar-row-item {
+    &:first-child {
+      order: 1;
+      margin-top: $gridGap;
+
+      @include tablet {
+        order: 0;
+        flex-basis: calc(60% - calc(#{$gridGap} / 2));
+        width: calc(60% - calc(#{$gridGap} / 2));
+        margin-top: 0;
+      }
+    }
+
+    &:last-child {
+      @include tablet {
+        flex-basis: calc(40% - calc(#{$gridGap} / 2));
+        width: calc(40% - calc(#{$gridGap} / 2));
+        margin-left: auto;
+      }
+    }
+  }
+
+  &-main {
+    position: relative;
+    background-color: $clrLightBlue;
+    border-radius: $border-radius;
+    padding: calc(#{$gridGap} / 3);
+
+    @include tablet-small {
+      padding: $gridGap calc(#{$gridGap} / 3 * 2);
+      padding-right: 258px;
+    }
+
+    @include tablet {
+      padding: $gridGap;
+    }
+
+    @include desktop {
+      padding-right: 220px;
+    }
+
+    &-title {
+      @include typo('title-item');
+
+      padding-right: calc(#{$gridGap} * 3);
+
+      @include tablet-small {
+        padding-right: 0;
+      }
+    }
+
+    &-text {
+      color: $clrDarkGray;
+      margin: $gridGap 0;
+    }
+
+    &-pic {
+      position: absolute;
+      top: calc(#{$gridGap} / 3);
+      right: calc(#{$gridGap} / 3);
+
+      width: 61px;
+      height: 73px;
+      object-fit: contain;
+
+      @include tablet-small {
+        top: 0;
+        right: 0;
+        bottom: 0;
+
+        width: 231px;
+        height: 100%;
+      }
+
+      @include tablet {
+        display: none;
+      }
+
+      @include desktop {
+        display: block;
+      }
+    }
+  }
+}
+
+.home-section {
+  @include tablet {
+    width: calc(33.33% - calc(#{$gridGap} / 3 * 2));
+  }
+
+  &-title {
+    @include typo('regular');
+
+    margin-bottom: calc(#{$gridGap} / 3 * 2);
+
+    @include tablet-small {
+      margin-bottom: $gridGap;
+    }
+
+    @include desktop {
+      @include typo('title');
+    }
+  }
+
+  &-item {
+    background-color: rgba($clrLightGray, .15);
+    border-radius: $border-radius;
+    padding: calc(#{$gridGap} / 3);
+
+    @include tablet-small {
+      padding: calc(#{$gridGap} / 3 * 2);
+    }
+
+    @include tablet {
+      padding: $gridGap;
+    }
+
+    &-title {
+      @include typo('title-item');
+
+      margin-bottom: calc(#{$gridGap} / 3 * 2);
+
+      @include tablet {
+        height: 42px;
+      }
+    }
+
+    &-text {
+      color: $clrDarkGray;
+      margin-bottom: $gridGap;
+
+      @include tablet-small {
+        margin-bottom: calc(#{$gridGap} * 2);
+      }
+
+      @include tablet {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        overflow: hidden;
+      }
+    }
+  }
+}
+
+.home-business-garantee { // удаленное
+  position: relative;
+  background-color: $clrLightBlue;
+  border-radius: $border-radius;
+  padding: calc(#{$gridGap} / 3);
+
+  @include tablet-small {
+    padding: calc(#{$gridGap} / 3 * 2);
+  }
+
+  @include tablet {
+    padding: $gridGap;
+  }
+
+  &-title {
+    padding-right: $gridGap;
+  }
+
+  &-text {
+    color: $clrDarkGray;
+    margin-bottom: calc(#{$gridGap} * 2);
+  }
+
+  &-accept {
+    margin-right: calc(#{$gridGap} / 3 * 2);
+  }
+
+  &-close {
+    @include inputReset;
+
+    position: absolute;
+    top: calc(#{$gridGap} / 3);
+    right: calc(#{$gridGap} / 3);
+
+    width: 20px;
+    height: 20px;
+    padding: 0;
+
+    gar-icon {
+      width: 20px;
+      height: 20px;
+
+      fill: $clrDarkGray;
+    }
+  }
+}
+
+.home-special-offers {
+  .home-special-offer {
+    overflow: hidden;
+    width: 100%;
+    border-radius: calc(#{$border-radius} * 2);
+    box-shadow: $box-shadow-card;
+
+    @include tablet-small {
+      width: calc(50% - calc(#{$gridGap} / 2));
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.home-quick-search {
+  display: flex;
+  flex-direction: column;
+  gap: calc(#{$gridGap} / 3 * 2);
+
+  background-color: $clrLightBlue;
+  border-radius: $border-radius;
+  padding: calc(#{$gridGap} / 3);
+
+  @include tablet-small {
+    padding: calc(#{$gridGap} / 3 * 2);
+  }
+
+  @include tablet {
+    gap: $gridGap;
+    padding: $gridGap;
+  }
+
+  &-main {
+    display: grid;
+    gap: $gridGap;
+
+    background-color: $clrWhite;
+    border-radius: $border-radius;
+    padding: calc(#{$gridGap} / 3);
+    box-shadow: $box-shadow-card;
+
+    @include tablet-small {
+      grid-template-columns: repeat(3, 1fr);
+      gap: calc(#{$gridGap} / 3 * 4) $gridGap;
+      padding: calc(#{$gridGap} / 3 * 2);
+    }
+
+    @include tablet {
+      gap: calc(#{$gridGap} / 3 * 4);
+      padding: $gridGap;
+    }
+
+    @include desktop {
+      grid-template-columns: repeat(3, 1fr) 2fr 1fr;
+    }
+  }
+
+  &-section {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      right: 0;
+      top: calc(#{$gridGap} / 2 * -1);
+      left: 0;
+
+      height: 1px;
+      background-color: rgba($clrLightGray, .5);
+      content: '';
+
+      @include tablet-small {
+        top: 0;
+        right: auto;
+        bottom: 0;
+        left: calc(#{$gridGap} / 2 * -1);
+
+        width: 1px;
+        height: auto;
+      }
+
+      @include tablet {
+        left: calc(#{$gridGap} / 3 * 2 * -1);
+      }
+    }
+
+    &::after {
+      @include tablet-small {
+        position: absolute;
+        bottom: calc(#{$gridGap} / 3 * 2 * -1);
+        right: 0;
+        left: 0;
+
+        height: 1px;
+        background-color: rgba($clrLightGray, .5);
+        content: '';
+      }
+    }
+
+    &:first-child {
+      &::before {
+        display: none;
+      }
+    }
+
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3) {
+      &::after {
+        @include tablet {
+          display: none;
+        }
+      }
+    }
+
+    &:nth-child(4) {
+      @include tablet-small {
+        grid-column: 1 / 3;
+
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+
+      @include desktop {
+        grid-column: auto;
+
+        &::before {
+          display: block;
+        }
+      }
+    }
+
+    &:nth-child(5) {
+      &::after {
+        display: none;
+      }
+    }
+
+    &-price {
+      flex-wrap: wrap;
+
+      @include tablet-small {
+        flex-wrap: nowrap;
+      }
+    }
+
+    gar-input-number {
+      width: 100%;
+    }
+  }
+}
+
+.home-blog {
+  display: flex;
+  gap: calc(#{$gridGap} / 3);
+
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+
+  @include tablet-small {
+    display: grid;
+    grid-template-columns: 1fr 1fr max-content;
+    gap: calc(#{$gridGap} / 3 * 2);
+    overflow: hidden;
+    scroll-snap-type: none;
+  }
+
+  @include tablet {
+    gap: $gridGap;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr) max-content;
+  }
+
+  &-item {
+    flex-shrink: 0;
+    width: 254px;
+    scroll-snap-align: start;
+
+    @include tablet-small {
+      display: none;
+      width: auto;
+    }
+
+    &:nth-child(-n + 2) {
+      @include tablet-small {
+        display: block;
+      }
+    }
+
+    &:nth-child(-n + 3) {
+      @include desktop {
+        display: block;
+      }
+    }
+
+    &-pic {
+      display: block;
+      overflow: hidden;
+      height: 162px;
+      border-radius: calc(#{$border-radius} / 2);
+      margin-bottom: calc(#{$gridGap} / 3 * 2);
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &-title {
+      position: relative;
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+      border-radius: calc(#{$border-radius} / 2);
+      padding: calc(#{$gridGap} / 3) 0;
+      margin-bottom: calc(#{$gridGap} / 3);
+
+      a {
+        @include typo('title-item');
+
+        position: relative;
+
+        color: $clrBlack;
+        text-decoration: none;
+        white-space: nowrap;
+        padding: calc(#{$gridGap} / 3);
+
+        &:hover {
+          &::before {
+            background-color: darken($clrYellow, 20%);
+          }
+        }
+
+        &::before {
+          position: absolute;
+          top: .125em;
+          right: 0;
+          bottom: .125em;
+          left: 0;
+          z-index: -1;
+
+          background-color: $clrYellow;
+          padding: calc(#{$gridGap} / 3 * 2);
+          border-radius: calc(#{$border-radius} / 2);
+
+          content: '';
+          transition: background-color $timeFast;
+        }
+      }
+    }
+
+    &-description {
+      @include typo('title-item');
+
+      span {
+        @include typo('secondary');
+        display: none;
+
+        color: $clrDarkGray;
+
+        @include tablet {
+          display: block;
+          margin-top: calc(#{$gridGap} / 3 * 2);
+        }
+      }
+    }
+
+    &-button {
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+
+      background-color: $clrBlue;
+      border-radius: 50%;
+
+      gar-icon {
+        width: 16px;
+        height: 17px;
+
+        fill: $clrWhite;
+        transform: translate(2px, 1px);
+      }
+    }
+
+    &_more {
+      flex-direction: column;
+      gap: calc(#{$gridGap} / 2);
+      position: relative;
+
+      width: 164px;
+      background-color: $clrLightBlue;
+      border-radius: $border-radius;
+      transition: background-color $timeFast;
+
+      @include tablet-small {
+        display: flex;
+      }
+
+      @include tablet {
+        flex-direction: row;
+        width: 325px;
+        padding: $gridGap;
+      }
+
+      &:hover {
+        background-color: darken($clrLightBlue, 5%);
+      }
+
+      a {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+}
+
+.home-categories {
+  width: 100%;
+
+  @include tablet {
+    width: calc(50% - calc(#{$gridGap} / 2));
+  }
+
+  &[open] {
+    .home-categories-arrow {
+      transform: rotate(90deg);
+    }
+  }
+
+  &-title {
+    @include typo('regular');
+
+    position: relative;
+    list-style: none;
+    border-bottom: 1px solid rgba($clrLightGray, .5);
+    padding-right: calc(#{$gridGap} / 3 * 2);
+    padding-bottom: calc(#{$gridGap} / 3 * 2);
+    margin-bottom: calc(#{$gridGap} / 3 * 2);
+
+    @include tablet-small {
+      border-bottom: none;
+      padding: 0;
+      margin-bottom: $gridGap;
+      pointer-events: none;
+    }
+  }
+
+  &-arrow {
+    position: absolute;
+    top: 2px;
+    right: 0;
+
+    width: 9px;
+    height: 16px;
+
+    fill: $clrMidGray;
+    transition: transform $timeFast;
+
+    @include tablet-small {
+      display: none;
+    }
+  }
+
+  &-items {
+    @include tablet-small {
+      columns: 3;
+      column-gap: $gridGap;
+    }
+
+    @include tablet {
+      column-count: 2;
+      column-gap: calc(#{$gridGap} * 3);
+    }
+  }
+
+  &-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: calc(#{$gridGap} / 3);
+
+    &:hover {
+      span {
+        text-decoration: underline;
+      }
+    }
+
+    @include tablet-small {
+      margin-bottom: calc(#{$gridGap} / 3 * 2);
+      page-break-inside: avoid;
+      break-inside: avoid-column;
+    }
+
+    &-icon {
+      flex-shrink: 0;
+
+      width: 40px;
+      height: 40px;
+
+      fill: $clrDarkGray;
+    }
+
+    span {
+      @include typo('secondary');
+
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-right: $gridGap;
+    }
+
+    &-arrow {
+      flex-shrink: 0;
+
+      width: 9px;
+      height: 16px;
+
+      fill: $clrMidGray;
+    }
+
+    a {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  &-all {
+    @include typo('secondary');
+
+    position: relative;
+    display: block;
+
+    color: $clrBlue;
+    text-decoration: none;
+    background-color: $clrLightBlue;
+    border: 2px solid $clrBlue;
+    border-radius: calc(#{$gridGap} * 2);
+    padding: $gridGap calc(#{$gridGap} * 3) $gridGap calc(#{$gridGap} / 3 * 2);
+    margin-top: calc(#{$gridGap} / 3 * 2);
+    transition: background-color $timeFast;
+
+    &:hover {
+      background-color: darken($clrLightBlue, 3%);
+    }
+
+    @include tablet-small {
+      page-break-inside: avoid;
+      break-inside: avoid-column;
+      margin-top: 0;
+    }
+
+    &-button {
+      position: absolute;
+      top: 50%;
+      right: calc(#{$gridGap} / 3 * 2);
+
+      width: 32px;
+      height: 32px;
+      background-color: $clrBlue;
+      border-radius: 50%;
+      transform: translateY(-50%);
+
+      gar-icon {
+        width: 16px;
+        height: 17px;
+        fill: $clrWhite;
+        transform: translate(3px, 1px);
+      }
+    }
+  }
+}
