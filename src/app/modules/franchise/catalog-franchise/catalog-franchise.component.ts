@@ -17,6 +17,15 @@ import {BusinessListModel} from "../../../models/mainPage/business-list.model";
 import {InitCatalogFranchiseResponse} from "../../../models/pagination/init-catalog-franchise";
 import {ActionsModel} from "../../../models/mainPage/actions.model";
 
+interface CardData {
+  id?: string
+  name?: string
+  description?: string
+  price?: string
+  img?:string
+}
+
+
 @Component({
   selector: 'app-catalog-franchise',
   templateUrl: './catalog-franchise.component.html',
@@ -85,18 +94,33 @@ export class CatalogFranchiseComponent implements OnInit {
     private route: ActivatedRoute,
     private _destroy$: GarDestroyService
   ) {
+    this.responsiveOptions = [
+      {
+        breakpoint: '1430px',
+        numVisible: 3,
+        numScroll: 3
+      },
+      {
+        breakpoint: '1024px',
+        numVisible: 2,
+        numScroll: 2
+      },
+      {
+        breakpoint: '768px',
+        numVisible: 1,
+        numScroll: 1
+      },
+      {
+        breakpoint: '733px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
     // TODO: Переделать на хранение на бэке.
     this.aSortPrices = [
       {name: 'По убыванию цены', value: 'Desc',},
       {name: 'По возрастанию цены', value: 'Asc',},
     ];
-
-    this.responsiveOptions = [
-      {breakpoint: '1024px', numVisible: 3, numScroll: 3,},
-      {breakpoint: '768px', numVisible: 2, numScroll: 2,},
-      {breakpoint: '560px', numVisible: 1, numScroll: 1,},
-    ];
-
     this.routeParam = this.route.snapshot.queryParams['franchiseId'];
   }
 
@@ -342,5 +366,60 @@ export class CatalogFranchiseComponent implements OnInit {
    */
   public routeViewFranchiseCardAsync(franchiseId: number) {
     this.setTransitionAsync(franchiseId);
+  }
+
+
+  public cardsData:CardData[] = [
+    {
+      id: '1',
+      name:'Название франшизы',
+      description: 'Готовый бизнес',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+
+
+    },
+    {
+      id: '2',
+      name: 'Название франшизы',
+      description: 'Готовый бизнес',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+    },
+    {
+      id: '3',
+      name: 'Название франшизы',
+      description: 'Готовый бизнес',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+    },
+    {
+      id: '4',
+      name: 'Название франшизы',
+      description: 'Готовый бизнес',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+
+
+    },
+    {
+      id: '5',
+      name: 'Название франшизы',
+      description: 'Готовый бизнес',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+    },
+    {
+      id: '6',
+      name: 'Название франшизы',
+      description: 'Готовый бизнес',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+    },
+
+  ];
+
+  public test(event: any): void{
+    console.log('!!!!', event)
   }
 }

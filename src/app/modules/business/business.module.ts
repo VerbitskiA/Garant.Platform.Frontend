@@ -16,6 +16,7 @@ import {ToastModule} from "primeng/toast";
 import {PromoModule} from "../promo/promo.module";
 import {NewsModule} from "../news/news.module";
 import {ProductsModule} from "../products/products.module";
+import {CaruselCardModule} from "../../shared/components/carousel-card/carusel-card.module";
 
 const components = [
   CatalogBusinessComponent,
@@ -39,7 +40,8 @@ const components = [
     ToastModule,
     PromoModule,
     NewsModule,
-    ProductsModule
+    ProductsModule,
+    CaruselCardModule
   ],
   exports: [...components]
 })

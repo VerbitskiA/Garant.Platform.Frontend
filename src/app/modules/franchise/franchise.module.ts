@@ -20,6 +20,7 @@ import {PromoModule} from "../promo/promo.module";
 import {PaginatorModule} from "primeng/paginator";
 import {ProductsModule} from "../products/products.module";
 import {InputSwitchModule} from "primeng/inputswitch";
+import {CaruselCardModule} from "../../shared/components/carousel-card/carusel-card.module";
 
 const components = [
   ViewFranchiseComponent,
@@ -30,25 +31,26 @@ const components = [
 
 @NgModule({
   declarations: [...components],
-    imports: [
-        CommonModule,
-        ToastModule,
-        RouterLink,
-        GalleriaModule,
-        PipesModule,
-        FormsModule,
-        CheckboxModule,
-        GarLibModule,
-        ButtonModule,
-        InputTextModule,
-        InputTextareaModule,
-        FileUploadModule,
-        NewsModule,
-        PromoModule,
-        PaginatorModule,
-        ProductsModule,
-        InputSwitchModule
-    ],
+  imports: [
+    CommonModule,
+    ToastModule,
+    RouterLink,
+    GalleriaModule,
+    PipesModule,
+    FormsModule,
+    CheckboxModule,
+    GarLibModule,
+    ButtonModule,
+    InputTextModule,
+    InputTextareaModule,
+    FileUploadModule,
+    NewsModule,
+    PromoModule,
+    PaginatorModule,
+    ProductsModule,
+    CaruselCardModule,
+    InputSwitchModule
+  ],
   exports: [...components]
 })
 export class FranchiseModule { }

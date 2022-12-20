@@ -17,6 +17,8 @@ import {MainSearchComponent} from "./components/main-search/main-search.componen
 import {ProductsModule} from "../modules/products/products.module";
 import {PromoModule} from "../modules/promo/promo.module";
 import {NewsModule} from "../modules/news/news.module";
+import {ButtonModule} from 'primeng/button';
+import {CaruselCardModule} from "./components/carousel-card/carusel-card.module";
 import { StaticInfoComponent } from './components/static-info/static-info.component';
 
 const components = [
@@ -26,7 +28,8 @@ const components = [
   LoginComponent,
   MainPageComponent,
   MainSearchComponent,
-  StaticInfoComponent
+  StaticInfoComponent,
+  MainSearchComponent,
 ];
 
 @NgModule({
@@ -44,7 +47,9 @@ const components = [
     ProductsModule,
     PromoModule,
     NewsModule,
-    RouterLinkActive
+    RouterLinkActive,
+    ButtonModule,
+    CaruselCardModule
   ],
   exports: [...components]
 })

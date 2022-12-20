@@ -96,7 +96,7 @@ export class MainPageComponent implements OnInit {
         numScroll: 2
       },
       {
-        breakpoint: '560px',
+        breakpoint: '733px',
         numVisible: 1,
         numScroll: 1
       }
@@ -270,4 +270,47 @@ export class MainPageComponent implements OnInit {
       return;
     }
   };
+
+
+
+  public cardsData = [
+    {
+      id: '1',
+      name: 'Название франшизы',
+      description: 'Франшиза . 12 точек',
+      price: '12 500 000 ₽ ',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+
+
+    },
+    {
+      id: '2',
+      name: 'Название франшизы',
+      description: 'Франшиза . 12 точек',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+    },
+    {
+      id: '3',
+      name: 'Название франшизы',
+      description: 'Франшиза . 12 точек',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+    },
+    {
+      id: '4',
+      name: 'Название франшизы',
+      description: 'Франшиза . 12 точек',
+      price: '12 500 000 ₽',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+    },
+    {
+      id: '5',
+      name: 'Название франшизы',
+      description: 'Франшиза . 12 точек',
+      price: '12 500 000 ₽ ',
+      img:'../../../../assets/images/common/main-carousel.jpg',
+    }
+
+  ];
 }
