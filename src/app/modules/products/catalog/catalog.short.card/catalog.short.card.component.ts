@@ -21,11 +21,11 @@ import { Params, Router } from "@angular/router";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CatalogShortCardComponent extends CatalogBaseCardComponent<any> {
-
+  
   get parseUrl(): string[] {
-    return this.path ? ['/', ...this._router.parseUrl(this.path).root.children['primary'].segments.map(s => s.path)] : [];
+    return this.path ? ['/', ...this._router.parseUrl(this.path).root.children.primary.segments.map(s => s.path)] : [];
   }
-
+  
   get queryParams(): Params | undefined {
     return this.path ? this._router.parseUrl(this.path).queryParams : undefined;
   }
@@ -35,5 +35,5 @@ export class CatalogShortCardComponent extends CatalogBaseCardComponent<any> {
   ) {
     super();
   }
-
+  
 }

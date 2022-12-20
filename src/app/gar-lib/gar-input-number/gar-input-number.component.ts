@@ -29,24 +29,24 @@ export type ModeNumberInput = 'currency' | 'decimal';
 	changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GarInputNumberComponent extends GarBaseInputComponent<number> {
-
+	
 	private readonly _prefix$ = new ReplaySubject<string>();
 	private readonly _postFix$ = new ReplaySubject<string>();
 	private readonly _maxFractionDigits$ = new BehaviorSubject(0);
 	private readonly _mode$ = new BehaviorSubject<ModeNumberInput>('decimal');
-
+	
 	/** Префикс, устанавливающийся перед вводимым значением */
 	@Input('prefix')
 	set _prefix(value: string) {
 		this._prefix$.next(value);
 	}
-
+	
 	/** Постфикс, устанавливающийся после вводимого значения */
 	@Input('postFix')
 	set _postFix(value: string) {
 		this._postFix$.next(value);
 	}
-
+	
 	/**
 	 * Установка максимального количества десятичных разрядов (цифр после запятой)
 	 *
@@ -58,7 +58,7 @@ export class GarInputNumberComponent extends GarBaseInputComponent<number> {
 			value === '' || !value ? 0 : +value
 		);
 	}
-
+	
 	/**
 	 * Флаг установки типа отображения
 	 *
@@ -71,31 +71,31 @@ export class GarInputNumberComponent extends GarBaseInputComponent<number> {
 	set _mode(value: ModeNumberInput) {
 		this._mode$.next(value);
 	}
-
-
+	
+	
 	readonly prefix$: Observable<string> = this._prefix$.pipe(
 		map(p => p ?? '')
 	);
-
+	
 	readonly postFix$: Observable<string> = this._postFix$.pipe(
 		map(p => p ?? '')
 	);
-
+	
 	readonly maxFractionDigits$: Observable<number> = this._maxFractionDigits$;
 	readonly mode$: Observable<ModeNumberInput> = this._mode$;
-
+	
 	get isCurrency(): boolean {
 		return this._mode$.getValue() === 'currency';
 	}
-
+	
 	constructor(
-		protected override _cdRef: ChangeDetectorRef,
-		protected override _control: NgControl,
+		protected _cdRef: ChangeDetectorRef,
+		protected _control: NgControl,
 		private _destroy$: GarDestroyService
 	) {
 		super(_cdRef, _control);
 	}
-
+	
 	// Вручную записываем value по мере ввода, как оказалось, primeng number input передает в
 	// контрол значение только после потери фокуса
 	onChange(value: number) {

@@ -1,16 +1,12 @@
 <!-- Популярный бизнес. -->
 <div class="section">
   <div class="gar-row title">Популярный готовый бизнес</div>
-<!--  <gar-carousel-->
-<!--    [items]="aPopularBusiness"-->
-<!--    [template]="cardComponent"-->
-<!--    path="business/view"-->
-<!--    queryParamKey="businessId"-->
-<!--  ></gar-carousel>-->
-  <app-carousel-card [cardsData]="cardsData" [numVisible]="4" [template]="customTemplate" [main]="true" [responsiveOptions]="responsiveOptions"></app-carousel-card>
-  <ng-template #customTemplate let-value="value">
-    <span >от </span>
-  </ng-template>
+  <gar-carousel
+    [items]="aPopularBusiness"
+    [template]="cardComponent"
+    path="business/view"
+    queryParamKey="businessId"
+  ></gar-carousel>
 </div>
 
 <div class="section">
@@ -150,11 +146,11 @@
 
 <!-- Новый бизнес. -->
 <div class="section">
-  <div class="gar-row title">Новый готовый бизнес</div>
-  <app-carousel-card [cardsData]="cardsData" [numVisible]="4" [template]="customTemplate" [main]="true" [responsiveOptions]="responsiveOptions"></app-carousel-card>
-  <ng-template #customTemplate let-value="value">
-    <span >от </span>
-  </ng-template>
+  <div class="gar-row title">Новый бизнес</div>
+  <gar-carousel
+    [items]="aNewFranchises"
+    [template]="cardComponent"
+  ></gar-carousel>
 </div>
 
 <!-- Бизнес с гарантиями -->

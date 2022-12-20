@@ -9,15 +9,15 @@ import { GarBaseInputComponent } from "../gar-base-input/gar-base-input.componen
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GarToggleComponent extends GarBaseInputComponent<boolean> {
-
+  
   @HostBinding('class.checked')
   get classChecked(): boolean {
     return <boolean>this.value;
   }
 
   constructor(
-      protected override readonly _cdRef: ChangeDetectorRef,
-      protected override readonly _control: NgControl
+      protected readonly _cdRef: ChangeDetectorRef,
+      protected readonly _control: NgControl
   ) {
     super(_cdRef, _control);
   }

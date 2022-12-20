@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ConfiguratorAdminComponent } from './configurator-admin/configurator-admin.component';
+import { ConfiguratorAdminModule } from './components/configurator-admin/configurator-admin.component';
 
 const routes: Routes = [
-    { path: '', component: ConfiguratorAdminComponent },
+    { path: '', component: ConfiguratorAdminModule },
 ];
 
 @NgModule({

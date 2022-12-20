@@ -5,13 +5,13 @@
 // @import "/src/app/shared/styles/media-quaries.scss";
 // @import "/src/app/modules/main-page/main-page.component.scss";
 
-@use "../../../app.component";
+@use "/src/app/app.component.scss";
 // @import "/src/app/shared/styles/image-space.scss";
 // @import "/src/app/shared/styles/common.scss";
-@use "../../../shared/components/main-page/main-page.component";
-@use "../../../../assets/styles/index" as *;
-@use "../../../../assets/styles/base/index" as *;
-@import "../../../../assets/styles/media-quaries";
+@use "/src/app/modules/main-page/main-page.component.scss";
+@use "../../../../app/shared/styles" as *;
+@use "../../../../app/shared/styles/base" as *;
+@import "/src/app/shared/styles/media-quaries.scss";
 
 strong {
   font-family: "Roboto", sans-serif;

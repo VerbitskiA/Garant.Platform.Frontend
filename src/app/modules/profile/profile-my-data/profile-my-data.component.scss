@@ -3,24 +3,24 @@
 .profile-main {
   background-color: $clrWhite;
   border-radius: $border-radius;
-  //padding: $gridGap / 3 * 2;
+  padding: $gridGap / 3 * 2;
   box-shadow: $box-shadow-card;
 
   &__title {
     @include typo('regular');
 
-    //margin-bottom: $gridGap / 2;
+    margin-bottom: $gridGap / 2;
   }
 
   &__section {
-    //margin-bottom: $gridGap / 3 * 4;
+    margin-bottom: $gridGap / 3 * 4;
 
     &-cell {
       label {
         @include typo('description');
 
         color: $clrDarkGray;
-        //margin-bottom: $gridGap / 3;
+        margin-bottom: $gridGap / 3;
       }
     }
   }

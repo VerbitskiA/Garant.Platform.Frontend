@@ -1,3 +1,3 @@
 export class BreadcrumbInput {
-  SelectorPage?: string;
+    SelectorPage?: string;
 }

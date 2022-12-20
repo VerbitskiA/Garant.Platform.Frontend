@@ -16,7 +16,7 @@
 <div class="fotos">
   <span class="title-strong">Фотографии*</span><br>
   <label class="file-label">
-    <input type="file" name="file" class="file-input" (change)="uploadBusinessPhotosAsync($event)" multiple>
+    <input type="file" class="file-input" (change)="uploadBusinessPhotosAsync($event)" multiple>
     Прикрепить</label>
   <span class="picture" *ngIf="filesAssets && filesAssetsCounter === 1">
     {{filesAssets.name}}
@@ -29,7 +29,7 @@
 <div class="block-gallery">
   <div>
     <span *ngIf="!aNamesBusinessPhotos.length">Фотографии не загружены</span>
-    <p-galleria [value]="aNamesBusinessPhotos" [responsiveOptions]="responsiveOptions"
+    <p-galleria [(value)]="aNamesBusinessPhotos" [responsiveOptions]="responsiveOptions"
       [containerStyle]="{'max-width': '660px'}" [numVisible]="4" thumbnailsPosition="left">
       <ng-template pTemplate="item" let-item>
         <img src="{{item}}" style="width: 700px; display: block;" />

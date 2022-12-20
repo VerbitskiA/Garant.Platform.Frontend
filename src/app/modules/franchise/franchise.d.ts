@@ -1,4 +1,4 @@
-export namespace Franchise {
+export namespace franchise {
   /** Модель франшизы */
   export interface IItem {
     /** Описание деятельности. */
@@ -96,7 +96,7 @@ export namespace Franchise {
     /** Подкатегория франшизы */
     subCategory: string;
     /** Текст описания франшизы */
-    text: any;
+    text: string;
     /** Текст до цены */
     textDoPrice: string;
     /** Название (Заголовок) */
