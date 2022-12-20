@@ -19,6 +19,7 @@ import {PromoModule} from "../modules/promo/promo.module";
 import {NewsModule} from "../modules/news/news.module";
 import {ButtonModule} from 'primeng/button';
 import {CaruselCardModule} from "./components/carousel-card/carusel-card.module";
+import { StaticInfoComponent } from './components/static-info/static-info.component';
 
 const components = [
   HeaderComponent,
@@ -26,6 +27,8 @@ const components = [
   CreateAdComponent,
   LoginComponent,
   MainPageComponent,
+  MainSearchComponent,
+  StaticInfoComponent,
   MainSearchComponent,
 ];
 

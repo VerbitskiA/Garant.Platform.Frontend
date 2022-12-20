@@ -19,6 +19,7 @@ import {NewsModule} from "../news/news.module";
 import {PromoModule} from "../promo/promo.module";
 import {PaginatorModule} from "primeng/paginator";
 import {ProductsModule} from "../products/products.module";
+import {InputSwitchModule} from "primeng/inputswitch";
 import {CaruselCardModule} from "../../shared/components/carousel-card/carusel-card.module";
 
 const components = [
@@ -48,6 +49,7 @@ const components = [
     PaginatorModule,
     ProductsModule,
     CaruselCardModule,
+    InputSwitchModule
   ],
   exports: [...components]
 })

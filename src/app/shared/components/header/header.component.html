@@ -54,9 +54,8 @@
             </div>
 
             <div class="header-options">
-                <a *ngFor="let item of cabinetLinks$ | async" routerLink="{{item.link}}" class="header-options-item">
+                <a *ngFor="let item of cabinetLinks$ | async" (click)="item?.linkAction()" class="header-options-item">
                     <gar-icon name="{{item.icon}}"></gar-icon>
-
                     <span>{{item.name}}</span>
                 </a>
             </div>

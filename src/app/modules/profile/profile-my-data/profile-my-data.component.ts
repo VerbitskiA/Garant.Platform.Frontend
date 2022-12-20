@@ -8,7 +8,7 @@ import {API_URL} from "src/app/core/core-urls/api-url";
 import {ProfileInput} from "src/app/models/profile/input/profile-input";
 import {CommonDataService} from "src/app/core/services/common/common-data.service";
 import {ManageAccountComponent} from "../manage-account/manage-account.component";
-import {SESSION_TOKEN, SessionService} from '../../../core/services/session/session.service';
+import {SessionService} from '../../../core/services/session/session.service';
 
 @Component({
   selector: "app-profile-my-data",
@@ -56,7 +56,6 @@ export class ProfileMyDataComponent implements OnInit {
     private http: HttpClient,
     private titleService: Title,
     private messageService: MessageService,
-    @Inject(SESSION_TOKEN)
     private _sessionService: SessionService,
     private commonService: CommonDataService) {
   };
@@ -226,6 +225,6 @@ export class ProfileMyDataComponent implements OnInit {
   }
 
   logOut() {
-    this._sessionService.endSession();
+    this._sessionService.sessionEvent.next({close: true});
   }
 }

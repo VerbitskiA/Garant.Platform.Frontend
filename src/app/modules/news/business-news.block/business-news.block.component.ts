@@ -2,12 +2,14 @@ import {ChangeDetectionStrategy, Component, Inject, OnInit} from '@angular/core'
 import {AbstractControl, FormArray, FormBuilder, FormGroup} from "@angular/forms";
 import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
 import {NewsService} from "../../../core/services/news/news.service";
-import {WINDOW} from "../../../../environments/window/window.token";
-import {WindowProvider} from "../../../../environments/window/window.provider";
+import {WINDOW} from "../../../core/services/window/window.token";
+import {WindowProvider} from "../../../core/services/window/window.provider";
 import {filter, map, shareReplay, switchMap, takeUntil, tap} from "rxjs/operators";
 import {BehaviorSubject, combineLatest, of, ReplaySubject} from "rxjs";
 import {KeyValue} from "@angular/common";
 import {News} from "../news";
+import {RU} from "../../../strings/RU/ru-strings";
+import {ENG} from "../../../strings/ENG/eng-string";
 
 @Component({
   selector: 'app-business-news-block',
@@ -17,6 +19,9 @@ import {News} from "../news";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BusinessNewsBlockComponent implements OnInit {
+  //public readonly newsString = RU.news;
+  public readonly newsString = ENG.news;
+
 
   /** Текущее состояние значений формы */
   private readonly formValue$ = new ReplaySubject<{ sorting: KeyValue<string, string>; tags: { selected: boolean, tag: string }[] }>();

@@ -2,15 +2,15 @@ import {HttpClient} from "@angular/common/http";
 import {Inject, Injectable} from "@angular/core";
 import {ActivatedRoute, Router} from "@angular/router";
 import {API_URL} from "../../core-urls/api-url";
-import {DialogInput} from "../../../models/chat/input/dialog-input";
-import {BreadcrumbInput} from "../../../models/header/breadcrumb-input";
-import {MainHeader} from "../../../models/header/main-header";
-import {SuggestionInput} from "../../../models/suggestion/input/suggestion-input";
-import {TransitionInput} from "../../../models/transition/input/transition-input";
 import {catchError, tap} from "rxjs/operators";
 import {Observable, of, throwError} from "rxjs";
-import {Session, SESSION_TOKEN, SessionService} from "../session/session.service";
+import {Session, SessionService} from "../session/session.service";
 import SessionItems = Session.SessionItems;
+import {TokenModel, InitHeaderModel, InitFooterModel, SingleSuggestionModel, GetBreadcrumbsModel,
+  GetTransitionModel, ProfileMenuModel, CategoriesListModel, GetBlogsModel, MainPopularModel,
+  CategoryListModel, PopularBusinessModel, SubcategoryListModel, CitiesListModel, NewBusinessModel,
+  DialogsModel, GetDialogModel, DialogInput, BreadcrumbInput, MainHeader, SuggestionInput, TransitionInput
+} from "../../../models"
 
 /**
  * Сервис общих функций.
@@ -23,7 +23,7 @@ export class CommonDataService {
     private http: HttpClient,
     private router: Router,
     private route: ActivatedRoute,
-    @Inject(SESSION_TOKEN) private _sessionService: SessionService) {
+    private _sessionService: SessionService) {
     this.currentRoute = this.route.snapshot.queryParams;
   }
 
@@ -55,40 +55,40 @@ export class CommonDataService {
   // };
 
   // Функция обновит токена пользователя.
-  public refreshToken(): void {
-    setInterval(async () => {
-      if (!this._sessionService.getDataItem(SessionItems.token)) {
-        // clearInterval(intervalID);
-        clearInterval();
-        return;
-      }
-      this.http.get(API_URL.apiUrl.concat("/user/token"))
-        .subscribe((response: any) => {
-          const token = {[SessionItems.token]: response.token}
-          this._sessionService.setToken(token)
-          console.log("refresh token");
-        }, (err) => {
-          console.log(err);
-          console.log('Ошибка обновления токена');
-        });
-    }, 530000); // Каждые 9 мин.
-  };
+  // public refreshToken(): void {
+  //   setInterval(async () => {
+  //     if (!this._sessionService.getDataItem(SessionItems.token)) {
+  //       // clearInterval(intervalID);
+  //       clearInterval();
+  //       return;
+  //     }
+  //     this.http.get(API_URL.apiUrl.concat("/user/token"))
+  //       .subscribe((response: any) => {
+  //         const token = {[SessionItems.token]: response.token}
+  //         // this._sessionService.setToken(token)
+  //         console.log("refresh token");
+  //       }, (err) => {
+  //         console.log(err);
+  //         console.log('Ошибка обновления токена');
+  //       });
+  //   }, 530000); // Каждые 9 мин.
+  // };
 
   /**
    * Функция получит поля хидера.
    * @param type - тип хидера.
    */
-  public initHeaderAsync(type: string): Observable<any> {
+  public initHeaderAsync<InitHeaderModel>(type: string): Observable<any> {
     let mainPage = new MainHeader();
     mainPage.Type = type;
-    return this.http.post(API_URL.apiUrl.concat("/user/init-header"), mainPage)
+    return this.http.post<InitHeaderModel[]>(API_URL.apiUrl.concat("/user/init-header"), mainPage)
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
   public routeToStart(err: any) {
     if (err.status === 401) {
-      this._sessionService.removeDataItem(SessionItems.token);
-      sessionStorage.clear();
+      this._sessionService.sessionEvent.next({close: true});
+      // sessionStorage.clear();
 
       this.router.navigate(["/login"], {queryParams: {loginType: "code"}});
     }
@@ -98,7 +98,7 @@ export class CommonDataService {
    * Функция получит поля футера.
    */
   public initFooterAsync(): Observable<any> {
-    return this.http.post(API_URL.apiUrl.concat("/user/init-footer"), {})
+    return this.http.post<InitFooterModel[]>(API_URL.apiUrl.concat("/user/init-footer"), {})
       .pipe(
         tap((response) => {
           console.log("Данные футера:", response);
@@ -112,7 +112,7 @@ export class CommonDataService {
    * @returns Список категорий.
    */
   public loadCategoriesListAsync(): Observable<any> {
-    return this.http.post(API_URL.apiUrl.concat("/main/categories-list"), {})
+    return this.http.post<CategoriesListModel>(API_URL.apiUrl.concat("/main/categories-list"), {})
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
@@ -124,7 +124,7 @@ export class CommonDataService {
     let suggestionInput = new SuggestionInput();
     suggestionInput.isSingle = true;
     suggestionInput.isAll = false;
-    return this.http.post(API_URL.apiUrl.concat("/user/single-suggestion"), suggestionInput)
+    return this.http.post<SingleSuggestionModel>(API_URL.apiUrl.concat("/user/single-suggestion"), suggestionInput)
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
@@ -133,13 +133,13 @@ export class CommonDataService {
    * @returns Список франшиз.
    */
   public getPopularFranchise(): Observable<any> {
-    return this.http.post(API_URL.apiUrl.concat("/franchise/main-popular"), {}).pipe(
+    return this.http.post<MainPopularModel[]>(API_URL.apiUrl.concat("/franchise/main-popular"), {}).pipe(
       catchError(err => throwError(err))
     )
   }
 
   public getPopularBusinessAsync(): Observable<any> {
-    return this.http.post(API_URL.apiUrl.concat("/business/popular-business"), {})
+    return this.http.post<PopularBusinessModel[]>(API_URL.apiUrl.concat("/business/popular-business"), {})
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
@@ -154,7 +154,7 @@ export class CommonDataService {
       param = "create-franchise";
     }
     inputBreadcrumb.SelectorPage = param;
-    return this.http.post(API_URL.apiUrl.concat("/user/get-breadcrumbs"), inputBreadcrumb)
+    return this.http.post<GetBreadcrumbsModel[]>(API_URL.apiUrl.concat("/user/get-breadcrumbs"), inputBreadcrumb)
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
@@ -185,7 +185,7 @@ export class CommonDataService {
    * @returns Данные перехода.
    */
   public getTransitionAsync(currentRoute: any): Observable<any> {
-    return this.http.post(API_URL.apiUrl.concat("/user/get-transition"), {})
+    return this.http.post<GetTransitionModel>(API_URL.apiUrl.concat("/user/get-transition"), {})
       .pipe(tap((response) => response), catchError(err => {
         if (currentRoute.mode !== "view") {
           this.routeToStart(err);
@@ -202,7 +202,7 @@ export class CommonDataService {
   public getTransitionWithParamsAsync(referenceId: number): Observable<any> {
     let transitionInput = new TransitionInput();
     transitionInput.ReferenceId = referenceId;
-    return this.http.post(API_URL.apiUrl.concat("/user/get-transition-with-params"), transitionInput)
+    return this.http.post<GetTransitionModel>(API_URL.apiUrl.concat("/user/get-transition-with-params"), transitionInput)
       .pipe(tap((response) => response), catchError(err => {
         this.routeToStart(err);
         return of(new Error(err))
@@ -218,7 +218,7 @@ export class CommonDataService {
       return this.http.get(API_URL.apiUrl.concat("/franchise/category-list-auth"))
         .pipe(tap((response) => response), catchError(err => of(new Error(err))));
     }
-    return this.http.get(API_URL.apiUrl.concat("/franchise/category-list"))
+    return this.http.get<CategoryListModel[]>(API_URL.apiUrl.concat("/franchise/category-list"))
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
@@ -236,7 +236,7 @@ export class CommonDataService {
    * @returns Список категорий.
    */
   public GetBusinessCategoriesListAsync(): Observable<any> {
-    return this.http.post(API_URL.apiUrl.concat("/business/category-list"), {})
+    return this.http.post<CategoryListModel[]>(API_URL.apiUrl.concat("/business/category-list"), {})
       .pipe(tap((response) => response), catchError((err) => {
         this.routeToStart(err);
         return of(new Error(err));
@@ -248,7 +248,7 @@ export class CommonDataService {
    * @returns Список подкатегорий.
    */
   public GetBusinessSubCategoriesListAsync(): Observable<any> {
-    return this.http.post(API_URL.apiUrl.concat("/business/subcategory-list"), {})
+    return this.http.post<SubcategoryListModel[]>(API_URL.apiUrl.concat("/business/subcategory-list"), {})
       .pipe(tap((response) => response), catchError((err) => {
         this.routeToStart(err);
         return of(new Error(err));
@@ -260,7 +260,7 @@ export class CommonDataService {
    * @returns Список городов.
    */
   public GetBusinessCitiesListAsync(): Observable<any> {
-    return this.http.post(API_URL.apiUrl.concat("/business/cities-list"), {})
+    return this.http.post<CitiesListModel[]>(API_URL.apiUrl.concat("/business/cities-list"), {})
       .pipe(tap((response) => response), catchError((err) => {
         this.routeToStart(err);
         return of(new Error(err));
@@ -272,7 +272,7 @@ export class CommonDataService {
    * @returns Список меню.
    */
   public getProfileMenuAsync() {
-    return this.http.post(API_URL.apiUrl.concat("/user/profile-menu"), {})
+    return this.http.post<ProfileMenuModel[]>(`${API_URL.apiUrl}/user/profile-menu`, null)
       .pipe(tap((response) => response), catchError(err => {
         this.routeToStart(err);
         return of(new Error(err))
@@ -284,7 +284,7 @@ export class CommonDataService {
    * @returns Список диалогов.
    */
   public getDialogsAsync(): Observable<any> {
-    return this.http.post(API_URL.apiUrl.concat("/chat/dialogs"), {})
+    return this.http.post<DialogsModel[]>(API_URL.apiUrl.concat("/chat/dialogs"), {})
       .pipe(tap((response) => response), catchError(err => of(new Error(err))));
   };
 
@@ -306,7 +306,7 @@ export class CommonDataService {
     dialogInput.TypeItem = typeItem;
     dialogInput.OwnerId = ownerId;
 
-    return this.http.post(API_URL.apiUrl.concat("/chat/get-dialog"), dialogInput)
+    return this.http.post<GetDialogModel>(API_URL.apiUrl.concat("/chat/get-dialog"), dialogInput)
       .pipe(tap((response) => response), catchError(err => {
         this.routeToStart(err);
         return of(new Error(err));
@@ -314,7 +314,7 @@ export class CommonDataService {
   }
 
   public onGetBlogsAsync(): Observable<any> {
-    return this.http.post(API_URL.apiUrl.concat("/blog/get-blogs"), {})
+    return this.http.post<GetBlogsModel[]>(API_URL.apiUrl.concat("/blog/get-blogs"), {})
       .pipe(tap((response) => response), catchError(err => {
         this.routeToStart(err);
         return of(new Error(err));
@@ -339,13 +339,13 @@ export class CommonDataService {
   };
 
   public getNewBusiness(): Observable<any> {
-    return this.http.post(API_URL.apiUrl.concat("/business/new-business"), {}).pipe(
+    return this.http.post<NewBusinessModel[]>(API_URL.apiUrl.concat("/business/new-business"), {}).pipe(
       catchError(err => throwError(err))
     );
   }
 
   public getNewBusinessAsync(): Observable<any> {
-    return this.http.post(API_URL.apiUrl.concat("/business/new-business"), {}).pipe(
+    return this.http.post<NewBusinessModel[]>(API_URL.apiUrl.concat("/business/new-business"), {}).pipe(
       catchError(err => throwError(err))
     );
   }

@@ -1,10 +1,11 @@
 <div class="gar-row promo-block">
   <div class="gar-row-item">
-    <div class="gar-row title">{{sliderTitle}}</div>
+    <div class="gar-row title">{{recentlyPurchased}}</div>
 
     <!--        <gar-carousel [items]="(aSliderItems$ | async)!" [template]="cardComponent"></gar-carousel>-->
-    <app-carousel-card  [cardsData]="cardsData" [numVisible]="2" [topMain]="true" [template]="customTemplate" [responsiveOptions]="responsiveOptions"
-    (caruselEvent)="getAction($event)">
+    <app-carousel-card [cardsData]="cardsData" [numVisible]="2" [topMain]="true" [template]="customTemplate"
+                       [responsiveOptions]="responsiveOptions"
+                       (caruselEvent)="getAction($event)">
     </app-carousel-card>
     <ng-template #customTemplate let-value="value">
       <span>Сумма сделки: </span>

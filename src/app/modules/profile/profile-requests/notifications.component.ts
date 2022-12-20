@@ -3,6 +3,7 @@ import {Title} from "@angular/platform-browser";
 import {HttpClient} from "@angular/common/http";
 import {API_URL} from "src/app/core/core-urls/api-url";
 
+
 @Component({
   selector: "app-notifications",
   templateUrl: "./notifications.component.html",

@@ -3,8 +3,8 @@ import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 import {API_URL} from "src/app/core/core-urls/api-url";
 import {CommonDataService} from "src/app/core/services/common/common-data.service";
-import {catchError, tap} from "rxjs/operators";
-import {of} from "rxjs";
+import {tap} from "rxjs/operators";
+import {CategoryListModel} from "../../../models";
 
 @Component({
   selector: "app-create-ad",
@@ -123,7 +123,7 @@ export class CreateAdComponent implements OnInit {
    * @returns - Список сфер.
    */
   public onFilterSphereAsync(searchText: string) {
-    this.http.get(API_URL.apiUrl.concat("/franchise/search-sphere?searchText=" + searchText))
+    this.http.get<CategoryListModel[]>(API_URL.apiUrl.concat("/franchise/search-sphere?searchText=" + searchText))
       .pipe(tap((response) => console.log("Список сфер :", response)));
   };
 
