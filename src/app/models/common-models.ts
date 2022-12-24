@@ -1,5 +1,5 @@
 export namespace CommonModels{
-  export enum BackgroundColorVariant{
+  export enum  BackgroundColorVariant{
     blue = 1,
     black,
     fuchsia

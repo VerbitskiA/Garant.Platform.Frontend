@@ -188,7 +188,7 @@ export class SessionService {
     return this.userInfo;
   }
 
-  public getToken(): string {
+  public getToken(): any {
     return this.jwtService.tokenGetter();
   }
 }
