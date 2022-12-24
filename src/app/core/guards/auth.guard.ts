@@ -11,8 +11,8 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router, private jwtService: JwtHelperService) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    console.warn('!!!!!! AuthGuard isTokenExpired', this.jwtService.isTokenExpired())
-    console.warn('!!!!!! AuthGuard isTokenExpired', this.jwtService.decodeToken(this.jwtService.tokenGetter()))
+    // console.warn('!!!!!! AuthGuard isTokenExpired', this.jwtService.isTokenExpired())
+    // console.warn('!!!!!! AuthGuard isTokenExpired', this.jwtService.decodeToken(this.jwtService.tokenGetter()))
     const parsedToken = this.jwtService.tokenGetter();
     if (state.url.includes('login')){
       if (parsedToken){
