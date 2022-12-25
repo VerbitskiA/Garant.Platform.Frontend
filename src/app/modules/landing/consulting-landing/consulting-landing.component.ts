@@ -12,6 +12,7 @@ import {CommonDataService} from 'src/app/core/services/common/common-data.servic
 import {LandingRequestService} from '../../../core/services/landing/landing.service';
 import {CommonModels} from "../../../models/common-models";
 import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
+import {LandingStatistic} from "../../../shared/components/landing-statistics-card/landing-statistics-card.component";
 
 export const headerCardsData = {
   title: 'Консультация',
@@ -25,6 +26,24 @@ export const headerCardsData = {
   alt2: 'Изображение монетки, процента и доски'
 };
 
+export const allCardStatisticData: LandingStatistic.IStatisticItem[] = [
+  {
+    item_number: '7',
+    item_text: `договоров для сделки необходимо подготовить с учетом актов`
+  },
+  {
+    item_number: '735',
+    item_text: `договоров подготовили наши юриcты`
+  },
+  {
+    item_number: '105',
+    item_text: `сделок помогли провести наши юристы`
+  },
+  {
+    item_number: '15',
+    item_text: `раз в среднем за одну сделку обращаются к юристам`
+  }
+]
 export const consultationCardsData = {
   title: 'Проверка',
   subtitle: 'юридических документов',
@@ -45,6 +64,7 @@ export const consultationCardsData = {
 })
 export class ConsultingLandingComponent implements OnInit {
   public headerCardsData = headerCardsData;
+  public allCardStatisticData = allCardStatisticData;
   public consultationCardsData = consultationCardsData;
   public backgroundColorVariant = BackgroundColorVariant;
 

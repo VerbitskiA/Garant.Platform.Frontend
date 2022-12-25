@@ -1,4 +1,4 @@
-<div class="statistics" *ngIf="dataIsSets">
+<div class="statistics unselectable" *ngIf="dataIsSets">
   <div *ngFor="let cardStatisticData of allCardStatisticData" class="statistics-item">
     <p class="statistics-item__number">{{cardStatisticData.item_number}}</p>
     <p class="statistics-item__text">{{cardStatisticData.item_text}}</p>
