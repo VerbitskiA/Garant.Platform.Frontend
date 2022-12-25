@@ -27,7 +27,6 @@
     margin-top: 30px;
     margin-bottom: 16px;
     overflow: hidden;
-    outline: 1px solid red;
 
 
     @include tablet-small {
@@ -50,7 +49,7 @@
 
     @include wideScreens {
       grid-template-columns: 1fr 1fr;
-      padding: 89px 22px 45px 58px;
+      padding: 67px 22px 56px 63px;
       gap: 0;
 
     }
@@ -60,11 +59,14 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      //width: min-content;
+      width: 228px;
 
 
       @include tablet-small {
         align-items: start;
         margin-bottom: 0;
+        width: min-content;
       }
 
       @include wideScreens {
@@ -137,8 +139,10 @@
         @include desktop {
           font-size: 4rem;
           line-height: 75px;
+          min-width: 634px;
+        }
+        @include wideScreens {
           min-width: 939px;
-
         }
       }
 
@@ -210,8 +214,13 @@
           margin-bottom: 89px;
         }
         @include desktop {
+          margin-bottom: 33px;
           max-width: 617px;
         }
+        @include wideScreens {
+          margin-bottom: 53px;
+        }
+
       }
 
       .franchiseHeaderContentText {
@@ -239,24 +248,23 @@
       &__button {
         display: none;
 
-        //@include tablet-small {
-        //
-        //  display: none;
-        //  justify-content: center;
-        //  align-items: center;
-        //  font-family: "Roboto", sans-serif;
-        //  font-size: 1.5rem;
-        //  font-weight: 500;
-        //  color: #ffffff;
-        //  line-height: 28px;
-        //  width: 341px;
-        //  height: 76px;
-        //  border: none;
-        //  border-radius: 4px;
-        //  padding: 24px 32px;
-        //  margin: 0;
-        //  background-color: #1f75fe;
-        //}
+        @include tablet-small {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: "Roboto", sans-serif;
+          font-size: 1.5rem;
+          font-weight: 500;
+          color: #ffffff;
+          line-height: 28px;
+          width: 341px;
+          height: 76px;
+          border: none;
+          border-radius: 4px;
+          padding: 24px 32px;
+          margin: 0;
+          background-color: #1f75fe;
+        }
       }
 
       &__button2 {
@@ -273,7 +281,12 @@
         border: none;
         border-radius: 4px;
         background-color: #1f75fe;
+
+        @include tablet-small {
+          display: none;
+        }
       }
+
     }
 
     &-image {
@@ -300,23 +313,30 @@
 
     .consultingImageClass {
       @include tablet-small {
-        margin-left: 17px;
-        margin-top: 20px;
+        margin-left: 11px;
+        margin-top: 38px;
         width: 322px;
-        height: 325px;
+        height: auto;
         object-fit: cover;
       }
       @include tablet {
         margin-left: 107px;
-        width: 389px;
-        height: 390px;
+        margin-top: 12px;
+        width: 395px;
       }
       @include desktop {
-        margin-left: 35px;
-        margin-top: 0;
-        width: 365px;
-        height: 368px;
+        margin-left: 264px;
+        margin-top: 14px;
+        width: 397px;
+        height: 401px;
+        object-fit: cover;
 
+      }
+      @include wideScreens {
+        margin-left: -72px;
+        margin-top: -1px;
+        width: 365px;
+        height: auto;
       }
 
     }
