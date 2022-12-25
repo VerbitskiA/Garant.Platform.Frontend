@@ -33,43 +33,44 @@
 
 <app-landing-header-card [cardData]="headerCardsData" (cardEvent)="landingHeaderCard($event)"></app-landing-header-card>
 
-<!--начало комментирования-->
-<div class="statistics">
-  <div class="statistics-item">
-    <p class="statistics-item__number">80</p>
-    <p class="statistics-item__text">
-      франшиз <br/>
-      упаковали <br/>
-      и создали с нуля
-    </p>
-  </div>
-  <div class="statistics-item">
-    <p class="statistics-item__number">25</p>
-    <p class="statistics-item__text">
-      сфер бизнеса <br/>
-      проработано <br/>
-      за время работы
-    </p>
-  </div>
-  <div class="statistics-item">
-    <p class="statistics-item__number">
-      60 <span class="statistics-item__unit">млн</span>
-    </p>
-    <p class="statistics-item__text">
-      заработали <br/>
-      клиентам после <br/>
-      создания франшиз
-    </p>
-  </div>
-  <div class="statistics-item">
-    <p class="statistics-item__number">14</p>
-    <p class="statistics-item__text">
-      человек будут <br/>
-      работать над вашим <br/>
-      проектом
-    </p>
-  </div>
-</div>
+<app-landing-statistics-card [allCardStatisticData]="allCardStatisticData"></app-landing-statistics-card>
+
+<!--<div class="statistics">-->
+<!--  <div class="statistics-item">-->
+<!--    <p class="statistics-item__number">80</p>-->
+<!--    <p class="statistics-item__text">-->
+<!--      франшиз <br/>-->
+<!--      упаковали <br/>-->
+<!--      и создали с нуля-->
+<!--    </p>-->
+<!--  </div>-->
+<!--  <div class="statistics-item">-->
+<!--    <p class="statistics-item__number">25</p>-->
+<!--    <p class="statistics-item__text">-->
+<!--      сфер бизнеса <br/>-->
+<!--      проработано <br/>-->
+<!--      за время работы-->
+<!--    </p>-->
+<!--  </div>-->
+<!--  <div class="statistics-item">-->
+<!--    <p class="statistics-item__number">-->
+<!--      60 <span class="statistics-item__unit">млн</span>-->
+<!--    </p>-->
+<!--    <p class="statistics-item__text">-->
+<!--      заработали <br/>-->
+<!--      клиентам после <br/>-->
+<!--      создания франшиз-->
+<!--    </p>-->
+<!--  </div>-->
+<!--  <div class="statistics-item">-->
+<!--    <p class="statistics-item__number">14</p>-->
+<!--    <p class="statistics-item__text">-->
+<!--      человек будут <br/>-->
+<!--      работать над вашим <br/>-->
+<!--      проектом-->
+<!--    </p>-->
+<!--  </div>-->
+<!--</div>-->
 
 <!-- блок с каруселью -->
 <div>
