@@ -35,6 +35,9 @@ export namespace LandingHeader {
 export class LandingHeaderCardComponent implements OnInit {
 
   @Input() public cardData: LandingHeader.IHeaderItem | undefined;
+  @Input() consultingFlagClass?=false;
+  @Input() dealFlagClass?=false;
+  @Input() franchiseFlagClass?=false;
   @Output() public cardEvent: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
   }
