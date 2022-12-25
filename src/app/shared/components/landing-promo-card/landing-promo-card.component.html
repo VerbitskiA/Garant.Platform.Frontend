@@ -1,0 +1,18 @@
+<p>landing-promo-card works!</p>
+
+
+<section class="section" *ngIf="cardData">
+  <div class="gar-card promo">
+    <div class="gar-row title item">
+      {{cardData.title}}
+    </div>
+    <div class="gar-row secondary">
+      {{cardData.subtitle}}
+    </div>
+    <div class="gar-row">
+      <button pButton type="button">{{cardData.button_accept}}</button>
+      <button pButton type="button" label="{{cardData.button_later}}" class="p-button-outlined"></button>
+
+    </div>
+  </div>
+</section>

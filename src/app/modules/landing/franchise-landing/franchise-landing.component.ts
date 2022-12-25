@@ -18,7 +18,8 @@ import {
 import {CommonModels} from "../../../models/common-models";
 import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
 import {LandingHeader} from "../../../shared/components/landing-header-card/landing-header-card.component";
-import {LandingStatistic} from "../../../shared/components/landing-statistics-card/landing-statistics-card.component"; //!!!!
+import {LandingStatistic} from "../../../shared/components/landing-statistics-card/landing-statistics-card.component";
+import {LandingPromo} from "../../../shared/components/landing-promo-card/landing-promo-card.component"; //!!!!
 
 
 export const headerCardsData: LandingHeader.IHeaderItem =   {
@@ -78,6 +79,13 @@ export const consultationCardsData2: LandingConsultation.IConsultationItem =   {
   alt: 'Фото управляющего'
 };
 
+export const promoCardData: LandingPromo.IPromoItem = {
+  title: "Вы можете приобрести бизнес с гарантиями",
+  subtitle: "Вам больше не нужно покупать бизнес онлайн! Все тренды сводятся к покупке бизнеса и управлению им из дома. Предлагаем получить консультацию по покупке бизнеса онлайн.",
+  button_accept: "Получить консультацию",
+  button_later: "Позднее"
+}
+
 @Component({
   selector: 'app-franchise-landing',
   templateUrl: './franchise-landing.component.html',
@@ -89,6 +97,8 @@ export class FranchiseLandingComponent implements OnInit {
   public allCardStatisticData = allCardStatisticData;
   public consultationCardsData = consultationCardsData;
   public consultationCardsData2 = consultationCardsData2;
+
+  public promoCardData = promoCardData;
 
   public backgroundColorVariant = BackgroundColorVariant;
   aPopularBusiness: any[] = [];

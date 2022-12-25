@@ -1,0 +1,41 @@
+@import 'src/assets/styles/_fonts.scss' ;
+@import 'design';
+@import './../components/gar-lib';
+
+* {
+  box-sizing: border-box;
+}
+
+.section {
+  margin-bottom: 80px;
+
+  .gar-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: $border-radius-card;
+    background-color: $clrWhite;
+    box-shadow: $box-shadow-card;
+
+    & .gar-row.secondary {
+      color: $clrDarkGray;
+    }
+
+    &:not(.secondary) {
+      padding: $card-padding;
+    }
+    /* Карточка с промо информацией с голубым фоном */
+    &.promo {
+      background-color: $clrLightBlue;
+      & .gar-row.secondary {
+        color: $clrGray;
+        margin-bottom: 40px;
+      }
+    }
+
+    /* карточка внутри карточки */
+    & .gar-card {
+      box-shadow: none;
+    }
+  }
+}
