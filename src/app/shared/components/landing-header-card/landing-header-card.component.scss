@@ -2,6 +2,7 @@
 
 @import "../../../../assets/styles/media-quaries";
 
+
 .unselectable {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Chrome/Safari/Opera */
@@ -19,54 +20,51 @@
     grid-template-columns: 1fr max-content;
     grid-template-areas: "header-image2"
                         "header-content";
+    justify-items: center;
     border-radius: 24px;
-    padding: 24px 0 55px 0;
+    padding: 24px 0 24px 0;
     background-color: #f5f8fa;
-    margin-top: 80px;
+    margin-top: 30px;
     margin-bottom: 16px;
-    box-sizing: content-box;
     overflow: hidden;
     outline: 1px solid red;
 
 
     @include tablet-small {
       grid-template-areas: "header-content header-image";
-      padding: 39px 0 32px 29px;
+      justify-items: start;
+      padding: 32px;
+      padding-right: 64px;
+      position: relative;
     }
 
     @include tablet {
-      padding: 49px 44px 86px 44px;
-      gap: 200px;
+      padding: 44px;
+      padding-right: 91px;
     }
 
     @include desktop {
-      padding: 89px 22px 45px 58px;
-      gap: 392px;
+      padding: 64px;
+      padding-right: 110px;
     }
 
     @include wideScreens {
       grid-template-columns: 1fr 1fr;
       padding: 89px 22px 45px 58px;
-       gap: 0px;
+      gap: 0;
 
     }
 
     &-content {
       grid-area: header-content;
-      width: 273px;
-      height: 230px;
-      margin: -7px auto 0;
-      //outline: 1px solid red;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
 
       @include tablet-small {
-        width: 445px;
-        height: 368px;
+        align-items: start;
         margin-bottom: 0;
-      }
-
-      @include desktop {
-        width: 635px;
-        height: 371px;
       }
 
       @include wideScreens {
@@ -81,25 +79,18 @@
         font-weight: 700;
         color: #2c2c2c;
         margin-bottom: 8px;
-
-
-        text-align: center;
-        width: 273px;
         font-size: 2rem;
         line-height: 38px;
 
         @include tablet-small {
-          text-align: start;
-          width: 470px;
           font-size: 4rem;
           line-height: 75px;
         }
 
         @include desktop {
-          width: 790px;
           font-size: 6rem;
-          line-height: 75px;
-          text-align: start;
+          line-height: 112px;
+          margin-bottom: 8px;
         }
 
         @include wideScreens {
@@ -107,61 +98,90 @@
         }
       }
 
-      &__subtitle {
+      .headerContentSubtitle {
         font-family: "Roboto", sans-serif;
         font-weight: 700;
         color: #2c2c2c;
-
-        text-align: center;
         font-size: 1.5rem;
         line-height: 28px;
-        //outline: 1px solid greenyellow;
-        margin: 0 auto 16px;
-        width: 242px;
+        margin-bottom: 17px;
+        text-align: center;
 
         @include tablet-small {
-          width: auto;
           font-size: 2.75rem;
           line-height: 52px;
-          text-align: start;
+          text-align: left;
         }
 
         @include desktop {
-          padding-top: 20px;
           font-size: 4rem;
           line-height: 75px;
         }
       }
 
-      &__text {
+      .consultingHeaderContentSubtitle {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        color: #2c2c2c;
+        font-size: 1.5rem;
+        line-height: 28px;
+        margin-bottom: 17px;
+        text-align: center;
+        @include tablet-small {
+          font-size: 2.75rem;
+          line-height: 52px;
+          text-align: left;
+          min-width: 409px;
+          margin-bottom: 16px;
+        }
+        @include desktop {
+          font-size: 4rem;
+          line-height: 75px;
+          min-width: 939px;
+
+        }
+      }
+
+      .franchiseHeaderContentSubtitle {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        color: #2c2c2c;
+        font-size: 1.5rem;
+        line-height: 28px;
+        margin-bottom: 17px;
+        text-align: center;
+        @include tablet-small {
+          font-size: 2.75rem;
+          line-height: 52px;
+          text-align: left;
+          min-width: 409px;
+          margin-bottom: 16px;
+        }
+        @include desktop {
+          font-size: 4rem;
+          line-height: 75px;
+        }
+      }
+
+      .headerContentText {
         font-family: "Roboto", sans-serif;
         font-weight: 400;
         color: #7a7a7a;
-        width: 228px;
-        margin: 0 auto 24px;
-        //outline: 1px solid red;
-        text-align: center;
+        margin-bottom: 24px;
         font-size: 1.0625rem;
         line-height: 20px;
+        text-align: center;
 
         @include tablet-small {
-          width: 310px;
           font-size: 1.5rem;
           line-height: 28px;
-          margin: 17px 0 33px 0;
-          text-align: start;
-        }
+          margin-bottom: 113px;
+          text-align: left;
+          max-width: 310px;
 
-        @include tablet {
-          margin-bottom: 87px;
-          width: 323px;
-          text-align: start;
         }
-
         @include desktop {
-          min-width: 635px;
-          text-align: start;
-          margin-bottom: 33px;
+          margin-bottom: 52px;
         }
 
         @include wideScreens {
@@ -169,27 +189,74 @@
         }
       }
 
+      .consultingHeaderContentText {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        color: #7a7a7a;
+        margin-bottom: 24px;
+        font-size: 1.0625rem;
+        line-height: 20px;
+        text-align: center;
+        @include tablet-small {
+          color: #7a7a7a;
+          font-size: 1.5rem;
+          line-height: 28px;
+          margin-bottom: 33px;
+          text-align: left;
+          max-width: 310px;
+
+        }
+        @include tablet {
+          margin-bottom: 89px;
+        }
+        @include desktop {
+          max-width: 617px;
+        }
+      }
+
+      .franchiseHeaderContentText {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        color: #7a7a7a;
+        margin-bottom: 24px;
+        font-size: 1.0625rem;
+        line-height: 20px;
+        text-align: center;
+        @include tablet-small {
+          font-size: 1.5rem;
+          line-height: 28px;
+          margin-bottom: 85px;
+          text-align: left;
+          max-width: 332px;
+
+        }
+        @include tablet {
+          max-width: 452px;
+        }
+
+      }
+
       &__button {
         display: none;
 
-        @include tablet-small {
-
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-family: "Roboto", sans-serif;
-          font-size: 1.5rem;
-          font-weight: 500;
-          color: #ffffff;
-          line-height: 28px;
-          width: 341px;
-          height: 76px;
-          border: none;
-          border-radius: 4px;
-          padding: 24px 32px;
-          margin: 0;
-          background-color: #1f75fe;
-        }
+        //@include tablet-small {
+        //
+        //  display: none;
+        //  justify-content: center;
+        //  align-items: center;
+        //  font-family: "Roboto", sans-serif;
+        //  font-size: 1.5rem;
+        //  font-weight: 500;
+        //  color: #ffffff;
+        //  line-height: 28px;
+        //  width: 341px;
+        //  height: 76px;
+        //  border: none;
+        //  border-radius: 4px;
+        //  padding: 24px 32px;
+        //  margin: 0;
+        //  background-color: #1f75fe;
+        //}
       }
 
       &__button2 {
@@ -205,76 +272,86 @@
         height: 76px;
         border: none;
         border-radius: 4px;
-        padding: 24px 26.5px;
-        margin: 0;
         background-color: #1f75fe;
-
-
-        @include tablet-small {
-          display: none;
-        }
       }
     }
 
     &-image {
       grid-area: header-image;
       display: none;
-      margin-right: 8px;
-      position: relative;
-      width: 305px;
 
       @include tablet-small {
-        display: flex;
-        justify-content: flex-end;
+        display: block;
       }
+    }
 
-      .imageClass { // для стилизации p-image из primeng
-        //position: absolute;
-        width: 324px;
-        top: 28px;
-        left: 10px;
-        //outline: 1px solid red;
+    .imageClass {
+      @include tablet-small {
+        width: 170px;
+        height: 242px;
+        object-fit: cover;
+      }
+      @include tablet {
+        width: 270px;
+        height: 364px;
 
-        @include tablet-small {
-          position: absolute;
-          width: 430px;
-          top: 28px;
-          left: -65px;
-        }
+      }
+    }
 
-        @include tablet {
-          //width: fit-content;
-          width: 573px;
-          //height: auto;
-          //top: 0;
-          left: -184px;
-        }
-        @include desktop {
-          position: static;
-          width: fit-content;
-          //width: 398px;
-          //top: -13px;
-          //left: -93px;
-        }
-
-        @include wideScreens {
-          //width: 365px; // - оплтимально для http://localhost:4200/deal/start и 4200/consulting/start для wideScreens
-          ////width: 660px; // ??? - оплтимально для http://localhost:4200/franchise/start для wideScreens
-          //top: -25px;
-          //left: -41px;
-        }
+    .consultingImageClass {
+      @include tablet-small {
+        margin-left: 17px;
+        margin-top: 20px;
+        width: 322px;
+        height: 325px;
+        object-fit: cover;
+      }
+      @include tablet {
+        margin-left: 107px;
+        width: 389px;
+        height: 390px;
+      }
+      @include desktop {
+        margin-left: 35px;
+        margin-top: 0;
+        width: 365px;
+        height: 368px;
 
       }
 
     }
+
+    .franchiseImageClass {
+      @include tablet-small {
+        position: absolute;
+        top: 71px;
+        left: 50%;
+        width: 570px;
+        height: 287px;
+      }
+      @include desktop {
+        width: 695px;
+        height: 383px;
+      }
+    }
+
+
+    @include wideScreens {
+      //width: 365px; // - оплтимально для http://localhost:4200/deal/start и 4200/consulting/start для wideScreens
+      ////width: 660px; // ??? - оплтимально для http://localhost:4200/franchise/start для wideScreens
+      //top: -25px;
+      //left: -41px;
+    }
+
 
     &-image2 {
       grid-area: header-image2;
-      margin: 0 auto 17px;
-
+      margin-bottom: 17px;
       @include tablet-small {
         display: none;
       }
+
     }
   }
 }
+

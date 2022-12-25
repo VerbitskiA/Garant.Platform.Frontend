@@ -2,8 +2,10 @@
   <div class="header unselectable" *ngIf="cardData">
     <div class="header-content">
       <div class="header-content__title">{{cardData.title}}</div>
-      <div class="header-content__subtitle">{{cardData.subtitle}}</div>
-      <div class="header-content__text">{{cardData.content_text}}</div>
+      <div
+        [ngClass]="{headerContentSubtitle:dealFlagClass, consultingHeaderContentSubtitle:consultingFlagClass,franchiseHeaderContentSubtitle:franchiseFlagClass}">{{cardData.subtitle}}</div>
+      <div
+        [ngClass]="{headerContentText: dealFlagClass, consultingHeaderContentText:consultingFlagClass,franchiseHeaderContentText:franchiseFlagClass}">{{cardData.content_text}}</div>
       <button pButton class="header-content__button" (click)="action($event)"
               [label]="cardData.content__button"></button>
       <button pButton class="header-content__button2" (click)="action($event)"
@@ -12,12 +14,17 @@
     </div>
     <div class="header-image">
       <!--      imageClass для доп.стилизации p-image      -->
-      <p-image src="{{cardData.image}}" alt="{{cardData.alt}}" imageClass="imageClass"></p-image>
+      <p-image src="{{cardData.image}}" alt="{{cardData.alt}}" *ngIf="dealFlagClass " imageClass="imageClass"></p-image>
+      <p-image src="{{cardData.image}}" alt="{{cardData.alt}}" *ngIf="consultingFlagClass "
+               imageClass="consultingImageClass"></p-image>
+      <p-image src="{{cardData.image}}" alt="{{cardData.alt}}" *ngIf="franchiseFlagClass "
+               imageClass="franchiseImageClass"></p-image>
     </div>
 
     <div class="header-image2">
-      <p-image src="{{cardData.image2}}" alt="{{cardData.alt2}}" imageClass="imageClass2"></p-image>
+      <p-image src="{{cardData.image2}}" alt="{{cardData.alt2}}"></p-image>
     </div>
 
   </div>
 </div>
+<!--[ngClass]={imageClass:true,consultingImageClass:consultingFlagClass}-->
