@@ -66,7 +66,13 @@
       @include tablet-small {
         align-items: start;
         margin-bottom: 0;
-        width: min-content;
+        //width: min-content;
+        //width: max-content;
+        //width: 416px;
+        width: 455px;
+      }
+      @include desktop{
+        width: 705px;
       }
 
       @include wideScreens {
@@ -133,7 +139,8 @@
           font-size: 2.75rem;
           line-height: 52px;
           text-align: left;
-          min-width: 409px;
+          //min-width: 409px;
+          width: 444px;
           margin-bottom: 16px;
         }
         @include desktop {
@@ -245,7 +252,7 @@
 
       }
 
-      &__button {
+      .consultingHeaderButton{
         display: none;
 
         @include tablet-small {
@@ -258,6 +265,50 @@
           color: #ffffff;
           line-height: 28px;
           width: 341px;
+          height: 76px;
+          border: none;
+          border-radius: 4px;
+          padding: 24px 32px;
+          margin: 0;
+          background-color: #1f75fe;
+        }
+      }
+      .franchiseHeaderButton{
+        display: none;
+
+        @include tablet-small {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: "Roboto", sans-serif;
+          font-size: 1.5rem;
+          font-weight: 500;
+          color: #ffffff;
+          line-height: 28px;
+          width: 341px;
+          height: 76px;
+          border: none;
+          border-radius: 4px;
+          padding: 24px 32px;
+          margin: 0;
+          //background-color: #1f75fe;
+          background-color: red;
+        }
+      }
+
+      .dealHeaderButton{
+        display: none;
+
+        @include tablet-small {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: "Roboto", sans-serif;
+          font-size: 1.5rem;
+          font-weight: 500;
+          color: #ffffff;
+          line-height: 28px;
+          width: 291px;
           height: 76px;
           border: none;
           border-radius: 4px;
@@ -300,37 +351,41 @@
 
     .imageClass {
       @include tablet-small {
-        width: 170px;
-        height: 242px;
+        width: 249px;
+        height: auto;
         object-fit: cover;
       }
       @include tablet {
-        width: 270px;
-        height: 364px;
-
+        width: 364px;
+        margin-left: 120px;
+      }
+      @include desktop {
+        width: 364px;
+        margin-left: 196px;
+      }
+      @include wideScreens{
+        width: 370px;
+        margin-left: -128px;
       }
     }
 
     .consultingImageClass {
       @include tablet-small {
-        margin-left: 11px;
+        margin-left: -22px;
         margin-top: 38px;
         width: 322px;
         height: auto;
         object-fit: cover;
       }
       @include tablet {
-        margin-left: 107px;
+        margin-left: 76px;
         margin-top: 12px;
         width: 395px;
       }
       @include desktop {
-        margin-left: 264px;
-        margin-top: 14px;
-        width: 397px;
-        height: 401px;
-        object-fit: cover;
-
+        margin-left: 192px;
+        margin-top: 11px;
+        width: 399px;
       }
       @include wideScreens {
         margin-left: -72px;

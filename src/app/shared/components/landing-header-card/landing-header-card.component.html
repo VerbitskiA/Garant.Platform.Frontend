@@ -6,8 +6,9 @@
         [ngClass]="{headerContentSubtitle:dealFlagClass, consultingHeaderContentSubtitle:consultingFlagClass,franchiseHeaderContentSubtitle:franchiseFlagClass}">{{cardData.subtitle}}</div>
       <div
         [ngClass]="{headerContentText: dealFlagClass, consultingHeaderContentText:consultingFlagClass,franchiseHeaderContentText:franchiseFlagClass}">{{cardData.content_text}}</div>
-      <button pButton class="header-content__button" (click)="action($event)"
+      <button pButton [ngClass]="{dealHeaderButton:dealFlagClass, consultingHeaderButton:consultingFlagClass,franchiseHeaderButton:franchiseFlagClass}" (click)="action($event)"
               [label]="cardData.content__button"></button>
+<!--      header-content__button}"-->
       <button pButton class="header-content__button2" (click)="action($event)"
               [label]="cardData.content__button2 || '' "></button>
 
