@@ -17,7 +17,8 @@ import {
 } from "../../../shared/components/landing-consultation-card/landing-consultation-card.component";
 import {CommonModels} from "../../../models/common-models";
 import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
-import {LandingHeader} from "../../../shared/components/landing-header-card/landing-header-card.component"; //!!!!
+import {LandingHeader} from "../../../shared/components/landing-header-card/landing-header-card.component";
+import {LandingStatistic} from "../../../shared/components/landing-statistics-card/landing-statistics-card.component"; //!!!!
 
 
 export const headerCardsData: LandingHeader.IHeaderItem =   {
@@ -31,6 +32,25 @@ export const headerCardsData: LandingHeader.IHeaderItem =   {
   image2: '../../../../assets/images/franchise-landing/desk2.png',
   alt2: 'Изображение стола, монеты и %',
 };
+
+export const allCardStatisticData: LandingStatistic.IStatisticItem[] = [
+  {
+    item_number: '80',
+    item_text: `франшиз упаковали и создали с нуля`
+  },
+  {
+    item_number: '25',
+    item_text: `сфер бизнеса проработано за время работы`
+  },
+  {
+    item_number: '60 млн',
+    item_text: `заработали клиентам после создания франшиз`
+  },
+  {
+    item_number: '14',
+    item_text: `человек будут работать над вашим проектом`
+  }
+]
 
 export const consultationCardsData: LandingConsultation.IConsultationItem =   {
   title: 'Азамат Булатов',
@@ -66,6 +86,7 @@ export const consultationCardsData2: LandingConsultation.IConsultationItem =   {
 })
 export class FranchiseLandingComponent implements OnInit {
   public headerCardsData = headerCardsData;
+  public allCardStatisticData = allCardStatisticData;
   public consultationCardsData = consultationCardsData;
   public consultationCardsData2 = consultationCardsData2;
 
