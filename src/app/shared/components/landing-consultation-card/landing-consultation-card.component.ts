@@ -11,6 +11,7 @@ export namespace LandingConsultation {
     title: string;
     subtitle: string;
     content_text: string;
+    content_text2?: string;
     content__label1: string
     content__placeholder1: string;
 
@@ -45,7 +46,8 @@ export class LandingConsultationCardComponent implements OnInit {
   @Output() public cardConsultationEvent: EventEmitter<any> = new EventEmitter<any>();
   @Input() consultingFlagClass?=false;
   @Input() dealFlagClass?=false;
-  @Input() franchiseFlagClass?=false;
+  @Input() franchiseFlagClass1?=false;
+  @Input() franchiseFlagClass2?=false;
 
   public separateDialCode = false;
   public SearchCountryField = SearchCountryField;

@@ -62,6 +62,7 @@ export const consultationCardsData: LandingConsultation.IConsultationItem =   {
   content__label2: 'Номер телефона',
   content__placeholder2: 'Введите номер телефона',
   content__button: 'Обратиться за консультацией',
+  content__button2: 'Обратиться за консультацией',
   image: '../../../../assets/images/franchise-landing/azamat2.png',
   alt: 'Фото сооснователя'
 };
@@ -69,12 +70,14 @@ export const consultationCardsData: LandingConsultation.IConsultationItem =   {
 export const consultationCardsData2: LandingConsultation.IConsultationItem =   {
   title: 'Управляющая компания',
   subtitle: 'Особый пакет',
-  content_text: "Условия обсуждаются индвидуально. От 1 500 000 ₽",
+  content_text: "Условия обсуждаются индвидуально.",
+  content_text2: "От 1 500 000 ₽",
   content__label1: 'Имя',
   content__placeholder1: 'Введите имя',
   content__label2: 'Номер телефона',
   content__placeholder2: 'Введите номер телефона',
   content__button: 'Обратиться за консультацией',
+  content__button2: 'Обратиться за консультацией',
   image: '../../../../assets/images/franchise-landing/Layer_7_1%201.png',
   alt: 'Фото управляющего'
 };

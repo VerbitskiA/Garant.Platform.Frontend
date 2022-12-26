@@ -6,14 +6,22 @@
       <div class="consulting-content__title">{{cardConsultationData.title}} </div>
       <!--    <div class="consulting-content__subtitle">при покупке бизнеса онлайн</div>-->
       <div
-        [ngClass]="{dealConsultingContentSubtitle:dealFlagClass, consultingContentSubtitle:consultingFlagClass,franchiseConsultingContentSubtitle:franchiseFlagClass}"
+        [ngClass]="{dealConsultingContentSubtitle:dealFlagClass, consultingContentSubtitle:consultingFlagClass,franchiseConsultingContentSubtitle:franchiseFlagClass1||franchiseFlagClass2}"
         class="consulting-content__subtitle">{{cardConsultationData.subtitle}}</div>
       <div
-        [ngClass]="{dealConsultingContentText:dealFlagClass, consultingContentText:consultingFlagClass,franchiseConsultingContentText:franchiseFlagClass}"
+        [ngClass]="{dealConsultingContentText:dealFlagClass, consultingContentText:consultingFlagClass,franchiseConsultingContentText:franchiseFlagClass1||franchiseFlagClass2}"
 
       >
         <!--  class="consulting-content__text"    с юристом и консультантами сервиса-->
         {{cardConsultationData.content_text}}
+      </div>
+
+      <div
+        [ngClass]="{dealConsultingContentText:dealFlagClass, consultingContentText:consultingFlagClass,franchiseConsultingContentText:franchiseFlagClass1||franchiseFlagClass2}"
+
+      >
+        <!--  class="consulting-content__text"    с юристом и консультантами сервиса-->
+        {{cardConsultationData.content_text2}}
       </div>
 
       <div class="consulting-content__inputs">
@@ -83,6 +91,18 @@
                alt="{{cardConsultationData.alt}}"
                *ngIf="dealFlagClass"
                imageClass="dealConsultingImageClass"
+      ></p-image>
+
+      <p-image src="{{cardConsultationData.image}}"
+               alt="{{cardConsultationData.alt}}"
+               *ngIf="franchiseFlagClass1"
+               imageClass="franchiseConsultingImageClass1"
+      ></p-image>
+
+      <p-image src="{{cardConsultationData.image}}"
+               alt="{{cardConsultationData.alt}}"
+               *ngIf="franchiseFlagClass2"
+               imageClass="franchiseConsultingImageClass2"
       ></p-image>
 
     </div>

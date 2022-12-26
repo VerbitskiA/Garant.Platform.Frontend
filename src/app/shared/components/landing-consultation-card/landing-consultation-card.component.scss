@@ -55,17 +55,22 @@
 
         @include tablet-small {
           font-size: 4rem;
-          width: 429px;
+          //width: 429px;
+          width: 490px;
           line-height: 75px;
           margin-bottom: 20px;
         }
         @include tablet {
           margin-bottom: 17px;
+          width: 500px;
         }
         @include desktop {
           font-size: 6rem;
           line-height: 112px;
           margin-bottom: 28px;
+        }
+        @include wideScreens{
+          width:735px;
         }
       }
 
@@ -130,13 +135,17 @@
         width: 272px;
         line-height: 28px;
         @include tablet-small {
-
+          font-size: 2.75rem;
+          width: 429px;
+          line-height: 52px;
         }
         @include tablet {
-
+          width: max-content;
         }
         @include desktop {
-
+          width: max-content;
+          font-size: 4rem;
+          margin-bottom: 29px;
         }
         @include wideScreens {
 
@@ -205,11 +214,16 @@
         width: 272px;
         line-height: 19px;
         margin-bottom: 24px;
-        @include tablet-small {
 
+        @include tablet-small {
+          font-size: 1.5rem;
+          width: 390px;
+          line-height: 28px;
+          margin-bottom: 29px;
         }
         @include tablet {
-
+          width: max-content;
+          margin-bottom: 48px;
         }
         @include desktop {
 
@@ -381,6 +395,83 @@
     }
     @include wideScreens {
       right: -141px;
+    }
+  }
+
+  .franchiseConsultingImageClass1 {
+    display: none;
+    @include phone{ // для добавления наложения полупрозрачной подложки 360-768px
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      //right: -124px;
+      //width: 553px;
+      right: -10px;
+      width: 330px;
+      height: auto;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    @include tablet-small {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      right: -33px;
+      width: 432px;
+      height: auto;
+      object-fit: cover;
+      opacity: 1;
+    }
+    @include tablet {
+      right: -3px;
+      width: 327px;
+    }
+    @include desktop {
+      right: 87px;
+      width: 456px;
+    }
+    @include wideScreens {
+      right: 137px;
+      width: 367px;
+    }
+  }
+
+  .franchiseConsultingImageClass2 {
+    display: none;
+    @include phone{ // для добавления наложения полупрозрачной подложки 360-768px
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      right: 14px;
+      width: 272px;
+      height: auto;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    @include tablet-small {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      right: 1px;
+      width: 414px;
+      height: auto;
+      object-fit: cover;
+      opacity: 1;
+    }
+    @include tablet {
+      right: 1px;
+      width: 361px;
+    }
+    @include desktop {
+      right: 74px;
+      width: 434px;
+    }
+    @include wideScreens {
+      right: 116px;
     }
   }
 
