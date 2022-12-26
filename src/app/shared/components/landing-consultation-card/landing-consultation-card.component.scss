@@ -36,10 +36,10 @@
       //height: 480px;
       height: auto;
       padding-bottom: 10px;
-      //margin: 0 auto;
+      margin: 0 auto;
       @include tablet-small {
         padding-bottom: 26px;
-        //margin: 0;
+        margin: 0;
       }
       @include tablet {
         padding-bottom: 0;
@@ -303,17 +303,17 @@
 
   .consultingImageClass {
     display: none;
-    @include phone{
-      display: flex;
-      position: absolute;
-      bottom: 0;
-      right: -124px;
-      width: 553px;
-      height: auto;
-      object-fit: cover;
-      z-index: 0;
-      opacity: 0.5;
-    }
+    //@include phone{
+    //  display: flex;
+    //  position: absolute;
+    //  bottom: 0;
+    //  right: -124px;
+    //  width: 553px;
+    //  height: auto;
+    //  object-fit: cover;
+    //  z-index: 0;
+    //  opacity: 0.5;
+    //}
 
     @include tablet-small {
       display: flex;
