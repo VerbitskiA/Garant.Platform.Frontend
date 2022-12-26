@@ -5,11 +5,17 @@
       <!--    <div class="consulting-content__title">Консультация</div>-->
       <div class="consulting-content__title">{{cardConsultationData.title}} </div>
       <!--    <div class="consulting-content__subtitle">при покупке бизнеса онлайн</div>-->
-      <div class="consulting-content__subtitle">{{cardConsultationData.subtitle}}</div>
-      <div class="consulting-content__text">
-        <!--      с юристом и консультантами сервиса-->
+      <div
+        [ngClass]="{dealConsultingContentSubtitle:dealFlagClass, consultingContentSubtitle:consultingFlagClass,franchiseConsultingContentSubtitle:franchiseFlagClass}"
+        class="consulting-content__subtitle">{{cardConsultationData.subtitle}}</div>
+      <div
+        [ngClass]="{dealConsultingContentText:dealFlagClass, consultingContentText:consultingFlagClass,franchiseConsultingContentText:franchiseFlagClass}"
+
+      >
+        <!--  class="consulting-content__text"    с юристом и консультантами сервиса-->
         {{cardConsultationData.content_text}}
       </div>
+
       <div class="consulting-content__inputs">
         <label class="consulting-content__label">
           <!--        Имя-->
@@ -43,9 +49,16 @@
 
         </div>
       </div>
-      <button pButton type="button" icon="pi pi-check" iconPos="right" class="consulting-content__button border-solid border-blue-500"
+
+      <button pButton type="button" class="consulting-content__button border-solid border-blue-500"
               (click)="action($event)"
               [label]="cardConsultationData.content__button">
+        <!--      Обратиться за консультацией-->
+      </button>
+
+      <button pButton type="button" class="consulting-content__button2 border-solid border-blue-500"
+              (click)="action($event)"
+              [label]="cardConsultationData.content__button2 || '' " >
         <!--      Обратиться за консультацией-->
       </button>
 <!--      <button pButton class="consulting-content__button" (click)="actionChangeColor()"-->
@@ -61,7 +74,9 @@
       <!--      src="../../../../assets/images/deal-landing/template_person6%201.png"-->
       <!--      alt="Фото консультанта"-->
       <p-image src="{{cardConsultationData.image}}"
-           alt="{{cardConsultationData.alt}}"
+               alt="{{cardConsultationData.alt}}"
+               *ngIf="consultingFlagClass"
+               imageClass="consultingImageClass"
       ></p-image>
     </div>
   </div>

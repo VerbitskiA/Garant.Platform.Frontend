@@ -19,6 +19,7 @@ export namespace LandingConsultation {
 
     content__button: string;
 
+    content__button2?: string;
     image: string;
     alt: string;
 
@@ -42,6 +43,9 @@ export class LandingConsultationCardComponent implements OnInit {
   @Input() public cardConsultationData: LandingConsultation.IConsultationItem | undefined;
   @Input() public backgroundColorVariant = BackgroundColorVariant.blue; // первый вариант
   @Output() public cardConsultationEvent: EventEmitter<any> = new EventEmitter<any>();
+  @Input() consultingFlagClass?=false;
+  @Input() dealFlagClass?=false;
+  @Input() franchiseFlagClass?=false;
 
   public separateDialCode = false;
   public SearchCountryField = SearchCountryField;

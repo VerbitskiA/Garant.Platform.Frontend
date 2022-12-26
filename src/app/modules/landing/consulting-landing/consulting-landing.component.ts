@@ -52,7 +52,8 @@ export const consultationCardsData = {
   content__placeholder1: 'Введите имя',
   content__label2: 'Номер телефона',
   content__placeholder2: 'Введите номер телефона',
-  content__button: 'Отправить договор на проверку',
+  content__button: 'Обратиться за консультацией',
+  content__button2: 'Отправить договор на проверку',
   image: '../../../../assets/images/consulting-landing/template_person6%201.png',
   alt: 'Фото проверяющего'
 };

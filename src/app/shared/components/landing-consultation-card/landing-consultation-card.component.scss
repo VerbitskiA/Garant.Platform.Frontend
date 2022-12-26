@@ -13,172 +13,217 @@
   gap: 32px;
   width: 100%;
   border-radius: 24px;
-  padding: 64px 0 0 64px;
+  padding: 24px;
   background-color: var(--app-get-call-card);
   margin-top: 80px;
   position: relative;
+  @include tablet-small {
+    padding: 30px;
+  }
+  @include tablet {
+    padding: 44px;
+  }
+  @include desktop {
+    padding: 63px;
+  }
 
   .consulting {
     display: flex;
 
-    @include ul-xl {
-      width: 1392px;
-      margin-top: 74px;
-      gap: 0;
-    }
-    //
-    //@include xl-lg {
-    //  width: 1024px;
-    //  height: 522px;
-    //  gap: 0;
-    //  padding: 44px 0 44px 44px;
-    //  margin-top: 64px;
-    //}
-    //
-    //@include lg-md {
-    //  width: 768px;
-    //  height: 657px;
-    //  gap: 0;
-    //  padding: 32px 0 32px 32px;
-    //  margin-top: 36px;
-    //}
-    //
-    //@include md {
-    //  width: 320px;
-    //  height: 528px;
-    //  gap: 0;
-    //  padding: 24px;
-    //  margin-top: 24px;
-    //}
-
     &-content {
-      width: 864px;
-      padding-bottom: 50px;
-      //height: 495px;
-
-      @include xl-lg {
-        width: 598px;
-        //height: 434px;
+      z-index: 1;
+      width: 272px;
+      //height: 480px;
+      height: auto;
+      padding-bottom: 10px;
+      //margin: 0 auto;
+      @include tablet-small {
+        padding-bottom: 26px;
+        //margin: 0;
       }
-
-      @include lg-md {
-        width: 429px;
-        //height: 593px;
-      }
-
-      @include md {
-        width: 272px;
-        //height: 480px;
+      @include tablet {
+        padding-bottom: 0;
       }
 
       &__title {
         font-family: "Roboto", sans-serif;
-        font-size: 5rem;
         font-weight: 700;
         color: #ffffff;
-        width: 864px;
-        line-height: 112px;
-        margin-bottom: 16px;
+        font-size: 2rem;
+        width: 272px;
+        line-height: 38px;
+        margin-bottom: 8px;
 
-        @include xl-lg {
-          font-size: 4rem;
-          //width: 598px;
-          line-height: 75px;
-        }
-
-        @include lg-md {
+        @include tablet-small {
           font-size: 4rem;
           width: 429px;
           line-height: 75px;
+          margin-bottom: 20px;
         }
-
-        @include md {
-          font-size: 2rem;
-          width: 272px;
-          line-height: 38px;
-          margin-bottom: 8px;
+        @include tablet {
+          margin-bottom: 17px;
+        }
+        @include desktop {
+          font-size: 6rem;
+          line-height: 112px;
+          margin-bottom: 28px;
         }
       }
 
-      &__subtitle {
+      .consultingContentSubtitle {
         font-family: "Roboto", sans-serif;
-        font-size: 3rem;
         font-weight: 700;
         color: #ffffff;
-        width: 864px;
-        line-height: 75px;
         margin-bottom: 16px;
-
-        @include xl-lg {
-          font-size: 2.75rem;
-          width: 598px;
-          line-height: 52px;
-        }
-
-        @include lg-md {
-          font-size: 2.75rem;
-          width: 429px;
-          line-height: 52px;
-        }
-
-        @include md {
-          font-size: 1.5rem;
-          width: 272px;
-          line-height: 28px;
-        }
-      }
-
-      &__text {
-        font-family: "Roboto", sans-serif;
         font-size: 1.5rem;
+        width: 272px;
+        line-height: 28px;
+        @include tablet-small {
+          font-size: 2.75rem;
+          width: 429px;
+          line-height: 52px;
+        }
+        @include tablet {
+          width: 550px;
+        }
+        @include desktop {
+          width: max-content;
+          font-size: 4rem;
+          margin-bottom: 29px;
+        }
+        @include wideScreens {
+
+        }
+      }
+
+      .dealConsultingContentSubtitle {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 16px;
+        font-size: 1.5rem;
+        width: 272px;
+        line-height: 28px;
+        @include tablet-small {
+
+        }
+        @include tablet {
+
+        }
+        @include desktop {
+
+        }
+        @include wideScreens {
+
+        }
+      }
+
+      .franchiseConsultingContentSubtitle {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 16px;
+        font-size: 1.5rem;
+        width: 272px;
+        line-height: 28px;
+        @include tablet-small {
+
+        }
+        @include tablet {
+
+        }
+        @include desktop {
+
+        }
+        @include wideScreens {
+
+        }
+      }
+
+      .consultingContentText {
+        font-family: "Roboto", sans-serif;
         font-weight: 400;
         color: #dadada;
-        width: 864px;
-        line-height: 28px;
-        margin-bottom: 48px;
+        font-size: 1rem;
+        width: 272px;
+        line-height: 19px;
+        margin-bottom: 24px;
 
-        @include xl-lg {
-          width: 598px;
+        @include tablet-small {
+          font-size: 1.5rem;
+          width: 405px;
+          line-height: 28px;
+          margin-bottom: 21px;
         }
-
-        @include lg-md {
-          width: 429px;
+        @include tablet {
+          width: max-content;
+          margin-bottom: 48px;
         }
+        @include desktop {
 
-        @include md {
-          font-size: 1rem;
-          width: 272px;
-          line-height: 19px;
-          margin-bottom: 24px;
+        }
+        @include wideScreens {
+
+        }
+      }
+
+      .dealConsultingContentText {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        color: #dadada;
+        font-size: 1rem;
+        width: 272px;
+        line-height: 19px;
+        margin-bottom: 24px;
+        @include tablet-small {
+
+        }
+        @include tablet {
+
+        }
+        @include desktop {
+
+        }
+        @include wideScreens {
+
+        }
+      }
+
+      .franchiseConsultingContentText {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        color: #dadada;
+        font-size: 1rem;
+        width: 272px;
+        line-height: 19px;
+        margin-bottom: 24px;
+        @include tablet-small {
+
+        }
+        @include tablet {
+
+        }
+        @include desktop {
+
+        }
+        @include wideScreens {
+
         }
       }
 
       &__inputs {
         display: flex;
         flex-wrap: wrap;
-        gap: 16px;
-        margin-bottom: 32px;
+        gap: 10px;
+        margin-bottom: 22px;
 
-        //::ng-deep.p-inputtext {
-        //  display: block;
-        //  font-family: "Roboto", sans-serif;
-        //  font-size: 1.125rem;
-        //  font-weight: 400;
-        //  color: #7a7a7a;
-        //  width: 291px;
-        //  // height: 69px;
-        //  border: 1.5px solid #dadada;
-        //  border-radius: 8px;
-        //  padding: 20px 9px;
-        //}
-
-        @include lg-md {
-          flex-direction: column;
+        @include tablet-small {
+          margin-bottom: 32px;
         }
-
-        @include md {
-          flex-direction: column;
-          margin-bottom: 24px;
+        @include tablet {
+          flex-wrap: nowrap;
+          gap: 17px;
+          margin-bottom: 21px;
         }
       }
 
@@ -190,14 +235,6 @@
         font-weight: 400;
         color: #dadada;
         margin-bottom: 8px;
-
-        @include lg-md {
-          margin-bottom: 0;
-        }
-
-        @include md {
-          margin-bottom: 0;
-        }
       }
 
       &__input {
@@ -206,20 +243,14 @@
         font-size: 1.125rem;
         font-weight: 400;
         color: #7a7a7a;
-        width: 291px;
+        width: 271px;
         height: 69px;
         border: 1.5px solid #dadada;
         border-radius: 8px;
         padding: 24px 10px;
         margin-top: 8px;
-
-        @include lg-md {
-          margin-top: 8px;
-        }
-
-        @include md {
-          width: 272px;
-          margin-top: 8px;
+        @include tablet-small {
+          width: 291px;
         }
       }
 
@@ -228,127 +259,83 @@
         justify-content: center;
         align-items: center;
         font-family: "Roboto", sans-serif;
-        font-size: 1.3rem;
+        font-size: 1rem;
         font-weight: 500;
-
         line-height: 28px;
-        width: 398px;
-        // height: 76px;
+        width: 274px;
         border: none;
         border-radius: 4px;
         padding: 24px 10px;
         margin: 0;
-        //color: #1f75fe;
-        //background-color: #1F75FE;
-        height: 76px;
+        height: 70px;
         background-color: #fff;
         color: #1f75fe;
+        @include tablet-small {
+          width: 293px;
+        }
+        @include tablet {
+          width: 402px;
+          height: 80px;
+          font-size: 1.5rem;
+        }
 
-        @include md {
+        @include wideScreens {
           display: none;
         }
       }
-    }
 
-    &-image {
-      margin-left: 0%;
-      margin-top: 0%;
-      //height: 300px;
-      img {
-        height: 90%;
-        position: absolute;
-        bottom: 0;
-        right: 50px;
+      &__button2 {
+        display: none;
+
+        @include wideScreens {
+          display: flex;
+          width: 405px;
+          height: 80px;
+          background-color: #fff;
+          color: #1f75fe;
+          font-size: 1.5rem;
+          font-weight: 500;
+          border-radius: 4px;
+        }
       }
-
-      //@include tablet-small {
-      //
-      //  margin-left: 20%;
-      //  margin-top: 0%;
-      //}
-
-      @include xl-lg {
-        margin-left: 10%;
-        margin-top: 0%;
-      }
-
-      @include lg-md {
-        margin-left: 20%;
-        margin-top: 0%;
-      }
-      //height: 650px;
-      //margin-left: 50%;
-      //margin-top: 1.5%;
-
-      //@include phone {
-      //  height: 504px;
-      //  // transform: translate(-107px, 54px);}
-      //}
-      //
-      //@include phone {
-      //  margin-left: 0;
-      //
-      //}
-      //
-      //@include tablet-small {
-      //  height: 650px;
-      //  position: absolute;
-      //  margin-left: 42%;
-      //  margin-top: 6%;
-      //}
-      //
-      //@include tablet {
-      //  height: 550px;
-      //  margin-left: 50%;
-      //  margin-top: 2.6%;
-      //}
-      //
-      //@include desktop {
-      //  height: 650px;
-      //  margin-left: 50%;
-      //  margin-top: 1.5%;
-      //}
-
-
-      //width: 622px;
-      //height: 559px;
-      //border-radius: 7px;
-      //
-      //@include ul-xl {
-      //  margin-left: -13px;
-      //
-      //}
-      //
-      //@include xl-lg {
-      //  width: 594px;
-      //  height: 476px;
-      //  margin-left: -68px;
-      //}
-      //
-      //@include lg-md {
-      //  width: 479px;
-      //  height: 441px;
-      //  margin-left: -50px;
-      //  margin-top: 184px;
-      //}
-      //
-      //@include md {
-      //  display: none;
-      //}
-      //
-      //img {
-      //  @include xl-lg {
-      //    width: 1594px;
-      //    height: 1476px;
-      //  }
-      //
-      //  @include lg-md {
-      //    width: 479px;
-      //    height: 441px;
-      //  }
-      //}
     }
   }
 
+  .consultingImageClass {
+    display: none;
+    @include phone{
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      right: -124px;
+      width: 553px;
+      height: auto;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    @include tablet-small {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      right: -151px;
+      width: 653px;
+      height: auto;
+      object-fit: cover;
+      opacity: 1;
+    }
+    @include tablet {
+      right: -120px;
+      width: 534px;
+    }
+    @include desktop {
+      right: -146px;
+      width: 623px;
+    }
+    @include wideScreens {
+      right: -74px;
+    }
+  }
 }
 
