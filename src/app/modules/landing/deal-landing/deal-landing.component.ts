@@ -56,6 +56,7 @@ export const consultationCardsData = {
   content__label2: 'Номер телефона',
   content__placeholder2: 'Введите номер телефона',
   content__button: 'Обратиться за консультацией',
+  content__button2: 'Обратиться за консультацией',
   image: '../../../../assets/images/deal-landing/template_person6%201.png',
   alt: 'Фото консультанта'
 };

@@ -78,6 +78,13 @@
                *ngIf="consultingFlagClass"
                imageClass="consultingImageClass"
       ></p-image>
+
+      <p-image src="{{cardConsultationData.image}}"
+               alt="{{cardConsultationData.alt}}"
+               *ngIf="dealFlagClass"
+               imageClass="dealConsultingImageClass"
+      ></p-image>
+
     </div>
   </div>
 </div>

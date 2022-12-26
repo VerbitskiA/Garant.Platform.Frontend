@@ -33,10 +33,9 @@
     &-content {
       z-index: 1;
       width: 272px;
-      //height: 480px;
       height: auto;
       padding-bottom: 10px;
-      margin: 0 auto;
+      //margin: 0 auto; - по фигме, но закоментировал и немного отклонился в красоту)
       @include tablet-small {
         padding-bottom: 26px;
         margin: 0;
@@ -105,13 +104,17 @@
         width: 272px;
         line-height: 28px;
         @include tablet-small {
-
+          font-size: 2.75rem;
+          width: 429px;
+          line-height: 52px;
         }
         @include tablet {
-
+          width: max-content;
         }
         @include desktop {
-
+          width: max-content;
+          font-size: 4rem;
+          margin-bottom: 29px;
         }
         @include wideScreens {
 
@@ -175,11 +178,16 @@
         width: 272px;
         line-height: 19px;
         margin-bottom: 24px;
-        @include tablet-small {
 
+        @include tablet-small {
+          font-size: 1.5rem;
+          width: max-content;
+          line-height: 28px;
+          margin-bottom: 29px;
         }
         @include tablet {
-
+          width: max-content;
+          margin-bottom: 48px;
         }
         @include desktop {
 
@@ -272,6 +280,7 @@
         color: #1f75fe;
         @include tablet-small {
           width: 293px;
+          font-size: 1.15rem;
         }
         @include tablet {
           width: 402px;
@@ -303,17 +312,17 @@
 
   .consultingImageClass {
     display: none;
-    //@include phone{
-    //  display: flex;
-    //  position: absolute;
-    //  bottom: 0;
-    //  right: -124px;
-    //  width: 553px;
-    //  height: auto;
-    //  object-fit: cover;
-    //  z-index: 0;
-    //  opacity: 0.5;
-    //}
+    @include phone{ // для добавления наложения полупрозрачной подложки 360-768px
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      right: -124px;
+      width: 553px;
+      height: auto;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.5;
+    }
 
     @include tablet-small {
       display: flex;
@@ -337,5 +346,43 @@
       right: -74px;
     }
   }
+
+  .dealConsultingImageClass {
+    display: none;
+    @include phone{ // для добавления наложения полупрозрачной подложки 360-768px
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      right: -124px;
+      width: 553px;
+      height: auto;
+      object-fit: cover;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    @include tablet-small {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      right: -166px;
+      width: 702px;
+      height: auto;
+      object-fit: cover;
+      opacity: 1;
+    }
+    @include tablet {
+      right: -120px;
+      width: 534px;
+    }
+    @include desktop {
+      right: -146px;
+      width: 623px;
+    }
+    @include wideScreens {
+      right: -141px;
+    }
+  }
+
 }
 
