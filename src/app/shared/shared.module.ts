@@ -33,6 +33,7 @@ import {CascadeSelectModule} from "primeng/cascadeselect";
 import { LandingStatisticsCardComponent } from './components/landing-statistics-card/landing-statistics-card.component';
 import {StyleClassModule} from "primeng/styleclass";
 import { LandingPromoCardComponent } from './components/landing-promo-card/landing-promo-card.component';
+import {CardModule} from "primeng/card";
 
 const components = [
   HeaderComponent,
@@ -73,7 +74,8 @@ const components = [
 		TreeModule,
 		CascadeSelectModule,
 		RouterModule,
-		StyleClassModule
+		StyleClassModule,
+		CardModule
 	],
 	exports: [...components, LandingPromoCardComponent]
 })
