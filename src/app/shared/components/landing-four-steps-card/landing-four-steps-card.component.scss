@@ -13,34 +13,53 @@
 }
 
 .app-landing-four-steps-card{
+  margin: 0 auto;
   .steps {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 24px;
-    width: 1440px;
-    height: 414px;
 
-    @include ul-xl {
-      width: 1392px;
-    }
 
-    @include xl-lg {
-      width: 1024px;
-      height: 810px;
-    }
 
-    @include lg-md {
-      width: 768px;
-      height: 844px;
       gap: 16px;
-    }
 
-    @include md {
-      flex-direction: column;
-      width: 320px;
-      height: 1640px;
-      gap: 16px;
+    @include tablet-small {
+      //width: 768px;
+      //height: 844px;
     }
+    @include tablet{
+      width: 1023px;
+      //width: 1200px;
+        height: 810px;
+    }
+    @include desktop{
+        //width: 1392px;
+      justify-content: space-between;
+      gap: 24px;
+      width: 1393px;
+      height: 414px;
+    }
+    @include wideScreens{
+      width: 1440px;
+    }
+    //@include ul-xl {
+
+    //}
+    //
+    //@include xl-lg {
+
+    //}
+    //
+    //@include lg-md {
+
+    //}
+    //
+    //@include md {
+    //  flex-direction: column;
+    //  width: 320px;
+    //  height: 1640px;
+    //  gap: 16px;
+    //}
 
     &-header {
       font-family: "Roboto", sans-serif;
@@ -75,16 +94,22 @@
     }
 
     &-item {
-      width: 342px;
+      width: 330px;
       height: 414px;
       background-color: #f5f8fa;
 
       @include ul-xl {
-        width: 330px;
+        width: 490px;
       }
 
       @include xl-lg {
-        width: 500px;
+        //width: 500px;
+        //width: 490px;
+        //width: 370px;
+
+        //width: 400px;
+
+        width: 376px;
         height: 393px;
       }
 
