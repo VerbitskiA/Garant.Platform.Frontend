@@ -28,12 +28,13 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
-  .primeContainer {
+  .primeContainer { // кастомная стилизация p-card
     height: 159px !important;
     margin: 0 auto 19px !important;
     width: auto !important;
     border-radius: 24px !important;
     background-color: #f5f8fa;
+    box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%) !important;
 
     @include tablet-small {
       padding-bottom: 30px;
@@ -46,20 +47,11 @@
       height: 340px !important;
     }
   }
-  //.p-card {
-  //  height: 200px !important;
-  //}
+  .p-card-body{
+    padding: 0 !important;
+  }
 
   &-item {
-    //width: auto;
-    //border-radius: 24px;
-    //margin-bottom: 19px;
-    //background-color: #f5f8fa;
-    //
-    //@include tablet-small {
-    //  padding-bottom: 30px;
-    //}
-
     &__number {
       font-size: 2rem;
       display: flex;
