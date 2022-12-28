@@ -1,0 +1,221 @@
+@import '../../../../assets/styles/design/design';
+@import "../../../../assets/styles/media-quaries";
+
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                         not supported by any browser */
+}
+
+.app-landing-four-steps-card{
+  .steps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    width: 1440px;
+    height: 414px;
+
+    @include ul-xl {
+      width: 1392px;
+    }
+
+    @include xl-lg {
+      width: 1024px;
+      height: 810px;
+    }
+
+    @include lg-md {
+      width: 768px;
+      height: 844px;
+      gap: 16px;
+    }
+
+    @include md {
+      flex-direction: column;
+      width: 320px;
+      height: 1640px;
+      gap: 16px;
+    }
+
+    &-header {
+      font-family: "Roboto", sans-serif;
+      font-size: 3rem;
+      font-weight: 500;
+      color: #000000;
+      margin-top: 80px;
+      margin-bottom: 32px;
+
+      @include ul-xl {
+        font-size: 2rem;
+        margin-top: 74px;
+      }
+
+      @include xl-lg {
+        font-size: 2rem;
+        margin-top: 64px;
+      }
+
+      @include lg-md {
+        line-height: 28px;
+        font-size: 1.5rem;
+        margin-top: 36px;
+      }
+
+      @include md {
+        width: 320px;
+        line-height: 28px;
+        font-size: 1.5rem;
+        margin-top: 24px;
+      }
+    }
+
+    &-item {
+      width: 342px;
+      height: 414px;
+      background-color: #f5f8fa;
+
+      @include ul-xl {
+        width: 330px;
+      }
+
+      @include xl-lg {
+        width: 500px;
+        height: 393px;
+      }
+
+      @include lg-md {
+        width: 376px;
+      }
+
+      @include md {
+        width: 320px;
+        height: 398px;
+      }
+
+      &__image {
+        width: 294px;
+        height: 103px;
+        margin-top: 24px;
+        margin-left: 24px;
+        margin-right: 24px;
+        margin-bottom: 25px;
+
+        @include ul-xl {
+          width: 282px;
+        }
+
+        @include xl-lg {
+          width: 452px;
+        }
+
+        @include lg-md {
+          width: 328px;
+        }
+
+        @include md {
+          width: 288px;
+          margin-top: 16px;
+          margin-left: 16px;
+          margin-right: 16px;
+        }
+      }
+
+      &__title {
+        font-family: "Roboto", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #2c2c2c;
+        line-height: 28px;
+        margin-left: 24px;
+        margin-right: 24px;
+        margin-bottom: 4px;
+
+        @include md {
+          margin-left: 16px;
+          margin-right: 16px;
+        }
+      }
+
+      &__subtitle {
+        font-family: "Roboto", sans-serif;
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: #646464;
+        line-height: 14px;
+        margin-left: 24px;
+        margin-right: 24px;
+        margin-bottom: 8px;
+
+        @include md {
+          margin-left: 16px;
+          margin-right: 16px;
+        }
+      }
+
+      &__stage {
+        font-family: "Roboto", sans-serif;
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: #2c2c2c;
+        line-height: 21px;
+        margin-left: 24px;
+        margin-right: 24px;
+        margin-bottom: 24px;
+
+        @include md {
+          margin-left: 16px;
+          margin-right: 16px;
+        }
+      }
+
+      &__text {
+        font-family: "Roboto", sans-serif;
+        font-size: 1.125rem;
+        font-weight: 400;
+        color: #2c2c2c;
+        line-height: 21px;
+        height: 63px;
+        margin-left: 24px;
+        margin-right: 24px;
+        margin-bottom: 24px;
+
+        @include xl-lg {
+          height: 42px;
+        }
+
+        @include md {
+          margin-left: 16px;
+          margin-right: 16px;
+        }
+      }
+
+      &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Roboto", sans-serif;
+        font-size: 1.125rem;
+        margin-left: 24px;
+        margin-right: 24px;
+        // min-width: 125px;
+        height: 53px;
+        padding: 16px;
+        border: 0;
+        border-radius: 4px;
+        color: #ffffff;
+        background-color: #1f1f1f;
+
+        @include md {
+          margin-left: 16px;
+          margin-right: 16px;
+        }
+      }
+    }
+  }
+
+}

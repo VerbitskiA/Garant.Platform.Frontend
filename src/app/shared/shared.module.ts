@@ -34,6 +34,7 @@ import { LandingStatisticsCardComponent } from './components/landing-statistics-
 import {StyleClassModule} from "primeng/styleclass";
 import { LandingPromoCardComponent } from './components/landing-promo-card/landing-promo-card.component';
 import {CardModule} from "primeng/card";
+import { LandingFourStepsCardComponent } from './components/landing-four-steps-card/landing-four-steps-card.component';
 
 const components = [
   HeaderComponent,
@@ -50,7 +51,7 @@ const components = [
 ];
 
 @NgModule({
-  declarations: [...components, LandingPromoCardComponent],
+  declarations: [...components, LandingPromoCardComponent, LandingFourStepsCardComponent],
 	imports: [
 		CommonModule,
 		// RouterLinkWithHref,
@@ -77,7 +78,7 @@ const components = [
 		StyleClassModule,
 		CardModule
 	],
-	exports: [...components, LandingPromoCardComponent]
+  exports: [...components, LandingPromoCardComponent, LandingFourStepsCardComponent, LandingFourStepsCardComponent]
 })
 export class SharedModule {
 }

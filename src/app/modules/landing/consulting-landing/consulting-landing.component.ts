@@ -13,6 +13,7 @@ import {LandingRequestService} from '../../../core/services/landing/landing.serv
 import {CommonModels} from "../../../models/common-models";
 import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
 import {LandingStatistic} from "../../../shared/components/landing-statistics-card/landing-statistics-card.component";
+import {LandingFourStepsData} from "../../../shared/components/landing-four-steps-card/landing-four-steps-card.component";
 
 export const headerCardsData = {
   title: 'Консультация',
@@ -44,6 +45,47 @@ export const allCardStatisticData: LandingStatistic.IStatisticItem[] = [
     item_text: `раз в среднем за одну сделку обращаются к юристам`
   }
 ]
+
+
+export const allCardsFourStepsData: LandingFourStepsData.IConsultationItem[] = [
+  {
+    title: 'Проверка бизнеса',
+    subtitle: 'или франшиз',
+    stage: 'Шаг 1',
+    item_text: 'До приобретения бизнеса и начала сделки следует заказать полную проверку.',
+    item__button: 'Проверить бизнес',
+    image: '../../../../assets/images/consulting-landing/loupe-clip-art-6%201.png',
+    alt: 'Лупа'
+  },
+  {
+    title: 'Консультация',
+    subtitle: 'на каждом этапе сделки',
+    stage: 'Шаг 2',
+    item_text: 'После оплаты каждого этапа вы становитесь полноправным владельцем бизнеса',
+    item__button: 'Получить консультацию',
+    image: '../../../../assets/images/consulting-landing/credit_card_PNG24%201.png',
+    alt: 'Кредитная карточка'
+  },
+  {
+    title: 'Составление договора',
+    subtitle: 'в процессе сделки',
+    stage: 'Шаг 3',
+    item_text: 'Вы можете заказать составление договора для сделки у юриста и всех актов.',
+    item__button: 'Заказать договор',
+    image: '../../../../assets/images/consulting-landing/pen-clip-art-6%202.png',
+    alt: 'Ручка'
+  },
+  {
+    title: 'Согласование договор',
+    subtitle: 'и корректировки',
+    stage: 'Шаг 4',
+    item_text: 'В процессе сделки вы будете получать договор от продавца. Юрист проверит его.',
+    item__button: 'Получить сопровождение',
+    image: '../../../../assets/images/consulting-landing/file-clip-art-6%203.png',
+    alt: 'Папка'
+  }
+]
+
 export const consultationCardsData = {
   title: 'Проверка',
   subtitle: 'юридических документов',
@@ -66,6 +108,8 @@ export const consultationCardsData = {
 export class ConsultingLandingComponent implements OnInit {
   public headerCardsData = headerCardsData;
   public allCardStatisticData = allCardStatisticData;
+  public allCardsFourStepsData = allCardsFourStepsData;
+
   public consultationCardsData = consultationCardsData;
   public backgroundColorVariant = BackgroundColorVariant;
 
