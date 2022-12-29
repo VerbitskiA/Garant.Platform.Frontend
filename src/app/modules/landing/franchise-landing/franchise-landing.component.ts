@@ -19,7 +19,10 @@ import {CommonModels} from "../../../models/common-models";
 import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
 import {LandingHeader} from "../../../shared/components/landing-header-card/landing-header-card.component";
 import {LandingStatistic} from "../../../shared/components/landing-statistics-card/landing-statistics-card.component";
-import {LandingPromo} from "../../../shared/components/landing-promo-card/landing-promo-card.component"; //!!!!
+import {LandingPromo} from "../../../shared/components/landing-promo-card/landing-promo-card.component";
+import {
+  LandingFourStepsData
+} from "../../../shared/components/landing-four-steps-card/landing-four-steps-card.component"; //!!!!
 
 
 export const headerCardsData: LandingHeader.IHeaderItem =   {
@@ -50,6 +53,46 @@ export const allCardStatisticData: LandingStatistic.IStatisticItem[] = [
   {
     item_number: '14',
     item_text: `человек будут работать над вашим проектом`
+  }
+]
+
+export const landingFourStepsDataHeader = "Бонусы от GoBizy"
+export const allCardsFourStepsData: LandingFourStepsData.IConsultationItem[] = [
+  {
+    title: 'Бесплатное размещение в каталоге',
+    subtitle: 'на срок от 3 до 12 месяцев. Срок размещения зависит от выбранного пакетаили франшиз',
+    stage: 'Шаг 1',
+    item_text: 'После покупки любого из пакетов вы получите бесплатное размещине в сервисе',
+    item__button: 'Упаковать франшизу',
+    image: '../../../../assets/images/consulting-landing/loupe-clip-art-6%201.png',
+    alt: 'Лупа'
+  },
+  {
+    title: 'Книга продаж и обучение вашего менеджера',
+    subtitle: 'в любом выбранном пакете, вне зависмости от стоимости',
+    stage: 'Шаг 2',
+    item_text: 'Помощь с обучением вашего менеджера, составление книги продаж',
+    item__button: 'Обучить менеджера',
+    image: '../../../../assets/images/consulting-landing/credit_card_PNG24%201.png',
+    alt: 'Кредитная карточка'
+  },
+  {
+    title: 'Проверка товарного знака',
+    subtitle: 'полная и оперативная проверка товарного знака',
+    stage: 'Шаг 3',
+    item_text: 'Бесплатная и быстрая проверка товарного знака франшизы',
+    item__button: 'Проверить товарный знак',
+    image: '../../../../assets/images/consulting-landing/pen-clip-art-6%202.png',
+    alt: 'Ручка'
+  },
+  {
+    title: 'Функция управляющей компании',
+    subtitle: 'Отдельный пакет по упаковке с полным делигированием',
+    stage: 'Шаг 4',
+    item_text: 'Все функции по продаже и открытию франшиз мы возьмем на себя',
+    item__button: 'Нанять УК',
+    image: '../../../../assets/images/consulting-landing/file-clip-art-6%203.png',
+    alt: 'Папка'
   }
 ]
 
@@ -98,6 +141,8 @@ export const promoCardData: LandingPromo.IPromoItem = {
 export class FranchiseLandingComponent implements OnInit {
   public headerCardsData = headerCardsData;
   public allCardStatisticData = allCardStatisticData;
+  public landingFourStepsDataHeader = landingFourStepsDataHeader;
+  public allCardsFourStepsData = allCardsFourStepsData;
   public consultationCardsData = consultationCardsData;
   public consultationCardsData2 = consultationCardsData2;
 

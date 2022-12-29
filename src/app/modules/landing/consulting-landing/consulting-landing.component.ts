@@ -46,7 +46,7 @@ export const allCardStatisticData: LandingStatistic.IStatisticItem[] = [
   }
 ]
 
-
+export const landingFourStepsDataHeader = "4 шага к безопасной сделке онлайн"
 export const allCardsFourStepsData: LandingFourStepsData.IConsultationItem[] = [
   {
     title: 'Проверка бизнеса',
@@ -108,6 +108,8 @@ export const consultationCardsData = {
 export class ConsultingLandingComponent implements OnInit {
   public headerCardsData = headerCardsData;
   public allCardStatisticData = allCardStatisticData;
+
+  public landingFourStepsDataHeader = landingFourStepsDataHeader;
   public allCardsFourStepsData = allCardsFourStepsData;
 
   public consultationCardsData = consultationCardsData;

@@ -45,7 +45,8 @@
       flex-wrap: nowrap;
       gap: 24px;
       width: 1393px;
-      height: 414px;
+      //height: 414px;
+      height: fit-content;
     }
     @include wideScreens {
       width: 1440px;
@@ -81,20 +82,23 @@
       width: 100%;
 
       @include tablet-small {
-        height: 417px;
+        //height: 417px;
+        height: auto;
         width: 374px;
+        padding-bottom: 58px;
+        position: relative;
       }
       @include tablet {
-        height: 393px;
+        //height: 393px;
         width: 500px;
       }
       @include desktop {
-        height: 414px;
+        //height: 414px;
         width: 330px;
       }
       @include wideScreens {
+        //height: 414px;
         width: 342px;
-        height: 414px;
       }
 
       &__image {
@@ -202,6 +206,8 @@
         @include tablet-small {
           margin-left: 24px;
           width: max-content;
+          position: absolute;
+          bottom: 15px;
         }
       }
     }

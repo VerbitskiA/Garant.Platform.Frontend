@@ -1,7 +1,6 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {isEmpty} from "lodash";
 
-
 export namespace LandingFourStepsData {
   export interface IConsultationItem {
     title: string;
@@ -29,7 +28,7 @@ export namespace LandingFourStepsData {
   encapsulation: ViewEncapsulation.None
 })
 export class LandingFourStepsCardComponent implements OnInit {
-  @Input() public cardTitle: string = "4 шага к безопасной сделке онлайн";
+  @Input() public landingFourStepsDataHeader: string | undefined
   @Input() public allCardsFourStepsData: LandingFourStepsData.IConsultationItem[] | undefined;
 
   public get dataIsSets(): boolean {
