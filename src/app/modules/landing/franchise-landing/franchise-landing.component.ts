@@ -127,9 +127,11 @@ export const consultationCardsData2: LandingConsultation.IConsultationItem =   {
 
 export const promoCardData: LandingPromo.IPromoItem = {
   title: "Вы можете приобрести бизнес с гарантиями",
-  subtitle: "Вам больше не нужно покупать бизнес онлайн! Все тренды сводятся к покупке бизнеса и управлению им из дома. Предлагаем получить консультацию по покупке бизнеса онлайн.",
-  button_accept: "Получить консультацию",
-  button_later: "Позднее"
+  subtitle: "Воспользовавшись нашим сервисом вы сможете провести безопасную сделку через интернет, провести все средства онлайн и стать полноправным владельцем бизнеса уже сегодня.",
+  button_accept: "Подробнее",
+  button_later: "Не интересно",
+  image: '../../../assets/images/franchise-landing/no2.png',
+  alt: 'крестик'
 }
 
 @Component({
