@@ -20,9 +20,11 @@
   }
   @include tablet {
     padding-top: 30px;
+    padding-bottom: 30px;
   }
   @include desktop {
     padding-top: 44px;
+    padding-bottom: 44px;
   }
   @include wideScreens {
 
