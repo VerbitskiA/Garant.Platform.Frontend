@@ -54,7 +54,7 @@
 
     }
 
-    &-content {
+    &_content {
       grid-area: header-content;
       display: flex;
       flex-direction: column;
@@ -106,7 +106,7 @@
         }
       }
 
-      .headerContentSubtitle {
+      &__headerContentSubtitle {
         font-family: "Roboto", sans-serif;
         font-weight: 700;
         color: #2c2c2c;
@@ -127,7 +127,7 @@
         }
       }
 
-      .consultingHeaderContentSubtitle {
+      &__consultingHeaderContentSubtitle {
         font-family: "Roboto", sans-serif;
         font-weight: 700;
         color: #2c2c2c;
@@ -153,7 +153,7 @@
         }
       }
 
-      .franchiseHeaderContentSubtitle {
+      &__franchiseHeaderContentSubtitle {
         font-family: "Roboto", sans-serif;
         font-weight: 700;
         color: #2c2c2c;
@@ -175,7 +175,7 @@
         }
       }
 
-      .headerContentText {
+      &__headerContentText {
         font-family: "Roboto", sans-serif;
         font-weight: 400;
         color: #7a7a7a;
@@ -201,7 +201,7 @@
         }
       }
 
-      .consultingHeaderContentText {
+      &__consultingHeaderContentText {
         font-family: "Roboto", sans-serif;
         font-weight: 400;
         color: #7a7a7a;
@@ -231,7 +231,7 @@
 
       }
 
-      .franchiseHeaderContentText {
+      &__franchiseHeaderContentText {
         font-family: "Roboto", sans-serif;
         font-weight: 400;
         color: #7a7a7a;
@@ -253,7 +253,7 @@
 
       }
 
-      .consultingHeaderButton{
+      &__consultingHeaderButton{
         display: none;
 
         @include tablet-small {
@@ -274,7 +274,7 @@
           background-color: #1f75fe;
         }
       }
-      .franchiseHeaderButton{
+      &__franchiseHeaderButton{
         display: none;
 
         @include tablet-small {
@@ -293,6 +293,7 @@
           padding: 24px 32px;
           margin: 0;
           background-color: #1f75fe;
+
           @include tablet{
             margin: 28px 0;
           }
@@ -302,7 +303,7 @@
         }
       }
 
-      .dealHeaderButton{
+      &__dealHeaderButton{
         display: none;
 
         @include tablet-small {

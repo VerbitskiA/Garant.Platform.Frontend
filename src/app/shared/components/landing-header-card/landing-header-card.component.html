@@ -1,15 +1,15 @@
 <div class="app-landing-header-card">
   <div class="header unselectable" *ngIf="cardData">
-    <div class="header-content">
-      <div class="header-content__title">{{cardData.title}}</div>
+    <div class="header_content">
+      <div class="header_content__title">{{cardData.title}}</div>
       <div
-        [ngClass]="{headerContentSubtitle:dealFlagClass, consultingHeaderContentSubtitle:consultingFlagClass,franchiseHeaderContentSubtitle:franchiseFlagClass}">{{cardData.subtitle}}</div>
+        [ngClass]="{header_content__headerContentSubtitle:dealFlagClass, header_content__consultingHeaderContentSubtitle:consultingFlagClass,header_content__franchiseHeaderContentSubtitle:franchiseFlagClass}">{{cardData.subtitle}}</div>
       <div
-        [ngClass]="{headerContentText: dealFlagClass, consultingHeaderContentText:consultingFlagClass,franchiseHeaderContentText:franchiseFlagClass}">{{cardData.content_text}}</div>
-      <button pButton [ngClass]="{dealHeaderButton:dealFlagClass, consultingHeaderButton:consultingFlagClass,franchiseHeaderButton:franchiseFlagClass}" (click)="action($event)"
+        [ngClass]="{header_content__headerContentText: dealFlagClass, header_content__consultingHeaderContentText:consultingFlagClass,header_content__franchiseHeaderContentText:franchiseFlagClass}">{{cardData.content_text}}</div>
+      <button pButton [ngClass]="{header_content__dealHeaderButton:dealFlagClass, header_content__consultingHeaderButton:consultingFlagClass,header_content__franchiseHeaderButton:franchiseFlagClass}" (click)="action($event)"
               [label]="cardData.content__button"></button>
 <!--      header-content__button}"-->
-      <button pButton class="header-content__button2" (click)="action($event)"
+      <button pButton class="header_content__button2" (click)="action($event)"
               [label]="cardData.content__button2 || '' "></button>
 
     </div>
