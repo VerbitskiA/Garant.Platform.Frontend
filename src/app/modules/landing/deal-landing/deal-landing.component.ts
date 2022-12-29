@@ -15,6 +15,9 @@ import {CommonModels} from "../../../models/common-models";
 import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
 import {LandingStatistic} from "../../../shared/components/landing-statistics-card/landing-statistics-card.component";
 import {LandingHeader} from "../../../shared/components/landing-header-card/landing-header-card.component";
+import {
+  LandingFourStepsData
+} from "../../../shared/components/landing-four-steps-card/landing-four-steps-card.component";
 
 export const headerCardsData: LandingHeader.IHeaderItem  = {
   title: 'Онлайн сделка',
@@ -61,6 +64,45 @@ export const consultationCardsData = {
   alt: 'Фото консультанта'
 };
 
+export const landingFourStepsDataHeader = "4 шага к безопасной сделке онлайн"
+export const allCardsFourStepsData: LandingFourStepsData.IConsultationItem[] = [
+  {
+    title: 'Выбрать бизнес',
+    subtitle: 'или франшизу',
+    stage: 'Шаг 1',
+    item_text: 'Воспользуйтесь каталогом для удобного и быстрого поиска по вашим параметрам',
+    item__button: 'Начать поиск',
+    image: '../../../../assets/images/consulting-landing/loupe-clip-art-6%201.png',
+    alt: 'Лупа'
+  },
+  {
+    title: 'Пройти регистрацию',
+    subtitle: 'на нашем портале',
+    stage: 'Шаг 2',
+    item_text: 'Вы можете пройти быструю регистрацию до начала выбора бизнеса или во время',
+    item__button: 'Пройти регистрацию',
+    image: '../../../../assets/images/consulting-landing/credit_card_PNG24%201.png',
+    alt: 'Кредитная карточка'
+  },
+  {
+    title: 'Начать сделку',
+    subtitle: 'и распланировать этапы сделки',
+    stage: 'Шаг 3',
+    item_text: 'Вы сможете распланировать онлайн сделку посредством сервиса гарант',
+    item__button: 'Начать сделку',
+    image: '../../../../assets/images/consulting-landing/pen-clip-art-6%202.png',
+    alt: 'Ручка'
+  },
+  {
+    title: 'Провести оплату',
+    subtitle: 'по каждому этапу',
+    stage: 'Шаг 4',
+    item_text: 'После оплаты каждого этапа вы становитесь полноправным владельцем бизнеса',
+    item__button: 'Получить консультацию',
+    image: '../../../../assets/images/consulting-landing/file-clip-art-6%203.png',
+    alt: 'Папка'
+  }
+]
 
 @Component({
   selector: 'app-deal-landing',
@@ -72,6 +114,8 @@ export const consultationCardsData = {
 export class DealLandingComponent implements OnInit {
   public headerCardsData = headerCardsData;
   public allCardStatisticData = allCardStatisticData;
+  public allCardsFourStepsData = allCardsFourStepsData;
+  public landingFourStepsDataHeader = landingFourStepsDataHeader;
   public consultationCardsData = consultationCardsData;
   public backgroundColorVariant = BackgroundColorVariant;
 
