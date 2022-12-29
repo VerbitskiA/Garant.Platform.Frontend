@@ -35,19 +35,14 @@
     gap: 16px;
 
     @include tablet-small {
-      //width: 768px;
-      //height: 844px;
-      //row-gap: 13px;
     }
     @include tablet {
       width: 1023px;
-      //width: 1200px;
+
       height: 810px;
     }
     @include desktop {
       flex-wrap: nowrap;
-      //width: 1392px;
-      //justify-content: space-between;
       gap: 24px;
       width: 1393px;
       height: 414px;
@@ -55,31 +50,12 @@
     @include wideScreens {
       width: 1440px;
     }
-    //@include ul-xl {
-
-    //}
-    //
-    //@include xl-lg {
-
-    //}
-    //
-    //@include lg-md {
-
-    //}
-    //
-    //@include md {
-    //  flex-direction: column;
-    //  width: 320px;
-    //  height: 1640px;
-    //  gap: 16px;
-    //}
 
     &-header {
       font-family: "Roboto", sans-serif;
 
       font-weight: 500;
       color: #000000;
-      //margin-top: 80px;
       margin-bottom: 32px;
 
       width: 320px;
@@ -93,42 +69,15 @@
       @include tablet {
         font-size: 2rem;
       }
-      @include desktop{
+      @include desktop {
         font-size: 3rem;
       }
-
-      //@include ul-xl {
-      //  font-size: 2rem;
-      //  margin-top: 74px;
-      //}
-      //
-      //@include xl-lg {
-      //  font-size: 2rem;
-      //  margin-top: 64px;
-      //}
-      //
-      //@include lg-md {
-      //  line-height: 28px;
-      //  font-size: 1.5rem;
-      //  margin-top: 36px;
-      //}
-      //
-      //@include md {
-      //  width: 320px;
-      //  line-height: 28px;
-      //  font-size: 1.5rem;
-      //  margin-top: 24px;
-      //}
-
-      //font-size: 3rem;
-
     }
 
     &-item {
       background-color: #f5f8fa;
       box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
       height: 400px;
-      //width: 330px;
       width: 100%;
 
       @include tablet-small {
@@ -148,32 +97,11 @@
         height: 414px;
       }
 
-
-      //@include ul-xl {
-      //  width: 490px;
-      //}
-      //
-      //@include xl-lg {
-      //  width: 376px;
-      //  height: 393px;
-      //}
-      //
-      //@include lg-md {
-      //  width: 376px;
-      //}
-      //
-      //@include md {
-      //  width: 320px;
-      //  height: 398px;
-      //}
-
       &__image {
 
         height: 103px;
         width: 288px;
         margin: 16px 16px 25px;
-
-
         @include tablet-small {
           margin: 24px;
         }
@@ -183,33 +111,7 @@
         @include desktop {
           margin: 40px 23px 23px;
         }
-        @include wideScreens {
 
-        }
-
-        //width: 294px;
-        //margin-top: 24px;
-        //margin-left: 24px;
-        //margin-right: 24px;
-
-        //@include ul-xl {
-        //  width: 282px;
-        //}
-        //
-        //@include xl-lg {
-        //  width: 452px;
-        //}
-        //
-        //@include lg-md {
-        //  width: 328px;
-        //}
-        //
-        //@include md {
-        //  //width: 288px;
-        //  //margin-top: 16px;
-        //  //margin-left: 16px;
-        //  //margin-right: 16px;
-        //}
       }
 
       &__title {
@@ -226,22 +128,6 @@
         @include tablet-small {
           margin-left: 24px;
         }
-        @include tablet {
-
-        }
-        @include desktop {
-
-        }
-        @include wideScreens {
-
-        }
-
-        //@include md {
-        //  margin-left: 16px;
-        //  margin-right: 16px;
-        //}
-        //margin-left: 24px;
-        //margin-right: 24px;
       }
 
       &__subtitle {
@@ -258,22 +144,6 @@
         @include tablet-small {
           margin-left: 24px;
         }
-        @include tablet {
-
-        }
-        @include desktop {
-
-        }
-        @include wideScreens {
-
-        }
-
-        //@include md {
-        //  //margin-left: 16px;
-        //  //margin-right: 16px;
-        //}
-        //margin-left: 24px;
-        //margin-right: 24px;
       }
 
       &__stage {
@@ -282,7 +152,6 @@
         font-weight: 500;
         color: #2c2c2c;
         line-height: 21px;
-
         margin-bottom: 24px;
         margin-left: 16px;
         margin-right: 16px;
@@ -290,21 +159,6 @@
         @include tablet-small {
           margin-left: 24px;
         }
-        @include tablet {
-
-        }
-        @include desktop {
-
-        }
-        @include wideScreens {
-
-        }
-
-        //@include md {
-        //  ;
-        //}
-        //margin-left: 24px;
-        //margin-right: 24px;
       }
 
       &__text {
@@ -327,19 +181,6 @@
         @include desktop {
           margin-bottom: 24px;
         }
-        @include wideScreens {
-
-        }
-
-        //@include xl-lg {
-        //  height: 42px;
-        //}
-
-        //@include md {
-        //
-        //}
-        //margin-left: 24px;
-        //margin-right: 24px;
       }
 
       &__button {
@@ -348,10 +189,8 @@
         align-items: center;
         font-family: "Roboto", sans-serif;
         font-size: 1.125rem;
-
         margin-left: 16px;
         margin-right: 16px;
-        // min-width: 125px;
         height: 53px;
         padding: 16px;
         border: 0;
@@ -364,24 +203,7 @@
           margin-left: 24px;
           width: max-content;
         }
-        @include tablet {
-
-        }
-        @include desktop {
-
-        }
-        @include wideScreens {
-
-        }
-
-        //@include md {
-        //  margin-left: 16px;
-        //  margin-right: 16px;
-        //}
-        //margin-left: 24px;
-        //margin-right: 24px;
       }
     }
   }
-
 }
