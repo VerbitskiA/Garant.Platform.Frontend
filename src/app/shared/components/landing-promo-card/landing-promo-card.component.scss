@@ -13,16 +13,16 @@
       padding: 10px;
       position: relative;
       box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
-      @include tablet-small{
-
+      @include tablet-small {
+        padding: 25px 23px;
       }
-      @include tablet{
-
+      @include tablet {
+        padding: 24px 22px;
       }
-      @include desktop{
-
+      @include desktop {
+        padding: 29px 20px;
       }
-      @include wideScreens{
+      @include wideScreens {
         padding: 24px;
       }
 
@@ -33,21 +33,25 @@
         padding-bottom: 16px;
 
         font-size: 17px;
-        line-height: 20px
-      }
-      @include tablet-small{
+        line-height: 20px;
+        @include tablet-small {
+          font-size: 18px;
+          line-height: 21px;
+        }
+        @include tablet {
+          font-size: 18px;
+          line-height: 21px;
+        }
+        @include desktop {
 
+        }
+        @include wideScreens {
+          font-size: 18px;
+          line-height: 21px;
+        }
       }
-      @include tablet{
 
-      }
-      @include desktop{
 
-      }
-      @include wideScreens{
-        font-size: 18px;
-        line-height: 21px;
-      }
 
       &_subtitle {
         font-weight: 400;
@@ -56,16 +60,17 @@
         color: #7A7A7A;
         padding-bottom: 39px;
       }
-      @include tablet-small{
+
+      @include tablet-small {
 
       }
-      @include tablet{
+      @include tablet {
 
       }
-      @include desktop{
+      @include desktop {
 
       }
-      @include wideScreens{
+      @include wideScreens {
         padding-bottom: 40px;
       }
 
@@ -73,37 +78,27 @@
         position: absolute;
         top: 8px;
         right: 8px;
-      }
-      @include tablet-small{
+        @include tablet-small {
+          top: 24px;
+          right: 26px;
+        }
+        @include tablet {
 
-      }
-      @include tablet{
+        }
+        @include desktop {
 
-      }
-      @include desktop{
-
-      }
-      @include wideScreens{
-        top: 20px;
-        right: 20px;
+        }
+        @include wideScreens {
+          top: 23px;
+          right: 23px;
+        }
       }
 
-      .imageClose{
+
+      .imageClose {
         width: 19px;
         height: auto;
         object-fit: cover;
-        @include tablet-small{
-
-        }
-        @include tablet{
-
-        }
-        @include desktop{
-
-        }
-        @include wideScreens{
-          width: 40px;
-        }
       }
 
       &_row {
@@ -111,27 +106,30 @@
           width: fit-content;
           height: 53px;
           background: #1F75FE;
+          //background: greenyellow;
           border-radius: 4px;
           font-weight: 600;
           color: #FFFFFF;
           margin-right: 15px;
           font-size: 16px;
           line-height: 19px;
-        }
-        @include tablet-small{
+          @include tablet-small {
+            font-size: 18px;
+            line-height: 21px;
+          }
+          @include tablet {
+            margin-right: 16px;
+          }
+          @include desktop {
 
+          }
+          @include wideScreens {
+            font-size: 18px;
+            line-height: 21px;
+            margin-right: 15px;
+          }
         }
-        @include tablet{
 
-        }
-        @include desktop{
-
-        }
-        @include wideScreens{
-          font-size: 18px;
-          line-height: 21px;
-          margin-right: 15px;
-        }
 
         &__button_later {
           width: fit-content;
@@ -142,20 +140,23 @@
           color: #7A7A7A;
           font-size: 16px;
           line-height: 19px;
-        }
-        @include tablet-small{
+          @include tablet-small {
+            font-size: 18px;
+            line-height: 21px;
+          }
+          @include tablet {
 
-        }
-        @include tablet{
+          }
+          @include desktop {
 
+          }
+          @include wideScreens {
+            font-size: 18px;
+            line-height: 21px;
+          }
         }
-        @include desktop{
 
-        }
-        @include wideScreens{
-          font-size: 18px;
-          line-height: 21px;
-        }
+
       }
 
 
