@@ -22,10 +22,11 @@ import {LandingStatistic} from "../../../shared/components/landing-statistics-ca
 import {LandingPromo} from "../../../shared/components/landing-promo-card/landing-promo-card.component";
 import {
   LandingFourStepsData
-} from "../../../shared/components/landing-four-steps-card/landing-four-steps-card.component"; //!!!!
+} from "../../../shared/components/landing-four-steps-card/landing-four-steps-card.component";
+import {LandingPacksData} from "../../../shared/components/landing-packs-card/landing-packs-card.component"; //!!!!
 
 
-export const headerCardsData: LandingHeader.IHeaderItem =   {
+export const headerCardsData: LandingHeader.IHeaderItem = {
   title: 'Создание',
   subtitle: 'и упаковка франшиз',
   content_text: 'с бесплатным размещением в каталоге',
@@ -96,7 +97,7 @@ export const allCardsFourStepsData: LandingFourStepsData.IConsultationItem[] = [
   }
 ]
 
-export const consultationCardsData: LandingConsultation.IConsultationItem =   {
+export const consultationCardsData: LandingConsultation.IConsultationItem = {
   title: 'Азамат Булатов',
   subtitle: 'сооснователь проекта',
   content_text: 'Лично ответственный за каждую упакованную франшизу',
@@ -110,7 +111,7 @@ export const consultationCardsData: LandingConsultation.IConsultationItem =   {
   alt: 'Фото сооснователя'
 };
 
-export const consultationCardsData2: LandingConsultation.IConsultationItem =   {
+export const consultationCardsData2: LandingConsultation.IConsultationItem = {
   title: 'Управляющая компания',
   subtitle: 'Особый пакет',
   content_text: "Условия обсуждаются индвидуально.",
@@ -133,6 +134,294 @@ export const promoCardData: LandingPromo.IPromoItem = {
   image: '../../../assets/images/franchise-landing/no2.png',
   alt: 'крестик'
 }
+export const landingPacksDataHeader = 'Пакеты на создание франшиз упаковки'
+export const allCardsPacksData: LandingPacksData.IConsultationItem[] = [
+  {
+    image_pack: "../../../../assets/images/franchise-landing/fast-start%201.png",
+    alt: "Пакет из 7 инструментов",
+    title: 'Пакет “Быстрый старт”',
+    item_text: "Если у Вас за порогом стоит потенциальный покупатель или Вы хотите просто протестировать нишу, то этот пакет именно для Вас!",
+    item__yes_image: "../../../../assets/images/franchise-landing/YES.png",
+    item__no_image: "../../../../assets/images/franchise-landing/NO.png",
+    item__list: [
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Аудит бизнеса и анализ конкурентов"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка состава франшизы: определение стоимости франшизы, создание уникального предложения и концепции франшизы"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка пакетов франшизы и определение их стоимости"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Создание финансовой модели франшизы (инвестиции в запуск доходность и окупаемость)"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка договора коммерческой концессии/лицензионный договор"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Презентация франшизы (маркетинг кит)"
+      },
+
+      {
+        item_class: "packs-item__no",
+        item__tool: "Разработка сайта для продажи франшизы (до 10 страниц)"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Книга продаж Вашей франшизы"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Обучение и аттестация Вашего менеджера по продажам"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Внедрение CRM системы для аналитики продаж франшизы"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Разработка фирменного стиля компании"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Руководство по запуску франшизы (франчбук)"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Разработка стратегии: «Каналы продаж франшизы»"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Настройка рекламной кампании, для запуска продаж Вашей франшизы либо размещение в ТОП-овом каталоге франшиз"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Внедрение системы записи звонков"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Контроль качества звонков менеджера, нашим руководителем отдела продаж"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Совместная обработка звонков и возникающих вопросов у клиента"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Настройка CRM-системы"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Гарантированное сопровождение и доведение до первых продаж франшизы"
+      },
+    ],
+    item_bottom__title: "Срок",
+    item_bottom__title_value: "20 дней",
+    item_bottom__text: "Бесплатный бонус",
+    item_bottom__text1: "обучение вашего менеджера",
+    item_bottom__price: "Стоимость пакета",
+    item_bottom__price_value: "350 000 ₽",
+    item_bottom__button: "Упаковать франшизу"
+  },
+
+  {
+    image_pack: "../../../../assets/images/franchise-landing/fast-start%202.png",
+    alt: "Пакет из 15 инструментов",
+    title: 'Пакет “Франшиза под ключ”',
+    item_text: "Этот пакет для Вас, если Вам нужен полный комплекс услуг необходимых для продажи франшизы и запуска Вашего франчайзи.",
+    item__yes_image: "../../../../assets/images/franchise-landing/YES.png",
+    item__no_image: "../../../../assets/images/franchise-landing/NO.png",
+    item__list: [
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Аудит бизнеса и анализ конкурентов"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка состава франшизы: определение стоимости франшизы, создание уникального предложения и концепции франшизы"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка пакетов франшизы и определение их стоимости"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Создание финансовой модели франшизы (инвестиции в запуск доходность и окупаемость)"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка договора коммерческой концессии/лицензионный договор"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Презентация франшизы (маркетинг кит)"
+      },
+
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка сайта для продажи франшизы (до 10 страниц)"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Книга продаж Вашей франшизы"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Обучение и аттестация Вашего менеджера по продажам"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Внедрение CRM системы для аналитики продаж франшизы"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка фирменного стиля компании"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Руководство по запуску франшизы (франчбук)"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Разработка стратегии: «Каналы продаж франшизы»"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Настройка рекламной кампании, для запуска продаж Вашей франшизы либо размещение в ТОП-овом каталоге франшиз"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Внедрение системы записи звонков"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Контроль качества звонков менеджера, нашим руководителем отдела продаж"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Совместная обработка звонков и возникающих вопросов у клиента"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Настройка CRM-системы"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Гарантированное сопровождение и доведение до первых продаж франшизы"
+      },
+    ],
+    item_bottom__title: "Срок",
+    item_bottom__title_value: "25 дней",
+    item_bottom__text: "Бесплатный бонус",
+    item_bottom__text1: "обучение вашего менеджера",
+    item_bottom__price: "Стоимость пакета",
+    item_bottom__price_value: "480 000 ₽",
+    item_bottom__button: "Упаковать франшизу"
+  },
+
+  {
+    image_pack: "../../../../assets/images/franchise-landing/fast-start%203.png",
+    alt: "Пакет из 25 инструментов",
+    title: 'Пакет “Доведение до продаж”',
+    item_text: "В рамках пакета быстрый старт вы получаете полностью упакованный бизнес во франшизу + обученного менеджера.",
+    item__yes_image: "../../../../assets/images/franchise-landing/YES.png",
+    item__no_image: "../../../../assets/images/franchise-landing/NO.png",
+    item__list: [
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Аудит бизнеса и анализ конкурентов"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка состава франшизы: определение стоимости франшизы, создание уникального предложения и концепции франшизы"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка пакетов франшизы и определение их стоимости"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Создание финансовой модели франшизы (инвестиции в запуск доходность и окупаемость)"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка договора коммерческой концессии/лицензионный договор"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Презентация франшизы (маркетинг кит)"
+      },
+
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка сайта для продажи франшизы (до 10 страниц)"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Книга продаж Вашей франшизы"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Обучение и аттестация Вашего менеджера по продажам"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Внедрение CRM системы для аналитики продаж франшизы"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка фирменного стиля компании"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Руководство по запуску франшизы (франчбук)"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка стратегии: «Каналы продаж франшизы»"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Настройка рекламной кампании, для запуска продаж Вашей франшизы либо размещение в ТОП-овом каталоге франшиз"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Внедрение системы записи звонков"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Контроль качества звонков менеджера, нашим руководителем отдела продаж"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Совместная обработка звонков и возникающих вопросов у клиента"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Настройка CRM-системы"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Гарантированное сопровождение и доведение до первых продаж франшизы"
+      },
+    ],
+    item_bottom__title: "Срок",
+    item_bottom__title_value: "35 дней",
+    item_bottom__text: "Бесплатный бонус",
+    item_bottom__text1: "обучение вашего менеджера",
+    item_bottom__price: "Стоимость пакета",
+    item_bottom__price_value: "750 000 ₽",
+    item_bottom__button: "Упаковать франшизу"
+  }
+]
+
 
 @Component({
   selector: 'app-franchise-landing',
@@ -149,6 +438,9 @@ export class FranchiseLandingComponent implements OnInit {
   public consultationCardsData2 = consultationCardsData2;
 
   public promoCardData = promoCardData;
+
+  public allCardsPacksData = allCardsPacksData;
+  public landingPacksDataHeader = landingPacksDataHeader;
 
   public backgroundColorVariant = BackgroundColorVariant;
   aPopularBusiness: any[] = [];
@@ -230,7 +522,7 @@ export class FranchiseLandingComponent implements OnInit {
     this.routeParam = this.route.snapshot.queryParams['businessId'];
   }
 
-  public landingHeaderCard(event: any): void{
+  public landingHeaderCard(event: any): void {
     console.log('landingHeaderCard', event);
   }
 

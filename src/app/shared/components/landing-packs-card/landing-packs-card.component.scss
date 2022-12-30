@@ -1,0 +1,236 @@
+@import "../../../../assets/styles/media-quaries";
+
+@import '../../../../assets/styles/design/design';
+
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                         not supported by any browser */
+}
+
+.app-landing-packs-card {
+
+
+  .packs {
+    display: flex;
+    gap: 24px;
+    max-width: 1440px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+
+    @include phone {
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    @include tablet {
+      flex-wrap: nowrap;
+      grid-gap: 12px;
+    }
+
+    &-header {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #2c2c2c;
+
+      @include phone {
+        font-size: 19px;
+      }
+    }
+
+    &-item {
+      width: 30%;
+      min-width: 325px;
+      //box-shadow: 0px 4px 44px rgba(0, 0, 0, 0.08);
+      box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
+
+      @include phone {
+        width: 100%;
+      }
+
+      @include tablet-small {
+        margin-bottom: 35px;
+        width: 48%;
+      }
+
+      @include tablet {
+        width: 31%;
+      }
+
+      &__image--pack {
+        width: 100%;
+      }
+
+      &__title {
+        font-size: 1.25rem;
+        border-radius: 8px 8px 0 0;
+        width: 100%;
+        padding: 24px;
+        border: 0;
+        color: #ffffff;
+        background-color: #1653b4;
+        margin-bottom: 16px;
+        text-align: start;
+
+        @include phone {
+          font-size: 22px;
+          padding: 17px;
+        }
+
+        @include tablet-small {
+          font-size: 20px;
+        }
+
+        @include tablet {
+          font-size: 18px;
+        }
+      }
+
+      &__text {
+        font-size: 18px;
+        max-width: 431px;
+        padding: 10px;
+        line-height: 21px;
+        color: #2c2c2c;
+        margin: 0 16px 32px 16px;
+
+        @include phone {
+          padding: 5px;
+        }
+
+        @include tablet-small {
+          padding: 0;
+          margin: 0 16px 32px 12px;
+        }
+
+        @include tablet {
+          font-size: 17px;
+        }
+      }
+
+      &__list {
+        width: 463px;
+        // height: 1730px;
+        padding: 0;
+
+        @include phone {
+          width: 100%;
+        }
+
+        @include tablet-small {
+          width: 100%;
+        }
+
+        li {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          list-style: none;
+          margin-left: 16px;
+          margin-bottom: 32px;
+        }
+      }
+
+      &__yes {
+        display: inline-block;
+        width: 56px;
+        height: 56px;
+      }
+
+      &__no {
+        display: inline-block;
+        width: 56px;
+        height: 56px;
+      }
+
+      &__tool {
+        display: inline-block;
+        font-size: 18px;
+        width: 349px;
+        line-height: 21px;
+        color: #000000;
+        margin-left: 26px;
+        margin-right: 16px;
+
+        @include tablet-small {
+          margin-left: 16px;
+          max-width: 292px;
+        }
+      }
+
+      &-bottom {
+        max-width: 463px;
+        background: #ffffff;
+        //box-shadow: 0px 4px 44px rgba(0, 0, 0, 0.08);
+        box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
+        padding: 16px;
+
+        &__title {
+          font-size: 1.125rem;
+          line-height: 21px;
+          color: #2C2C2C;
+          padding-top: 24px;
+          margin-bottom: 24px;
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          border-bottom: 1px dashed #DADADA;
+          padding-bottom: 24px;
+
+          @include phone {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+          }
+        }
+
+        &__text {
+          font-size: 18px;
+          line-height: 21px;
+          color: #000000;
+        }
+
+        &__text1 {
+          margin-bottom: 24px;
+          padding-bottom: 20px;
+          border-bottom: 1px dashed #DADADA;
+        }
+
+        &__price {
+          display: flex;
+          justify-content: space-between;
+          font-size: 18px;
+          line-height: 21px;
+          padding-bottom: 24px;
+          border-bottom: 1px dashed #DADADA;
+          font-style: normal;
+          font-weight: 400;
+          color: #2C2C2C;
+        }
+
+        &__button {
+          width: 100%;
+          display: flex;
+          font-size: 24px;
+          font-weight: 400;
+          color: #ffffff;
+          line-height: 21px;
+          border: none;
+          //box-shadow: 0px 4px 44px rgba(0, 0, 0, 0.08);
+          box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
+          border-radius: 66px;
+          padding: 24px;
+          margin: 10px auto;
+          background-color: #1f75fe;
+
+        }
+      }
+    }
+  }
+}

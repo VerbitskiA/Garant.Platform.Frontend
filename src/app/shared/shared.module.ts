@@ -75,7 +75,7 @@ const components = [
 		StyleClassModule,
 		CardModule
 	],
-  exports: [...components, LandingPromoCardComponent, LandingFourStepsCardComponent, LandingFourStepsCardComponent]
+  exports: [...components, LandingPromoCardComponent, LandingFourStepsCardComponent, LandingFourStepsCardComponent, LandingPacksCardComponent]
 })
 export class SharedModule {
 }
