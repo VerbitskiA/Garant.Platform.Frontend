@@ -7,6 +7,17 @@
 @import "../../../../assets/styles/media-quaries";
 @import '../../../../assets/styles/design/design';
 
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                         not supported by any browser */
+}
+
 .app-landing-consultation-card {
 
 
@@ -24,14 +35,17 @@
   margin-bottom: 20px;
 
   @include tablet-small {
+    padding: 30px;
     margin-top: 38px;
     margin-bottom: 38px;
   }
   @include tablet {
+    padding: 44px;
     margin-top: 64px;
     margin-bottom: 64px;
   }
   @include desktop {
+    padding: 63px;
     margin-top: 70px;
     margin-bottom: 70px;
   }
