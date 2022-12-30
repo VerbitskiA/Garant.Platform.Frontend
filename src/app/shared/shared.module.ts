@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HeaderComponent} from "./components/header/header.component";
 import {FooterComponent} from "./components/footer/footer.component";
-import {RouterLinkActive, RouterLinkWithHref, RouterModule} from "@angular/router";
+import {RouterModule} from "@angular/router";
 import {GarLibModule} from "../gar-lib/gar-lib.module";
 import {PipesModule} from "../core/pipes/pipes.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
@@ -26,15 +26,15 @@ import {
 } from './components/landing-consultation-card/landing-consultation-card.component';
 import {NgxIntlTelInputModule} from "ngx-intl-tel-input";
 import {InputTextModule} from "primeng/inputtext";
-// import { TestNgPrimeComponent } from './components/test-ng-prime/test-ng-prime.component';
 import {RippleModule} from "primeng/ripple";
 import {TreeModule} from "primeng/tree";
 import {CascadeSelectModule} from "primeng/cascadeselect";
-import { LandingStatisticsCardComponent } from './components/landing-statistics-card/landing-statistics-card.component';
+import {LandingStatisticsCardComponent} from './components/landing-statistics-card/landing-statistics-card.component';
 import {StyleClassModule} from "primeng/styleclass";
-import { LandingPromoCardComponent } from './components/landing-promo-card/landing-promo-card.component';
+import {LandingPromoCardComponent} from './components/landing-promo-card/landing-promo-card.component';
 import {CardModule} from "primeng/card";
-import { LandingFourStepsCardComponent } from './components/landing-four-steps-card/landing-four-steps-card.component';
+import {LandingFourStepsCardComponent} from './components/landing-four-steps-card/landing-four-steps-card.component';
+import {LandingPacksCardComponent} from './components/landing-packs-card/landing-packs-card.component';
 
 const components = [
   HeaderComponent,
@@ -47,14 +47,12 @@ const components = [
   LandingHeaderCardComponent,
   LandingConsultationCardComponent,
   LandingStatisticsCardComponent
-  // TestNgPrimeComponent
 ];
 
 @NgModule({
-  declarations: [...components, LandingPromoCardComponent, LandingFourStepsCardComponent],
+  declarations: [...components, LandingPromoCardComponent, LandingFourStepsCardComponent, LandingPacksCardComponent],
 	imports: [
 		CommonModule,
-		// RouterLinkWithHref,
 		GarLibModule,
 		PipesModule,
 		FormsModule,
@@ -65,7 +63,6 @@ const components = [
 		ProductsModule,
 		PromoModule,
 		NewsModule,
-		// RouterLinkActive,
 		ImageModule,
 		ButtonModule,
 		NgxIntlTelInputModule,
