@@ -14,6 +14,7 @@ import {CommonModels} from "../../../models/common-models";
 import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
 import {LandingStatistic} from "../../../shared/components/landing-statistics-card/landing-statistics-card.component";
 import {LandingFourStepsData} from "../../../shared/components/landing-four-steps-card/landing-four-steps-card.component";
+import {LandingPromo} from "../../../shared/components/landing-promo-card/landing-promo-card.component";
 
 export const headerCardsData = {
   title: 'Консультация',
@@ -100,6 +101,15 @@ export const consultationCardsData = {
   alt: 'Фото проверяющего'
 };
 
+export const promoCardData: LandingPromo.IPromoItem = {
+  title: "Вы можете приобрести бизнес с гарантиями",
+  subtitle: "Воспользовавшись нашим сервисом вы сможете провести безопасную сделку через интернет, провести все средства онлайн и стать полноправным владельцем бизнеса уже сегодня.",
+  button_accept: "Подробнее",
+  button_later: "Не интересно",
+  image: '../../../assets/images/franchise-landing/no2.png',
+  alt: 'крестик'
+}
+
 @Component({
   selector: 'app-consulting-landing',
   templateUrl: './consulting-landing.component.html',
@@ -113,6 +123,8 @@ export class ConsultingLandingComponent implements OnInit {
   public allCardsFourStepsData = allCardsFourStepsData;
 
   public consultationCardsData = consultationCardsData;
+
+  public promoCardData = promoCardData;
   public backgroundColorVariant = BackgroundColorVariant;
 
   aPopularBusiness: any[] = [];

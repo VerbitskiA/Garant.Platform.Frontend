@@ -8,6 +8,8 @@
 @import '../../../../assets/styles/design/design';
 
 .app-landing-consultation-card {
+
+
   box-sizing: border-box;
 
   gap: 32px;
@@ -16,17 +18,30 @@
   box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
   padding: 24px;
   background-color: var(--app-get-call-card);
-  margin-top: 80px;
+
   position: relative;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
   @include tablet-small {
-    padding: 30px;
+    margin-top: 38px;
+    margin-bottom: 38px;
   }
   @include tablet {
-    padding: 44px;
+    margin-top: 64px;
+    margin-bottom: 64px;
   }
   @include desktop {
-    padding: 63px;
+    margin-top: 70px;
+    margin-bottom: 70px;
   }
+  @include wideScreens {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+
+
 
   .consulting {
     display: flex;

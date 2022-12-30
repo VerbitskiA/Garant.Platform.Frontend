@@ -4,6 +4,26 @@
 
 
 .app-landing-promo-card {
+  margin: 20px auto;
+
+  @include tablet-small {
+    margin-top: 38px;
+    margin-bottom: 38px;
+  }
+  @include tablet {
+    margin-top: 64px;
+    margin-bottom: 64px;
+  }
+  @include desktop {
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+  @include wideScreens {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+
   .promo {
     &-item {
       background-color: #F1F6FF;

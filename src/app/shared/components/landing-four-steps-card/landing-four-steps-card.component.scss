@@ -13,21 +13,23 @@
 }
 
 .app-landing-four-steps-card {
-  margin: 0 auto;
+  margin: 20px auto;
 
   @include tablet-small {
-
+    margin-top: 38px;
+    margin-bottom: 38px;
   }
   @include tablet {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    margin-top: 64px;
+    margin-bottom: 64px;
   }
   @include desktop {
-    padding-top: 44px;
-    padding-bottom: 44px;
+    margin-top: 70px;
+    margin-bottom: 70px;
   }
   @include wideScreens {
-
+    margin-top: 80px;
+    margin-bottom: 80px;
   }
 
   .steps {
