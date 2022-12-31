@@ -18,8 +18,8 @@ export namespace LandingPacksData {
     item_bottom__title: string;
     item_bottom__title_value: string;
 
-    item_bottom__text: string;
-    item_bottom__text1: string;
+    item_bottom__text?: string;
+    item_bottom__text1?: string;
     item_bottom__price: string;
     item_bottom__price_value: string;
     item_bottom__button: string;

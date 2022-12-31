@@ -15,6 +15,7 @@ import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
 import {LandingStatistic} from "../../../shared/components/landing-statistics-card/landing-statistics-card.component";
 import {LandingFourStepsData} from "../../../shared/components/landing-four-steps-card/landing-four-steps-card.component";
 import {LandingPromo} from "../../../shared/components/landing-promo-card/landing-promo-card.component";
+import {LandingPacksData} from "../../../shared/components/landing-packs-card/landing-packs-card.component";
 
 export const headerCardsData = {
   title: 'Консультация',
@@ -110,6 +111,159 @@ export const promoCardData: LandingPromo.IPromoItem = {
   alt: 'крестик'
 }
 
+export const landingPacksDataHeader = 'Пакеты юридических услуг'
+export const allCardsPacksData: LandingPacksData.IConsultationItem[] = [
+  {
+    title: 'Пакет “Подготовка договора”',
+    item_text: "Подготовка договора ",
+    item__yes_image: "../../../../assets/images/franchise-landing/YES.png",
+    item__no_image: "../../../../assets/images/franchise-landing/NO.png",
+    item__list: [
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Подготовка ключевого договора"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Подготовка актов приема передачи"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Разработка сайта для продажи франшизы (до 10 страниц)"
+      }
+    ],
+    item_bottom__title: "Срок",
+    item_bottom__title_value: "5 дней",
+
+    item_bottom__price: "Стоимость пакета",
+    item_bottom__price_value: "15 000 ₽",
+    item_bottom__button: "Подготовить договор"
+  },
+
+  {
+    title: 'Пакет “Проверка контрагента”',
+    item_text: "Наш самый популярный пакет с гарантией. В рамках которого вы получаете полностью упакованный бизнес во франшизу",
+    item__yes_image: "../../../../assets/images/franchise-landing/YES.png",
+    item__no_image: "../../../../assets/images/franchise-landing/NO.png",
+    item__list: [
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Аудит бизнеса"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка сайта для продажи франшизы (до 10 страниц)"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка пакетов франшизы и определение их стоимости"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Книга продаж Вашей франшизы"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка стратегии: «Каналы продаж франшизы»"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Настройка рекламной кампании, для запуска продаж Вашей франшизы либо размещение в ТОП-овом каталоге франшиз;"
+      },
+
+      {
+        item_class: "packs-item__no",
+        item__tool: "Внедрение системы записи звонков"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Контроль качества звонков менеджера, нашим руководителем отдела продаж"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Совместная обработка звонков и возникающих вопросов у клиента"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Настройка CRM-системы"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Гарантированное сопровождение и доведение до первых продаж франшизы"
+      },
+
+    ],
+    item_bottom__title: "Срок",
+    item_bottom__title_value: "7 раб. дней",
+
+    item_bottom__price: "Стоимость пакета",
+    item_bottom__price_value: "35 000 ₽",
+    item_bottom__button: "Проверить контрагента"
+  },
+
+  {
+    title: 'Пакет “Сопровождение сделки”',
+    item_text: "Наш самый популярный пакет с гарантией. В рамках которого вы получаете полностью упакованный бизнес во франшизу",
+    item__yes_image: "../../../../assets/images/franchise-landing/YES.png",
+    item__no_image: "../../../../assets/images/franchise-landing/NO.png",
+    item__list: [
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Аудит бизнеса"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка сайта для продажи франшизы (до 10 страниц)"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка пакетов франшизы и определение их стоимости"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Книга продаж Вашей франшизы"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка стратегии: «Каналы продаж франшизы»"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Настройка рекламной кампании, для запуска продаж Вашей франшизы либо размещение в ТОП-овом каталоге франшиз;"
+      },
+
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Внедрение системы записи звонков"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Контроль качества звонков менеджера, нашим руководителем отдела продаж"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Совместная обработка звонков и возникающих вопросов у клиента"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Настройка CRM-системы"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Гарантированное сопровождение и доведение до первых продаж франшизы"
+      },
+
+    ],
+    item_bottom__title: "Срок",
+    item_bottom__title_value: "14 раб. дней",
+
+    item_bottom__price: "Стоимость пакета",
+    item_bottom__price_value: "55 000 ₽",
+    item_bottom__button: "Заказать сопровождение"
+  }
+]
+
+
 @Component({
   selector: 'app-consulting-landing',
   templateUrl: './consulting-landing.component.html',
@@ -126,6 +280,10 @@ export class ConsultingLandingComponent implements OnInit {
 
   public promoCardData = promoCardData;
   public backgroundColorVariant = BackgroundColorVariant;
+
+  public landingPacksDataHeader = landingPacksDataHeader;
+  public allCardsPacksData = allCardsPacksData;
+
 
   aPopularBusiness: any[] = [];
   // isGarant: boolean = false;
