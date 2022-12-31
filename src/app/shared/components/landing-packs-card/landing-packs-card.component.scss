@@ -2,6 +2,9 @@
 
 @import '../../../../assets/styles/design/design';
 
+@import "../../../../src/styles.scss";
+
+
 .unselectable {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Chrome/Safari/Opera */
@@ -74,7 +77,7 @@
         padding: 24px;
         border: 0;
         color: #ffffff;
-        background-color: #1653b4;
+        background-color: var(--app-get-call-card);
         margin-bottom: 16px;
         text-align: start;
 
@@ -91,6 +94,10 @@
           font-size: 18px;
         }
       }
+
+      //&__title:nth-child(even){
+      //  background-color: #1653b4;
+      //}
 
       &__text {
         font-size: 18px;
@@ -232,5 +239,53 @@
         }
       }
     }
+
+    &-item:nth-child(even){
+      background-color: fuchsia;
+      @include title(greenyellow)
+    }
+
+    //&-item:nth-child(even){
+    //  //background-color: red;
+    //  @include unify-parent("__title"){
+    //    background-color: greenyellow !important;
+    //    color: red;
+    //  }
+    //}
+    //@include unify-parent("__title"){
+    //&-item:nth-child(even){
+    //  background-color: red;
+    //}
+    //}
+
+    //$array: ("1", "2");
+    //@each $i in $array {
+    //  &:nth-child(even) {
+    //    //background-color: var(--app-get-call-card);
+    //    background-color: yellow;
+    //    &__tilte  {
+    //      background-color: red;
+    //    }
+    //
+    //  }
+    //}
+
+    //&-item:nth-child(even){
+    //  @include evens(){
+    //    background-color: red;
+    //    //&__title {
+    //    //  background-color: yellow;
+    //    //}
+    //  }
+    //}
+
+
+
   }
+
+  //
+  //
+  //}
 }
+
+

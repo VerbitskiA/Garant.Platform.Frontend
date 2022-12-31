@@ -1,5 +1,9 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, ElementRef, Input, OnInit, Renderer2, ViewEncapsulation} from '@angular/core';
 import {isEmpty} from "lodash";
+import {CommonModels} from "../../../models/common-models";
+import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
+import CSSVariablesNames = CommonModels.CSSVariablesNames;
+import BackgroundColors = CommonModels.BackgroundColors;
 
 export namespace LandingPacksData {
   export interface IConsultationItem {
@@ -41,10 +45,20 @@ export class LandingPacksCardComponent implements OnInit {
     return !isEmpty(this.allCardsPacksData);
   }
 
-  constructor() {
+  @Input() public backgroundColorVariant = BackgroundColorVariant.blue;
+
+  constructor(
+    private _renderer: Renderer2,
+    private _el: ElementRef
+  ) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this._renderer.setProperty(
+      this._el.nativeElement,
+      'style',
+      `${CSSVariablesNames.app_get_call_card}: ${BackgroundColors[this.backgroundColorVariant]}`
+    );
   }
 
 }
