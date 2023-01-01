@@ -4,26 +4,6 @@ $fa-font-path: "~font-awesome/fonts";
 /* You can add global styles to this file, and also import other style files */
 // общие стили
 
-@use "sass:selector";
-
-@mixin unify-parent($child) {
-  @at-root #{selector.unify(&, $child)} {
-    @content
-  }
-}
-
-@mixin evens(){
-  &:nth-child(even) {
-    @content
-  }
-}
-
-@mixin title($color) {
-  #{if(&, '&.__title', '&.__title')} {
-    background-color: $color;
-  }
-}
-
 @import "assets/styles/input-tel-styles";
 @import "primeng/resources/primeng.min.css";
 @import "primeng/resources/themes/saga-blue/theme.css";

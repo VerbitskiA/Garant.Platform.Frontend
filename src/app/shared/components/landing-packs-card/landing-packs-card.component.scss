@@ -95,10 +95,6 @@
         }
       }
 
-      //&__title:nth-child(even){
-      //  background-color: #1653b4;
-      //}
-
       &__text {
         font-size: 18px;
         max-width: 431px;
@@ -240,52 +236,13 @@
       }
     }
 
-    &-item:nth-child(even){
-      background-color: fuchsia;
-      @include title(greenyellow)
+    .packs-item:nth-child(even) {
+      .packs-item__title{
+        background-color: #1F75FE;
+      }
     }
-
-    //&-item:nth-child(even){
-    //  //background-color: red;
-    //  @include unify-parent("__title"){
-    //    background-color: greenyellow !important;
-    //    color: red;
-    //  }
-    //}
-    //@include unify-parent("__title"){
-    //&-item:nth-child(even){
-    //  background-color: red;
-    //}
-    //}
-
-    //$array: ("1", "2");
-    //@each $i in $array {
-    //  &:nth-child(even) {
-    //    //background-color: var(--app-get-call-card);
-    //    background-color: yellow;
-    //    &__tilte  {
-    //      background-color: red;
-    //    }
-    //
-    //  }
-    //}
-
-    //&-item:nth-child(even){
-    //  @include evens(){
-    //    background-color: red;
-    //    //&__title {
-    //    //  background-color: yellow;
-    //    //}
-    //  }
-    //}
-
-
-
   }
-
-  //
-  //
-  //}
 }
+
 
 
