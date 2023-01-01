@@ -17,11 +17,32 @@
 }
 
 .app-landing-packs-card {
+  margin: 20px auto;
 
+  @include tablet-small {
+    margin-top: 38px;
+    margin-bottom: 38px;
+  }
+  @include tablet {
+    margin-top: 64px;
+    margin-bottom: 64px;
+  }
+  @include desktop {
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+  @include wideScreens {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  h5 {
+    margin: 0
+  }
 
   .packs {
     display: flex;
-    gap: 24px;
+    //gap: 24px;
     max-width: 1440px;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -30,11 +51,12 @@
     @include phone {
       flex-wrap: wrap;
       margin-bottom: 25px;
+      margin-top: 23px;
     }
 
     @include tablet {
       flex-wrap: nowrap;
-      grid-gap: 12px;
+      //grid-gap: 12px;
     }
 
     &-header {
@@ -45,6 +67,18 @@
       @include phone {
         font-size: 19px;
       }
+      @include tablet-small{
+        font-size: 1.2rem;
+        padding-bottom: 18px;
+      }
+      @include tablet{
+        font-size: 1.3rem;
+        padding-bottom: 28px;
+      }
+      @include desktop{
+        font-size: 1.5rem;
+        padding-bottom: 35px;
+      }
     }
 
     &-item {
@@ -52,7 +86,7 @@
       min-width: 325px;
       height: fit-content;
       //box-shadow: 0px 4px 44px rgba(0, 0, 0, 0.08);
-      box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
+      //box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
 
       @include phone {
         width: 100%;
@@ -60,15 +94,29 @@
 
       @include tablet-small {
         margin-bottom: 35px;
-        width: 48%;
+        width: 49%;
       }
 
       @include tablet {
         width: 31%;
       }
+      @include desktop {
+        width: 32%;
+      }
+      &__image{
+        border-radius: 10px;
+        //box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
+        box-shadow: 0 4px 44px rgba(0, 0, 0, 0.08);
+        &--pack {
+          width: 100%;
+        }
+      }
 
-      &__image--pack {
-        width: 100%;
+      .container{
+        border-radius: 10px;
+        //box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
+        box-shadow: 0 4px 44px rgba(0, 0, 0, 0.08);
+        padding-bottom: 1px;
       }
 
       &__title {
@@ -83,16 +131,22 @@
         text-align: start;
 
         @include phone {
-          font-size: 22px;
-          padding: 17px;
+          font-size: 25px;
+          padding: 14px 10px;
         }
 
         @include tablet-small {
-          font-size: 20px;
+          font-size: 25px;
+          padding: 13px 10px;
+          margin-bottom: 26px;
         }
 
         @include tablet {
-          font-size: 18px;
+          font-size: 21px;
+        }
+        @include desktop{
+          font-size: 26px;
+          padding: 30px 26px;
         }
       }
 
@@ -102,7 +156,7 @@
         padding: 10px;
         line-height: 21px;
         color: #2c2c2c;
-        margin: 0 16px 32px 16px;
+        margin: 4px 16px 32px 4px;
 
         @include phone {
           padding: 5px;
@@ -110,12 +164,21 @@
 
         @include tablet-small {
           padding: 0;
-          margin: 0 16px 32px 12px;
+          margin: 0 8px 32px 12px;
+        }
+        @include tablet{
+          margin: 0 0 32px 3px;
         }
 
-        @include tablet {
-          font-size: 17px;
+        @include desktop {
+          font-size: 18px;
+          margin: 0 52px 32px 28px;
         }
+        @include wideScreens {
+
+          margin: 0 21px 32px 15px;
+        }
+
       }
 
       &__list {
@@ -136,21 +199,49 @@
           justify-content: flex-start;
           align-items: center;
           list-style: none;
-          margin-left: 16px;
-          margin-bottom: 32px;
+          margin-bottom: 60px;
+
+          @include phone {
+            margin-left: 10px;
+          }
+
+          @include tablet-small {
+            margin-left: 10px;
+            margin-bottom: 42px;
+          }
+
+          @include tablet{
+            margin-bottom: 13px;
+          }
+          @include desktop{
+            margin-left: 40px;
+          }
+
         }
       }
 
       &__yes {
         display: inline-block;
         width: 56px;
-        height: 56px;
+        height: auto;
+        @include tablet{
+          width: 46px;
+        }
+        @include desktop{
+          width: 59px;
+        }
       }
 
       &__no {
         display: inline-block;
         width: 56px;
-        height: 56px;
+        height: auto;
+        @include tablet{
+          width: 46px;
+        }
+        @include desktop{
+          width: 59px;
+        }
       }
 
       &__tool {
@@ -159,21 +250,30 @@
         width: 349px;
         line-height: 21px;
         color: #000000;
-        margin-left: 26px;
+        margin-left: 12px;
         margin-right: 16px;
 
         @include tablet-small {
           margin-left: 16px;
           max-width: 292px;
         }
+
+        @include tablet{
+          margin-left: 11px;
+        }
+        @include desktop{
+          max-width: fit-content;
+        }
       }
 
       &-bottom {
         max-width: 463px;
         background: #ffffff;
-        //box-shadow: 0px 4px 44px rgba(0, 0, 0, 0.08);
-        box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
+        box-shadow: 0 4px 44px rgba(0, 0, 0, 0.08);
+        //box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
         padding: 16px;
+        margin: 7px;
+        border-radius: 0 0 10px 10px;
 
         &__title {
           font-size: 1.125rem;
@@ -191,6 +291,10 @@
             display: flex;
             justify-content: space-between;
             font-size: 18px;
+          }
+
+          @include tablet{
+            padding-top: 0;
           }
         }
 
@@ -221,29 +325,42 @@
         &__button {
           width: 100%;
           display: flex;
-          font-size: 24px;
+          font-size: 23px;
           font-weight: 400;
           color: #ffffff;
           line-height: 21px;
           border: none;
-          //box-shadow: 0px 4px 44px rgba(0, 0, 0, 0.08);
-          box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
+          box-shadow: 0 4px 44px rgba(0, 0, 0, 0.08);
+          //box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
           border-radius: 66px;
           padding: 24px;
           margin: 10px auto;
           background-color: #1f75fe;
+          justify-content: center;
+
+          @include tablet-small {
+            font-size: 24px;
+            margin: 25px auto 0;
+          }
+          @include tablet{
+            font-size: 22px;
+          }
+          @include desktop{
+            font-size: 25px;
+          }
 
         }
       }
     }
 
     .packs-item:nth-child(even) {
-      .packs-item__title{
+      .packs-item__title {
         background-color: #1F75FE;
       }
     }
+
     .packs-item:nth-child(even):hover {
-      .packs-item__title{
+      .packs-item__title {
         background-color: #2196F3;
       }
     }
