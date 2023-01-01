@@ -241,6 +241,11 @@
         background-color: #1F75FE;
       }
     }
+    .packs-item:nth-child(even):hover {
+      .packs-item__title{
+        background-color: #2196F3;
+      }
+    }
   }
 }
 
