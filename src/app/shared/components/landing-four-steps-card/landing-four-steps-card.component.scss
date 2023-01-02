@@ -80,11 +80,13 @@
     }
 
     &-item {
-      background-color: #f5f8fa;
-      box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
       height: auto;
       width: 320px;
       padding-bottom: 18px;
+      &:hover{
+        background-color: #f5f8fa;
+        cursor: pointer;
+      }
 
       @include tablet-small {
         //height: 417px;
