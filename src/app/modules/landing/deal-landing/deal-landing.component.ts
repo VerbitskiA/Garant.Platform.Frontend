@@ -18,6 +18,7 @@ import {LandingHeader} from "../../../shared/components/landing-header-card/land
 import {
   LandingFourStepsData
 } from "../../../shared/components/landing-four-steps-card/landing-four-steps-card.component";
+import {LandingPromo} from "../../../shared/components/landing-promo-card/landing-promo-card.component";
 
 export const headerCardsData: LandingHeader.IHeaderItem  = {
   title: 'Онлайн сделка',
@@ -30,6 +31,15 @@ export const headerCardsData: LandingHeader.IHeaderItem  = {
   image2: '../../../../assets/images/deal-landing/shield_mobile.png',
   alt2: 'Изображение щита'
 };
+
+export const promoCardData: LandingPromo.IPromoItem = {
+  title: "Вы можете приобрести бизнес с гарантиями",
+  subtitle: "Воспользовавшись нашим сервисом вы сможете провести безопасную сделку через интернет, провести все средства онлайн и стать полноправным владельцем бизнеса уже сегодня.",
+  button_accept: "Подробнее",
+  button_later: "Не интересно",
+  image: '../../../assets/images/franchise-landing/no2.png',
+  alt: 'крестик'
+}
 
 export const allCardStatisticData: LandingStatistic.IStatisticItem[] = [
   {
@@ -118,6 +128,7 @@ export class DealLandingComponent implements OnInit {
   public landingFourStepsDataHeader = landingFourStepsDataHeader;
   public consultationCardsData = consultationCardsData;
   public backgroundColorVariant = BackgroundColorVariant;
+  public promoCardData = promoCardData;
 
   aPopularBusiness: any[] = [];
   // isGarant: boolean = false;
