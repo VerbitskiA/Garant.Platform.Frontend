@@ -1,4 +1,5 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
+
 export interface SelectedItem {
   title: string;
   subtitle: string;
@@ -10,7 +11,8 @@ export interface SelectedItem {
 @Component({
   selector: 'app-landing-selection-card',
   templateUrl: './landing-selection-card.component.html',
-  styleUrls: ['./landing-selection-card.component.scss']
+  styleUrls: ['./landing-selection-card.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LandingSelectionCardComponent  {
   @Input() public allSelectedCardData:SelectedItem[] | undefined;

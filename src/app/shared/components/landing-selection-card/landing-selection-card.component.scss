@@ -132,19 +132,24 @@
 
     }
 
-    .selection-image {
+    &-image {
       margin-top: 8px;
       @include tablet-small {
         display: none;
       }
+
+
+    }
+    .contentImg{
+      display: block;
+      height: 50px;
+      width: auto;
+
       @include desktop {
-        display: block;
         height: 188px;
-        width: 180px;
       }
-      &.contentImg{
-        height: 188px;
-        width: 180px;
+      @include wideScreens{
+        height: 300px;
       }
     }
 
