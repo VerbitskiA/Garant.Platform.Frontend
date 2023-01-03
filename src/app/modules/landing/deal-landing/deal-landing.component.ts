@@ -18,6 +18,7 @@ import {LandingHeader} from "../../../shared/components/landing-header-card/land
 import {
   LandingFourStepsData
 } from "../../../shared/components/landing-four-steps-card/landing-four-steps-card.component";
+import {SelectedItem} from "../../../shared/components/landing-selection-card/landing-selection-card.component";
 
 export const headerCardsData: LandingHeader.IHeaderItem  = {
   title: 'Онлайн сделка',
@@ -104,6 +105,34 @@ export const allCardsFourStepsData: LandingFourStepsData.IConsultationItem[] = [
   }
 ]
 
+export const allSelectedCardData: SelectedItem[] = [
+  {
+    title: 'Подберите подходящий бизнес',
+    subtitle: 'Получите подборку подходящих бизнесов',
+    item_text: 'Пройдите краткий опрос, на основе вашего опыта, навыков и знаний мы предложим вам подходящий бизнес в форме готового бизнеса или франшиз.',
+    button: 'Получить подборку',
+    image: '../../../../assets/images/selected-card/target.png',
+    alt: 'Мишень'
+  },
+  {
+    title: 'Продайте свой бизнес',
+    subtitle: 'Вы можете продать свой бизнес',
+    item_text: 'Все что вам нужно - выложить объявление в нашем каталоге, после проверки модераторами мы выложим его в общий доступ.',
+    button: 'Продать бизнес',
+    image: '../../../../assets/images/selected-card/bag.png',
+    alt: 'Мешок с деньгами'
+  },
+  {
+    title: 'Создайте свою франшизу',
+    subtitle: 'Закажите упаковку франшизы у нас',
+    item_text: 'Если ваш готовый бизнес уже имеет открытые филиалы или вы собираетесь заводить таковые, то вы с уверенностью можете оставлять заявку.',
+    button: 'Упаковать франшизу',
+    image: '../../../../assets/images/selected-card/notes.png',
+    alt: 'Блокнот со списком дел'
+  },
+]
+
+
 @Component({
   selector: 'app-deal-landing',
   templateUrl: './deal-landing.component.html',
@@ -115,6 +144,7 @@ export class DealLandingComponent implements OnInit {
   public headerCardsData = headerCardsData;
   public allCardStatisticData = allCardStatisticData;
   public allCardsFourStepsData = allCardsFourStepsData;
+  public allSelectedCardData = allSelectedCardData;
   public landingFourStepsDataHeader = landingFourStepsDataHeader;
   public consultationCardsData = consultationCardsData;
   public backgroundColorVariant = BackgroundColorVariant;

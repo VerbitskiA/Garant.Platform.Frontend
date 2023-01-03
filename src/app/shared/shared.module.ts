@@ -35,6 +35,7 @@ import {LandingPromoCardComponent} from './components/landing-promo-card/landing
 import {CardModule} from "primeng/card";
 import {LandingFourStepsCardComponent} from './components/landing-four-steps-card/landing-four-steps-card.component';
 import {LandingPacksCardComponent} from './components/landing-packs-card/landing-packs-card.component';
+import {LandingSelectionCardComponent } from './components/landing-selection-card/landing-selection-card.component';
 
 const components = [
   HeaderComponent,
@@ -50,7 +51,7 @@ const components = [
 ];
 
 @NgModule({
-  declarations: [...components, LandingPromoCardComponent, LandingFourStepsCardComponent, LandingPacksCardComponent],
+  declarations: [...components, LandingPromoCardComponent, LandingFourStepsCardComponent, LandingPacksCardComponent, LandingSelectionCardComponent],
 	imports: [
 		CommonModule,
 		GarLibModule,
@@ -75,7 +76,7 @@ const components = [
 		StyleClassModule,
 		CardModule
 	],
-  exports: [...components, LandingPromoCardComponent, LandingFourStepsCardComponent, LandingFourStepsCardComponent, LandingPacksCardComponent]
+  exports: [...components, LandingPromoCardComponent, LandingFourStepsCardComponent, LandingPacksCardComponent,LandingSelectionCardComponent]
 })
 export class SharedModule {
 }

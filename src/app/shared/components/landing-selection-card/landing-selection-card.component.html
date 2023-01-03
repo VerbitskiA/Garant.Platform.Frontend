@@ -1,0 +1,25 @@
+<div class="app-landing-selection-card ">
+  <div class="selection-card">
+    <div class="selection-item" *ngFor="let cardData of allSelectedCardData">
+
+      <p class="selection-item__title">{{cardData.title}}</p>
+      <div class="selection-item__wrapper">
+        <div class="selection-content">
+          <p class="selection-content__subtitle">{{cardData.subtitle}}</p>
+          <p class="selection-content__text">
+            {{cardData.item_text}}
+          </p>
+          <button pButton type="button" class="selection-content__button border-solid border-blue-500"
+                  [label]="cardData.button"></button>
+        </div>
+        <div class="selection-image">
+          <p-image
+            imageClass="contentImg"
+            src="{{cardData.image}}"
+            alt="{{cardData.alt}}">
+          </p-image>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
