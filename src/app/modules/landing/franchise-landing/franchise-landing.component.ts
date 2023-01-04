@@ -23,7 +23,8 @@ import {LandingPromo} from "../../../shared/components/landing-promo-card/landin
 import {
   LandingFourStepsData
 } from "../../../shared/components/landing-four-steps-card/landing-four-steps-card.component";
-import {LandingPacksData} from "../../../shared/components/landing-packs-card/landing-packs-card.component"; //!!!!
+import {LandingPacksData} from "../../../shared/components/landing-packs-card/landing-packs-card.component";
+import {SelectedItem} from "../../../shared/components/landing-selection-card/landing-selection-card.component"; //!!!!
 
 
 export const headerCardsData: LandingHeader.IHeaderItem = {
@@ -37,6 +38,36 @@ export const headerCardsData: LandingHeader.IHeaderItem = {
   image2: '../../../../assets/images/franchise-landing/desk2.png',
   alt2: 'Изображение стола, монеты и %',
 };
+
+export const allSelectedCardData: SelectedItem[] = [
+  {
+    title: 'Продать франшизу',
+    subtitle: 'Начните размещаться в каталоге',
+    item_text: 'Размещение в каталоге франшиз приносит большую часть заявок нашим клиентам за счет SEO продвижения и рекламы сервиса.',
+    button: 'Разместить франшизу',
+    image: '../../../../assets/images/selected-card/target.png',
+    image_small:'../../../../assets/images/selected-card/target-small.png',
+    alt: 'Мишень'
+  },
+  {
+    title: 'Продайте франшизу онлайн',
+    subtitle: 'Вы можете продать свой бизнес',
+    item_text: 'Каждая сделка проводится по защищенному соединеню с возможностью разбить на этапы, провести документооборот и перевести деньги.',
+    button: 'Продать франшизу',
+    image: '../../../../assets/images/selected-card/bag.png',
+    image_small:'../../../../assets/images/selected-card/bag-small.png',
+    alt: 'Мешок с деньгами'
+  },
+  {
+    title: 'Создайте свою франшизу',
+    subtitle: 'Закажите упаковку франшизы у нас',
+    item_text: 'Если ваш готовый бизнес уже имеет открытые филиалы или вы собираетесь заводить таковые, то вы с уверенностью можете оставлять заявку.',
+    button: 'Упаковать франшизу',
+    image: '../../../../assets/images/selected-card/notes.png',
+    image_small:'../../../../assets/images/selected-card/notes-small.png',
+    alt: 'Блокнот со списком дел'
+  },
+]
 
 export const allCardStatisticData: LandingStatistic.IStatisticItem[] = [
   {
@@ -436,7 +467,7 @@ export class FranchiseLandingComponent implements OnInit {
   public allCardsFourStepsData = allCardsFourStepsData;
   public consultationCardsData = consultationCardsData;
   public consultationCardsData2 = consultationCardsData2;
-
+  public allSelectedCardData = allSelectedCardData;
   public promoCardData = promoCardData;
 
   public allCardsPacksData = allCardsPacksData;

@@ -6,13 +6,13 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 24px;
-  margin-bottom: 32px;
   @include tablet-small {
     gap: 16px;
   }
   @include tablet {
     gap: 21px;
     flex-wrap: nowrap;
+    margin-bottom: 64px;
   }
   @include desktop {
     gap: 24px;
@@ -21,12 +21,12 @@
 }
 
 .selection-item {
-  max-width: 320px;
+  margin-bottom: 24px;
   @include tablet-small {
     max-width: 376px;
+    margin-bottom:0;
     &:nth-child(3) {
       max-width: 768px;
-      max-height: 244px;
       margin-bottom: 32px;
     }
   }
@@ -34,7 +34,7 @@
     max-width: 328px;
     &:nth-child(3) {
       max-width: 328px;
-      max-height: none;
+      max-height: 202px;
     }
   }
   @include desktop {
@@ -43,9 +43,12 @@
       max-width: 448px;
     }
   }
-
-
-
+  @include wideScreens {
+    max-width: 464px;
+    &:nth-child(3) {
+      max-width: 464px;
+    }
+  }
 
 
   &__title {
@@ -59,6 +62,9 @@
       font-size: 19px;
       line-height: 22px;
     }
+    @include tablet {
+      margin-bottom: 24px;
+    }
     @include desktop {
       font-size: 24px;
       line-height: 28px;
@@ -67,17 +73,20 @@
   }
 
   &__wrapper {
-    border-radius: 8px;
+    gap:5px;
     display: flex;
+    border-radius: 8px;
     background: rgba(218, 218, 218, 0.15);
     padding: 16px 8px 8px;
     @include tablet-small {
+      display: block;
       padding: 16px;
     }
     @include tablet {
-      padding: 25px;
+      padding: 24px;
     }
     @include desktop {
+      display: flex;
       padding-right: 0;
 
     }
@@ -87,11 +96,18 @@
       display: flex;
       flex-direction: column;
       align-items: start;
+      max-width: 210px;
       @include tablet-small {
-        min-height: 218px;
+        max-width:100%;
+        min-height: 186px;
+
+      }
+      @include tablet-small {
+        min-height: 226px;
+
       }
       @include desktop {
-       max-width: 280px;
+        max-width: 280px;
       }
 
       &__subtitle {
@@ -132,24 +148,36 @@
 
     }
 
-    &-image {
+    .selection-image {
       margin-top: 8px;
       @include tablet-small {
-        display: none;
+        margin-top: 0;
+      }
+      @include desktop {
+        margin-top: 8px;
+        position: relative;
+        width: 144px;
+      }
+      @include wideScreens {
+        width: 160px;
       }
 
 
     }
-    .contentImg{
-      display: block;
-      height: 50px;
-      width: auto;
+
+    .contentImg {
+      @include tablet-small {
+        display: none;
+      }
 
       @include desktop {
-        height: 188px;
-      }
-      @include wideScreens{
-        height: 300px;
+        display: block;
+        height: 195px;
+        width: auto;
+        position: absolute;
+        top: 0;
+        right:0;
+
       }
     }
 
