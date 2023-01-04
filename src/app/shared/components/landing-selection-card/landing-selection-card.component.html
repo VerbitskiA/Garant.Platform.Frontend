@@ -13,13 +13,22 @@
                   [label]="cardData.button"></button>
         </div>
         <div class="selection-image">
-          <p-image
-            imageClass="contentImg"
-            src="{{cardData.image}}"
-            alt="{{cardData.alt}}">
-          </p-image>
+
+          <div *ngIf="screenMode">
+            <p-image
+              imageClass="contentImg"
+              src="{{cardData.image_small}}"
+              alt="{{cardData.alt}}">
+            </p-image> </div>
+            <div *ngIf="!screenMode">
+              <p-image
+                imageClass="contentImg"
+                src="{{cardData.image}}"
+                alt="{{cardData.alt}}">
+              </p-image>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>

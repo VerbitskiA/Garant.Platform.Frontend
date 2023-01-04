@@ -5,7 +5,6 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 24px;
   margin-bottom: 32px;
   @include tablet-small {
     gap: 16px;
@@ -22,6 +21,7 @@
 
 .selection-item {
   max-width: 320px;
+  margin-bottom: 24px;
   @include tablet-small {
     max-width: 376px;
     &:nth-child(3) {
@@ -43,9 +43,12 @@
       max-width: 448px;
     }
   }
-
-
-
+  @include wideScreens {
+    max-width: 464px;
+    &:nth-child(3) {
+      max-width: 464px;
+    }
+  }
 
 
   &__title {
@@ -69,8 +72,10 @@
   &__wrapper {
     border-radius: 8px;
     display: flex;
+    gap: 5px;
     background: rgba(218, 218, 218, 0.15);
     padding: 16px 8px 8px;
+    overflow: hidden;
     @include tablet-small {
       padding: 16px;
     }
@@ -87,11 +92,12 @@
       display: flex;
       flex-direction: column;
       align-items: start;
+      max-width: 210px;
       @include tablet-small {
         min-height: 218px;
       }
       @include desktop {
-       max-width: 280px;
+        max-width: 280px;
       }
 
       &__subtitle {
@@ -132,24 +138,32 @@
 
     }
 
-    &-image {
+    .selection-image {
       margin-top: 8px;
-      @include tablet-small {
-        display: none;
+      @include desktop {
+        position: relative;
+        width: 144px;
+      }
+      @include wideScreens {
+        width: 160px;
       }
 
 
     }
-    .contentImg{
-      display: block;
-      height: 50px;
-      width: auto;
+
+    .contentImg {
+      @include tablet-small {
+        display: none;
+      }
 
       @include desktop {
-        height: 188px;
-      }
-      @include wideScreens{
-        height: 300px;
+        display: block;
+        height: 195px;
+        width: auto;
+        position: absolute;
+        top: 0;
+        right:0;
+
       }
     }
 

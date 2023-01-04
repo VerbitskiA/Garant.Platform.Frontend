@@ -112,6 +112,7 @@ export const allSelectedCardData: SelectedItem[] = [
     item_text: 'Пройдите краткий опрос, на основе вашего опыта, навыков и знаний мы предложим вам подходящий бизнес в форме готового бизнеса или франшиз.',
     button: 'Получить подборку',
     image: '../../../../assets/images/selected-card/target.png',
+    image_small:'../../../../assets/images/selected-card/target-small.png',
     alt: 'Мишень'
   },
   {
@@ -120,6 +121,7 @@ export const allSelectedCardData: SelectedItem[] = [
     item_text: 'Все что вам нужно - выложить объявление в нашем каталоге, после проверки модераторами мы выложим его в общий доступ.',
     button: 'Продать бизнес',
     image: '../../../../assets/images/selected-card/bag.png',
+    image_small:'../../../../assets/images/selected-card/bag-small.png',
     alt: 'Мешок с деньгами'
   },
   {
@@ -128,6 +130,7 @@ export const allSelectedCardData: SelectedItem[] = [
     item_text: 'Если ваш готовый бизнес уже имеет открытые филиалы или вы собираетесь заводить таковые, то вы с уверенностью можете оставлять заявку.',
     button: 'Упаковать франшизу',
     image: '../../../../assets/images/selected-card/notes.png',
+    image_small:'../../../../assets/images/selected-card/notes-small.png',
     alt: 'Блокнот со списком дел'
   },
 ]
