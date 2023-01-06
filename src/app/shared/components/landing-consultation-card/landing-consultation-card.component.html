@@ -6,20 +6,22 @@
       <div class="consulting-content__title">{{cardConsultationData.title}} </div>
       <!--    <div class="consulting-content__subtitle">при покупке бизнеса онлайн</div>-->
       <div
-        [ngClass]="{dealConsultingContentSubtitle:dealFlagClass, consultingContentSubtitle:consultingFlagClass,franchiseConsultingContentSubtitle:franchiseFlagClass1||franchiseFlagClass2}"
+        [ngClass]="{dealConsultingContentSubtitle:dealFlagClass,
+        consultingContentSubtitle:consultingFlagClass,
+        franchiseConsultingContentSubtitle:franchiseFlagClass1||franchiseFlagClass2}"
         class="consulting-content__subtitle">{{cardConsultationData.subtitle}}</div>
       <div
-        [ngClass]="{dealConsultingContentText:dealFlagClass, consultingContentText:consultingFlagClass,franchiseConsultingContentText:franchiseFlagClass1||franchiseFlagClass2}"
-
-      >
+        [ngClass]="{dealConsultingContentText:dealFlagClass,
+        consultingContentText:consultingFlagClass,
+        franchiseConsultingContentText:franchiseFlagClass1||franchiseFlagClass2}">
         <!--  class="consulting-content__text"    с юристом и консультантами сервиса-->
         {{cardConsultationData.content_text}}
       </div>
 
       <div
-        [ngClass]="{dealConsultingContentText:dealFlagClass, consultingContentText:consultingFlagClass,franchiseConsultingContentText:franchiseFlagClass1||franchiseFlagClass2}"
-
-      >
+        [ngClass]="{dealConsultingContentText:dealFlagClass,
+        consultingContentText:consultingFlagClass,
+        franchiseConsultingContentText:franchiseFlagClass1||franchiseFlagClass2}">
         <!--  class="consulting-content__text"    с юристом и консультантами сервиса-->
         {{cardConsultationData.content_text2}}
       </div>
@@ -31,8 +33,7 @@
 
           <!--          placeholder="Введите имя"-->
           <input class="consulting-content__input" type="text" formControlName="name"
-                 placeholder="{{cardConsultationData.content__placeholder1}}"/>
-        </label>
+                 placeholder="{{cardConsultationData.content__placeholder1}}"/></label>
 
         <div>
           <!--        <label class="consulting-content__label">Номер телефона</label>-->
@@ -52,8 +53,7 @@
             [phoneValidation]="true"
             [separateDialCode]="separateDialCode"
             [numberFormat]="PhoneNumberFormat.National"
-            formControlName="phone"
-          ></ngx-intl-tel-input>
+            formControlName="phone"></ngx-intl-tel-input>
 
         </div>
       </div>

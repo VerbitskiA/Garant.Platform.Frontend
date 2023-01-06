@@ -7,42 +7,28 @@ export interface SelectedItem {
   item_text: string;
   button: string;
   image: string;
-  image_small:string;
+  image_small: string;
   alt: string;
 }
+
 @Component({
   selector: 'app-landing-selection-card',
   templateUrl: './landing-selection-card.component.html',
   styleUrls: ['./landing-selection-card.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class LandingSelectionCardComponent  {
+export class LandingSelectionCardComponent {
+  @Input() public allSelectedCardData: SelectedItem[] | undefined;
   public getScreenWidth: any;
   public screenMode?: boolean;
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.getScreenWidth = window.innerWidth;
-
-    if(this.getScreenWidth<768)
-    {
-      this.screenMode=true;
-    }
-    else
-    {
-      this.screenMode=false;
-    }
+    this.screenMode = this.getScreenWidth < 768;
   }
-
-
-
-  @Input() public allSelectedCardData:SelectedItem[] | undefined;
 
   @HostListener('window:resize', ['$event'])
-  onWindowResize() {
+  public onWindowResize(): void {
     this.getScreenWidth = window.innerWidth;
-
   }
-
-
-
 }

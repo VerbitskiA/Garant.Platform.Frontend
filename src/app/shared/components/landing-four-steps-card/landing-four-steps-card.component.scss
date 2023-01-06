@@ -37,6 +37,7 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 16px;
+    text-align: center;
 
     @include tablet-small {
     }
@@ -109,7 +110,9 @@
       }
 
       &__image {
-
+        display: flex;
+        justify-content: center;
+        align-items: center;
         height: 103px;
         width: 288px;
         margin: 16px 16px 25px;
@@ -209,6 +212,7 @@
         color: #ffffff;
         background-color: #1f1f1f;
         width: 91%;
+        visibility: hidden;
 
         @include tablet-small {
           margin-left: 24px;

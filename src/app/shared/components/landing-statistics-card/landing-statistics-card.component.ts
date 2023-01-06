@@ -1,6 +1,5 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
 import {isEmpty} from "lodash";
-import {LandingConsultation} from "../landing-consultation-card/landing-consultation-card.component";
 
 export namespace LandingStatistic {
   export interface IStatisticItem {
@@ -15,17 +14,10 @@ export namespace LandingStatistic {
   styleUrls: ['./landing-statistics-card.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class LandingStatisticsCardComponent implements OnInit {
+export class LandingStatisticsCardComponent {
   @Input() public allCardStatisticData: LandingStatistic.IStatisticItem[] | undefined;
 
   public get dataIsSets(): boolean {
     return !isEmpty(this.allCardStatisticData);
   }
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
-  }
-
 }

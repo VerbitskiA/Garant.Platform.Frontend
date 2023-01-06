@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
 
 export namespace LandingPromo {
   export interface IPromoItem {
@@ -7,22 +7,17 @@ export namespace LandingPromo {
     button_accept: string;
     button_later: string;
 
-    image:string;
+    image: string;
     alt: string;
   }
 }
+
 @Component({
   selector: 'app-landing-promo-card',
   templateUrl: './landing-promo-card.component.html',
   styleUrls: ['./landing-promo-card.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class LandingPromoCardComponent implements OnInit {
-
+export class LandingPromoCardComponent {
   @Input() public cardData: LandingPromo.IPromoItem | undefined;
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
 import {isEmpty} from "lodash";
 
 export namespace LandingFourStepsData {
@@ -27,18 +27,12 @@ export namespace LandingFourStepsData {
   styleUrls: ['./landing-four-steps-card.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class LandingFourStepsCardComponent implements OnInit {
+export class LandingFourStepsCardComponent {
   @Input() public landingFourStepsDataHeader: string | undefined
   @Input() public allCardsFourStepsData: LandingFourStepsData.IConsultationItem[] | undefined;
 
   public get dataIsSets(): boolean {
     return !isEmpty(this.allCardsFourStepsData);
-  }
-
-  constructor() {
-  }
-
-  ngOnInit(): void {
   }
 
 }

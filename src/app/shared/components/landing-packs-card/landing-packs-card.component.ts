@@ -14,10 +14,7 @@ export namespace LandingPacksData {
 
     item__yes_image: string;
     item__no_image: string;
-    item__list: {
-      item_class: string;
-      item__tool?: string;
-    }[];
+    item__list: { item_class: string; item__tool?: string; }[];
 
     item_bottom__title: string;
     item_bottom__title_value: string;
