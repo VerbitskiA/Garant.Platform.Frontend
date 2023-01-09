@@ -11,7 +11,7 @@ import {SessionService} from "../../../core/services/session/session.service";
 import {UsersService} from "../../../core/services/users/users.service";
 
 @Component({
-  selector: "app-login",
+  selector: "app-login-old",
   templateUrl: "./login.component.html",
   styleUrls: ["./login.component.scss"]
 })

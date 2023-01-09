@@ -12,14 +12,15 @@ import {ProductsModule} from "./products/products.module";
 import {PromoModule} from "./promo/promo.module";
 import {ProfileModule} from "./profile/profile.module";
 import {SharedModule} from "primeng/api";
+import {LoginAndRegistrationModule} from "./login-and-registration/login-and-registration.module";
+import {SectionsRoutingModule} from "./sections-routing.module";
 
 
 @NgModule({
-  declarations: [
-  ],
-  exports: [
-  ],
+  declarations: [],
+  exports: [],
   imports: [
+    SectionsRoutingModule,
     CommonModule,
     BlogModule,
     BusinessModule,
@@ -32,6 +33,7 @@ import {SharedModule} from "primeng/api";
     ProductsModule,
     ProfileModule,
     PromoModule,
+    LoginAndRegistrationModule,
     SharedModule,
   ]
 })

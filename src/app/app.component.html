@@ -1,6 +1,6 @@
 <p-toast [style]="{ marginTop: '80px' }"></p-toast>
-<app-header class="{{ isGarant ? 'garant-header' : '' }}"></app-header>
 <main class="app-container">
+  <app-header class="{{ isGarant ? 'garant-header' : '' }}"></app-header>
   <ng-http-loader
     [backdrop]="true"
     [backgroundColor]="'blue'"
@@ -10,6 +10,8 @@
     [spinner]="spinnerStyle.skSpinnerPulse">
   </ng-http-loader>
 
-  <router-outlet></router-outlet>
+  <p-scrollPanel [style]="{width: '100%', height: 'calc(100vh - 225px)'}">
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </p-scrollPanel>
 </main>
-<app-footer></app-footer>

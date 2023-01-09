@@ -1,0 +1,24 @@
+<div class="login login__wrapper">
+  <div class="login__title">
+    <svg-icon src="assets/images/logo-garant.svg"></svg-icon>
+  </div>
+  <div class="login__fields">
+    <div class="login__fields__item">
+      <span class="p-float-label">
+        <input id="username" type="text" pInputText>
+        <label for="username">{{miscString?.email}}</label>
+      </span>
+    </div>
+    <div class="login__fields__item">
+      <span class="p-float-label">
+        <p-password appendTo="body" styleClass="login__fields__item__pass" id="password" [toggleMask]="true"></p-password>
+        <label for="password">{{miscString.password}}</label>
+      </span>
+    </div>
+  </div>
+  <div class="login__actions">
+    <button pButton pRipple type="button" [label]="loginOrRegStrings.loginCompleteBtlLabel" class="p-button-raised"></button>
+    <div class="login__actions--text-divider">{{miscString.or}}</div>
+    <button pButton pRipple type="button" [label]="loginOrRegStrings.regStart" class="p-button-text"></button>
+  </div>
+</div>

@@ -1,13 +1,15 @@
-import {Component, HostListener, Inject, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {CommonDataService} from 'src/app/core/services/common/common-data.service';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, NavigationExtras, Router} from '@angular/router';
 import {MenuItem} from 'primeng/api';
-import {BehaviorSubject, Observable, of} from "rxjs";
 import {SessionService} from "../../../core/services/session/session.service";
-import {filter, map, shareReplay, takeUntil} from "rxjs/operators";
 import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
-import {RU} from "../../../strings/RU/ru-strings";
 import {ENG} from "../../../strings/ENG/eng-string";
+import {DialogService} from "primeng/dynamicdialog";
+import {MainSearchComponent} from "../main-search/main-search.component";
+import {get} from "lodash";
+import {LanguageService} from "../../../core/services/language/language.service";
+import {LoginAndRegistrationComponent} from "../../../modules/login-and-registration/login-and-registration.component";
 
 export namespace Header {
   export interface IItem {
@@ -27,177 +29,158 @@ export namespace Header {
     name: string;
     type: string;
   }
+
   export const routerLink = {
     sel: '',
 
   }
 }
 
-  //const cabinetString = RU.cabinet_links;
-  const cabinetString = ENG.cabinet_links;
+//const cabinetString = RU.cabinet_links;
+const cabinetString = ENG.cabinet_links;
 
-const CABINET_LINKS: Header.IHeaderItem[] = [
-  // {name: 'Продать', icon: 'cabinet-megaphone', link: '/'},
-   {name: cabinetString.sell, icon: 'cabinet-megaphone', link: '/'},
-  // {name: 'Мои сделки', icon: 'cabinet-deal', link: '/'},
-  {name: cabinetString.myDeals, icon: 'cabinet-deal', link: '/'},
-  // {name: 'Избранное', icon: 'cabinet-star', link: '/'},
-  {name: cabinetString.favorites, icon: 'cabinet-star', link: '/'},
-  // {name: 'Уведомления', icon: 'cabinet-bell', link: '/'},
-  {name: cabinetString.notifications, icon: 'cabinet-bell', link: '/'},
-]
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  providers: [GarDestroyService]
+  providers: [GarDestroyService],
+  encapsulation: ViewEncapsulation.None
 })
 
 /**
  * Класс модуля хидера.
  */
 export class HeaderComponent implements OnInit {
-  private _aHeader$ = new BehaviorSubject<Header.IItem[] | null>(null);
-
-  public aHeader$: Observable<Header.IItem[] | null> = this._aHeader$.pipe(
-    filter((aHeader) => !!aHeader?.length),
-    map((aHeader) => {
-      return !this._sessionService.isLogin ? aHeader : aHeader!.filter(h => h.name !== 'Вход или регистрация')
-    }),
-    shareReplay({refCount: true, bufferSize: 1}),
-    takeUntil(this._destroy$)
-  )
-
-  aBreadcrumbs: any[] = [];
-  routeParam: any;
-  searchText: string = "";
-  searchOptions: Header.ISearchOption[];
-  selectedSearchOption: Header.ISearchOption;
-  isGarant: boolean = false;
-  items!: MenuItem[];
-  isMenuHidden: boolean = true;
-
-  //public readonly headerString = RU.header;
-  public readonly headerString = ENG.header; // добавил header на английском)
-
-  categories: Header.IHeaderItem[] = [
-    // {name: 'Главная', icon: 'category-home', link: '/'},
-    {name: this.headerString.home, icon: 'category-home', link: '/'},
-    // {name: 'Франшизы', icon: 'category-franchise', link: '/catalog-franchise'},
-    {name: this.headerString.franchises, icon: 'category-franchise', link: '/catalog-franchise'},
-    // {name: 'Готовый бизнес', icon: 'category-business', link: '/catalog-business'},
-    {name: this.headerString.readyMadeBusiness, icon: 'category-business', link: '/catalog-business'},
-    // {name: 'Покупка через гарант', icon: 'category-deal', link: '/deal/start'},
-    {name: this.headerString.buyingThroughAGuarantor, icon: 'category-deal', link: '/deal/start'},
-    // {name: 'Консалтинг', icon: 'category-consulting', link: '/consulting/start'},
-    {name: this.headerString.consulting, icon: 'category-consulting', link: '/consulting/start'},
-    // {name: 'Упаковка франшиз', icon: 'category-franchise-start', link: '/franchise/start'}
-    {name: this.headerString.packingFranchises, icon: 'category-franchise-start', link: '/franchise/start'}
-  ];
-
-  cabinetLinks$: Observable<Header.IHeaderItem[]> | undefined;
-
-  private headerLink: Header.IHeaderItem[] | undefined;
+  public mainNavigationItems: MenuItem[] = [];
+  public subNavigationItems: MenuItem[] = [];
+  public readonly headerString = this.languageService.activeDictionary.header;
 
   constructor(
     private commonService: CommonDataService,
+    private languageService: LanguageService,
+    private dialogService: DialogService,
     private router: Router,
     private route: ActivatedRoute,
     private _sessionService: SessionService,
     private _destroy$: GarDestroyService
   ) {
-    this.searchOptions = [
-      {name: 'франшиза', type: 'franchise'},
-      {name: 'бизнес', type: 'business'}
-    ];
+  }
 
-    this.selectedSearchOption = this.searchOptions[0];
+  public moveToMainPage(): void {
+    this.navigateAction('/');
+  }
 
-    this.items = [
-      {label: 'Подтверждение продажи'},
-      {label: 'Согласование этапов сделки'},
-      {label: 'Согласование договора'},
-      {label: 'Оплата и исполнение этапов сделки'}
-    ];
-
-    this.routeParam = this.route.snapshot.queryParams;
-  };
-
-  ngDoCheck() {
-    this.isGarant = window.location.href.includes("stage");
-
-    if (this.isMenuHidden) {
-      document.body.classList.remove('no-overflow');
-    } else {
-      document.body.classList.add('no-overflow');
-    }
+  private navigateAction(path: string, options?: NavigationExtras): void {
+    this.router.navigate([path], options);
   }
 
   public ngOnInit() {
-    this.headerLink = [
-      {name: 'Продать', icon: 'cabinet-megaphone', linkAction: () => this.toLoginOrCabinetLink()},
-      {name: 'Мои сделки', icon: 'cabinet-deal', linkAction: () => this.toLoginOrCabinetLink()},
-      {name: 'Избранное', icon: 'cabinet-star', linkAction: () => this.toLoginOrCabinetLink()},
-      {name: 'Уведомления', icon: 'cabinet-bell', linkAction: () => this.toLoginOrCabinetLink()},
-      {name: this._sessionService.isLogin ? 'Аккаунт' : 'Войти', icon: 'cabinet-profile', linkAction: () => this.toLoginOrCabinetLink()}
-    ];
-    this.cabinetLinks$ = of(this.headerLink).pipe(takeUntil(this._destroy$));
     this.initHeaderAsync();
-    // this.commonService.refreshToken();
-    this.getBreadcrumbsAsync();
-    this.items = [{label: 'Step 1'}, {label: 'Step 2'}, {label: 'Step 3'}];
+    this.mainNavigationItems = this.createHeaderMenu();
+
+    this.subNavigationItems = [
+      {label: this.headerString.home, icon: 'pi pi-home', routerLink: '/main', routerLinkActiveOptions: {exact: true}},
+      {
+        label: this.headerString.franchises,
+        icon: 'pi pi-sitemap',
+        routerLink: '/catalog-franchise',
+        routerLinkActiveOptions: {exact: true}
+      },
+      {
+        label: this.headerString.readyMadeBusiness,
+        icon: 'pi pi-briefcase',
+        routerLink: '/catalog-business',
+        routerLinkActiveOptions: {exact: true}
+      },
+      {
+        label: this.headerString.buyingThroughAGuarantor,
+        icon: 'pi pi-shield',
+        routerLink: '/deal/start',
+        routerLinkActiveOptions: {exact: true}
+      },
+      {
+        label: this.headerString.consulting,
+        icon: 'pi pi-box',
+        routerLink: '/consulting/start',
+        routerLinkActiveOptions: {exact: true}
+      },
+      {
+        label: this.headerString.packingFranchises,
+        icon: 'pi pi-cog',
+        routerLink: '/franchise/start',
+        routerLinkActiveOptions: {exact: true}
+      },
+    ];
   };
-  private toLoginOrCabinetLink(): void{
+
+  private toLoginOrCabinetLink(): void {
     this.router.navigate(["/login"], {queryParams: {loginType: "code"}})
   }
-  @HostListener('window:resize', ['$event'])
-  @HostListener('window:load', ['$event'])
-  onResize() {
+
+  private createHeaderMenu(): MenuItem[] {
+    return [
+      ...[{label: this.headerString.search, icon: 'pi pi-search', command: () => this.showSearch()}],
+      ...(this._sessionService.isLogin ? [
+        {label: this.headerString.sell, icon: 'pi pi-megaphone', command: () => this.toLoginOrCabinetLink()},
+        {label: this.headerString.myTrades, icon: 'pi pi-briefcase', command: () => this.toLoginOrCabinetLink()},
+        {label: this.headerString.favorite, icon: 'pi pi-star', command: () => this.toLoginOrCabinetLink()},
+        {label: this.headerString.notifications, icon: 'pi pi-bell', command: () => this.toLoginOrCabinetLink()},
+        {label: this.headerString.account, icon: 'pi pi-user-edit', command: () => this.toLoginOrCabinetLink()},
+      ] : []),
+      ...(!this._sessionService.isLogin ? [
+        {
+          label: this.headerString.registration,
+          icon: 'pi pi-user-plus',
+          command: () => this.showLoginOrRegistration(false)
+        },
+        {label: this.headerString.logIn, icon: 'pi pi-user', command: () => this.showLoginOrRegistration(true)}
+      ] : []),
+      ...[{
+        styleClass: 'item-in-row',
+        icon: `country-flag country-flag-${this.languageService.activeLangVariant.langCode}`,
+        tooltipOptions: {tooltipLabel: this.languageService.activeLangVariant.title, tooltipPosition: 'bottom'},
+        items: Object.keys(this.languageService.langVariants).map((item) => {
+          return {
+            label: get(this.languageService.langVariants, item).title,
+            styleClass: 'item-in-row',
+            icon: `country-flag country-flag-${item}`,
+            command: () => this.languageService.changeLang(get(this.languageService.langVariants, item))
+          };
+        })
+      }]
+    ];
   }
 
-  public toggleMenu(show: boolean): void {
-    this.isMenuHidden = !show;
+  private showSearch(): void {
+    this.dialogService.open(MainSearchComponent, {
+      showHeader: false,
+      dismissableMask: true,
+      width: '90%',
+      height: '80%',
+      position: 'top',
+    }).onClose.subscribe((data) => {
+
+    });
+  }
+
+  private showLoginOrRegistration(login: boolean): void {
+    this.dialogService.open(LoginAndRegistrationComponent, {
+      dismissableMask: true,
+      width: '464px',
+      data: {login}
+    }).onClose.subscribe((data) => {
+
+    });
   }
 
   /**
    * Функция получит поля хидера.
    */
   private initHeaderAsync() {
-    this.commonService.initHeaderAsync("Main").subscribe((data: Header.IItem[]) => this._aHeader$.next(data));
-  };
-
-  /**
-   * Функция распределит роуты по пунктам хидера.
-   * @param name - параметр роута с названием пункта.
-   */
-  // TODO refactor onGetMenuHeader method
-  public onGetMenuHeader(name: string) {
-    switch (name) {
-      case "Вход или регистрация":
-        this.toLoginOrCabinetLink();
-        break;
-      // Переход к созданию объявления.
-      case "Разместить объявление":
-        this._sessionService.isLogin ? this.toLoginOrCabinetLink() : this.router.navigate(["/ad/create"]);
-        break;
-    }
-  };
-
-  /**
-   * Функция сформирует хлебные крошки страницы.
-   * @returns - Список пунктов цепочки хлебных крошек.
-   */
-  private getBreadcrumbsAsync() {
-    this.commonService.getBreadcrumbsAsync(this.router.url).subscribe((data: any) => this.aBreadcrumbs = data);
-  };
-
-  public onRouteSearch(searchText: string) {
-    this.router.navigate(["/search"], {
-      queryParams: {
-        searchType: this.selectedSearchOption.type,
-        searchText: searchText
-      }
+    this.commonService.initHeaderAsync("Main").subscribe((data: Header.IItem[]) => {
+      console.warn('initHeaderAsync', data)
     });
   };
+
 }

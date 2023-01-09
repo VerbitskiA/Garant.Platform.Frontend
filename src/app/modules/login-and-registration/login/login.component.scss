@@ -1,0 +1,49 @@
+.login {
+  width: 100%;
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 0 1rem 1rem 1rem;
+    text-align: center;
+  }
+  &__title {
+    width: inherit;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  &__fields {
+    &__item {
+      width: 100%;
+      margin-bottom: 1.5rem;
+      input{
+        width: 100%;
+      }
+      &__pass{
+        position: relative;
+        width: 100%;
+        .p-inputtext:enabled:focus {
+          width: 100%;
+        }
+        .pi-eye-slash, .pi-eye{
+          position: absolute;
+          top: 25%;
+          right: .6rem !important;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    &--text-divider{
+      margin: 16px 0;
+    }
+  }
+}

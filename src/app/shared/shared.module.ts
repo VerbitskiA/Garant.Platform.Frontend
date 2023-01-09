@@ -20,6 +20,12 @@ import {NewsModule} from "../modules/news/news.module";
 import {ButtonModule} from 'primeng/button';
 import {CaruselCardModule} from "./components/carousel-card/carusel-card.module";
 import { StaticInfoComponent } from './components/static-info/static-info.component';
+import {MenubarModule} from "primeng/menubar";
+import {InputTextModule} from "primeng/inputtext";
+import {AngularSvgIconModule} from "angular-svg-icon";
+import {RippleModule} from "primeng/ripple";
+import {TabMenuModule} from "primeng/tabmenu";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 const components = [
   HeaderComponent,
@@ -34,23 +40,29 @@ const components = [
 
 @NgModule({
   declarations: [...components],
-  imports: [
-    CommonModule,
-    RouterLinkWithHref,
-    GarLibModule,
-    PipesModule,
-    FormsModule,
-    RadioButtonModule,
-    DropdownModule,
-    CheckboxModule,
-    InputSwitchModule,
-    ProductsModule,
-    PromoModule,
-    NewsModule,
-    RouterLinkActive,
-    ButtonModule,
-    CaruselCardModule
-  ],
+    imports: [
+        CommonModule,
+        RouterLinkWithHref,
+        GarLibModule,
+        PipesModule,
+        FormsModule,
+        RadioButtonModule,
+        DropdownModule,
+        CheckboxModule,
+        InputSwitchModule,
+        ProductsModule,
+        PromoModule,
+        NewsModule,
+        RouterLinkActive,
+        ButtonModule,
+        CaruselCardModule,
+        MenubarModule,
+        InputTextModule,
+        AngularSvgIconModule,
+        RippleModule,
+        TabMenuModule,
+        FontAwesomeModule,
+    ],
   exports: [...components]
 })
 export class SharedModule { }
