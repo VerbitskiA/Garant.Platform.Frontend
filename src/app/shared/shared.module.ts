@@ -2,12 +2,10 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HeaderComponent} from "./components/header/header.component";
 import {FooterComponent} from "./components/footer/footer.component";
-import {RouterModule} from "@angular/router";
-import {RouterLinkActive, RouterLinkWithHref} from "@angular/router";
+import {RouterLinkActive, RouterLinkWithHref, RouterModule} from "@angular/router";
 import {GarLibModule} from "../gar-lib/gar-lib.module";
 import {PipesModule} from "../core/pipes/pipes.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {FormsModule} from "@angular/forms";
 import {CreateAdComponent} from "./components/create-ad/create-ad.component";
 import {RadioButtonModule} from "primeng/radiobutton";
 import {DropdownModule} from "primeng/dropdown";
@@ -37,14 +35,10 @@ import {LandingPromoCardComponent} from './components/landing-promo-card/landing
 import {CardModule} from "primeng/card";
 import {LandingFourStepsCardComponent} from './components/landing-four-steps-card/landing-four-steps-card.component';
 import {LandingPacksCardComponent} from './components/landing-packs-card/landing-packs-card.component';
-import {LandingSelectionCardComponent } from './components/landing-selection-card/landing-selection-card.component';
-import {ButtonModule} from 'primeng/button';
+import {LandingSelectionCardComponent} from './components/landing-selection-card/landing-selection-card.component';
 import {CaruselCardModule} from "./components/carousel-card/carusel-card.module";
-import { StaticInfoComponent } from './components/static-info/static-info.component';
 import {MenubarModule} from "primeng/menubar";
-import {InputTextModule} from "primeng/inputtext";
 import {AngularSvgIconModule} from "angular-svg-icon";
-import {RippleModule} from "primeng/ripple";
 import {TabMenuModule} from "primeng/tabmenu";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
@@ -60,60 +54,47 @@ const components = [
   StaticInfoComponent,
   LandingHeaderCardComponent,
   LandingConsultationCardComponent,
-  LandingStatisticsCardComponent
+  LandingStatisticsCardComponent,
+  LandingPromoCardComponent,
+  LandingFourStepsCardComponent,
+  LandingPacksCardComponent,
+  LandingSelectionCardComponent
 ];
 
 @NgModule({
   declarations: [...components],
-    imports: [
-        CommonModule,
-        RouterLinkWithHref,
-        GarLibModule,
-        PipesModule,
-        FormsModule,
-        RadioButtonModule,
-        DropdownModule,
-        CheckboxModule,
-        InputSwitchModule,
-        ProductsModule,
-        PromoModule,
-        NewsModule,
-        RouterLinkActive,
-        ButtonModule,
-        CaruselCardModule,
-        MenubarModule,
-        InputTextModule,
-        AngularSvgIconModule,
-        RippleModule,
-        TabMenuModule,
-        FontAwesomeModule,
-    ],
+  imports: [
+    CommonModule,
+    RouterLinkWithHref,
+    GarLibModule,
+    PipesModule,
+    FormsModule,
+    RadioButtonModule,
+    DropdownModule,
+    CheckboxModule,
+    InputSwitchModule,
+    ProductsModule,
+    PromoModule,
+    NewsModule,
+    RouterLinkActive,
+    ButtonModule,
+    CaruselCardModule,
+    MenubarModule,
+    InputTextModule,
+    AngularSvgIconModule,
+    RippleModule,
+    TabMenuModule,
+    FontAwesomeModule,
+    ImageModule,
+    NgxIntlTelInputModule,
+    ReactiveFormsModule,
+    TreeModule,
+    CascadeSelectModule,
+    RouterModule,
+    StyleClassModule,
+    CardModule
+  ],
   exports: [...components]
-  declarations: [...components, LandingPromoCardComponent, LandingFourStepsCardComponent, LandingPacksCardComponent, LandingSelectionCardComponent],
-	imports: [
-		CommonModule,
-		GarLibModule,
-		PipesModule,
-		FormsModule,
-		RadioButtonModule,
-		DropdownModule,
-		CheckboxModule,
-		InputSwitchModule,
-		ProductsModule,
-		PromoModule,
-		NewsModule,
-		ImageModule,
-		ButtonModule,
-		NgxIntlTelInputModule,
-		InputTextModule,
-		ReactiveFormsModule,
-		RippleModule,
-		TreeModule,
-		CascadeSelectModule,
-		RouterModule,
-		StyleClassModule,
-		CardModule
-	],
-  exports: [...components, LandingPromoCardComponent, LandingFourStepsCardComponent, LandingPacksCardComponent,LandingSelectionCardComponent]
 })
-export class SharedModule { }
+export class SharedModule {
+}

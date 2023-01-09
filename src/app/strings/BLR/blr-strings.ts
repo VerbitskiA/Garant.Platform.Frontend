@@ -3,18 +3,18 @@ export const BLR = {
     businessWorldNews: 'Навіны дзелавога свету'
   },
   loginOrRegister: {
-    registerTitle: 'Зарегистрируйтесь, чтобы продолжить',
-    rememberMe: 'Запомнить меня',
-    forgotPassword: 'Забыли пароль?',
-    loginCompleteBtlLabel: 'Вход',
-    changeOnRegistration: 'Создать аккаунт',
-    regStart: 'Зарегистрироваться',
+    registerTitle: 'Зарэгіструйцеся, каб працягнуць',
+    rememberMe: 'Запомніць мяне',
+    forgotPassword: 'Забыліся пароль?',
+    loginCompleteBtlLabel: 'Уваход',
+    changeOnRegistration: 'Стварыць рахунак',
+    regStart: 'зарэгістравацца',
   },
   miscString: {
     password: 'Пароль',
-    userName: 'Имя пользователя',
+    userName: 'імя карыстальніка',
     email: 'Email',
-    or: 'или',
+    or: 'ці',
   },
   header: {
     home: 'Галоўная',
@@ -111,5 +111,31 @@ export const BLR = {
     passwordPrompt: "Увядзіце пароль",
     emptyMessage: "Вынікаў не знойдзена",
     emptyFilterMessage: "Вынікаў не знойдзена"
+  },
+  headerLanding: {
+    consulting: {
+      title: 'кансультацыя',
+      subtitle: 'па куплі бізнесу і франшызы',
+      content_text: ' з суправаджэннем здзелкі і складаннем дагавораў',
+      content__button: 'атрымаць кансультацыю',
+      content__button1: 'кансультацыя',
+      alt: 'Малюнак нататніка, ручкі і партфеля',
+    },
+    deal: {
+      title: 'Анлайн здзелка',
+      subtitle: 'па куплі бізнесу',
+      content_text: 'або франшызы',
+      content__button: 'як пачаць здзелку?',
+      alt: 'Выява шчыта',
+    },
+    franchise: {
+      title: 'Стварэнне',
+      subtitles: 'і ўпакоўка франшызы',
+      content_text: 'з бясплатным размяшчэннем у каталогу',
+      content__button: 'Бясплатная кансультацыя',
+      alt: 'Выява стала, манеты і %',
+      alt1: 'выява стала, манеты і %',
+    }
   }
+
 }

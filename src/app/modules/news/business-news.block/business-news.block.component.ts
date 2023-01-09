@@ -8,8 +8,7 @@ import {filter, map, shareReplay, switchMap, takeUntil, tap} from "rxjs/operator
 import {BehaviorSubject, combineLatest, of, ReplaySubject} from "rxjs";
 import {KeyValue} from "@angular/common";
 import {News} from "../news";
-import {RU} from "../../../strings/RU/ru-strings";
-import {ENG} from "../../../strings/ENG/eng-string";
+import {LanguageService} from "../../../core/services/language/language.service";
 
 @Component({
   selector: 'app-business-news-block',
@@ -20,8 +19,9 @@ import {ENG} from "../../../strings/ENG/eng-string";
 })
 export class BusinessNewsBlockComponent implements OnInit {
   //public readonly newsString = RU.news;
-  public readonly newsString = ENG.news;
-
+  public get newsString(): any {
+    return this.languageService.activeDictionary.news;
+  }
 
   /** Текущее состояние значений формы */
   private readonly formValue$ = new ReplaySubject<{ sorting: KeyValue<string, string>; tags: { selected: boolean, tag: string }[] }>();
@@ -105,6 +105,7 @@ export class BusinessNewsBlockComponent implements OnInit {
     private _fb: FormBuilder,
     private _service: NewsService,
     private _destroy$: GarDestroyService,
+    private languageService: LanguageService,
     @Inject(WINDOW)
     private _window: WindowProvider
   ) {

@@ -13,9 +13,8 @@ import {
   CatalogShortCardComponent
 } from "../../../modules/products/catalog/catalog.short.card/catalog.short.card.component";
 import {PromoService} from "../../../core/services/promo/promo.service";
-import {ENG} from "../../../strings/ENG/eng-string";
-import {RU} from "../../../strings/RU/ru-strings";
 import {BusinessListModel, CatalogFranchiseModel, CitiesListModel, GetBlogsModel} from "../../../models";
+import {LanguageService} from "../../../core/services/language/language.service";
 
 @Component({
   selector: 'app-main-page',
@@ -57,8 +56,9 @@ export class MainPageComponent implements OnInit {
   aNewBusiness: any[] = [];
   showCategoryMenu: boolean = false;
 
-  // public readonly mainPageString = RU.main_page;
-  public readonly mainPageString = ENG.main_page;
+  public get mainPageString(): any {
+    return this.languageService.activeDictionary.main_page;
+  }
 
   readonly aDataActions$ = this._promoService.actions$;
   readonly aPopularFranchises$ = this.commonService.getPopularFranchise().pipe(
@@ -78,6 +78,7 @@ export class MainPageComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private _promoService: PromoService,
+    private languageService: LanguageService,
     private commonService: CommonDataService,
     private titleService: Title,
     private route: ActivatedRoute,
@@ -272,14 +273,13 @@ export class MainPageComponent implements OnInit {
   };
 
 
-
   public cardsData = [
     {
       id: '1',
       name: 'Название франшизы',
       description: 'Франшиза . 12 точек',
       price: '12 500 000 ₽ ',
-      img:'../../../../assets/images/common/main-carousel.jpg',
+      img: '../../../../assets/images/common/main-carousel.jpg',
 
 
     },
@@ -288,28 +288,28 @@ export class MainPageComponent implements OnInit {
       name: 'Название франшизы',
       description: 'Франшиза . 12 точек',
       price: '12 500 000 ₽',
-      img:'../../../../assets/images/common/main-carousel.jpg',
+      img: '../../../../assets/images/common/main-carousel.jpg',
     },
     {
       id: '3',
       name: 'Название франшизы',
       description: 'Франшиза . 12 точек',
       price: '12 500 000 ₽',
-      img:'../../../../assets/images/common/main-carousel.jpg',
+      img: '../../../../assets/images/common/main-carousel.jpg',
     },
     {
       id: '4',
       name: 'Название франшизы',
       description: 'Франшиза . 12 точек',
       price: '12 500 000 ₽',
-      img:'../../../../assets/images/common/main-carousel.jpg',
+      img: '../../../../assets/images/common/main-carousel.jpg',
     },
     {
       id: '5',
       name: 'Название франшизы',
       description: 'Франшиза . 12 точек',
       price: '12 500 000 ₽ ',
-      img:'../../../../assets/images/common/main-carousel.jpg',
+      img: '../../../../assets/images/common/main-carousel.jpg',
     }
 
   ];

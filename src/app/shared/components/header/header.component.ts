@@ -4,7 +4,6 @@ import {ActivatedRoute, NavigationExtras, Router} from '@angular/router';
 import {MenuItem} from 'primeng/api';
 import {SessionService} from "../../../core/services/session/session.service";
 import {GarDestroyService} from "../../../gar-lib/gar-destroy.service";
-import {ENG} from "../../../strings/ENG/eng-string";
 import {DialogService} from "primeng/dynamicdialog";
 import {MainSearchComponent} from "../main-search/main-search.component";
 import {get} from "lodash";
@@ -35,10 +34,6 @@ export namespace Header {
 
   }
 }
-
-//const cabinetString = RU.cabinet_links;
-const cabinetString = ENG.cabinet_links;
-
 
 @Component({
   selector: 'app-header',

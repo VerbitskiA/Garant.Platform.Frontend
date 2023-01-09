@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, NgModule} from "@angular/core";
+import {NgModule} from "@angular/core";
 import {BrowserModule} from "@angular/platform-browser";
 import {AppRoutingModule} from "./app-routing.module";
 import {AppComponent} from "./app.component";
@@ -19,7 +19,7 @@ import {Session} from "./core/services/session/session.service";
 import {API_URL} from "./core/core-urls/api-url";
 import {AngularSvgIconModule} from "angular-svg-icon";
 import {DialogService} from "primeng/dynamicdialog";
-import {MessageService} from "primeng/api";
+import {MessageService, PrimeNGConfig} from "primeng/api";
 import {ScrollPanelModule} from "primeng/scrollpanel";
 import {fas} from '@fortawesome/free-solid-svg-icons';
 import tokenGetter = Session.tokenGetter;
@@ -55,7 +55,8 @@ import tokenGetter = Session.tokenGetter;
 })
 
 export class AppModule {
-  constructor(library: FaIconLibrary) {
+  constructor(library: FaIconLibrary, private primengConfig: PrimeNGConfig) {
     library.addIconPacks(fas);
+    this.primengConfig.ripple = true;
   }
 }

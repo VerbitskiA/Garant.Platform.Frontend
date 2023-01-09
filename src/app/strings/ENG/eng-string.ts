@@ -112,5 +112,30 @@ export const ENG = {
     passwordPrompt: "Enter a password",
     emptyMessage: "No results found",
     emptyFilterMessage: "No results found"
+  },
+  headerLanding: {
+    consulting: {
+      title: 'Consultation',
+      sublitle: 'buying a business and franchises',
+      content_text: 'with deal support and contract drafting',
+      content__button: 'Get a consultation',
+      content__button1: 'Consultation',
+      alt: 'Image of notebook, pen and briefcase',
+    },
+    deal: {
+      title: 'Online Deal',
+      sublitle: 'buying a business',
+      content_text: 'or franchises',
+      content__button: 'How to start a deal?',
+      alt: 'Shield image',
+    },
+    franchise: {
+      title: 'Creation',
+      sublitle: 'and packaging of franchises',
+      content_text: 'with free catalog placement',
+      content__button: 'Free consultation',
+      alt: 'Table image, coins and %',
+      alt1: 'Table image, coins and %',
+    }
   }
 }

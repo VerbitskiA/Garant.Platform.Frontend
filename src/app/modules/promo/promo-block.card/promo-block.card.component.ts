@@ -2,8 +2,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {CatalogPromoCardComponent} from "../../products/catalog/catalog.promo.card/catalog.promo.card.component";
 import {PromoService} from "../../../core/services/promo/promo.service";
 import {shareReplay} from "rxjs/operators";
-import {ENG} from "../../../strings/ENG/eng-string";
-import {RU} from "../../../strings/RU/ru-strings";
+import {LanguageService} from "../../../core/services/language/language.service";
 
 interface CardData {
   id?: string;
@@ -12,6 +11,7 @@ interface CardData {
   time?: string;
   price?: string;
 }
+
 /**
  * Блок со слайдером
  *
@@ -26,26 +26,14 @@ interface CardData {
 })
 export class PromoBlockCardComponent {
 
-  /**
-   * Заголовок над слайдером
-   *
-   * @default 'Недавно приобрели'
-   * */
-  // @Input('recentlyPurchased')
-  // recentlyPurchased = 'Недавно приобрели2';
-  //public readonly recentlyPurchased = RU.promoBlockCard.recentlyPurchased;
-  public readonly recentlyPurchased = ENG.promoBlockCard.sliderTitle;
+  public get recentlyPurchased(): any {
+    return this.languageService.activeDictionary.promoBlockCard.sliderTitle;
+  }
 
-  /**
-   * Заголовок над баннером
-   *
-   * @default 'Покупка бизнеса с гарантиями'
-   * */
-  // @Input('bannerTitle')
-  // bannerTitle = 'Покупка бизнеса с гарантиями';
-    //заменил на:
-  //public readonly bannerTitle = RU.promoBlockCard.bannerTitle;
-  public readonly bannerTitle = ENG.promoBlockCard.bannerTitle;
+  public get bannerTitle(): any {
+    return this.languageService.activeDictionary.promoBlockCard.bannerTitle;
+  }
+
   responsiveOptions;
   cardComponent = CatalogPromoCardComponent;
 
@@ -55,9 +43,13 @@ export class PromoBlockCardComponent {
 
   readonly actionsTop$ = this._service.actionsTop$;
 
-  getAction(card:CardData){}
+  getAction(card: CardData) {
+  }
 
-  constructor(private _service: PromoService) {
+  constructor(
+    private _service: PromoService,
+    private languageService: LanguageService,
+  ) {
     this.responsiveOptions = [
       {
         breakpoint: '768px',
@@ -79,8 +71,8 @@ export class PromoBlockCardComponent {
       name: 'Название готового бизнеса',
       description: 'Готовый бизнес',
       price: '12 500 000 ₽ ',
-      time:'24 дня',
-      img:'../../../../assets/images/common/main-carousel.jpg',
+      time: '24 дня',
+      img: '../../../../assets/images/common/main-carousel.jpg',
 
 
     },
@@ -88,17 +80,17 @@ export class PromoBlockCardComponent {
       id: '2',
       name: 'Название готового бизнеса',
       description: 'Готовый бизнес',
-      time:'24 дня',
+      time: '24 дня',
       price: '12 500 000 ₽ ',
-      img:'../../../../assets/images/common/main-carousel.jpg',
+      img: '../../../../assets/images/common/main-carousel.jpg',
     },
     {
       id: '3',
       name: 'Название готового бизнеса',
       description: 'Готовый бизнес',
-      time:'24 дня',
+      time: '24 дня',
       price: '12 500 000 ₽ ',
-      img:'../../../../assets/images/common/main-carousel.jpg',
+      img: '../../../../assets/images/common/main-carousel.jpg',
     },
 
   ];
