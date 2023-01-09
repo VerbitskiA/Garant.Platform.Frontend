@@ -1,0 +1,215 @@
+@import 'src/assets/styles/_fonts.scss';
+@import 'design';
+@import './../components/gar-lib'; // TODO: черт знает, но, думаю, от этого стоит отойти.
+
+
+.app-landing-promo-card {
+  margin: 20px auto;
+
+  @include tablet-small {
+    margin-top: 38px;
+    margin-bottom: 38px;
+  }
+  @include tablet {
+    margin-top: 64px;
+    margin-bottom: 64px;
+  }
+  @include desktop {
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+  @include wideScreens {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+
+  .promo {
+    &-item {
+      background-color: #F1F6FF;
+      border-radius: 8px;
+      font-family: 'Roboto', sans-serif;
+      font-style: normal;
+      padding: 10px;
+      position: relative;
+      @include tablet-small {
+        padding: 25px 23px;
+      }
+      @include tablet {
+        padding: 24px 22px;
+      }
+      @include desktop {
+        padding: 29px 20px;
+      }
+      @include wideScreens {
+        padding: 24px;
+      }
+
+      &_title {
+        font-weight: 600;
+
+        color: #2C2C2C;
+        padding-bottom: 16px;
+
+        font-size: 17px;
+        line-height: 20px;
+        @include tablet-small {
+          font-size: 18px;
+          line-height: 21px;
+        }
+        @include tablet {
+          font-size: 18px;
+          line-height: 21px;
+        }
+        @include desktop {
+
+        }
+        @include wideScreens {
+          font-size: 18px;
+          line-height: 21px;
+        }
+      }
+
+
+
+      &_subtitle {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #7A7A7A;
+        padding-bottom: 39px;
+      }
+
+      @include tablet-small {
+
+      }
+      @include tablet {
+
+      }
+      @include desktop {
+
+      }
+      @include wideScreens {
+        padding-bottom: 27px;
+      }
+
+      &_image {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        @include tablet-small {
+          top: 24px;
+          right: 26px;
+        }
+        @include tablet {
+
+        }
+        @include desktop {
+
+        }
+        @include wideScreens {
+          top: 23px;
+          right: 23px;
+        }
+      }
+
+
+      .imageClose {
+        width: 19px;
+        height: auto;
+        object-fit: cover;
+      }
+
+      &_row {
+        &__button_accept {
+          width: fit-content;
+          height: 53px;
+          background: #1F75FE;
+          //background: greenyellow;
+          border-radius: 4px;
+          font-weight: 600;
+          color: #FFFFFF;
+          margin-right: 15px;
+          font-size: 16px;
+          line-height: 19px;
+          @include tablet-small {
+            font-size: 18px;
+            line-height: 21px;
+          }
+          @include tablet {
+            margin-right: 16px;
+          }
+          @include desktop {
+
+          }
+          @include wideScreens {
+            font-size: 18px;
+            line-height: 21px;
+            margin-right: 15px;
+          }
+        }
+
+
+        &__button_later {
+          width: fit-content;
+          height: 53px;
+          background: #F1F6FF;
+          border-radius: 4px;
+          font-weight: 600;
+          color: #7A7A7A;
+          font-size: 16px;
+          line-height: 19px;
+          @include tablet-small {
+            font-size: 18px;
+            line-height: 21px;
+          }
+          @include tablet {
+
+          }
+          @include desktop {
+
+          }
+          @include wideScreens {
+            font-size: 18px;
+            line-height: 21px;
+          }
+        }
+
+
+      }
+
+
+    }
+
+
+  }
+}
+
+//
+//.new-app-landing-four-steps-card {
+//  .steps {
+//    &-item {
+//      &__button2 {
+//
+//        display: flex;
+//        justify-content: center;
+//        align-items: center;
+//        font-family: "Roboto", sans-serif;
+//        font-size: 1.125rem;
+//        margin-left: 16px;
+//        margin-right: 16px;
+//        height: 53px;
+//        padding: 16px;
+//        border: 0;
+//        border-radius: 4px;
+//        color: #ffffff;
+//        //background-color: #1f1f1f;
+//        background-color: red;
+//        width: 250px;
+//      }
+//    }
+//
+//
+//  }
+//}
+//

@@ -11,13 +11,20 @@
 }
 
 @mixin tablet {
-  @media (min-width: 1024px) {
+  @media (min-width: 1024px) { //1024px ширина блоков при дисплее 1200px
+  //@media (min-width: 1200px) {
     @content;
   }
 }
 
 @mixin desktop {
   @media (min-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin wideScreens {
+  @media (min-width: 1920px) {
     @content;
   }
 }

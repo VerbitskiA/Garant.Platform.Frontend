@@ -1,0 +1,369 @@
+@import "../../../../assets/styles/media-quaries";
+
+@import '../../../../assets/styles/design/design';
+
+@import "../../../../src/styles.scss";
+
+
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                         not supported by any browser */
+}
+
+.app-landing-packs-card {
+  margin: 20px auto;
+
+  @include tablet-small {
+    margin-top: 38px;
+    margin-bottom: 38px;
+  }
+  @include tablet {
+    margin-top: 64px;
+    margin-bottom: 64px;
+  }
+  @include desktop {
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+  @include wideScreens {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  h5 {
+    margin: 0
+  }
+
+  .packs {
+    display: flex;
+    //gap: 24px;
+    max-width: 1440px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+
+    @include phone {
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+      margin-top: 23px;
+    }
+
+    @include tablet {
+      flex-wrap: nowrap;
+      //grid-gap: 12px;
+    }
+
+    &-header {
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: #2c2c2c;
+
+      @include phone {
+        font-size: 19px;
+      }
+      @include tablet-small{
+        font-size: 1.2rem;
+        padding-bottom: 18px;
+      }
+      @include tablet{
+        font-size: 1.3rem;
+        padding-bottom: 28px;
+      }
+      @include desktop{
+        font-size: 1.5rem;
+        padding-bottom: 35px;
+      }
+    }
+
+    &-item {
+      width: 30%;
+      min-width: 325px;
+      height: fit-content;
+
+      @include phone {
+        width: 100%;
+      }
+
+      @include tablet-small {
+        margin-bottom: 35px;
+        width: 49%;
+      }
+
+      @include tablet {
+        width: 31%;
+      }
+      @include desktop {
+        width: 32%;
+      }
+      &__image{
+        border-radius: 10px;
+        //box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
+        box-shadow: 0 4px 44px rgba(0, 0, 0, 0.08);
+        &--pack {
+          width: 100%;
+        }
+      }
+
+      .container{
+        border-radius: 10px;
+        //box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
+        box-shadow: 0 4px 44px rgba(0, 0, 0, 0.08);
+        padding-bottom: 1px;
+        margin-bottom: 16px;
+      }
+
+      &__title {
+        font-size: 1.25rem;
+        border-radius: 8px 8px 0 0;
+        width: 100%;
+        padding: 24px;
+        border: 0;
+        color: #ffffff;
+        background-color: var(--app-get-call-card);
+        margin-bottom: 16px;
+        text-align: start;
+
+        @include phone {
+          font-size: 25px;
+          padding: 14px 10px;
+        }
+
+        @include tablet-small {
+          font-size: 25px;
+          padding: 13px 10px;
+          margin-bottom: 26px;
+        }
+
+        @include tablet {
+          font-size: 21px;
+        }
+        @include desktop{
+          font-size: 26px;
+          padding: 30px 26px;
+        }
+      }
+
+      &__text {
+        font-size: 18px;
+        max-width: 431px;
+        padding: 10px;
+        line-height: 21px;
+        color: #2c2c2c;
+        margin: 4px 16px 32px 4px;
+
+        @include phone {
+          padding: 5px;
+        }
+
+        @include tablet-small {
+          padding: 0;
+          margin: 0 8px 32px 12px;
+        }
+        @include tablet{
+          margin: 0 0 32px 3px;
+        }
+
+        @include desktop {
+          font-size: 18px;
+          margin: 0 52px 32px 28px;
+        }
+        @include wideScreens {
+
+          margin: 0 21px 32px 15px;
+        }
+
+      }
+
+      &__list {
+        width: 463px;
+        // height: 1730px;
+        padding: 0;
+
+        @include phone {
+          width: 100%;
+        }
+
+        @include tablet-small {
+          width: 100%;
+        }
+
+        li {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          list-style: none;
+          margin-bottom: 48px;
+
+          @include phone {
+            margin-left: 10px;
+          }
+
+          @include tablet-small {
+            margin-left: 10px;
+          }
+          @include desktop{
+            margin-left: 40px;
+          }
+
+        }
+      }
+
+      &__yes {
+        display: inline-block;
+        width: 56px;
+        height: auto;
+        @include tablet{
+          width: 46px;
+        }
+        @include desktop{
+          width: 59px;
+        }
+      }
+
+      &__no {
+        display: inline-block;
+        width: 56px;
+        height: auto;
+        @include tablet{
+          width: 46px;
+        }
+        @include desktop{
+          width: 59px;
+        }
+      }
+
+      &__tool {
+        display: inline-block;
+        font-size: 18px;
+        width: 349px;
+        line-height: 21px;
+        color: #000000;
+        margin-left: 12px;
+        margin-right: 16px;
+
+        @include tablet-small {
+          margin-left: 16px;
+          max-width: 292px;
+        }
+
+        @include tablet{
+          margin-left: 11px;
+        }
+        @include desktop{
+          max-width: fit-content;
+        }
+      }
+
+      &-bottom {
+        max-width: 463px;
+        background: #ffffff;
+        box-shadow: 0 4px 44px rgba(0, 0, 0, 0.08);
+        //box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
+        padding: 16px;
+        margin: 8px;
+        border-radius: 0 0 10px 10px;
+        @include desktop{
+          margin: 0 24px 24px 24px;
+        }
+
+        &__title {
+          font-size: 1.125rem;
+          line-height: 21px;
+          color: #2C2C2C;
+          padding-top: 24px;
+          margin-bottom: 24px;
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          border-bottom: 1px dashed #DADADA;
+          padding-bottom: 24px;
+
+          @include phone {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+          }
+
+          @include tablet{
+            padding-top: 0;
+          }
+
+        }
+
+        &__text {
+          font-size: 18px;
+          line-height: 21px;
+          color: #000000;
+        }
+
+        &__text1 {
+          margin-bottom: 24px;
+          padding-bottom: 20px;
+          border-bottom: 1px dashed #DADADA;
+        }
+
+        &__price {
+          display: flex;
+          justify-content: space-between;
+          font-size: 18px;
+          line-height: 21px;
+          padding-bottom: 24px;
+          border-bottom: 1px dashed #DADADA;
+          font-style: normal;
+          font-weight: 400;
+          color: #2C2C2C;
+        }
+
+        &__button {
+          width: 100%;
+          display: flex;
+          font-size: 23px;
+          font-weight: 400;
+          color: #ffffff;
+          line-height: 21px;
+          border: none;
+          box-shadow: 0 4px 44px rgba(0, 0, 0, 0.08);
+          //box-shadow: 2px 20px 10px -10px rgb(0 0 0 / 20%), 0 10px 10px 0 rgb(0 0 0 / 14%), 0 10px 30px 0 rgb(0 0 0 / 12%) !important;
+          border-radius: 66px;
+          padding: 24px;
+          margin: 24px auto 10px auto;
+          background-color: #1f75fe;
+          justify-content: center;
+
+          @include tablet-small {
+            font-size: 24px;
+            margin: 25px auto 0;
+          }
+          @include tablet{
+            font-size: 22px;
+          }
+          @include desktop{
+            font-size: 25px;
+          }
+
+        }
+      }
+    }
+
+    .packs-item:nth-child(even) {
+      .packs-item__title {
+        background-color: #1F75FE;
+      }
+    }
+
+    .packs-item:nth-child(even):hover {
+      .packs-item__title {
+        background-color: #2196F3;
+      }
+    }
+  }
+}
+
+
+

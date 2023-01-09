@@ -1,0 +1,467 @@
+@import '../../../../assets/styles/design/design';
+
+@import "../../../../assets/styles/media-quaries";
+
+
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                         not supported by any browser */
+}
+
+.app-landing-header-card {
+  margin: 20px auto;
+
+  @include tablet-small {
+    margin-top: 38px;
+    margin-bottom: 38px;
+  }
+  @include tablet {
+    margin-top: 64px;
+    margin-bottom: 64px;
+  }
+  @include desktop {
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+  @include wideScreens {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+  .header {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    grid-template-areas: "header-image2"
+                        "header-content";
+    justify-items: center;
+    border-radius: 24px;
+    padding: 24px 0 24px 0;
+    background-color: #f5f8fa;
+    margin-top: 30px;
+    margin-bottom: 16px;
+    overflow: hidden;
+
+
+    @include tablet-small {
+      grid-template-areas: "header-content header-image";
+      justify-items: start;
+      padding: 32px;
+      padding-right: 64px;
+      position: relative;
+    }
+
+    @include tablet {
+      padding: 44px;
+      padding-right: 91px;
+    }
+
+    @include desktop {
+      padding: 64px;
+      padding-right: 110px;
+    }
+
+    @include wideScreens {
+      grid-template-columns: 1fr 1fr;
+      padding: 67px 22px 56px 63px;
+      gap: 0;
+
+    }
+
+    &_content {
+      grid-area: header-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      //width: min-content;
+      width: 228px;
+
+
+      @include tablet-small {
+        align-items: start;
+        margin-bottom: 0;
+        //width: min-content;
+        //width: max-content;
+        //width: 416px;
+        width: 455px;
+      }
+      @include desktop{
+        width: 705px;
+      }
+
+      @include wideScreens {
+        //width: 951px;
+        width: 1076px;
+        //width: auto;
+        height: 369px;
+      }
+
+      &__title {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        color: #2c2c2c;
+        margin-bottom: 8px;
+        font-size: 2rem;
+        line-height: 38px;
+
+        @include tablet-small {
+          font-size: 4rem;
+          line-height: 75px;
+        }
+
+        @include desktop {
+          font-size: 6rem;
+          line-height: 112px;
+          margin-bottom: 8px;
+        }
+
+        @include wideScreens {
+          width: 790px;
+        }
+      }
+
+      &__headerContentSubtitle {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        color: #2c2c2c;
+        font-size: 1.5rem;
+        line-height: 28px;
+        margin-bottom: 17px;
+        text-align: center;
+
+        @include tablet-small {
+          font-size: 2.75rem;
+          line-height: 52px;
+          text-align: left;
+        }
+
+        @include desktop {
+          font-size: 4rem;
+          line-height: 75px;
+        }
+      }
+
+      &__consultingHeaderContentSubtitle {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        color: #2c2c2c;
+        font-size: 1.5rem;
+        line-height: 28px;
+        margin-bottom: 17px;
+        text-align: center;
+        @include tablet-small {
+          font-size: 2.75rem;
+          line-height: 52px;
+          text-align: left;
+          //min-width: 409px;
+          width: 444px;
+          margin-bottom: 16px;
+        }
+        @include desktop {
+          font-size: 4rem;
+          line-height: 75px;
+          min-width: 634px;
+        }
+        @include wideScreens {
+          min-width: 939px;
+        }
+      }
+
+      &__franchiseHeaderContentSubtitle {
+        font-family: "Roboto", sans-serif;
+        font-weight: 700;
+        color: #2c2c2c;
+        font-size: 1.5rem;
+        line-height: 28px;
+        margin-bottom: 17px;
+        text-align: center;
+        min-width: 247px;
+        @include tablet-small {
+          font-size: 2.75rem;
+          line-height: 52px;
+          text-align: left;
+          min-width: 409px;
+          margin-bottom: 16px;
+        }
+        @include desktop {
+          font-size: 4rem;
+          line-height: 75px;
+        }
+      }
+
+      &__headerContentText {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        color: #7a7a7a;
+        margin-bottom: 24px;
+        font-size: 1.0625rem;
+        line-height: 20px;
+        text-align: center;
+
+        @include tablet-small {
+          font-size: 1.5rem;
+          line-height: 28px;
+          margin-bottom: 113px;
+          text-align: left;
+          max-width: 310px;
+
+        }
+        @include desktop {
+          margin-bottom: 52px;
+        }
+
+        @include wideScreens {
+          margin-bottom: 52px;
+        }
+      }
+
+      &__consultingHeaderContentText {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        color: #7a7a7a;
+        margin-bottom: 24px;
+        font-size: 1.0625rem;
+        line-height: 20px;
+        text-align: center;
+        @include tablet-small {
+          color: #7a7a7a;
+          font-size: 1.5rem;
+          line-height: 28px;
+          margin-bottom: 33px;
+          text-align: left;
+          max-width: 310px;
+
+        }
+        @include tablet {
+          margin-bottom: 89px;
+        }
+        @include desktop {
+          margin-bottom: 33px;
+          max-width: 617px;
+        }
+        @include wideScreens {
+          margin-bottom: 53px;
+        }
+
+      }
+
+      &__franchiseHeaderContentText {
+        font-family: "Roboto", sans-serif;
+        font-weight: 400;
+        color: #7a7a7a;
+        margin-bottom: 24px;
+        font-size: 1.0625rem;
+        line-height: 20px;
+        text-align: center;
+        @include tablet-small {
+          font-size: 1.5rem;
+          line-height: 28px;
+          margin-bottom: 85px;
+          text-align: left;
+          max-width: 332px;
+
+        }
+        @include tablet {
+          max-width: 452px;
+        }
+
+      }
+
+      &__consultingHeaderButton{
+        display: none;
+
+        @include tablet-small {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: "Roboto", sans-serif;
+          font-size: 1.5rem;
+          font-weight: 500;
+          color: #ffffff;
+          line-height: 28px;
+          width: 341px;
+          height: 76px;
+          border: none;
+          border-radius: 4px;
+          padding: 24px 32px;
+          margin: 0;
+          background-color: #1f75fe;
+        }
+      }
+      &__franchiseHeaderButton{
+        display: none;
+
+        @include tablet-small {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: "Roboto", sans-serif;
+          font-size: 1.5rem;
+          font-weight: 500;
+          color: #ffffff;
+          line-height: 28px;
+          width: 360px;
+          height: 76px;
+          border: none;
+          border-radius: 4px;
+          padding: 24px 32px;
+          margin: 0;
+          background-color: #1f75fe;
+
+          @include tablet{
+            margin: 28px 0;
+          }
+          @include desktop{
+            margin: -32px 0;
+          }
+        }
+      }
+
+      &__dealHeaderButton{
+        display: none;
+
+        @include tablet-small {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: "Roboto", sans-serif;
+          font-size: 1.5rem;
+          font-weight: 500;
+          color: #ffffff;
+          line-height: 28px;
+          width: 291px;
+          height: 76px;
+          border: none;
+          border-radius: 4px;
+          padding: 24px 32px;
+          margin: 0;
+          background-color: #1f75fe;
+        }
+      }
+
+      &__button2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Roboto", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #ffffff;
+        line-height: 28px;
+        width: 272px;
+        height: 76px;
+        border: none;
+        border-radius: 4px;
+        background-color: #1f75fe;
+
+        @include tablet-small {
+          display: none;
+        }
+      }
+
+    }
+
+    &-image {
+      grid-area: header-image;
+      display: none;
+
+      @include tablet-small {
+        display: block;
+      }
+    }
+
+    .imageClass {
+      @include tablet-small {
+        width: 249px;
+        height: auto;
+        object-fit: cover;
+      }
+      @include tablet {
+        width: 364px;
+        margin-left: 120px;
+      }
+      @include desktop {
+        width: 364px;
+        margin-left: 196px;
+      }
+      @include wideScreens{
+        width: 370px;
+        margin-left: -128px;
+      }
+    }
+
+    .consultingImageClass {
+      @include tablet-small {
+        margin-left: -22px;
+        margin-top: 38px;
+        width: 322px;
+        height: auto;
+        object-fit: cover;
+      }
+      @include tablet {
+        margin-left: 76px;
+        margin-top: 12px;
+        width: 395px;
+      }
+      @include desktop {
+        margin-left: 192px;
+        margin-top: 11px;
+        width: 399px;
+      }
+      @include wideScreens {
+        margin-left: -72px;
+        margin-top: -1px;
+        width: 365px;
+        height: auto;
+      }
+
+    }
+
+    .franchiseImageClass {
+      @include tablet-small {
+        position: absolute;
+        top: 71px;
+        left: 420px;
+        width: 517px;
+        height: auto;
+      }
+
+      @include tablet {
+        top: 88px;
+        left: 508px;
+      }
+      @include desktop {
+        width: 658px;
+        left: 734px;
+        top: 65px;
+      }
+      @include wideScreens{
+        left: 781px;
+        top: 71px
+      }
+    }
+
+
+    @include wideScreens {
+      //width: 365px; // - оплтимально для http://localhost:4200/deal/start и 4200/consulting/start для wideScreens
+      ////width: 660px; // ??? - оплтимально для http://localhost:4200/franchise/start для wideScreens
+      //top: -25px;
+      //left: -41px;
+    }
+
+
+    &-image2 {
+      grid-area: header-image2;
+      margin-bottom: 17px;
+      @include tablet-small {
+        display: none;
+      }
+
+    }
+  }
+}
+

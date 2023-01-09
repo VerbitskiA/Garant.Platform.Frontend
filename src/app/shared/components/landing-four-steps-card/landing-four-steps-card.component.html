@@ -1,0 +1,20 @@
+<div class="app-landing-four-steps-card unselectable">
+  <h5 class="steps-header" *ngIf="dataIsSets">{{landingFourStepsDataHeader}}</h5>
+  <div class="steps">
+    <div class="steps-item" *ngFor="let card_FourStepsData of allCardsFourStepsData">
+      <div class="steps-item__image">
+        <p-image
+          src="{{card_FourStepsData.image}}"
+          alt="{{card_FourStepsData.alt}}">
+        </p-image>
+      </div>
+      <p class="steps-item__title">{{card_FourStepsData.title}}</p>
+      <p class="steps-item__subtitle">{{card_FourStepsData.subtitle}}</p>
+      <p class="steps-item__stage">{{card_FourStepsData.stage}}</p>
+      <p class="steps-item__text">
+        {{card_FourStepsData.item_text}}
+      </p>
+      <button pButton type="button" class="steps-item__button border-solid border-blue-500" [label]="card_FourStepsData.item__button"></button>
+    </div>
+  </div>
+</div>

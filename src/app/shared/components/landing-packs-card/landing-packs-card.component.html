@@ -1,0 +1,40 @@
+<div class="app-landing-packs-card unselectable" *ngIf="dataIsSets">
+  <h5 class="packs-header ">{{landingPacksDataHeader}}</h5>
+  <div class="packs" *ngIf="allCardsPacksData">
+    <div class="packs-item" *ngFor="let cardPacksData of allCardsPacksData">
+      <div class="packs-item__image" *ngIf="cardPacksData.image_pack">
+        <img class="packs-item__image--pack" src="{{cardPacksData.image_pack}}" alt="{{cardPacksData.alt}}"/>
+      </div>
+
+      <div class="container">
+        <button pButton type="button" class="packs-item__title">{{cardPacksData.title}}</button>
+        <div class="packs-item__text">{{cardPacksData.item_text}}</div>
+        <ul class="packs-item__list">
+          <li *ngFor="let item of cardPacksData.item__list">
+            <div class="{{item.item_class}}">
+              <p-image imageClass="{{item.item_class}}"
+                       src="{{item.item_class === 'packs-item__yes' ? cardPacksData.item__yes_image: cardPacksData.item__no_image}}"></p-image>
+            </div>
+            <span class="packs-item__tool">{{item.item__tool}}</span>
+          </li>
+        </ul>
+        <div class="packs-item-bottom">
+          <p class="packs-item-bottom__title">
+            <span><b>{{cardPacksData.item_bottom__title}}</b></span>
+            <span>{{cardPacksData.item_bottom__title_value}}</span>
+          </p>
+          <p class="packs-item-bottom__text" *ngIf="cardPacksData.item_bottom__text">
+            <b>{{cardPacksData.item_bottom__text}}</b></p>
+          <p class="packs-item-bottom__text1"
+             *ngIf="cardPacksData.item_bottom__text1">{{cardPacksData.item_bottom__text1}}</p>
+          <p class="packs-item-bottom__price">
+            <b>{{cardPacksData.item_bottom__price}}</b><span>{{cardPacksData.item_bottom__price_value}}</span>
+          </p>
+          <button pButton type="button" class="packs-item-bottom__button">{{cardPacksData.item_bottom__button}}</button>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

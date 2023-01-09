@@ -1,0 +1,226 @@
+@import '../../../../assets/styles/design/design';
+@import "../../../../assets/styles/media-quaries";
+
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                         not supported by any browser */
+}
+
+.app-landing-four-steps-card {
+  margin: 20px auto;
+
+  @include tablet-small {
+    margin-top: 38px;
+    margin-bottom: 38px;
+  }
+  @include tablet {
+    margin-top: 64px;
+    margin-bottom: 64px;
+  }
+  @include desktop {
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+  @include wideScreens {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  .steps {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    text-align: center;
+
+    @include tablet-small {
+    }
+    @include tablet {
+      width: 1023px;
+
+      height: 810px;
+    }
+    @include desktop {
+      flex-wrap: nowrap;
+      gap: 24px;
+      width: 1393px;
+      //height: 414px;
+      height: fit-content;
+    }
+    @include wideScreens {
+      width: 1440px;
+    }
+
+    &-header {
+      font-family: "Roboto", sans-serif;
+
+      font-weight: 500;
+      color: #000000;
+      margin-bottom: 32px;
+
+      width: 320px;
+      line-height: 28px;
+      font-size: 1.5rem;
+      margin-top: 24px;
+
+      @include tablet-small {
+        width: max-content;
+      }
+      @include tablet {
+        font-size: 2rem;
+      }
+      @include desktop {
+        font-size: 3rem;
+      }
+    }
+
+    &-item {
+      height: auto;
+      width: 320px;
+      padding-bottom: 18px;
+      &:hover{
+        background-color: #f5f8fa;
+        cursor: pointer;
+      }
+
+      @include tablet-small {
+        //height: 417px;
+        height: auto;
+        width: 374px;
+        padding-bottom: 58px;
+        position: relative;
+      }
+      @include tablet {
+        //height: 393px;
+        width: 500px;
+      }
+      @include desktop {
+        //height: 414px;
+        width: 330px;
+      }
+      @include wideScreens {
+        //height: 414px;
+        width: 342px;
+      }
+
+      &__image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 103px;
+        width: 288px;
+        margin: 16px 16px 25px;
+        @include tablet-small {
+          margin: 24px;
+        }
+        @include tablet {
+          margin: 26px 23px 23px;
+        }
+        @include desktop {
+          margin: 40px 23px 23px;
+        }
+
+      }
+
+      &__title {
+        font-family: "Roboto", sans-serif;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #2c2c2c;
+        line-height: 28px;
+
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-bottom: 4px;
+
+        @include tablet-small {
+          margin-left: 24px;
+        }
+      }
+
+      &__subtitle {
+        font-family: "Roboto", sans-serif;
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: #646464;
+        line-height: 14px;
+
+        margin-bottom: 8px;
+        margin-top: 0px;
+        margin-left: 16px;
+        margin-right: 16px;
+        @include tablet-small {
+          margin-left: 24px;
+        }
+      }
+
+      &__stage {
+        font-family: "Roboto", sans-serif;
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: #2c2c2c;
+        line-height: 21px;
+        margin-bottom: 24px;
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-top: 0;
+        @include tablet-small {
+          margin-left: 24px;
+        }
+      }
+
+      &__text {
+        font-family: "Roboto", sans-serif;
+        font-size: 1.125rem;
+        font-weight: 400;
+        color: #2c2c2c;
+        line-height: 21px;
+        height: 63px;
+        margin-bottom: 24px;
+        margin-left: 16px;
+        margin-right: 16px;
+
+        @include tablet-small {
+          margin-left: 24px;
+        }
+        @include tablet {
+          margin-bottom: 3px;
+        }
+        @include desktop {
+          margin-bottom: 24px;
+        }
+      }
+
+      &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Roboto", sans-serif;
+        font-size: 1.125rem;
+        margin-left: 16px;
+        margin-right: 16px;
+        height: 53px;
+        padding: 16px;
+        border: 0;
+        border-radius: 4px;
+        color: #ffffff;
+        background-color: #1f1f1f;
+        width: 91%;
+        visibility: hidden;
+
+        @include tablet-small {
+          margin-left: 24px;
+          width: max-content;
+          position: absolute;
+          bottom: 15px;
+        }
+      }
+    }
+  }
+}

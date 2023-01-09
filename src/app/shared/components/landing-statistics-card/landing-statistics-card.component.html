@@ -1,0 +1,8 @@
+<div class="app-landing-statistics-card">
+  <div class="statistics unselectable" *ngIf="dataIsSets">
+    <p-card styleClass="primeContainer" *ngFor="let cardStatisticData of allCardStatisticData">
+      <p class="statistics-item__number">{{cardStatisticData.item_number}}</p>
+      <p class="statistics-item__text">{{cardStatisticData.item_text}}</p>
+    </p-card>
+  </div>
+</div>

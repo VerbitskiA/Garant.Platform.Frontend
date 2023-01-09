@@ -1,0 +1,23 @@
+@import "design/colors";
+@import "design/_media.scss";
+
+.input-tel-styles {
+  &--main-field {
+    display: block;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: $clrDarkGray;
+    width: 271px;
+    border: 1.5px solid $clrLightGray;
+    border-radius: 8px;
+    padding: 22px 48px;
+    @include tablet-small{
+      width: 291px;
+    }
+  }
+
+  .search-container input {
+    height: 30px;
+  }
+}

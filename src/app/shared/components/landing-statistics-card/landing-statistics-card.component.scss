@@ -1,0 +1,130 @@
+@import "../../../../assets/styles/media-quaries";
+
+@import '../../../../assets/styles/design/design';
+
+.unselectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+                         not supported by any browser */
+}
+
+
+.app-landing-statistics-card {
+  margin: 20px auto;
+
+
+  @include tablet-small {
+    margin-top: 38px;
+    margin-bottom: 38px;
+  }
+  @include tablet {
+    margin-top: 64px;
+    margin-bottom: 64px;
+  }
+  @include desktop {
+    margin-top: 70px;
+    margin-bottom: 70px;
+  }
+  @include wideScreens {
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  .statistics {
+    margin: 25px 0 0;
+
+
+    @include tablet-small {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 16px;
+    }
+    @include desktop {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .primeContainer { // кастомная стилизация p-card
+      box-shadow: none !important;
+      height: 159px !important;
+      margin: 0 auto 19px !important;
+      width: auto !important;
+      border-radius: 24px !important;
+      background-color: #f5f8fa;
+
+      @include tablet-small {
+        padding-bottom: 30px;
+        height: 338px !important;
+      }
+      @include tablet {
+        height: 303px !important;
+      }
+      @include desktop {
+        height: 340px !important;
+      }
+    }
+
+    .p-card-body {
+      padding: 0 !important;
+    }
+
+    &-item {
+      &__number {
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Roboto", sans-serif;
+        padding: 31px 0 18px;
+        margin: 0 auto;
+        font-weight: 700;
+
+        @include tablet-small {
+          font-size: 5.8rem;
+          padding: 106px 0 68px;
+        }
+        @include tablet {
+          padding: 90px 0 40px;
+        }
+
+        @include desktop {
+          padding: 110px 0 55px;
+        }
+      }
+
+      &__text {
+        font-family: "Roboto";
+        font-size: 1rem;
+        font-weight: 400;
+        color: #7a7a7a;
+        text-align: center;
+        width: 192px;
+        margin: 0 auto;
+        padding: 7px 0 16px;
+
+        @include tablet-small {
+          width: 220px;
+          font-size: 1.4rem;
+          line-height: 28px;
+          padding: 0 0 23px;
+        }
+
+        @include tablet {
+          width: 335px;
+          padding: 16px 0 23px;
+          font-size: 1.6rem;
+          line-height: 33px;
+        }
+        @include desktop {
+          width: 266px;
+          font-size: 1.4rem;
+          line-height: 31px;
+        }
+      }
+    }
+  }
+}

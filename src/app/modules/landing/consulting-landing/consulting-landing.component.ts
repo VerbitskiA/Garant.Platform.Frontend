@@ -10,6 +10,259 @@ import {FranchiseInput} from 'src/app/models/franchise/input/franchise-input';
 import {PaginationInput} from 'src/app/models/pagination/input/pagination-input';
 import {CommonDataService} from 'src/app/core/services/common/common-data.service';
 import {LandingRequestService} from '../../../core/services/landing/landing.service';
+import {CommonModels} from "../../../models/common-models";
+import BackgroundColorVariant = CommonModels.BackgroundColorVariant;
+import {LandingStatistic} from "../../../shared/components/landing-statistics-card/landing-statistics-card.component";
+import {LandingFourStepsData} from "../../../shared/components/landing-four-steps-card/landing-four-steps-card.component";
+import {LandingPromo} from "../../../shared/components/landing-promo-card/landing-promo-card.component";
+import {LandingPacksData} from "../../../shared/components/landing-packs-card/landing-packs-card.component";
+
+export const headerCardsData = {
+  title: 'Консультация',
+  subtitle: 'по покупке бизнеса и франшиз',
+  content_text: 'с сопровождением сделки и составлением договоров',
+  content__button: 'Получить консультацию',
+  content__button2: 'Консультация',
+  image: '../../../../assets/images/consulting-landing/Group.png',
+  alt: 'Изображение блокнота, ручки и портфеля',
+  image2: '../../../../assets/images/consulting-landing/Group1.png',
+  alt2: 'Изображение монетки, процента и доски'
+};
+
+export const allCardStatisticData: LandingStatistic.IStatisticItem[] = [
+  {
+    item_number: '7',
+    item_text: `договоров для сделки необходимо подготовить с учетом актов`
+  },
+  {
+    item_number: '735',
+    item_text: `договоров подготовили наши юриcты`
+  },
+  {
+    item_number: '105',
+    item_text: `сделок помогли провести наши юристы`
+  },
+  {
+    item_number: '15',
+    item_text: `раз в среднем за одну сделку обращаются к юристам`
+  }
+]
+
+export const landingFourStepsDataHeader = "4 шага к безопасной сделке онлайн"
+export const allCardsFourStepsData: LandingFourStepsData.IConsultationItem[] = [
+  {
+    title: 'Проверка бизнеса',
+    subtitle: 'или франшиз',
+    stage: 'Шаг 1',
+    item_text: 'До приобретения бизнеса и начала сделки следует заказать полную проверку.',
+    item__button: 'Проверить бизнес',
+    image: '../../../../assets/images/consulting-landing/loupe-clip-art-6%201.png',
+    alt: 'Лупа'
+  },
+  {
+    title: 'Консультация',
+    subtitle: 'на каждом этапе сделки',
+    stage: 'Шаг 2',
+    item_text: 'После оплаты каждого этапа вы становитесь полноправным владельцем бизнеса',
+    item__button: 'Получить консультацию',
+    image: '../../../../assets/images/consulting-landing/credit_card_PNG24%201.png',
+    alt: 'Кредитная карточка'
+  },
+  {
+    title: 'Составление договора',
+    subtitle: 'в процессе сделки',
+    stage: 'Шаг 3',
+    item_text: 'Вы можете заказать составление договора для сделки у юриста и всех актов.',
+    item__button: 'Заказать договор',
+    image: '../../../../assets/images/consulting-landing/pen-clip-art-6%202.png',
+    alt: 'Ручка'
+  },
+  {
+    title: 'Согласование договор',
+    subtitle: 'и корректировки',
+    stage: 'Шаг 4',
+    item_text: 'В процессе сделки вы будете получать договор от продавца. Юрист проверит его.',
+    item__button: 'Получить сопровождение',
+    image: '../../../../assets/images/consulting-landing/file-clip-art-6%203.png',
+    alt: 'Папка'
+  }
+]
+
+export const consultationCardsData = {
+  title: 'Проверка',
+  subtitle: 'юридических документов',
+  content_text: 'при покупке франшизы или готового бизнеса',
+  content__label1: 'Имя',
+  content__placeholder1: 'Введите имя',
+  content__label2: 'Номер телефона',
+  content__placeholder2: 'Введите номер телефона',
+  content__button: 'Обратиться за консультацией',
+  content__button2: 'Отправить договор на проверку',
+  image: '../../../../assets/images/consulting-landing/template_person6%201.png',
+  alt: 'Фото проверяющего'
+};
+
+export const promoCardData: LandingPromo.IPromoItem = {
+  title: "Вы можете приобрести бизнес с гарантиями",
+  subtitle: "Воспользовавшись нашим сервисом вы сможете провести безопасную сделку через интернет, провести все средства онлайн и стать полноправным владельцем бизнеса уже сегодня.",
+  button_accept: "Подробнее",
+  button_later: "Не интересно",
+  image: '../../../assets/images/franchise-landing/no2.png',
+  alt: 'крестик'
+}
+
+export const landingPacksDataHeader = 'Пакеты юридических услуг'
+export const allCardsPacksData: LandingPacksData.IConsultationItem[] = [
+  {
+    title: 'Пакет “Подготовка договора”',
+    item_text: "Подготовка договора ",
+    item__yes_image: "../../../../assets/images/franchise-landing/YES.png",
+    item__no_image: "../../../../assets/images/franchise-landing/NO.png",
+    item__list: [
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Подготовка ключевого договора"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Подготовка актов приема передачи"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Разработка сайта для продажи франшизы (до 10 страниц)"
+      }
+    ],
+    item_bottom__title: "Срок",
+    item_bottom__title_value: "5 дней",
+
+    item_bottom__price: "Стоимость пакета",
+    item_bottom__price_value: "15 000 ₽",
+    item_bottom__button: "Подготовить договор"
+  },
+
+  {
+    title: 'Пакет “Проверка контрагента”',
+    item_text: "Наш самый популярный пакет с гарантией. В рамках которого вы получаете полностью упакованный бизнес во франшизу",
+    item__yes_image: "../../../../assets/images/franchise-landing/YES.png",
+    item__no_image: "../../../../assets/images/franchise-landing/NO.png",
+    item__list: [
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Аудит бизнеса"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка сайта для продажи франшизы (до 10 страниц)"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка пакетов франшизы и определение их стоимости"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Книга продаж Вашей франшизы"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка стратегии: «Каналы продаж франшизы»"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Настройка рекламной кампании, для запуска продаж Вашей франшизы либо размещение в ТОП-овом каталоге франшиз;"
+      },
+
+      {
+        item_class: "packs-item__no",
+        item__tool: "Внедрение системы записи звонков"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Контроль качества звонков менеджера, нашим руководителем отдела продаж"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Совместная обработка звонков и возникающих вопросов у клиента"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Настройка CRM-системы"
+      },
+      {
+        item_class: "packs-item__no",
+        item__tool: "Гарантированное сопровождение и доведение до первых продаж франшизы"
+      },
+
+    ],
+    item_bottom__title: "Срок",
+    item_bottom__title_value: "7 раб. дней",
+
+    item_bottom__price: "Стоимость пакета",
+    item_bottom__price_value: "35 000 ₽",
+    item_bottom__button: "Проверить контрагента"
+  },
+
+  {
+    title: 'Пакет “Сопровождение сделки”',
+    item_text: "Наш самый популярный пакет с гарантией. В рамках которого вы получаете полностью упакованный бизнес во франшизу",
+    item__yes_image: "../../../../assets/images/franchise-landing/YES.png",
+    item__no_image: "../../../../assets/images/franchise-landing/NO.png",
+    item__list: [
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Аудит бизнеса"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка сайта для продажи франшизы (до 10 страниц)"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка пакетов франшизы и определение их стоимости"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Книга продаж Вашей франшизы"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Разработка стратегии: «Каналы продаж франшизы»"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Настройка рекламной кампании, для запуска продаж Вашей франшизы либо размещение в ТОП-овом каталоге франшиз;"
+      },
+
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Внедрение системы записи звонков"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Контроль качества звонков менеджера, нашим руководителем отдела продаж"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Совместная обработка звонков и возникающих вопросов у клиента"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Настройка CRM-системы"
+      },
+      {
+        item_class: "packs-item__yes",
+        item__tool: "Гарантированное сопровождение и доведение до первых продаж франшизы"
+      },
+
+    ],
+    item_bottom__title: "Срок",
+    item_bottom__title_value: "14 раб. дней",
+
+    item_bottom__price: "Стоимость пакета",
+    item_bottom__price_value: "55 000 ₽",
+    item_bottom__button: "Заказать сопровождение"
+  }
+]
+
 
 @Component({
   selector: 'app-consulting-landing',
@@ -17,6 +270,21 @@ import {LandingRequestService} from '../../../core/services/landing/landing.serv
   styleUrls: ['./consulting-landing.component.scss'],
 })
 export class ConsultingLandingComponent implements OnInit {
+  public headerCardsData = headerCardsData;
+  public allCardStatisticData = allCardStatisticData;
+
+  public landingFourStepsDataHeader = landingFourStepsDataHeader;
+  public allCardsFourStepsData = allCardsFourStepsData;
+
+  public consultationCardsData = consultationCardsData;
+
+  public promoCardData = promoCardData;
+  public backgroundColorVariant = BackgroundColorVariant;
+
+  public landingPacksDataHeader = landingPacksDataHeader;
+  public allCardsPacksData = allCardsPacksData;
+
+
   aPopularBusiness: any[] = [];
   // isGarant: boolean = false;
   // aCities: any[] = [];
@@ -55,6 +323,7 @@ export class ConsultingLandingComponent implements OnInit {
   name: string = "";
   phoneNumber: string = "";
 
+
   public landingRequestNotify$ = new BehaviorSubject<any>(undefined);
 
   constructor(
@@ -82,6 +351,14 @@ export class ConsultingLandingComponent implements OnInit {
     ];
 
     this.routeParam = this.route.snapshot.queryParams['businessId'];
+  }
+
+  public landingHeaderCard(event: any): void {
+    console.log('landingHeaderCard', event);
+  }
+
+  public landingConsultationCard(event: any): void {
+    console.log('landingConsultationCard', event);
   }
 
   public ngOnInit() {
